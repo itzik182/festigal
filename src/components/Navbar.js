@@ -31,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
 
     '&.layerRight': {
       background:
-        'transparent url(./header/Layer-right.png) 0% 0% no-repeat padding-box',
+        'transparent url(./header/layer-right.png) 0% 0% no-repeat padding-box',
       right: '0',
       top: '-9px',
     },
     '&.layerLeft': {
       background:
-        'transparent url(./header/Layer-left.png) 0% 0% no-repeat padding-box',
+        'transparent url(./header/layer-left.png) 0% 0% no-repeat padding-box',
       left: '0',
       top: '-9px',
     },
