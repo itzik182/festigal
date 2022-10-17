@@ -1,0 +1,28 @@
+/* html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f5f9;
+}
+html {
+  background: #011434;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 20px !important;
+} */
+
+textarea:focus, input:focus, div:focus, img:focus {
+  outline: none !important;
+}
