@@ -1,26 +1,36 @@
 import React from "react";
 import Meta from "components/Meta";
-import HeroSection from "components/HeroSection";
-import FeaturesSection from "components/FeaturesSection";
-import TeamBiosSection from "components/TeamBiosSection";
-import MoveStuffAround from "components/Ticker";
-import FirstSection from "components/FirstSection";
-import SecondSection from "components/SecondSection";
-import ThirdSection from "components/ThirdSection";
-import FourthSection from "components/FourthSection";
-import SeventhSection from "components/SeventhSection";
+import { getNews, getAbout, getAllActors, getAllShops, getAllLastNews, getAllMusics, getAllGames } from "../lib/datocms";
+// import HeroSection from "components/HeroSection";
+// import FeaturesSection from "components/FeaturesSection";
+// import TeamBiosSection from "components/TeamBiosSection";
+import { NewsTicker } from "components/NewsTicker";
+import AboutSection from "components/Sections/AboutSection";
+import ActorsSection from "components/Sections/ActorsSection";
+import ShopSection from "components/Sections/ShopSection";
+import LastNewsSection from "components/Sections/LastNewsSection";
+import MusicSection from "components/Sections/MusicSection";
+import GamesSection from "components/Sections/GamesSection";
+import AllFestigalsSection from "components/Sections/AllFestigalsSection";
+
 
 
 function IndexPage(props) {
+  const { news, about, actors, products, lastNews, musics, games } = props;
+
+  console.log('actors', actors);
+
   return (
     <>
       <Meta />
-      <MoveStuffAround />
-      <FirstSection />
-      <SecondSection />
-      <ThirdSection />
-      <FourthSection />
-      <SeventhSection />
+      <NewsTicker item={news} />
+      <AboutSection item={about} />
+      <ActorsSection items={actors} />
+      <ShopSection items={products} />
+      <LastNewsSection items={lastNews} />
+      <MusicSection items={musics} />
+      <GamesSection items={games} />
+      <AllFestigalsSection />
       {/* <HeroSection
         bgColor="default"
         size="medium"
@@ -54,3 +64,18 @@ function IndexPage(props) {
 }
 
 export default IndexPage;
+
+export async function getStaticProps() {
+  
+  return {
+    props: {
+      news: await getNews() || [],
+      about: await getAbout() || [],
+      actors: await getAllActors() || [],
+      products: await getAllShops() || [],
+      games: await getAllGames() || [],
+      lastNews: await getAllLastNews() || [],
+      musics: await getAllMusics() || [],
+    },
+  };
+}

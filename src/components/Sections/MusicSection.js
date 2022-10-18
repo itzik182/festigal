@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
-import ImageCarousel from './ImageCarousel';
+import ActorCarousel from '../Carousel/ActorCarousel';
 
 const useStyles = makeStyles((theme) => ({
   // Increase <Container> padding so it's
@@ -25,37 +25,24 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   section: {
-    backgroundImage: `linear-gradient(
-      180deg,
-      hsl(187deg 50% 13%) 0%,
-      hsl(186deg 52% 13%) 9%,
-      hsl(186deg 54% 13%) 18%,
-      hsl(185deg 55% 14%) 27%,
-      hsl(185deg 57% 14%) 36%,
-      hsl(185deg 60% 14%) 45%,
-      hsl(186deg 63% 14%) 55%,
-      hsl(186deg 66% 14%) 64%,
-      hsl(185deg 73% 15%) 73%,
-      hsl(184deg 81% 15%) 82%,
-      hsl(183deg 91% 16%) 91%,
-      hsl(181deg 100% 16%) 100%
-    )`,
     padding: '0',
   },
   container: {
-    background:
-      'transparent url(./background/bg-2.png) 0% 0% repeat padding-box',
-    padding: '10px 0 30px',
+    // background: '#FFFFFF',
+    padding: '100px 0 0',
   },
   containerA: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+    background: '#021B23 0% 0% no-repeat padding-box',
+    padding: '0',
+    color: '#FFFFFF',
+    textAlign: 'right',
+    padding: '0 213px',
   },
 }));
 
-function SecondSection(props) {
+function MusicSection(props) {
   const classes = useStyles();
+  // const { items } = props;
 
   const items = [
     {url: './images/Image-15.png', name: 'אנה זק'},
@@ -71,10 +58,25 @@ function SecondSection(props) {
   return (
     <Section className={classes.section}>
       <Box className={classes.container}>
-        <ImageCarousel items={items} />
+        <Box
+          sx={{
+            height: '588px',
+            background:
+              'transparent url(./background/image47.png) no-repeat padding-box',
+          }}></Box>
+        <Box className={classes.containerA}>
+          <Box>פלייליסטים מכל הזמנים</Box>
+          <Box>
+            <ActorCarousel items={items} />
+          </Box>
+          <Box>הפודקאסט של הפסטיגל</Box>
+          <Box>
+            <ActorCarousel items={items} />
+          </Box>
+        </Box>
       </Box>
     </Section>
   );
 }
 
-export default SecondSection;
+export default MusicSection;

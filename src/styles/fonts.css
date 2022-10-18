@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'GveretLevinAlefAlefAlef';
+    font-style: normal;
+    font-weight: normal;
+    src: local('GveretLevinAlefAlefAlef'), url(./fonts/GveretLevinAlef/GveretLevinAlefAlefAlef-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'GveretLevinAlefAlefAlef';
+    font-style: normal;
+    font-weight: normal;
+    src: local('GveretLevinAlefAlefAlef'), url(./fonts/GveretLevinAlef/GveretLevinAlefAlefAlef-Regular.eot) format('eot');
+}
+
+@font-face {
+    font-family: 'GveretLevinAlefAlefAlef';
+    font-style: normal;
+    font-weight: normal;
+    src: local('GveretLevinAlefAlefAlef'), url(./fonts/GveretLevinAlef/GveretLevinAlefAlefAlef-Regular.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'GveretLevinAlefAlefAlef';
+    font-style: normal;
+    font-weight: normal;
+    src: local('GveretLevinAlefAlefAlef'), url(./fonts/GveretLevinAlef/GveretLevinAlefAlefAlef-Regular.woff2) format('woff2');
+}
+
+/*NotoSansHebrew*/
+
+@font-face {
+    font-family: 'NotoSansHebrew';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NotoSansHebrew'), url(./fonts/NotoSansHebrew/NotoSansHebrew-VariableFont_wdth,wght.ttf) format('ttf');
+}

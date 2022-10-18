@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Slider from 'react-slick';
 // Import css files
@@ -15,8 +16,10 @@ import 'slick-carousel/slick/slick-theme.css';
 //  { ssr: false },
 // );
 
-const ImageCarousel = (props) => {
-  const { items } = props;
+const ActorCarousel = (props) => {
+  const [sliderInterval, setSliderInterval] = useState();
+  const sliderRef = useRef();
+  const { items, handleItemClick } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -27,15 +30,27 @@ const ImageCarousel = (props) => {
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
+    swipeToSlide: true,
+    swipe: false,
   };
 
-  const handleItemClick = (item) => {
-    alert(item.name);
+  const stopSlide = () => {
+    clearInterval(sliderInterval);
+  };
+
+  const startSlide = (isNext) => {
+    const slide = isNext ? sliderRef.slickNext : sliderRef.slickPrev;
+    slide();
+    sliderInterval = setInterval(() => {
+      slide();
+    }, 300);
   };
 
   return (
-    <Box>
-      <Slider {...settings}>
+    <Box sx={{
+      position: 'relative',
+    }}>
+      <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
             key={index}
@@ -54,11 +69,11 @@ const ImageCarousel = (props) => {
                 height: '748px',
                 marginTop: index % 2 ? '90px' : 0,
                 background:
-                  'transparent url(./images/FRAME.png) center center no-repeat',
+                  'transparent url(./images/frame-4.png) center center no-repeat',
               }}>
               <img
                 //   width={'168px'}
-                src={item.url}
+                src={item?.imageSmall?.url}
                 style={{
                   outline: '0 !important',
                   position: 'absolute',
@@ -66,6 +81,7 @@ const ImageCarousel = (props) => {
                   right: '30px',
                   left: '0',
                   margin: 'auto',
+                  cursor: 'pointer',
                 }}
               />
             </Box>
@@ -82,53 +98,30 @@ const ImageCarousel = (props) => {
             </Box>
           </Box>
         ))}
-
-        {/* <Box sx={{ width: '627px', position: 'relativ' }}>
-          <img
-            src={'./images/Group6802.png'}
-            style={{ outline: '0 !important', marginTop: '90px' }}
-          />
-          <Box
-            sx={{
-              positions: 'absolute',
-              top: '0',
-            }}>
-            אנה זק
-          </Box>
-        </Box>
-        <Box sx={{ width: '627px' }}>
-          <img
-            src={'./images/Group6798.png'}
-            style={{ outline: '0 !important' }}
-          />
-        </Box>
-        <Box sx={{ width: '627px' }}>
-          <img
-            src={'./images/Group6796.png'}
-            style={{ outline: '0 !important', marginTop: '90px' }}
-          />
-        </Box>
-        <Box sx={{ width: '627px' }}>
-          <img
-            src={'./images/Group6802.png'}
-            style={{ outline: '0 !important' }}
-          />
-        </Box>
-        <Box sx={{ width: '627px' }}>
-          <img
-            src={'./images/Group6798.png'}
-            style={{ outline: '0 !important', marginTop: '90px' }}
-          />
-        </Box>
-        <Box sx={{ width: '627px' }}>
-          <img
-            src={'./images/Group6796.png'}
-            style={{ outline: '0 !important' }}
-          />
-        </Box> */}
       </Slider>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '0',
+          height: '100%',
+          width: '8%',
+        }}
+        onMouseLeave={() => stopSlide()}
+        onMouseOver={() => startSlide(false)}>
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          height: '100%',
+          width: '8%',
+        }}
+        onMouseLeave={() => stopSlide()}
+        onMouseOver={() => startSlide(true)}>
+      </Box>
     </Box>
   );
 };
 
-export default ImageCarousel;
+export default ActorCarousel;

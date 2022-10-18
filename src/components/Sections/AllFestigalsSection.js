@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
-import ImageCarousel from './ImageCarousel';
+import ImageNews from '../ImageNews';
 
 const useStyles = makeStyles((theme) => ({
   // Increase <Container> padding so it's
@@ -25,27 +25,13 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   section: {
-    backgroundImage: `linear-gradient(
-      180deg,
-      hsl(187deg 50% 13%) 0%,
-      hsl(186deg 52% 13%) 9%,
-      hsl(186deg 54% 13%) 18%,
-      hsl(185deg 55% 14%) 27%,
-      hsl(185deg 57% 14%) 36%,
-      hsl(185deg 60% 14%) 45%,
-      hsl(186deg 63% 14%) 55%,
-      hsl(186deg 66% 14%) 64%,
-      hsl(185deg 73% 15%) 73%,
-      hsl(184deg 81% 15%) 82%,
-      hsl(183deg 91% 16%) 91%,
-      hsl(181deg 100% 16%) 100%
-    )`,
     padding: '0',
+    
   },
   container: {
-    background:
-      'transparent url(./background/crown-bg.png) 0% 0% repeat padding-box',
-    padding: '10px 0 30px',
+    backgroundImage: 'linear-gradient(117deg, #950291, #3d1d58 55%)',
+    padding: '150px 0 30px',
+    textAlign: 'right',
   },
   containerA: {
     display: 'flex',
@@ -54,27 +40,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ThirdSection(props) {
+function AllFestigalsSection(props) {
   const classes = useStyles();
 
   const items = [
-    {url: './images/cap-1.png', name: 'אנה זק'},
-    {url: './images/cap-2.png', name: 'אליאנה תדהר'},
-    {url: './images/cap-3.png', name: 'אגם בוחבוט'},
-    {url: './images/cap-4.png', name: 'אנה זק'},
-    {url: './images/cap-1.png', name: 'אנה זק'},
-    {url: './images/cap-2.png', name: 'אנה זק'},
-    {url: './images/cap-3.png', name: 'אנה זק'},
-    {url: './images/cap-4.png', name: 'אנה זק'},
+    {url: './images/Rectangle-1.png', name: 'אנה זק'},
+    {url: './images/Rectangle-2.png', name: 'אליאנה תדהר'},
+    {url: './images/Rectangle-3.png', name: 'אגם בוחבוט'},
+    {url: './images/Rectangle-4.png', name: 'אנה זק'},
+    {url: './images/Rectangle-5.png', name: 'אנה זק'},
+    {url: './images/Rectangle-6.png', name: 'אנה זק'},
   ]
 
   return (
     <Section className={classes.section}>
       <Box className={classes.container}>
-        <ImageCarousel items={items} />
+      <img src='./images/Image34.png' alt='' title='' style={{
+        width: '50%',
+        height: 'auto'
+      }} />
       </Box>
     </Section>
   );
 }
 
-export default ThirdSection;
+export default AllFestigalsSection;

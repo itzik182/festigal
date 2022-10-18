@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
-import ImageNews from './ImageNews';
+import ImageNews from '../ImageNews';
 
 const useStyles = makeStyles((theme) => ({
   // Increase <Container> padding so it's
@@ -53,25 +53,53 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FifthSection(props) {
+function LastNewsSection(props) {
   const classes = useStyles();
+  // const { items } = props;
 
   const items = [
-    {url: './images/Rectangle-1.png', name: 'אנה זק'},
-    {url: './images/Rectangle-2.png', name: 'אליאנה תדהר'},
-    {url: './images/Rectangle-3.png', name: 'אגם בוחבוט'},
-    {url: './images/Rectangle-4.png', name: 'אנה זק'},
-    {url: './images/Rectangle-5.png', name: 'אנה זק'},
-    {url: './images/Rectangle-6.png', name: 'אנה זק'},
-  ]
+    { url: './images/Rectangle-1.png', name: 'אנה זק' },
+    { url: './images/Rectangle-2.png', name: 'אליאנה תדהר' },
+    { url: './images/Rectangle-3.png', name: 'אגם בוחבוט' },
+    { url: './images/Rectangle-4.png', name: 'אנה זק' },
+    { url: './images/Rectangle-5.png', name: 'אנה זק' },
+    { url: './images/Rectangle-6.png', name: 'אנה זק' },
+  ];
 
   return (
     <Section className={classes.section}>
       <Box className={classes.container}>
-        
+        <Box
+          sx={{
+            color: '#000000',
+            fontSize: '31px',
+            textAlign: 'center',
+            fontFamily: 'GveretLevinAlefAlefAlef',
+            lineHeight: '0.9',
+            letterSpacing: '1.74px',
+          }}>
+          כל מה שרציתם לדעת על הפסטיגל
+        </Box>
+        <Box
+          sx={{
+            color: '#2D555B',
+            fontSize: '73px',
+            fontWeight: '900',
+            textAlign: 'center',
+            fontFamily: 'NotoSansHebrew',
+          }}>
+          החדשות האחרונות
+        </Box>
+        <Box
+          sx={{
+            textAlign: 'center',
+          }}>
+          social
+        </Box>
+        <ImageNews items={items} />
       </Box>
     </Section>
   );
 }
 
-export default FifthSection;
+export default LastNewsSection;

@@ -1,4 +1,4 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient } from 'graphql-request';
 export function request({ query, variables, preview }) {
   const endpoint = preview
     ? `https://graphql.datocms.com/preview`
@@ -26,325 +26,181 @@ export async function getSiteParams() {
   }`;
 
   const data = await request({
-    query: Site_QUERY
+    query: Site_QUERY,
   });
 
   return data?.allArtists;
 }
 
-export async function getArtistsByCategory(category) {
-  const Artists_QUERY = `query Artists($limit: IntType) {
-    ${category}(first: $limit, filter: {isdisplay: {eq: "true"}}) {
+export async function getNews() {
+  const query = `query ticker {
+    ticker {
+      text
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.ticker;
+}
+
+export async function getAbout() {
+  const query = `query about {
+    about {
+      details
+      description
+      text
+      video {
+        url
+        width
+        title
+        height
+      }
+      image {
+        alt
+        width
+        url
+        title
+        height
+      }
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.about;
+}
+
+export async function getAllActors() {
+  const query = `query allActors {
+    allActors(filter: {isDisplay: {eq: "true"}}) {
       id
-      name(locale: he)
-      details(locale: he)
-      pictureThumbnail {
+      description
+      name
+      imageBig {
+        alt
         url
-        width
-        id
+        title
         height
-        alt(locale: he)
-        title(locale: he)
-        customData(locale: he)
-      },
-      pictureBig {
+        width
+      }
+      imageSmall {
+        alt
         url
+        title
         width
-        id
         height
-        alt(locale: he)
-        title(locale: he)
-        customData(locale: he)
       }
     }
   }`;
 
   const data = await request({
-    query: Artists_QUERY,
-    variables: { limit: 100 },
+    query,
   });
 
-  return data && data[`${category}`];
+  return data?.allActors;
 }
 
-// export async function getArtistsByCategory(categoryId) {
-//   const Artists_QUERY = `query Artists($limit: IntType) {
-//     allArtists(first: $limit, filter: {category: {allIn: ${categoryId}}, isdisplay: {eq: "true"}}) {
-//       id
-//       name(locale: he)
-//       details(locale: he)
-//       pictureThumbnail {
-//         url
-//         width
-//         id
-//         height
-//         alt(locale: he)
-//         title(locale: he)
-//         customData(locale: he)
-//       },
-//       pictureBig {
-//         url
-//         width
-//         id
-//         height
-//         alt(locale: he)
-//         title(locale: he)
-//         customData(locale: he)
-//       }
-//     }
-//   }`;
-
-//   const data = await request({
-//     query: Artists_QUERY,
-//     variables: { limit: 100 },
-//   });
-
-//   return data?.allArtists;
-// }
-
-export async function getArtists() {
-  const allArtistMusics = await getArtistsByCategory("allArtistMusics");
-  const allArtistYouths = await getArtistsByCategory("allArtistYouths");
-  const allArtistKids = await getArtistsByCategory("allArtistKids");
-  const allArtist = allArtistMusics.concat(allArtistYouths, allArtistKids); 
-
-  return allArtist;
-}
-
-// export async function getArtists() {
-//   const Artists_QUERY = `query Artists($limit: IntType) {
-//     allArtists(first: $limit, filter: {isdisplay: {eq: "true"}}) {
-//       id
-//       name(locale: he)
-//       details(locale: he)
-//       pictureThumbnail {
-//         url
-//         width
-//         id
-//         height
-//         alt(locale: he)
-//         title(locale: he)
-//         customData(locale: he)
-//       },
-//       pictureBig {
-//         url
-//         width
-//         id
-//         height
-//         alt(locale: he)
-//         title(locale: he)
-//         customData(locale: he)
-//       }
-//     }
-//   }`;
-
-//   const data = await request({
-//     query: Artists_QUERY,
-//     variables: { limit: 100 },
-//   });
-
-//   return data?.allArtists;
-// }
-
-export async function getArtist(category, artistId) {
-  //console.log('ArtistId ', ArtistId );
-  const Artist_QUERY = `query Artist {
-    ${category}(filter: {id: {in: ${artistId}}}) {
+export async function getAllShops() {
+  const query = `query allShops {
+    allShops(filter: {isDisplay: {eq: "true"}}) {
       id
-      name(locale: he)
-      details(locale: he)
-      video1 {
-        url,
-        title,
-      }
-      video2 {
-        url,
-        title
-      }
-      instagramUrl
-      youtubeUrl
-      facebookUrl
-      tiktokUrl
-      fanlinkUrl
-      pictureBig {
-        height
-        width
-        url
-        title(locale: he)
-        alt(locale: he)
-        customData(locale: he)
-      }
-      seo {
-        title
-        description
-      }
-    }
-  }`;
-
-  const data = await request({
-    query: Artist_QUERY,
-  });
-
-  return data && data[`${category}`];
-}
-
-export async function getShows() {
-  const Shows_QUERY = `query Shows($limit: IntType) {
-    allShows(first: $limit, filter: {isdisplay: {eq: "true"}}) {
-      id
-      name(locale: he)
-      details(locale: he)
-      seo {
-        title
-        description
-      }
-      pictureThumbnail {
-        url
-        width
-        id
-        height
-        alt(locale: he)
-        title(locale: he)
-        customData(locale: he)
-      },
-      pictureBig {
-        url
-        width
-        id
-        height
-        alt(locale: he)
-        title(locale: he)
-        customData(locale: he)
-      }
-    }
-  }`;
-
-  const data = await request({
-    query: Shows_QUERY,
-    variables: { limit: 100 },
-  });
-
-  return data?.allShows;
-}
-
-export async function getLectures() {
-  const Lectures_QUERY = `query Lectures($limit: IntType) {
-    allLectures(first: $limit, filter: {isdisplay: {eq: "true"}}) {
-      id
-      name(locale: he)
-      details(locale: he)
-      seo {
-        title
-        description
-      }
-      pictureThumbnail {
-        url
-        width
-        id
-        height
-        alt(locale: he)
-        title(locale: he)
-        customData(locale: he)
-      },
-      pictureBig {
-        url
-        width
-        id
-        height
-        alt(locale: he)
-        title(locale: he)
-        customData(locale: he)
-      }
-    }
-  }`;
-
-  const data = await request({
-    query: Lectures_QUERY,
-    variables: { limit: 100 },
-  });
-
-  return data?.allLectures;
-}
-
-export async function getMenuCategories() {
-  const Menu_Categories_QUERY = `query MenuCategories {
-    allMenuCategories(orderBy: order_ASC, filter: {isdisplay: {eq: "true"}}) {
-      id
-      name(locale: he)
       link
-      seo {
+      isDisplayUp
+      image {
+        alt
+        width
+        url
         title
-        description
-      }
-      icon {
-        url
-        width
-        height
-      }
-      iconActive {
-        url
-        width
         height
       }
     }
-  }`;
+  }
+  `;
 
   const data = await request({
-    query: Menu_Categories_QUERY,
+    query,
   });
 
-  return data?.allMenuCategories;
+  return data?.allShops;
 }
 
-export async function getInformationPages() {
-  const Information_Pages_QUERY = `query InformationPages {
-    allInformationPages(orderBy: order_ASC, filter: {isdisplay: {eq: "true"}}) {
-      id
-      name(locale: he)
-      displayInMenu
+export async function getAllGames() {
+  const query = `query allGames {
+    allGames(filter: {isDisplay: {eq: "true"}}) {
       link
-      isclickable
-      seo {
-        title
-        description
-      }
-    }
-  }`;
-
-  const data = await request({
-    query: Information_Pages_QUERY,
-  });
-
-  return data?.allInformationPages;
-}
-
-export async function getInformationPage(id) {
-  const Information_Page_QUERY = `query InformationPages {
-    informationPage(filter: {id: {in: ${id}}}) {
-      name(locale: he)
-      link
-      details(locale: he)
-      displayInMenu
-      id
-      seo {
-        title
-        description
-      }
-      title
-      picture {
-        alt(locale: he)
+      first
+      image {
+        alt
+        height
+        width
         url
         title
-        width
-        height
-        customData(locale: he)
       }
     }
   }`;
 
   const data = await request({
-    query: Information_Page_QUERY,
+    query,
   });
 
-  return data?.informationPage;
+  return data?.allGames;
+}
+
+export async function getAllLastNews() {
+  const query = `query allLastNews {
+    allLastNews(filter: {isDisplay: {eq: "true"}}) {
+      link
+      imageWeb {
+        alt
+        height
+        width
+        url
+        title
+      }
+      imageMobile {
+        alt
+        height
+        width
+        url
+        title
+      }
+    }
+  }`;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allLastNews;
+}
+
+export async function getAllMusics() {
+  const query = `query allMusics {
+    allMusics(filter: {isDisplay: {eq: "true"}}) {
+      name
+      link
+      description
+      isPlaylist
+      image {
+        alt
+        height
+        width
+        url
+        title
+      }
+    }
+  }`;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allMusics;
 }

@@ -3,6 +3,7 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import "util/analytics";
 import "../styles/globals.css";
+import "../styles/fonts.css";
 import { ThemeProvider } from "util/theme";
 import Box from '@material-ui/core/Box';
 import YoutubeEmbed from '../components/YoutubeEmbed';
