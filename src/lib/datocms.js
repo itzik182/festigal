@@ -32,6 +32,30 @@ export async function getSiteParams() {
   return data?.allArtists;
 }
 
+export async function getMenuItems() {
+  const query = `query allMenuItems {
+    allMenuItems {
+      id
+      text
+      link
+      image {
+        alt
+        width
+        url
+        title
+        height
+      }
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allMenuItems;
+}
+
 export async function getNews() {
   const query = `query ticker {
     ticker {

@@ -43,7 +43,7 @@ function ActorsSection(props) {
   };
 
   return (
-    <Section className={classes.section}>
+    <Section id='actors' className={classes.section}>
       <Box className={classes.container}>
         <ActorCarousel items={items} handleItemClick={handleItemClick} />
       </Box>

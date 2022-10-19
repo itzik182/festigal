@@ -29,8 +29,11 @@ const ImageNews = (props) => {
     arrows: false,
   };
 
-  const handleItemClick = (item) => {
-    alert(item.name);
+  const handleItemClick = (link) => {
+    window.open(
+      link,
+      '_blank'
+    );
   };
 
   return (
@@ -38,14 +41,17 @@ const ImageNews = (props) => {
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'space-between',
-      padding: '150px 12px 0',
+      padding: '150px 0 0',
     }}>
       {items.map((item, index) => (
         <Box
-          onClick={() => handleItemClick(item)}
+          onClick={() => handleItemClick(item.link)}
           key={index}
           sx={{
             marginBottom: '25px',
+            marginLeft: '12px',
+            marginRight: '12px',
+            cursor: 'pointer',
             // marginRight: '15px',
             // position: 'relative',
             // width: '610px',
@@ -56,7 +62,9 @@ const ImageNews = (props) => {
           {/* {item.name} */}
           <img
               //   width={'168px'}
-              src={item.url}
+              src={item.imageWeb?.url}
+              title={item.imageWeb?.title}
+              alt={item.imageWeb?.alt}
               style={{
                 width: '100%',
                 height: 'auto',

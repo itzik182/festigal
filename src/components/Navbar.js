@@ -7,7 +7,8 @@ import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from '@material-ui/core/Drawer';
+// import Drawer from '@material-ui/core/Drawer';
+import Drawer from '@mui/material/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -17,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import { useDarkMode } from 'util/theme';
 import YoutubeEmbed from '../components/YoutubeEmbed';
+import { DrawerItemList } from './DrawerItemList';
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawerList: {
-    width: 250,
+    width: 590,
   },
   spacer: {
     flexGrow: 1,
@@ -52,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
+  const {items} = props;
 
   const darkMode = useDarkMode();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -60,6 +63,10 @@ function Navbar(props) {
   // and we are in dark mode
   const logo =
     props.logoInverted && darkMode.value ? props.logoInverted : props.logo;
+
+  const handleItemClick = () => {
+    setDrawerOpen(false);
+  };
 
   return (
     <Section
@@ -84,7 +91,7 @@ function Navbar(props) {
           sx={{
             height: '133px',
             width: '95%',
-            margin: '80px auto',
+            margin: '20px auto 0',
             position: 'relative',
             zIndex: '1',
           }}>
@@ -151,27 +158,16 @@ function Navbar(props) {
       <Drawer
         anchor='right'
         open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}>
-        <List
-          className={classes.drawerList}
-          onClick={() => setDrawerOpen(false)}>
-          <ListItem
-            button={true}
-            component='a'
-            href='https://app.mysite.com/auth/signin'>
-            <ListItemText>Sign in</ListItemText>
-          </ListItem>
-          <ListItem>
-            <IconButton
-              color='inherit'
-              onClick={darkMode.toggle}
-              style={{ opacity: 0.6 }}>
-              {darkMode.value && <NightsStayIcon />}
-
-              {!darkMode.value && <WbSunnyIcon />}
-            </IconButton>
-          </ListItem>
-        </List>
+        onClose={() => setDrawerOpen(false)}
+        sx={{
+          // background: '#000 !important',
+          '.MuiPaper-root': {
+            background:
+              'transparent linear-gradient(180deg, #058E9C 0%, #03474E 100%) 0% 0% no-repeat padding-box;',
+            width: '35%',
+          },
+        }}>
+        <DrawerItemList items={items} handleItemClick={handleItemClick} isDrawerOpen={drawerOpen} />
       </Drawer>
     </Section>
   );

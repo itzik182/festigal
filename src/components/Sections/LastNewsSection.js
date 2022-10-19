@@ -25,26 +25,11 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   section: {
-    backgroundImage: `linear-gradient(
-      180deg,
-      hsl(187deg 50% 13%) 0%,
-      hsl(186deg 52% 13%) 9%,
-      hsl(186deg 54% 13%) 18%,
-      hsl(185deg 55% 14%) 27%,
-      hsl(185deg 57% 14%) 36%,
-      hsl(185deg 60% 14%) 45%,
-      hsl(186deg 63% 14%) 55%,
-      hsl(186deg 66% 14%) 64%,
-      hsl(185deg 73% 15%) 73%,
-      hsl(184deg 81% 15%) 82%,
-      hsl(183deg 91% 16%) 91%,
-      hsl(181deg 100% 16%) 100%
-    )`,
     padding: '0',
   },
   container: {
-    background: '#FFFFFF',
-    padding: '150px 0 30px',
+    background: '#fff',
+    padding: '150px 195px 130px',
   },
   containerA: {
     display: 'flex',
@@ -55,19 +40,23 @@ const useStyles = makeStyles((theme) => ({
 
 function LastNewsSection(props) {
   const classes = useStyles();
-  // const { items } = props;
+  const { items } = props;
 
-  const items = [
-    { url: './images/Rectangle-1.png', name: 'אנה זק' },
-    { url: './images/Rectangle-2.png', name: 'אליאנה תדהר' },
-    { url: './images/Rectangle-3.png', name: 'אגם בוחבוט' },
-    { url: './images/Rectangle-4.png', name: 'אנה זק' },
-    { url: './images/Rectangle-5.png', name: 'אנה זק' },
-    { url: './images/Rectangle-6.png', name: 'אנה זק' },
-  ];
+  if (!items) {
+    return <></>;
+  }
+
+  // const items = [
+  //   { url: './images/Rectangle-1.png', name: 'אנה זק' },
+  //   { url: './images/Rectangle-2.png', name: 'אליאנה תדהר' },
+  //   { url: './images/Rectangle-3.png', name: 'אגם בוחבוט' },
+  //   { url: './images/Rectangle-4.png', name: 'אנה זק' },
+  //   { url: './images/Rectangle-5.png', name: 'אנה זק' },
+  //   { url: './images/Rectangle-6.png', name: 'אנה זק' },
+  // ];
 
   return (
-    <Section className={classes.section}>
+    <Section id='last-news' className={classes.section}>
       <Box className={classes.container}>
         <Box
           sx={{
@@ -86,7 +75,9 @@ function LastNewsSection(props) {
             fontSize: '73px',
             fontWeight: '900',
             textAlign: 'center',
-            fontFamily: 'NotoSansHebrew',
+            fontFamily: "Noto Sans Hebrew",
+                fontWeight: '900',
+                fontStyle: 'normal',
           }}>
           החדשות האחרונות
         </Box>

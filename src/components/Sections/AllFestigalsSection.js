@@ -43,17 +43,8 @@ const useStyles = makeStyles((theme) => ({
 function AllFestigalsSection(props) {
   const classes = useStyles();
 
-  const items = [
-    {url: './images/Rectangle-1.png', name: 'אנה זק'},
-    {url: './images/Rectangle-2.png', name: 'אליאנה תדהר'},
-    {url: './images/Rectangle-3.png', name: 'אגם בוחבוט'},
-    {url: './images/Rectangle-4.png', name: 'אנה זק'},
-    {url: './images/Rectangle-5.png', name: 'אנה זק'},
-    {url: './images/Rectangle-6.png', name: 'אנה זק'},
-  ]
-
   return (
-    <Section className={classes.section}>
+    <Section id='friends' className={classes.section}>
       <Box className={classes.container}>
       <img src='./images/Image34.png' alt='' title='' style={{
         width: '50%',

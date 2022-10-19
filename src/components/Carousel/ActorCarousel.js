@@ -47,9 +47,10 @@ const ActorCarousel = (props) => {
   };
 
   return (
-    <Box sx={{
-      position: 'relative',
-    }}>
+    <Box
+      sx={{
+        position: 'relative',
+      }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
@@ -88,11 +89,13 @@ const ActorCarousel = (props) => {
             <Box
               sx={{
                 textAlign: 'center',
-                marginTop: '-60px',
+                marginTop: '-75px',
                 color: '#FFFFFF',
                 textShadow: '0px 3px 0px #000000c4',
                 fontSize: '38px',
+                fontFamily: "Noto Sans Hebrew",
                 fontWeight: '800',
+                fontStyle: 'normal',
               }}>
               {item.name}
             </Box>
@@ -107,8 +110,7 @@ const ActorCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(false)}>
-      </Box>
+        onMouseOver={() => startSlide(false)}></Box>
       <Box
         sx={{
           position: 'absolute',
@@ -118,8 +120,7 @@ const ActorCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(true)}>
-      </Box>
+        onMouseOver={() => startSlide(true)}></Box>
     </Box>
   );
 };

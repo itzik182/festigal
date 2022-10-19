@@ -34,13 +34,13 @@ function ShopSection(props) {
   const itemsDown = items?.filter(item => !item.isDisplayUp);
 
   return (
-    <Section className={classes.section}>
+    <Section id='store' className={classes.section}>
       <Box className={classes.container}>
         <ShopCarousel items={itemsUp} />
         <Box
           sx={{
             textAlign: 'center',
-            margin: '80px 0',
+            margin: '3% 0px',
           }}>
           <img
             //   width={'168px'}

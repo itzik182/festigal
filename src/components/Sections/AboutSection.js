@@ -63,7 +63,7 @@ function AboutSection(props) {
   );
 
   return (
-    <Section className={classes.section}>
+    <Section id='about' className={classes.section}>
       <Box className={classes.container}>
         <Box className={classes.containerA}>
           <Box
@@ -116,7 +116,7 @@ function AboutSection(props) {
             <Box
               sx={{
                 textAlign: 'right',
-                margin: '0 20px',
+                margin: '0 0 20px',
               }}>
               <img
                 src='./images/my-story.png'
@@ -129,7 +129,7 @@ function AboutSection(props) {
                 }}
               />
             </Box>
-            <Box
+            {/* <Box
               sx={{
                 textAlign: 'right',
                 margin: '0 -60px 20px',
@@ -144,7 +144,7 @@ function AboutSection(props) {
                   maxWidth: '565px',
                 }}
               />
-            </Box>
+            </Box> */}
             <Box
               sx={{
                 color: '#fff',
@@ -153,6 +153,9 @@ function AboutSection(props) {
                 fontSize: '1.1vw',
                 lineHeight: '1.65',
                 paddingLeft: '40px',
+                direction: 'rtl',
+                // fontFamily: 'NotoSansHebrew',
+                fontFamily: "Noto Sans Hebrew",
               }}>
               {item.description}
             </Box>
@@ -166,6 +169,8 @@ function AboutSection(props) {
               fontSize: '2vw',
               lineHeight: '1.74',
               padding: '90px',
+              direction: 'rtl',
+              fontFamily: "Noto Sans Hebrew",
             }}>
             {item.details}
           </Box>

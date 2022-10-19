@@ -1,27 +1,43 @@
-import React from "react";
-import Meta from "components/Meta";
-import { getNews, getAbout, getAllActors, getAllShops, getAllLastNews, getAllMusics, getAllGames } from "../lib/datocms";
+import React from 'react';
+import Meta from 'components/Meta';
+import "@fontsource/noto-sans-hebrew"; // Defaults to weight 400.
+import {
+  getMenuItems,
+  getNews,
+  getAbout,
+  getAllActors,
+  getAllShops,
+  getAllLastNews,
+  getAllMusics,
+  getAllGames,
+} from '../lib/datocms';
 // import HeroSection from "components/HeroSection";
 // import FeaturesSection from "components/FeaturesSection";
 // import TeamBiosSection from "components/TeamBiosSection";
-import { NewsTicker } from "components/NewsTicker";
-import AboutSection from "components/Sections/AboutSection";
-import ActorsSection from "components/Sections/ActorsSection";
-import ShopSection from "components/Sections/ShopSection";
-import LastNewsSection from "components/Sections/LastNewsSection";
-import MusicSection from "components/Sections/MusicSection";
-import GamesSection from "components/Sections/GamesSection";
-import AllFestigalsSection from "components/Sections/AllFestigalsSection";
-
-
+import { NewsTicker } from 'components/NewsTicker';
+import AboutSection from 'components/Sections/AboutSection';
+import ActorsSection from 'components/Sections/ActorsSection';
+import ShopSection from 'components/Sections/ShopSection';
+import LastNewsSection from 'components/Sections/LastNewsSection';
+import MusicSection from 'components/Sections/MusicSection';
+import GamesSection from 'components/Sections/GamesSection';
+import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
+import Navbar from 'components/Navbar';
 
 function IndexPage(props) {
-  const { news, about, actors, products, lastNews, musics, games } = props;
+  const { menuItems, news, about, actors, products, lastNews, musics, games } =
+    props;
 
-  console.log('actors', actors);
+  console.log('lastNews', lastNews);
 
   return (
     <>
+      <Navbar
+        items={menuItems}
+        color='default'
+        logo='./logo.png'
+        logoInverted='https://uploads.divjoy.com/logo-white.svg'
+      />
       <Meta />
       <NewsTicker item={news} />
       <AboutSection item={about} />
@@ -66,16 +82,16 @@ function IndexPage(props) {
 export default IndexPage;
 
 export async function getStaticProps() {
-  
   return {
     props: {
-      news: await getNews() || [],
-      about: await getAbout() || [],
-      actors: await getAllActors() || [],
-      products: await getAllShops() || [],
-      games: await getAllGames() || [],
-      lastNews: await getAllLastNews() || [],
-      musics: await getAllMusics() || [],
+      menuItems: (await getMenuItems()) || [],
+      news: (await getNews()) || [],
+      about: (await getAbout()) || [],
+      actors: (await getAllActors()) || [],
+      products: (await getAllShops()) || [],
+      games: (await getAllGames()) || [],
+      lastNews: (await getAllLastNews()) || [],
+      musics: (await getAllMusics()) || [],
     },
   };
 }

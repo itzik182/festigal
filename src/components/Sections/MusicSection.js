@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     // background: '#FFFFFF',
-    padding: '100px 0 0',
+    margin: '0',
   },
   containerA: {
     background: '#021B23 0% 0% no-repeat padding-box',
@@ -56,7 +56,7 @@ function MusicSection(props) {
   ]
 
   return (
-    <Section className={classes.section}>
+    <Section id="playlists" className={classes.section}>
       <Box className={classes.container}>
         <Box
           sx={{

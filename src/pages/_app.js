@@ -12,11 +12,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <>
-        <Navbar
-          color="default"
-          logo="./logo.png"
-          logoInverted="https://uploads.divjoy.com/logo-white.svg"
-        />
+        
 
         <Component {...pageProps} />
 

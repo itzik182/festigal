@@ -79,6 +79,7 @@ function GamesSection(props) {
           sx={{
             color: '#000',
             fontSize: '24px',
+            fontFamily: 'GveretLevinAlefAlefAlef',
           }}>
           המשחקים שמטריפים את המדינה
         </Box>

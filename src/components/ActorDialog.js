@@ -21,10 +21,13 @@ function ActorDialog(props) {
       open={open}
       sx={{
         '.MuiPaper-root': {
-          maxWidth: '80%',
+          maxWidth: '70%',
+          minWidth: '900px',
+          minHeight: '465px',
+          height: 'auto',
+          margin: '0',
           borderRadius: '44px',
           overflow: 'visible',
-          maxHeight: '794px',
           direction: 'rtl',
         },
       }}>
@@ -73,13 +76,13 @@ function ActorDialog(props) {
             }}
           /> */}
           <img
-            //   width={'168px'}
             src={item?.imageBig?.url}
             style={{
               position: 'relative',
-              top: '-55px',
-              //   width: '100%',
-              height: 'auto',
+              height: '47.5vw',
+              minHeight: '514px',
+              marginTop: '-55px',
+              top: '6px',
             }}
           />
         </Box>
