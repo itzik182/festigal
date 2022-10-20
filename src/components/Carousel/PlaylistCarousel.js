@@ -16,7 +16,7 @@ import 'slick-carousel/slick/slick-theme.css';
 //  { ssr: false },
 // );
 
-const ShopCarousel = (props) => {
+const PlaylistCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
   const { items } = props;
@@ -66,14 +66,14 @@ const ShopCarousel = (props) => {
                 display: "flex !important", 
                 alignItems: "center", 
                 justifyContent: "center", 
-                height: "340px",
-                margin: "0 100px",
+                // height: "340px",
+                margin: "0 40px",
               }
             }
             onClick={() => handleItemClick(item.link)}>
               <img
                 //   width={'168px'}
-                src={item?.image?.url}
+                src={item?.imageWeb?.url}
                 style={{
                   cursor: 'pointer',
                 }}
@@ -106,4 +106,4 @@ const ShopCarousel = (props) => {
   );
 };
 
-export default ShopCarousel;
+export default PlaylistCarousel;

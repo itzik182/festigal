@@ -9,17 +9,21 @@ export const NewsTicker = (props) => {
   return (
     <Section
       sx={{
-        padding: '52px 0 8px !important',
+        padding: '48px 0 8px !important',
         background: '#F1ECE4 0% 0% no-repeat padding-box',
-        height: '90px',
+        height: '100px',
+        direction: 'rtl',
+        
       }}>
       <Ticker direction={'toRight'} speed={5}>
         {({ index }) => (
           <>
             <span
               style={{
-                fontSize: '0.9vw',
-                fontWeight: 'bold',
+                // fontSize: '0.9vw',
+                fontSize: '32px',
+                // fontWeight: 'bold',
+                // direction: 'rtl',
                 // fontFamily: "Noto Sans Hebrew",
                 // fontWeight: 'normal',
                 // fontStyle: 'normal',

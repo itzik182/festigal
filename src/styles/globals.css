@@ -23,6 +23,10 @@ button {
   border-radius: 20px !important;
 } */
 
+body {
+  direction: rtl;
+}
+
 textarea:focus, input:focus, div:focus, img:focus {
   outline: none !important;
 }

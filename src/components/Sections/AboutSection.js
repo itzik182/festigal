@@ -10,20 +10,6 @@ import SectionHeader from 'components/SectionHeader';
 import YoutubeEmbed from '../YoutubeEmbed';
 
 const useStyles = makeStyles((theme) => ({
-  // Increase <Container> padding so it's
-  // at least half of <Grid> spacing to
-  // avoid horizontal scroll on mobile.
-  // See https://material-ui.com/components/grid/#negative-margin
-  container: {
-    padding: `0 ${theme.spacing(3)}px`,
-  },
-  image: {
-    margin: '0 auto',
-    maxWidth: 570,
-    display: 'block',
-    height: 'auto',
-    width: '100%',
-  },
   section: {
     backgroundImage: `linear-gradient(
       180deg,
@@ -66,50 +52,7 @@ function AboutSection(props) {
     <Section id='about' className={classes.section}>
       <Box className={classes.container}>
         <Box className={classes.containerA}>
-          <Box
-            sx={{
-              position: 'relative',
-            }}>
-            <img
-              src='./images/image-60.png'
-              alt=''
-              title=''
-              style={
-                {
-                  // height: 'auto',
-                  // width: '100%',
-                  // maxWidth: '677px',
-                }
-              }
-            />
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '680px',
-                left: '590px',
-                color: '#2a94a2',
-              }}>
-              <span
-                style={{
-                  fontFamily: 'GveretLevinAlefAlefAlef',
-                  position: 'absolute',
-                  top: '184px',
-                  left: '135px',
-                  transform: 'rotate(347deg)',
-                }}>
-                {item.text}
-              </span>
-              <img
-                src='./images/Group7277.png'
-                alt=''
-                title=''
-                style={{
-                  maxWidth: '380px',
-                }}
-              />
-            </Box>
-          </Box>
-          <Box
+        <Box
             sx={{
               maxWidth: '800px',
             }}>
@@ -158,6 +101,49 @@ function AboutSection(props) {
                 fontFamily: "Noto Sans Hebrew",
               }}>
               {item.description}
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              position: 'relative',
+            }}>
+              <img
+              src='./images/image-60.png'
+              alt=''
+              title=''
+              style={
+                {
+                  // height: 'auto',
+                  // width: '100%',
+                  // maxWidth: '677px',
+                }
+              }
+            />
+            <Box
+              sx={{
+                position: 'absolute',
+                top: '680px',
+                left: '590px',
+                color: '#2a94a2',
+              }}>
+              <span
+                style={{
+                  fontFamily: 'GveretLevinAlefAlefAlef',
+                  position: 'absolute',
+                  top: '184px',
+                  left: '135px',
+                  transform: 'rotate(347deg)',
+                }}>
+                {item.text}
+              </span>
+              <img
+                src='./images/Group7277.png'
+                alt=''
+                title=''
+                style={{
+                  maxWidth: '380px',
+                }}
+              />
             </Box>
           </Box>
         </Box>

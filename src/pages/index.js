@@ -1,7 +1,8 @@
 import React from 'react';
 import Meta from 'components/Meta';
-import "@fontsource/noto-sans-hebrew"; // Defaults to weight 400.
+import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import {
+  getSocialIcons,
   getMenuItems,
   getNews,
   getAbout,
@@ -25,14 +26,24 @@ import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
 import Navbar from 'components/Navbar';
 
 function IndexPage(props) {
-  const { menuItems, news, about, actors, products, lastNews, musics, games } =
-    props;
+  const {
+    socialIcons,
+    menuItems,
+    news,
+    about,
+    actors,
+    products,
+    lastNews,
+    musics,
+    games,
+  } = props;
 
   console.log('lastNews', lastNews);
 
   return (
     <>
       <Navbar
+        socialIcons={socialIcons}
         items={menuItems}
         color='default'
         logo='./logo.png'
@@ -43,7 +54,7 @@ function IndexPage(props) {
       <AboutSection item={about} />
       <ActorsSection items={actors} />
       <ShopSection items={products} />
-      <LastNewsSection items={lastNews} />
+      <LastNewsSection items={lastNews} socialIcons={socialIcons} />
       <MusicSection items={musics} />
       <GamesSection items={games} />
       <AllFestigalsSection />
@@ -84,6 +95,7 @@ export default IndexPage;
 export async function getStaticProps() {
   return {
     props: {
+      socialIcons: (await getSocialIcons()) || [],
       menuItems: (await getMenuItems()) || [],
       news: (await getNews()) || [],
       about: (await getAbout()) || [],

@@ -30,19 +30,17 @@ const ImageNews = (props) => {
   };
 
   const handleItemClick = (link) => {
-    window.open(
-      link,
-      '_blank'
-    );
+    window.open(link, '_blank');
   };
 
   return (
-    <Box sx={{
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-between',
-      padding: '150px 0 0',
-    }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        padding: '150px 0 0',
+      }}>
       {items.map((item, index) => (
         <Box
           onClick={() => handleItemClick(item.link)}
@@ -59,17 +57,15 @@ const ImageNews = (props) => {
             marginTop: index === 1 || index === 4 ? '-90px' : 0,
             // background: `transparent url(${item.url}) center center no-repeat`,
           }}>
-          {/* {item.name} */}
           <img
-              //   width={'168px'}
-              src={item.imageWeb?.url}
-              title={item.imageWeb?.title}
-              alt={item.imageWeb?.alt}
-              style={{
-                width: '100%',
-                height: 'auto',
-              }}
-            />
+            src={item.imageWeb?.url}
+            title={item.imageWeb?.title}
+            alt={item.imageWeb?.alt}
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
         </Box>
       ))}
     </Box>

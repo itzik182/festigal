@@ -115,7 +115,7 @@ const ActorCarousel = (props) => {
         sx={{
           position: 'absolute',
           top: '0',
-          right: '0',
+          left: '0',
           height: '100%',
           width: '8%',
         }}

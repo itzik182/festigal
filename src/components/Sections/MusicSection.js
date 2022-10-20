@@ -7,23 +7,9 @@ import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
-import ActorCarousel from '../Carousel/ActorCarousel';
+import PlaylistCarousel from '../Carousel/PlaylistCarousel';
 
 const useStyles = makeStyles((theme) => ({
-  // Increase <Container> padding so it's
-  // at least half of <Grid> spacing to
-  // avoid horizontal scroll on mobile.
-  // See https://material-ui.com/components/grid/#negative-margin
-  container: {
-    padding: `0 ${theme.spacing(3)}px`,
-  },
-  image: {
-    margin: '0 auto',
-    maxWidth: 570,
-    display: 'block',
-    height: 'auto',
-    width: '100%',
-  },
   section: {
     padding: '0',
   },
@@ -36,42 +22,114 @@ const useStyles = makeStyles((theme) => ({
     padding: '0',
     color: '#FFFFFF',
     textAlign: 'right',
-    padding: '0 213px',
+    padding: '100px 11.193vw 150px',
+  },
+  mediumText: {
+    fontSize: '2.312vw',
+    fontFamily: 'Noto Sans Hebrew',
+    fontWeight: '400',
+    fontStyle: 'normal',
+  },
+  rectangle: {
+    boxShadow: '0px 0px 7px #FFD284',
+    border: '1px solid #A2711D',
+    borderRadius: '2px',
   },
 }));
 
 function MusicSection(props) {
   const classes = useStyles();
-  // const { items } = props;
+  const { items } = props;
 
-  const items = [
-    {url: './images/Image-15.png', name: 'אנה זק'},
-    {url: './images/Image-16.png', name: 'אנה זק'},
-    {url: './images/Image-17.png', name: 'אליאנה תדהר'},
-    {url: './images/Image-18.png', name: 'אגם בוחבוט'},
-    {url: './images/Image-19.png', name: 'אנה זק'},
-    {url: './images/Image-16.png', name: 'אנה זק'},
-    {url: './images/Image-17.png', name: 'אנה זק'},
-    {url: './images/Image-18.png', name: 'אנה זק'},
-  ]
+  // const items = [
+  //   { url: './images/Image-15.png', name: 'אנה זק' },
+  //   { url: './images/Image-16.png', name: 'אנה זק' },
+  //   { url: './images/Image-17.png', name: 'אליאנה תדהר' },
+  //   { url: './images/Image-18.png', name: 'אגם בוחבוט' },
+  //   { url: './images/Image-19.png', name: 'אנה זק' },
+  //   { url: './images/Image-16.png', name: 'אנה זק' },
+  //   { url: './images/Image-17.png', name: 'אנה זק' },
+  //   { url: './images/Image-18.png', name: 'אנה זק' },
+  // ];
 
   return (
-    <Section id="playlists" className={classes.section}>
+    <Section id='playlists' className={classes.section}>
       <Box className={classes.container}>
         <Box
           sx={{
             height: '588px',
+            padding: '200px 11.193vw 0',
             background:
               'transparent url(./background/image47.png) no-repeat padding-box',
-          }}></Box>
-        <Box className={classes.containerA}>
-          <Box>פלייליסטים מכל הזמנים</Box>
-          <Box>
-            <ActorCarousel items={items} />
+          }}>
+          <Box
+            sx={{
+              display: 'flex',
+              marginBottom: '25px',
+            }}>
+            <Box
+              sx={{
+                color: '#fff',
+              }}>
+              <Box
+                sx={{
+                  fontSize: '1.524vw',
+                  fontFamily: 'GveretLevinAlefAlefAlef',
+                }}>
+                שיר הפסטיגל 2022
+              </Box>
+              <Box
+                sx={{
+                  fontSize: '4.467vw',
+                  fontFamily: 'Noto Sans Hebrew',
+                  fontWeight: '800',
+                  fontStyle: 'normal',
+                }}>
+                אני יכול הכל
+              </Box>
+              <Box
+                className={classes.mediumText}
+                sx={{
+                  fontSize: '1.944vw',
+                }}>
+                עדן חסון ומשתתפי הפסטיגל
+              </Box>
+            </Box>
+            <Box>
+              <a href='https://www.youtube.com/watch?v=iCAKpASnFgw' target='_blank'>
+              <img
+                style={{
+                  cursor: 'pointer',
+                }}
+                src='./images/play.png'
+                alt='play'
+              /></a>
+            </Box>
           </Box>
-          <Box>הפודקאסט של הפסטיגל</Box>
+          <Box className={classes.rectangle}></Box>
+        </Box>
+        <Box className={classes.containerA}>
+          <Box
+            className={classes.mediumText}
+            sx={{
+              fontSize: '2.312vw',
+              padding: '0 0 50px',
+            }}>
+            פלייליסטים מכל הזמנים
+          </Box>
           <Box>
-            <ActorCarousel items={items} />
+            <PlaylistCarousel items={items} />
+          </Box>
+          <Box
+            className={classes.mediumText}
+            sx={{
+              fontSize: '2.312vw',
+              padding: '100px 0 50px',
+            }}>
+            הפודקאסט של הפסטיגל
+          </Box>
+          <Box>
+            <PlaylistCarousel items={items} />
           </Box>
         </Box>
       </Box>

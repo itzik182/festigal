@@ -6,111 +6,61 @@ import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import SectionHeader from 'components/SectionHeader';
-import ImageNews from '../ImageNews';
+import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles((theme) => ({
-  // Increase <Container> padding so it's
-  // at least half of <Grid> spacing to
-  // avoid horizontal scroll on mobile.
-  // See https://material-ui.com/components/grid/#negative-margin
-  container: {
-    padding: `0 ${theme.spacing(3)}px`,
-  },
-  image: {
-    margin: '0 auto',
-    maxWidth: 570,
-    display: 'block',
-    height: 'auto',
-    width: '100%',
-  },
   section: {
     padding: '0',
   },
   container: {
-    background: '#fff',
-    padding: '150px 195px 130px',
-  },
-  containerA: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
-  item: {
-    display: "flex",
-    flex: "none",
-    justifyContent: "center",
-    width: "100%",
-    marginBottom: 24,
-    [theme.breakpoints.up("sm")]: {
-      flex: "50%",
-    },
-  },
-  brand: {
-    display: "block",
-    // height: 32,
-  },
-  social: {
-    alignItems: "flex-end",
+    // padding: '50px 0 25px',
   },
   link: {
-    color: "inherit",
+    color: 'inherit',
     lineHeight: 1,
-    "&:not(:last-of-type)": {
-      marginRight: "1.2rem",
-    },
+    // '&:not(:last-of-type)': {
+    //   marginRight: '1.2rem',
+    // },
   },
-  left: {
-    [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-start",
-    },
-  },
-  right: {
-    [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-end",
-    },
+  icon: {
+    display: 'inline-block',
+    WebkitMaskSize: 'cover',
+    maskSize: 'cover',
   },
 }));
 
 function SocialIcons(props) {
   const classes = useStyles();
-  const { items } = props;
+  const { items, color, isUseOriginalSize = true, margin } = props;
 
   if (!items) {
     return <></>;
   }
 
   return (
-    <Section id='last-news' className={classes.section}>
-      <Box className={classes.container}>
-      <div className={`${classes.item} ${classes.right} ${classes.social}`}>
-            <a
-              href="https://twitter.com/divjoy"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.link}
-            >
-              <TwitterIcon fontSize="small" />
-            </a>
-            <a
-              href="https://facebook.com/DivjoyOfficial"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.link}
-            >
-              <FacebookIcon fontSize="small" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.link}
-            >
-              <InstagramIcon fontSize="small" />
-            </a>
-          </div>
-      </Box>
-    </Section>
+    <Box className={classes.container}>
+      {items
+        .filter((i) => i.isDisplayShortPanel)
+        .map((item, index) => (
+          <a
+            key={index}
+            href={item.link}
+            target='_blank'
+            rel='noreferrer'
+            className={classes.link}>
+            <Box
+              sx={{
+                margin: margin || '0 25px',
+                width: `${isUseOriginalSize ? item.icon.width : item.iconWidth || item.icon.width}px`,
+                height: `${isUseOriginalSize ? item.icon.height : item.iconHeight || item.icon.height}px`,
+                backgroundColor: color || '#fff',
+                WebkitMask: `url(${item.icon.url}) no-repeat 50% 50%`,
+                mask: `url(${item.icon.url}) no-repeat 50% 50%`,
+              }}
+              className={classes.icon}></Box>
+          </a>
+        ))}
+    </Box>
   );
 }
 

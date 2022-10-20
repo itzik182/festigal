@@ -32,9 +32,38 @@ export async function getSiteParams() {
   return data?.allArtists;
 }
 
+export async function getSocialIcons() {
+  const query = `query allSocialMediaIcons {
+    allSocialMediaIcons(filter: {isDisplay: {eq: "true"}}) {
+      id
+      name
+      link
+      iconWidth
+      iconHeight
+      icon {
+        url
+        width
+        title
+        id
+        height
+        alt
+      }
+      isDisplaySharePanel
+      isDisplayShortPanel
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allSocialMediaIcons;
+}
+
 export async function getMenuItems() {
   const query = `query allMenuItems {
-    allMenuItems {
+    allMenuItems(filter: {isDisplay: {eq: "true"}}) {
       id
       text
       link
@@ -212,7 +241,7 @@ export async function getAllMusics() {
       link
       description
       isPlaylist
-      image {
+      imageWeb {
         alt
         height
         width

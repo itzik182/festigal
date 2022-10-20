@@ -19,6 +19,7 @@ import Section from 'components/Section';
 import { useDarkMode } from 'util/theme';
 import YoutubeEmbed from '../components/YoutubeEmbed';
 import { DrawerItemList } from './DrawerItemList';
+import SocialIcons from 'components/SocialIcons';
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
-  const {items} = props;
+  const { items, socialIcons } = props;
 
   const darkMode = useDarkMode();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -121,6 +122,30 @@ function Navbar(props) {
             }}>
             <Box className={`${classes.layers} layerRight`}></Box>
             <Box className={`${classes.layers} layerLeft`}></Box>
+            <Box
+              sx={{
+                position: 'absolute',
+                right: '220px',
+                zIndex: '1',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                top: '0',
+                bottom: '0',
+              }}>
+                <img
+                style={{
+                  marginLeft: '25px',
+                }}
+                src='./images/my_small.png'
+                alt='my-festigal'
+              />
+              <SocialIcons
+                items={socialIcons}
+                isUseOriginalSize={true}
+                margin={'0 10px'}
+              />
+            </Box>
             <Container
               disableGutters={true}
               style={{
@@ -128,12 +153,7 @@ function Navbar(props) {
                 alignItems: 'center',
                 display: 'flex',
               }}>
-              <Toolbar
-                style={
-                  {
-                    // display: 'block',
-                  }
-                }>
+              <Toolbar>
                 <Link href='/'>
                   <a>
                     <img
@@ -167,7 +187,11 @@ function Navbar(props) {
             width: '35%',
           },
         }}>
-        <DrawerItemList items={items} handleItemClick={handleItemClick} isDrawerOpen={drawerOpen} />
+        <DrawerItemList
+          items={items}
+          handleItemClick={handleItemClick}
+          isDrawerOpen={drawerOpen}
+        />
       </Drawer>
     </Section>
   );
