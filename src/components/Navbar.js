@@ -4,16 +4,16 @@ import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from 'next/link';
 import Box from '@material-ui/core/Box';
-import Hidden from '@material-ui/core/Hidden';
+// import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 // import Drawer from '@material-ui/core/Drawer';
 import Drawer from '@mui/material/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import NightsStayIcon from '@material-ui/icons/NightsStay';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
+// import List from '@material-ui/core/List';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
+// import NightsStayIcon from '@material-ui/icons/NightsStay';
+// import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import { useDarkMode } from 'util/theme';
@@ -22,10 +22,6 @@ import { DrawerItemList } from './DrawerItemList';
 import SocialIcons from 'components/SocialIcons';
 
 const useStyles = makeStyles((theme) => ({
-  logo: {
-    // height: 28,
-    // marginRight: theme.spacing(2),
-  },
   layers: {
     position: 'absolute',
     width: '508px',
@@ -55,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
-  const { items, socialIcons } = props;
+  const { items, mainData, socialIcons } = props;
 
   const darkMode = useDarkMode();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -69,6 +65,10 @@ function Navbar(props) {
     setDrawerOpen(false);
   };
 
+  const videoId = mainData?.video?.url?.substring(
+    mainData?.video?.url.indexOf('=') + 1
+  );
+
   return (
     <Section
       bgColor={props.color}
@@ -77,7 +77,8 @@ function Navbar(props) {
         height: '755px',
       }}>
       <YoutubeEmbed
-        url={'iCAKpASnFgw'}
+        // url={'iCAKpASnFgw'}
+        url={videoId}
         autoplay={true}
         width={'100%'}
         height={'796px'}
@@ -133,7 +134,7 @@ function Navbar(props) {
                 top: '0',
                 bottom: '0',
               }}>
-                <img
+              <img
                 style={{
                   marginLeft: '25px',
                 }}
@@ -159,7 +160,6 @@ function Navbar(props) {
                     <img
                       src={logo}
                       alt='Logo'
-                      className={classes.logo}
                       style={{
                         marginTop: '10px',
                       }}
@@ -180,7 +180,6 @@ function Navbar(props) {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         sx={{
-          // background: '#000 !important',
           '.MuiPaper-root': {
             background:
               'transparent linear-gradient(180deg, #058E9C 0%, #03474E 100%) 0% 0% no-repeat padding-box;',
@@ -188,6 +187,7 @@ function Navbar(props) {
           },
         }}>
         <DrawerItemList
+          ticketsInformationText={mainData.ticketsInformationText}
           items={items}
           handleItemClick={handleItemClick}
           isDrawerOpen={drawerOpen}

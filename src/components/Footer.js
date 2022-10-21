@@ -1,76 +1,37 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import Link from "next/link";
-import Typography from "@material-ui/core/Typography";
-import LinkMui from "@material-ui/core/Link";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import { makeStyles } from "@material-ui/core/styles";
-import Section from "components/Section";
-import { useDarkMode } from "util/theme";
+import React from 'react';
+import Link from 'next/link';
+// import Container from '@material-ui/core/Container';
+// import Typography from '@material-ui/core/Typography';
+// import LinkMui from '@material-ui/core/Link';
+// import TwitterIcon from '@material-ui/icons/Twitter';
+// import FacebookIcon from '@material-ui/icons/Facebook';
+// import InstagramIcon from '@material-ui/icons/Instagram';
+import { makeStyles } from '@material-ui/core/styles';
+import Section from 'components/Section';
+import { useDarkMode } from 'util/theme';
+import Box from '@material-ui/core/Box';
+import SocialIcons from 'components/SocialIcons';
+import TicketButton from 'components/TicketButton';
 
 const useStyles = makeStyles((theme) => ({
-  sticky: {
-    marginTop: "auto",
-  },
-  wrapper: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  item: {
-    display: "flex",
-    flex: "none",
-    justifyContent: "center",
-    width: "100%",
-    marginBottom: 24,
-    [theme.breakpoints.up("sm")]: {
-      flex: "50%",
-    },
-  },
-  brand: {
-    display: "block",
-    // height: 32,
-  },
-  social: {
-    alignItems: "flex-end",
-  },
   link: {
-    color: "inherit",
+    color: 'inherit',
     lineHeight: 1,
-    "&:not(:last-of-type)": {
-      marginRight: "1.2rem",
-    },
-  },
-  left: {
-    [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-start",
-    },
-  },
-  right: {
-    [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-end",
-    },
-  },
-  // Move links to end (bottom right)
-  // Swaps position with social
-  smallLinks: {
-    [theme.breakpoints.up("sm")]: {
-      order: 1,
-    },
-  },
-  legal: {
-    opacity: 0.6,
-    fontSize: "0.875rem",
-    "& a": {
-      color: "inherit",
-      marginLeft: "0.8rem",
+    '&:not(:last-of-type)': {
+      marginRight: '1.2rem',
     },
   },
 }));
 
 function Footer(props) {
   const classes = useStyles();
+  const { items, mainData, socialIcons } = props;
+
+  const column1 = items?.filter((item) => item.column.columnNumber === 1);
+  const column2 = items?.filter((item) => item.column.columnNumber === 2);
+  const column3 = items?.filter((item) => item.column.columnNumber === 3);
+  const column4 = items?.filter((item) => item.column.columnNumber === 4);
+  const column5 = items?.filter((item) => item.column.columnNumber === 5);
 
   const darkMode = useDarkMode();
   // Use inverted logo if specified
@@ -80,13 +41,9 @@ function Footer(props) {
 
   return (
     <Section
-      // bgColor={props.bgColor}
-      // size={props.size}
-      bgImage={props.bgImage}
-      bgImageOpacity={props.bgImageOpacity}
-      className={props.sticky && classes.sticky}
       sx={{
-        height: '428px',
+        padding: '0 !important',
+        // height: '428px',
         backgroundImage: `linear-gradient(
           180deg,
           hsl(187deg 47% 19%) 0%,
@@ -103,77 +60,233 @@ function Footer(props) {
           hsl(186deg 68% 19%) 92%,
           hsl(186deg 93% 16%) 100%
         )`,
-      }}
-    >
-      <Container>
-        <div className={classes.wrapper}>
-          <div className={`${classes.item} ${classes.left}`}>
-            <Link href="/">
+      }}>
+      <Box
+        sx={{
+          padding: '0 163px 50px 122px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          fontFamily: 'Noto Sans Hebrew',
+          color: '#fff',
+        }}>
+        <Box
+          sx={{
+            width: '100%',
+            padding: '85px 0 0 13.925vw',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: '50px',
+            }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flex: '1',
+                justifyContent: 'space-between',
+                paddingLeft: '4vw',
+              }}>
+              <Box
+                sx={{
+                  width: '100%',
+                  paddingLeft: '20px',
+                }}>
+                {column1.map((col) => {
+                  const { id, text, link, isBold } = col;
+                  const isBlank = link.includes('http');
+                  return (
+                    <Box
+                      sx={{
+                        marginBottom: '15px',
+                        color: isBold && '#36D4DE',
+                        fontSize: isBold ? '18px' : '12px',
+                        fontWeight: isBold ? '400' : 'none',
+                      }}>
+                      <Link key={id} href={link}>
+                        <a
+                          target={isBlank ? '_blank' : '_self'}
+                          rel='noopener noreferrer'>
+                          {text}
+                        </a>
+                      </Link>
+                    </Box>
+                  );
+                })}
+              </Box>
+              <Box
+                sx={{
+                  width: '100%',
+                  paddingLeft: '20px',
+                }}>
+                {column2.map((col) => {
+                  const { id, text, link, isBold } = col;
+                  const isBlank = link.includes('http');
+                  return (
+                    <Box
+                      sx={{
+                        marginBottom: '15px',
+                        color: isBold && '#36D4DE',
+                        fontSize: isBold ? '18px' : '12px',
+                        fontWeight: isBold ? '400' : 'none',
+                      }}>
+                      <Link key={id} href={link}>
+                        <a
+                          target={isBlank ? '_blank' : '_self'}
+                          rel='noopener noreferrer'>
+                          {text}
+                        </a>
+                      </Link>
+                    </Box>
+                  );
+                })}
+              </Box>
+              <Box
+                sx={{
+                  width: '100%',
+                  paddingLeft: '20px',
+                }}>
+                {column3.map((col) => {
+                  const { id, text, link, isBold } = col;
+                  const isBlank = link.includes('http');
+                  return (
+                    <Box
+                      sx={{
+                        marginBottom: '15px',
+                        color: isBold && '#36D4DE',
+                        fontSize: isBold ? '18px' : '12px',
+                        fontWeight: isBold ? '400' : 'none',
+                      }}>
+                      <Link key={id} href={link}>
+                        <a
+                          target={isBlank ? '_blank' : '_self'}
+                          rel='noopener noreferrer'>
+                          {text}
+                        </a>
+                      </Link>
+                    </Box>
+                  );
+                })}
+              </Box>
+              <Box
+                sx={{
+                  width: '100%',
+                  paddingLeft: '20px',
+                }}>
+                {column4.map((col) => {
+                  const { id, text, link, isBold } = col;
+                  const isBlank = link.includes('http');
+                  return (
+                    <Box
+                      sx={{
+                        marginBottom: '15px',
+                        color: isBold && '#36D4DE',
+                        fontSize: isBold ? '18px' : '12px',
+                        fontWeight: isBold ? '400' : 'none',
+                      }}>
+                      <Link key={id} href={link}>
+                        <a
+                          target={isBlank ? '_blank' : '_self'}
+                          rel='noopener noreferrer'>
+                          {text}
+                        </a>
+                      </Link>
+                    </Box>
+                  );
+                })}
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+              }}>
+              <Box
+                sx={{
+                  textAlign: 'center',
+                  margin: '5px 0 0 19px',
+                }}>
+                <Box
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                  }}>
+                  {mainData.youtubeText}
+                </Box>
+                <Box
+                  sx={{
+                    fontSize: '27px',
+                  }}>
+                  {mainData.festigalYoutubeText}
+                </Box>
+              </Box>
+              <Box>
+                <a
+                  href='https://www.youtube.com/c/myfestigalofficial/featured'
+                  target='_blank'
+                  rel='noreferrer'
+                  className={classes.link}>
+                  <img
+                    src='./social-icons/youtube-logo.png'
+                    alt='youtube-logo'
+                  />
+                </a>
+              </Box>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              border: '1px solid #2A7D98',
+            }}></Box>
+          <Box sx={{ display: 'flex' }}>
+            {column5.map((col) => {
+              const { id, text, link, isBold } = col;
+              const isBlank = link.includes('http');
+              return (
+                <Box
+                  sx={{
+                    marginBottom: '15px',
+                    marginLeft: '20px',
+                    color: isBold && '#36D4DE',
+                    fontSize: isBold ? '18px' : '12px',
+                    fontWeight: isBold ? '400' : 'none',
+                  }}>
+                  <Link key={id} href={link}>
+                    <a
+                      target={isBlank ? '_blank' : '_self'}
+                      rel='noopener noreferrer'>
+                      {text}
+                    </a>
+                  </Link>
+                </Box>
+              );
+            })}
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}>
+          <Box>
+            <Link href='/'>
               <a>
-                <img src={logo} alt="Logo" className={classes.brand} />
+                <img src={logo} alt='Logo' className={classes.brand} />
               </a>
             </Link>
-          </div>
-          <div className={`${classes.item} ${classes.right} ${classes.social}`}>
-            <a
-              href="https://twitter.com/divjoy"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.link}
-            >
-              <TwitterIcon fontSize="small" />
-            </a>
-            <a
-              href="https://facebook.com/DivjoyOfficial"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.link}
-            >
-              <FacebookIcon fontSize="small" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.link}
-            >
-              <InstagramIcon fontSize="small" />
-            </a>
-          </div>
-          <div
-            className={`${classes.item} ${classes.right} ${classes.smallLinks}`}
-          >
-            <Typography>
-              <Link href="/about" passHref={true}>
-                <LinkMui className={classes.link}>About</LinkMui>
-              </Link>
-              <Link href="/faq" passHref={true}>
-                <LinkMui className={classes.link}>FAQ</LinkMui>
-              </Link>
-              <Link href="/contact" passHref={true}>
-                <LinkMui className={classes.link}>Contact</LinkMui>
-              </Link>
-              <LinkMui
-                href="https://medium.com"
-                target="_blank"
-                rel="noreferrer"
-                className={classes.link}
-              >
-                Blog
-              </LinkMui>
-            </Typography>
-          </div>
-          <span className={`${classes.item} ${classes.legal} ${classes.left}`}>
-            {props.copyright}
-            <Link href="/legal/terms-of-service" passHref={true}>
-              <LinkMui>Terms</LinkMui>
-            </Link>
-            <Link href="/legal/privacy-policy" passHref={true}>
-              <LinkMui>Privacy</LinkMui>
-            </Link>
-          </span>
-        </div>
-      </Container>
+          </Box>
+          <SocialIcons
+            items={socialIcons}
+            isUseOriginalSize={true}
+            margin={'0 10px 20px'}
+          />
+          <TicketButton text={mainData.ticketsInformationText} />
+        </Box>
+      </Box>
     </Section>
   );
 }

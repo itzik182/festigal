@@ -1,12 +1,12 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+// import Container from '@material-ui/core/Container';
+// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link';
+// import Button from '@material-ui/core/Button';
+// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import SectionHeader from 'components/SectionHeader';
+// import SectionHeader from 'components/SectionHeader';
 import ImageNews from 'components/ImageNews';
 import SocialIcons from 'components/SocialIcons';
 
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function LastNewsSection(props) {
   const classes = useStyles();
-  const { items, socialIcons } = props;
+  const { items, mainData, socialIcons } = props;
 
   if (!items) {
     return <></>;
@@ -40,7 +40,7 @@ function LastNewsSection(props) {
             lineHeight: '0.9',
             letterSpacing: '1.74px',
           }}>
-          כל מה שרציתם לדעת על הפסטיגל
+          {mainData.lastNewsText}
         </Box>
         <Box
           sx={{
@@ -53,7 +53,7 @@ function LastNewsSection(props) {
             fontStyle: 'normal',
             marginTop: '20px',
           }}>
-          החדשות האחרונות
+          {mainData.lastNewsTitle}
         </Box>
         <Box
           sx={{

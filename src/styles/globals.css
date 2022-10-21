@@ -27,6 +27,11 @@ body {
   direction: rtl;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 textarea:focus, input:focus, div:focus, img:focus {
   outline: none !important;
 }

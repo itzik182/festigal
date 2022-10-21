@@ -1,12 +1,12 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+// import Container from '@material-ui/core/Container';
+// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link';
+// import Button from '@material-ui/core/Button';
+// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import SectionHeader from 'components/SectionHeader';
+// import SectionHeader from 'components/SectionHeader';
 import ShopCarousel from '../Carousel/ShopCarousel';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,13 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
 function ShopSection(props) {
   const classes = useStyles();
-  const { items } = props;
+  const { items, mainData } = props;
 
   if (!items) {
     return <></>;
   }
-
-  console.log('items', items); 
 
   const itemsUp = items?.filter(item => item.isDisplayUp);
   const itemsDown = items?.filter(item => !item.isDisplayUp);
@@ -52,7 +50,7 @@ function ShopSection(props) {
             fontSize: "31px",
             marginTop: '20px',
           }}>
-          חנות הפסטיגל
+          {mainData.festigalStorText}
           </Box>
         </Box>
         <ShopCarousel items={itemsDown} />

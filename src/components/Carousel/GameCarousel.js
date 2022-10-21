@@ -5,18 +5,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// import TouchCarousel from 'react-touch-carousel'
-// import Carousel from '@brainhubeu/react-carousel';
-// import '@brainhubeu/react-carousel/lib/style.css';
-// import dynamic from 'next/dynamic';
-// import { useState } from 'react';
 
-// const { default: Carousel } = dynamic(
-//  () => require('@brainhubeu/react-carousel'),
-//  { ssr: false },
-// );
-
-const ShopCarousel = (props) => {
+const GameCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
   const { items } = props;
@@ -63,21 +53,54 @@ const ShopCarousel = (props) => {
             key={index}
             sx={
               {
-                display: "flex !important", 
+                display: "flex !important",
+                flexDirection: 'column',
                 alignItems: "center", 
                 justifyContent: "center", 
-                height: "340px",
-                margin: "0 100px",
+                // height: "340px",
+                margin: "0 25px",
+                color: '#000',
+                cursor: 'pointer',
               }
             }
             onClick={() => handleItemClick(item.link)}>
+              <Box sx={{
+                position: "relative",
+              }}>
               <img
                 src={item?.imageWeb?.url}
                 alt={item?.imageWeb?.alt}
-                style={{
-                  cursor: 'pointer',
-                }}
               />
+              {item.imageText && <Box sx={{
+                  fontSize: "54px", 
+                  fontFamily: "GveretLevinAlefAlefAlef", 
+                  position: "absolute", 
+                  color: "rgb(255, 255, 255)", 
+                  display: "-webkit-box", 
+                  WebkitLineClamp: "3", 
+                  WebkitBoxOrient: "vertical", 
+                  overflow: "hidden", 
+                  textOverflow: "ellipsis", 
+                  padding: '20px',
+                  bottom: "0"
+              }}>
+                {item.imageText}
+              </Box>}
+              </Box>
+              <Box sx={{
+                margin: '35px 0 0',
+                fontSize: '36px',
+                fontFamily: "Noto Sans Hebrew",
+                fontWeight: "800",
+              }}>
+                {item.firstTitle}
+              </Box>
+              <Box sx={{
+                fontSize: '36px',
+                fontFamily: "Noto Sans Hebrew",
+              }}>
+                {item.firstName}
+              </Box>
             </Box>
         ))}
       </Slider>
@@ -107,4 +130,4 @@ const ShopCarousel = (props) => {
   );
 };
 
-export default ShopCarousel;
+export default GameCarousel;

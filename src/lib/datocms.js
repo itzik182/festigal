@@ -32,6 +32,43 @@ export async function getSiteParams() {
   return data?.allArtists;
 }
 
+export async function getMainData() {
+  const query = `query mainText {
+    mainText {
+      youtubeText
+      ticketsInformationText
+      podcastTitle
+      playlistTitle
+      myFestigalWebsiteText
+      lastNewsTitle
+      lastNewsText
+      id
+      gamesTitle
+      gamesText
+      festigalYoutubeText
+      festigalStorText
+      festigalSongWriter
+      festigalSongSinger
+      festigalSongName
+      festigalSong
+      comingSoonText
+      video {
+        url
+        width
+        title
+        height
+      }
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.mainText;
+}
+
 export async function getSocialIcons() {
   const query = `query allSocialMediaIcons {
     allSocialMediaIcons(filter: {isDisplay: {eq: "true"}}) {
@@ -59,6 +96,29 @@ export async function getSocialIcons() {
   });
 
   return data?.allSocialMediaIcons;
+}
+
+export async function getAllFooters() {
+  const query = `query allFooters {
+    allFooters(filter: {isDisplay: {eq: "true"}}) {
+      id
+      text
+      link
+      isBold
+      column {
+        name
+        id
+        columnNumber
+      }
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allFooters;
 }
 
 export async function getMenuItems() {
@@ -166,7 +226,7 @@ export async function getAllShops() {
       id
       link
       isDisplayUp
-      image {
+      imageWeb {
         alt
         width
         url
@@ -187,9 +247,12 @@ export async function getAllShops() {
 export async function getAllGames() {
   const query = `query allGames {
     allGames(filter: {isDisplay: {eq: "true"}}) {
+      id
       link
-      first
-      image {
+      imageText
+      firstTitle
+      firstName
+      imageWeb {
         alt
         height
         width

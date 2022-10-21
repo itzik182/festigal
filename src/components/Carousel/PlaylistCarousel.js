@@ -5,16 +5,56 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// import TouchCarousel from 'react-touch-carousel'
-// import Carousel from '@brainhubeu/react-carousel';
-// import '@brainhubeu/react-carousel/lib/style.css';
-// import dynamic from 'next/dynamic';
-// import { useState } from 'react';
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      style={{
+        transform: 'rotate(180deg)',
+        background:
+          'transparent linear-gradient(180deg, #A2711D 0%, #FFF2AF 43%, #F7E99B 51%, #C7B01B 100%) 0% 0% no-repeat padding-box',
+        boxShadow: '0px 3px 41px #A2711D',
+        position: 'absolute',
+        top: '-100px',
+        left: '107px',
+        borderRadius: '50px',
+        padding: '10px',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+      }}
+      onClick={onClick}>
+      <img src='./images/Group6737.png' alt='next arrow' />
+    </div>
+  );
+}
 
-// const { default: Carousel } = dynamic(
-//  () => require('@brainhubeu/react-carousel'),
-//  { ssr: false },
-// );
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      style={{
+        background:
+          'transparent linear-gradient(180deg, #A2711D 0%, #FFF2AF 43%, #F7E99B 51%, #C7B01B 100%) 0% 0% no-repeat padding-box',
+        boxShadow: '0px 3px 41px #A2711D',
+        position: 'absolute',
+        top: '-100px',
+        left: '10px',
+        borderRadius: '50px',
+        padding: '10px',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+      }}
+      onClick={onClick}>
+      <img src='./images/Group6737.png' alt='prev arrow' />
+    </div>
+  );
+}
 
 const PlaylistCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
@@ -29,9 +69,11 @@ const PlaylistCarousel = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
-    arrows: false,
+    arrows: true,
     swipeToSlide: true,
     swipe: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   const stopSlide = () => {
@@ -47,51 +89,41 @@ const PlaylistCarousel = (props) => {
   };
 
   const handleItemClick = (link) => {
-    window.open(
-      link,
-      '_blank'
-    );
+    window.open(link, '_blank');
   };
 
   return (
-    <Box sx={{
-      position: 'relative',
-    }}>
+    <Box
+      sx={{
+        position: 'relative',
+      }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
             key={index}
-            sx={
-              {
-                display: "flex !important", 
-                alignItems: "center", 
-                justifyContent: "center", 
-                // height: "340px",
-                margin: "0 40px",
-              }
-            }
+            sx={{
+              display: 'flex !important',
+              alignItems: 'center',
+              justifyContent: 'center',
+              // height: "340px",
+              margin: '0 40px',
+            }}
             onClick={() => handleItemClick(item.link)}>
-              <img
-                //   width={'168px'}
-                src={item?.imageWeb?.url}
-                style={{
-                  cursor: 'pointer',
-                }}
-              />
-            </Box>
+            <img
+              src={item?.imageWeb?.url}
+              alt={item?.imageWeb?.alt}
+              style={{
+                cursor: 'pointer',
+              }}
+            />
+            <img src='./images/Polygon5.png' alt='play' style={{
+              position: 'absolute',
+              cursor: 'pointer',
+            }} />
+          </Box>
         ))}
       </Slider>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '0',
-          height: '100%',
-          width: '8%',
-        }}
-        onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(false)}>
-      </Box>
-      <Box
+      {/* <Box
         sx={{
           position: 'absolute',
           top: '0',
@@ -100,8 +132,17 @@ const PlaylistCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(true)}>
-      </Box>
+        onMouseOver={() => startSlide(false)}></Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          height: '100%',
+          width: '8%',
+        }}
+        onMouseLeave={() => stopSlide()}
+        onMouseOver={() => startSlide(true)}></Box> */}
     </Box>
   );
 };

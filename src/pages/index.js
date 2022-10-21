@@ -2,7 +2,9 @@ import React from 'react';
 import Meta from 'components/Meta';
 import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import {
+  getMainData,
   getSocialIcons,
+  getAllFooters,
   getMenuItems,
   getNews,
   getAbout,
@@ -24,10 +26,13 @@ import MusicSection from 'components/Sections/MusicSection';
 import GamesSection from 'components/Sections/GamesSection';
 import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
 import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
 
 function IndexPage(props) {
   const {
+    mainData,
     socialIcons,
+    footerItems,
     menuItems,
     news,
     about,
@@ -38,11 +43,12 @@ function IndexPage(props) {
     games,
   } = props;
 
-  console.log('lastNews', lastNews);
+  console.log('mainData', mainData);
 
   return (
     <>
       <Navbar
+        mainData={mainData}
         socialIcons={socialIcons}
         items={menuItems}
         color='default'
@@ -53,39 +59,22 @@ function IndexPage(props) {
       <NewsTicker item={news} />
       <AboutSection item={about} />
       <ActorsSection items={actors} />
-      <ShopSection items={products} />
-      <LastNewsSection items={lastNews} socialIcons={socialIcons} />
-      <MusicSection items={musics} />
-      <GamesSection items={games} />
-      <AllFestigalsSection />
-      {/* <HeroSection
-        bgColor="default"
-        size="medium"
-        bgImage=""
-        bgImageOpacity={1}
-        title="Your landing page title here"
-        subtitle="This landing page is perfect for showing off your awesome product and driving people to sign up for a paid plan."
-        image="https://uploads.divjoy.com/undraw-japan_ubgk.svg"
-        buttonText="Get Started"
-        buttonColor="primary"
-        buttonPath="/pricing"
+      <ShopSection items={products} mainData={mainData} />
+      <LastNewsSection
+        items={lastNews}
+        mainData={mainData}
+        socialIcons={socialIcons}
       />
-      <FeaturesSection
-        bgColor="default"
-        size="medium"
-        bgImage=""
-        bgImageOpacity={1}
-        title="Features"
-        subtitle="All the features you need to move faster"
+      <MusicSection items={musics} mainData={mainData} />
+      <GamesSection items={games} mainData={mainData} />
+      <AllFestigalsSection mainData={mainData} />
+
+      <Footer
+        mainData={mainData}
+        socialIcons={socialIcons}
+        items={footerItems}
+        logo='./images/image2.png'
       />
-      <TeamBiosSection
-        bgColor="default"
-        size="medium"
-        bgImage=""
-        bgImageOpacity={1}
-        title="Meet the Team"
-        subtitle=""
-      /> */}
     </>
   );
 }
@@ -95,7 +84,9 @@ export default IndexPage;
 export async function getStaticProps() {
   return {
     props: {
+      mainData: (await getMainData()) || [],
       socialIcons: (await getSocialIcons()) || [],
+      footerItems: (await getAllFooters()) || [],
       menuItems: (await getMenuItems()) || [],
       news: (await getNews()) || [],
       about: (await getAbout()) || [],

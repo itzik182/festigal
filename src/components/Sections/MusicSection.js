@@ -1,12 +1,12 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+// import Container from '@material-ui/core/Container';
+// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link';
+// import Button from '@material-ui/core/Button';
+// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import SectionHeader from 'components/SectionHeader';
+// import SectionHeader from 'components/SectionHeader';
 import PlaylistCarousel from '../Carousel/PlaylistCarousel';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '0',
   },
   container: {
-    // background: '#FFFFFF',
     margin: '0',
   },
   containerA: {
@@ -39,29 +38,44 @@ const useStyles = makeStyles((theme) => ({
 
 function MusicSection(props) {
   const classes = useStyles();
-  const { items } = props;
-
-  // const items = [
-  //   { url: './images/Image-15.png', name: 'אנה זק' },
-  //   { url: './images/Image-16.png', name: 'אנה זק' },
-  //   { url: './images/Image-17.png', name: 'אליאנה תדהר' },
-  //   { url: './images/Image-18.png', name: 'אגם בוחבוט' },
-  //   { url: './images/Image-19.png', name: 'אנה זק' },
-  //   { url: './images/Image-16.png', name: 'אנה זק' },
-  //   { url: './images/Image-17.png', name: 'אנה זק' },
-  //   { url: './images/Image-18.png', name: 'אנה זק' },
-  // ];
+  const { items, mainData } = props;
 
   return (
     <Section id='playlists' className={classes.section}>
       <Box className={classes.container}>
         <Box
           sx={{
-            height: '588px',
-            padding: '200px 11.193vw 0',
+            padding: '190px 11.193vw 0',
             background:
               'transparent url(./background/image47.png) no-repeat padding-box',
           }}>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '355px',
+              left: '485px',
+            }}>
+            <span
+              style={{
+                fontFamily: 'GveretLevinAlefAlefAlef',
+                position: 'absolute',
+                top: '46px',
+                left: '100px',
+                transform: 'rotate(349deg)',
+                fontSize: '24px',
+                color: '#fff',
+              }}>
+              {mainData.festigalSongWriter}
+            </span>
+            <img
+              src='./images/Group6746.png'
+              alt=''
+              title=''
+              style={{
+                maxWidth: '380px',
+              }}
+            />
+          </Box>
           <Box
             sx={{
               display: 'flex',
@@ -76,7 +90,7 @@ function MusicSection(props) {
                   fontSize: '1.524vw',
                   fontFamily: 'GveretLevinAlefAlefAlef',
                 }}>
-                שיר הפסטיגל 2022
+                {mainData.festigalSong}
               </Box>
               <Box
                 sx={{
@@ -85,25 +99,28 @@ function MusicSection(props) {
                   fontWeight: '800',
                   fontStyle: 'normal',
                 }}>
-                אני יכול הכל
+                {mainData.festigalSongName}
               </Box>
               <Box
                 className={classes.mediumText}
                 sx={{
                   fontSize: '1.944vw',
                 }}>
-                עדן חסון ומשתתפי הפסטיגל
+                {mainData.festigalSongSinger}
               </Box>
             </Box>
             <Box>
-              <a href='https://www.youtube.com/watch?v=iCAKpASnFgw' target='_blank'>
-              <img
-                style={{
-                  cursor: 'pointer',
-                }}
-                src='./images/play.png'
-                alt='play'
-              /></a>
+              <a
+                href='https://www.youtube.com/watch?v=iCAKpASnFgw'
+                target='_blank'>
+                <img
+                  style={{
+                    cursor: 'pointer',
+                  }}
+                  src='./images/play.png'
+                  alt='play'
+                />
+              </a>
             </Box>
           </Box>
           <Box className={classes.rectangle}></Box>
@@ -115,7 +132,7 @@ function MusicSection(props) {
               fontSize: '2.312vw',
               padding: '0 0 50px',
             }}>
-            פלייליסטים מכל הזמנים
+            {mainData.playlistTitle}
           </Box>
           <Box>
             <PlaylistCarousel items={items} />
@@ -126,7 +143,7 @@ function MusicSection(props) {
               fontSize: '2.312vw',
               padding: '100px 0 50px',
             }}>
-            הפודקאסט של הפסטיגל
+            {mainData.podcastTitle}
           </Box>
           <Box>
             <PlaylistCarousel items={items} />

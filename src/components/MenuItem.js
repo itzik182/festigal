@@ -11,18 +11,7 @@ export const MenuItem = (props) => {
   const { image, text, link } = item;
   const { url, title, alt } = image;
 
-  const router = useRouter();
-  const { pathname, query } = router;
-  const { id } = query;
-
-  // const escapeRegExpMatch = function (s) {
-  //   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-  // };
-  // const isExactMatch = (str, match) => {
-  //   return new RegExp(`\\b${escapeRegExpMatch(match)}\\b`).test(str);
-  // };
-
-  // const selected = item.ref.includes(id) || (item.ref.length > 1 && pathname.substring(1).includes(item.ref.substring(1)));
+  const isBlank = link.includes('http');
 
   return (
     <ListItem
@@ -32,7 +21,7 @@ export const MenuItem = (props) => {
           // color: selected && '#011434',
         },
         textAlign: 'center',
-        marginTop: '30px !important',
+        marginBottom: '25px !important',
         // '&:hover': {
         //   background: '#f5f8ac',
         //   '.MuiListItemText-root': {
@@ -40,8 +29,9 @@ export const MenuItem = (props) => {
         //   },
         // },
       }}>
-      <Link href={`/#${link}`}>
+      <Link href={link}>
         <a
+          target={isBlank ? '_blank' : '_self'}
           onClick={() => handleItemClick()}
           style={{
             textDecoration: 'none',

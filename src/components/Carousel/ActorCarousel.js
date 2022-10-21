@@ -73,8 +73,8 @@ const ActorCarousel = (props) => {
                   'transparent url(./images/frame-4.png) center center no-repeat',
               }}>
               <img
-                //   width={'168px'}
                 src={item?.imageSmall?.url}
+                alt={item?.imageSmall?.alt}
                 style={{
                   outline: '0 !important',
                   position: 'absolute',
@@ -106,6 +106,7 @@ const ActorCarousel = (props) => {
         sx={{
           position: 'absolute',
           top: '0',
+          left: '0',
           height: '100%',
           width: '8%',
         }}
@@ -115,7 +116,7 @@ const ActorCarousel = (props) => {
         sx={{
           position: 'absolute',
           top: '0',
-          left: '0',
+          right: '0',
           height: '100%',
           width: '8%',
         }}
