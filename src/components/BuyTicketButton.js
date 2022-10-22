@@ -1,7 +1,7 @@
 import Box from '@material-ui/core/Box';
 import Link from 'next/link';
 
-export const TicketButton = (props) => {
+export const BuyTicketButton = (props) => {
   const { text } = props;
 
   return (
@@ -16,8 +16,8 @@ export const TicketButton = (props) => {
         textAlign: 'center',
         border: '3px solid #C79A4F',
         borderRadius: '35px',
-        backgroundImage:
-          'linear-gradient(\n  245deg,\n  hsl(43deg 95% 32%) 0%,\n  hsl(43deg 63% 42%) 10%,\n  hsl(44deg 50% 51%) 20%,\n  hsl(46deg 56% 61%) 30%,\n  hsl(48deg 68% 72%) 40%,\n  hsl(50deg 100% 84%) 50%,\n  hsl(50deg 93% 82%) 60%,\n  hsl(51deg 88% 80%) 70%,\n  hsl(48deg 74% 72%) 80%,\n  hsl(44deg 64% 58%) 90%,\n  hsl(42deg 76% 44%) 100%\n)',
+        background: "transparent radial-gradient(closest-side at 50% 50%, #4FDBD7 0%, #01A2B9 100%) 0% 0% no-repeat padding-box", 
+        boxShadow: "0px 10px 6px #00000029"
       }}>
       <Link href='https://www.youtube.com/c/myfestigalofficial/featured'>
         <a target='_blank'>{text}</a>
@@ -26,4 +26,4 @@ export const TicketButton = (props) => {
   );
 };
 
-export default TicketButton;
+export default BuyTicketButton;

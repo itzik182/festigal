@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 // import Drawer from '@material-ui/core/Drawer';
-import Drawer from '@mui/material/Drawer';
+// import Drawer from '@mui/material/Drawer';
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
@@ -18,7 +18,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import { useDarkMode } from 'util/theme';
 import YoutubeEmbed from '../components/YoutubeEmbed';
-import { DrawerItemList } from './DrawerItemList';
+import { MenuDrawer } from './Drawer/MenuDrawer/MenuDrawer';
+import { InformationDrawer } from './Drawer/InformationDrawer/InformationDrawer';
 import SocialIcons from 'components/SocialIcons';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,10 +52,18 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
-  const { items, mainData, socialIcons } = props;
+  const {
+    menuItems,
+    showsItems,
+    faqItems,
+    mainData,
+    ticketsInformationData,
+    socialIcons,
+  } = props;
 
   const darkMode = useDarkMode();
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
+  const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
 
   // Use inverted logo if specified
   // and we are in dark mode
@@ -62,7 +71,7 @@ function Navbar(props) {
     props.logoInverted && darkMode.value ? props.logoInverted : props.logo;
 
   const handleItemClick = () => {
-    setDrawerOpen(false);
+    setMenuDrawerOpen(false);
   };
 
   const videoId = mainData?.video?.url?.substring(
@@ -106,10 +115,37 @@ function Navbar(props) {
             }}>
             <IconButton
               onClick={() => {
-                setDrawerOpen(true);
+                setMenuDrawerOpen(true);
               }}
               color='inherit'>
               <MenuIcon style={{ fontSize: '40px' }} />
+            </IconButton>
+          </Box>
+          <Box
+            sx={{
+              top: '68px',
+              left: '40px',
+              zIndex: '10',
+              position: 'absolute',
+              width: 'min-content',
+              fontFamily: "'Noto Sans Hebrew'",
+              fontSize: '19px',
+            }}>
+            <Box
+              sx={{
+                filter: 'blur(18px)',
+                background:
+                  "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
+                height: '98px',
+                position: 'absolute',
+                width: '100%',
+              }}></Box>
+            <IconButton
+              onClick={() => {
+                setInformationDrawerOpen(true);
+              }}
+              color='inherit'>
+              {mainData.ticketsInformationText}
             </IconButton>
           </Box>
           <Box
@@ -175,7 +211,23 @@ function Navbar(props) {
           </Box>
         </Box>
       </AppBar>
-      <Drawer
+      <MenuDrawer
+        items={menuItems}
+        handleItemClick={handleItemClick}
+        ticketsInformationText={mainData.ticketsInformationText}
+        drawerOpen={menuDrawerOpen}
+        setDrawerOpen={setMenuDrawerOpen}
+      />
+      <InformationDrawer
+        ticketsInformationData={ticketsInformationData}
+        showsItems={showsItems}
+        faqItems={faqItems}
+        handleItemClick={handleItemClick}
+        ticketsInformationText={mainData.ticketsInformationText}
+        drawerOpen={informationDrawerOpen}
+        setDrawerOpen={setInformationDrawerOpen}
+      />
+      {/* <Drawer
         anchor='right'
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
@@ -192,7 +244,7 @@ function Navbar(props) {
           handleItemClick={handleItemClick}
           isDrawerOpen={drawerOpen}
         />
-      </Drawer>
+      </Drawer> */}
     </Section>
   );
 }

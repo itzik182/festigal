@@ -69,6 +69,29 @@ export async function getMainData() {
   return data?.mainText;
 }
 
+export async function getTicketsInformationData() {
+  const query = `query ticketsInformationText {
+    ticketsInformationText {
+      id
+      informationTitle
+      informationDescription
+      faqTitle
+      faqDescription
+      ticketTitle
+      ticketDescription
+      accessibilityTitle
+      accessibilityDescription
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.ticketsInformationText;
+}
+
 export async function getSocialIcons() {
   const query = `query allSocialMediaIcons {
     allSocialMediaIcons(filter: {isDisplay: {eq: "true"}}) {
@@ -96,6 +119,44 @@ export async function getSocialIcons() {
   });
 
   return data?.allSocialMediaIcons;
+}
+
+export async function getAllShows() {
+  const query = `query allShows {
+    allShows(filter: {isDisplay: {eq: "true"}}) {
+      id
+      buyTicketLink
+      locationLink
+      date
+      city
+      auditorium
+      isTicketsAvailable
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allShows;
+}
+
+export async function getAllFaqs() {
+  const query = `query allFaqs {
+    allFaqs(filter: {isDisplay: {eq: "true"}}) {
+      id
+      question
+      answer
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allFaqs;
 }
 
 export async function getAllFooters() {

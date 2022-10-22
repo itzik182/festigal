@@ -11,7 +11,7 @@ import Section from 'components/Section';
 import { useDarkMode } from 'util/theme';
 import Box from '@material-ui/core/Box';
 import SocialIcons from 'components/SocialIcons';
-import TicketButton from 'components/TicketButton';
+import InformationTicketButton from 'components/InformationTicketButton';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -100,13 +100,14 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
+                    key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
                         fontSize: isBold ? '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
-                      <Link key={id} href={link}>
+                      <Link href={link}>
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
@@ -127,13 +128,14 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
+                    key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
                         fontSize: isBold ? '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
-                      <Link key={id} href={link}>
+                      <Link href={link}>
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
@@ -154,13 +156,14 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
+                    key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
                         fontSize: isBold ? '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
-                      <Link key={id} href={link}>
+                      <Link href={link}>
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
@@ -181,13 +184,14 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
+                    key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
                         fontSize: isBold ? '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
-                      <Link key={id} href={link}>
+                      <Link href={link}>
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
@@ -246,6 +250,7 @@ function Footer(props) {
               const isBlank = link.includes('http');
               return (
                 <Box
+                key={id}
                   sx={{
                     marginBottom: '15px',
                     marginLeft: '20px',
@@ -253,7 +258,7 @@ function Footer(props) {
                     fontSize: isBold ? '18px' : '12px',
                     fontWeight: isBold ? '400' : 'none',
                   }}>
-                  <Link key={id} href={link}>
+                  <Link href={link}>
                     <a
                       target={isBlank ? '_blank' : '_self'}
                       rel='noopener noreferrer'>
@@ -284,7 +289,7 @@ function Footer(props) {
             isUseOriginalSize={true}
             margin={'0 10px 20px'}
           />
-          <TicketButton text={mainData.ticketsInformationText} />
+          <InformationTicketButton text={mainData.ticketsInformationText} />
         </Box>
       </Box>
     </Section>

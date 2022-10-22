@@ -3,7 +3,10 @@ import Meta from 'components/Meta';
 import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import {
   getMainData,
+  getTicketsInformationData,
   getSocialIcons,
+  getAllShows,
+  getAllFaqs,
   getAllFooters,
   getMenuItems,
   getNews,
@@ -31,7 +34,10 @@ import Footer from 'components/Footer';
 function IndexPage(props) {
   const {
     mainData,
+    ticketsInformationData,
     socialIcons,
+    showsItems,
+    faqItems,
     footerItems,
     menuItems,
     news,
@@ -44,13 +50,18 @@ function IndexPage(props) {
   } = props;
 
   console.log('mainData', mainData);
+  console.log('showsItems', showsItems);
+  console.log('ticketsInformationData', ticketsInformationData);
 
   return (
     <>
       <Navbar
         mainData={mainData}
+        ticketsInformationData={ticketsInformationData}
+        showsItems={showsItems}
+        faqItems={faqItems}
         socialIcons={socialIcons}
-        items={menuItems}
+        menuItems={menuItems}
         color='default'
         logo='./logo.png'
         logoInverted='https://uploads.divjoy.com/logo-white.svg'
@@ -85,7 +96,10 @@ export async function getStaticProps() {
   return {
     props: {
       mainData: (await getMainData()) || [],
+      ticketsInformationData: (await getTicketsInformationData()) || [],
       socialIcons: (await getSocialIcons()) || [],
+      showsItems: (await getAllShows()) || [],
+      faqItems: (await getAllFaqs()) || [],
       footerItems: (await getAllFooters()) || [],
       menuItems: (await getMenuItems()) || [],
       news: (await getNews()) || [],
