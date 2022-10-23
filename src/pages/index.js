@@ -49,9 +49,9 @@ function IndexPage(props) {
     games,
   } = props;
 
-  console.log('mainData', mainData);
-  console.log('showsItems', showsItems);
-  console.log('ticketsInformationData', ticketsInformationData);
+  // console.log('mainData', mainData);
+  // console.log('showsItems', showsItems);
+  // console.log('faqItems', faqItems);
 
   return (
     <>
@@ -62,9 +62,6 @@ function IndexPage(props) {
         faqItems={faqItems}
         socialIcons={socialIcons}
         menuItems={menuItems}
-        color='default'
-        logo='./logo.png'
-        logoInverted='https://uploads.divjoy.com/logo-white.svg'
       />
       <Meta />
       <NewsTicker item={news} />
@@ -84,7 +81,6 @@ function IndexPage(props) {
         mainData={mainData}
         socialIcons={socialIcons}
         items={footerItems}
-        logo='./images/image2.png'
       />
     </>
   );

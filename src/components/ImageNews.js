@@ -40,22 +40,31 @@ const ImageNews = (props) => {
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         padding: '150px 0 0',
+        // '&:after': {
+        //   content: "",
+        //   clear: 'both',
+        //   display: 'table',
+        // }
       }}>
       {items.map((item, index) => (
         <Box
           onClick={() => handleItemClick(item.link)}
           key={index}
           sx={{
-            marginBottom: '25px',
-            marginLeft: '12px',
-            marginRight: '12px',
+            // marginBottom: '25px',
+            // marginLeft: '12px',
+            // marginRight: '12px',
             cursor: 'pointer',
+            // float: 'left',
+            width: '32%',
+            // padding: '5px',
             // marginRight: '15px',
             // position: 'relative',
             // width: '610px',
             // height: '860px',
-            marginTop: index === 1 || index === 4 ? '-90px' : 0,
+            marginTop: index === 1 || index === 4 ? '-90px' : '-20px',
             // background: `transparent url(${item.url}) center center no-repeat`,
+            
           }}>
           <img
             src={item.imageWeb?.url}

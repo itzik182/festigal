@@ -5,7 +5,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
 const GameCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
@@ -33,75 +32,74 @@ const GameCarousel = (props) => {
     slide();
     sliderInterval = setInterval(() => {
       slide();
-    }, 300);
+    }, 100);
   };
 
   const handleItemClick = (link) => {
-    window.open(
-      link,
-      '_blank'
-    );
+    window.open(link, '_blank');
   };
 
   return (
-    <Box sx={{
-      position: 'relative',
-    }}>
+    <Box
+      sx={{
+        position: 'relative',
+      }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
             key={index}
-            sx={
-              {
-                display: "flex !important",
-                flexDirection: 'column',
-                alignItems: "center", 
-                justifyContent: "center", 
-                // height: "340px",
-                margin: "0 25px",
-                color: '#000',
-                cursor: 'pointer',
-              }
-            }
+            sx={{
+              display: 'flex !important',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              // height: "340px",
+              margin: '0 25px',
+              color: '#000',
+              cursor: 'pointer',
+            }}
             onClick={() => handleItemClick(item.link)}>
-              <Box sx={{
-                position: "relative",
+            <Box
+              sx={{
+                position: 'relative',
               }}>
-              <img
-                src={item?.imageWeb?.url}
-                alt={item?.imageWeb?.alt}
-              />
-              {item.imageText && <Box sx={{
-                  fontSize: "54px", 
-                  fontFamily: "GveretLevinAlefAlefAlef", 
-                  position: "absolute", 
-                  color: "rgb(255, 255, 255)", 
-                  display: "-webkit-box", 
-                  WebkitLineClamp: "3", 
-                  WebkitBoxOrient: "vertical", 
-                  overflow: "hidden", 
-                  textOverflow: "ellipsis", 
-                  padding: '20px',
-                  bottom: "0"
-              }}>
-                {item.imageText}
-              </Box>}
-              </Box>
-              <Box sx={{
+              <img src={item?.imageWeb?.url} alt={item?.imageWeb?.alt} />
+              {item.imageText && (
+                <Box
+                  sx={{
+                    fontSize: '54px',
+                    fontFamily: 'GveretLevinAlefAlefAlef',
+                    position: 'absolute',
+                    color: 'rgb(255, 255, 255)',
+                    display: '-webkit-box',
+                    WebkitLineClamp: '3',
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    padding: '20px',
+                    bottom: '0',
+                  }}>
+                  {item.imageText}
+                </Box>
+              )}
+            </Box>
+            <Box
+              sx={{
                 margin: '35px 0 0',
                 fontSize: '36px',
-                fontFamily: "Noto Sans Hebrew",
-                fontWeight: "800",
+                fontFamily: 'Noto Sans Hebrew',
+                fontWeight: '800',
               }}>
-                {item.firstTitle}
-              </Box>
-              <Box sx={{
-                fontSize: '36px',
-                fontFamily: "Noto Sans Hebrew",
-              }}>
-                {item.firstName}
-              </Box>
+              {item.firstTitle}
             </Box>
+            <Box
+              sx={{
+                fontSize: '36px',
+                fontFamily: 'Noto Sans Hebrew',
+              }}>
+              {item.firstName}
+            </Box>
+          </Box>
         ))}
       </Slider>
       <Box
@@ -113,8 +111,7 @@ const GameCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(false)}>
-      </Box>
+        onMouseOver={() => startSlide(false)}></Box>
       <Box
         sx={{
           position: 'absolute',
@@ -124,8 +121,7 @@ const GameCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(true)}>
-      </Box>
+        onMouseOver={() => startSlide(true)}></Box>
     </Box>
   );
 };

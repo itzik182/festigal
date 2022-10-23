@@ -5,17 +5,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// import TouchCarousel from 'react-touch-carousel'
-// import Carousel from '@brainhubeu/react-carousel';
-// import '@brainhubeu/react-carousel/lib/style.css';
-// import dynamic from 'next/dynamic';
-// import { useState } from 'react';
-
-// const { default: Carousel } = dynamic(
-//  () => require('@brainhubeu/react-carousel'),
-//  { ssr: false },
-// );
-
 const ShopCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
@@ -47,38 +36,65 @@ const ShopCarousel = (props) => {
   };
 
   const handleItemClick = (link) => {
-    window.open(
-      link,
-      '_blank'
-    );
+    window.open(link, '_blank');
   };
 
   return (
-    <Box sx={{
-      position: 'relative',
-    }}>
+    <Box
+      sx={{
+        position: 'relative',
+      }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
             key={index}
-            sx={
-              {
-                display: "flex !important", 
-                alignItems: "center", 
-                justifyContent: "center", 
-                height: "340px",
-                margin: "0 100px",
-              }
-            }
+            sx={{
+              display: 'flex !important',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '340px',
+              margin: '0 80px',
+              '&:hover .itemTitle': {
+                display: 'block',
+              },
+            }}
             onClick={() => handleItemClick(item.link)}>
+            <Box>
               <img
                 src={item?.imageWeb?.url}
                 alt={item?.imageWeb?.alt}
                 style={{
                   cursor: 'pointer',
+                  height: '182px',
                 }}
               />
             </Box>
+            <Box
+              sx={{ display: 'none', position: 'absolute', bottom: '5px' }}
+              className='itemTitle'>
+                <span
+                style={{
+                  fontFamily: 'GveretLevinAlefAlefAlef',
+                  position: 'absolute',
+                  width: "95px", 
+                  textAlign: "center", 
+                  color: "#2a94a2", 
+                  top: "17px", 
+                  left: "62px",
+                  transform: 'rotate(347deg)',
+                }}>
+                חייבים את זה? קנו את זה עכשיו
+              </span>
+              <img
+                src='./images/Group6791.svg'
+                alt='circle'
+                style={{
+                  width: '210px',
+                  height: '75px',
+                }}
+              />
+            </Box>
+          </Box>
         ))}
       </Slider>
       <Box
@@ -90,8 +106,7 @@ const ShopCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(false)}>
-      </Box>
+        onMouseOver={() => startSlide(false)}></Box>
       <Box
         sx={{
           position: 'absolute',
@@ -101,8 +116,7 @@ const ShopCarousel = (props) => {
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(true)}>
-      </Box>
+        onMouseOver={() => startSlide(true)}></Box>
     </Box>
   );
 };

@@ -9,9 +9,8 @@ export const NewsTicker = (props) => {
   return (
     <Section
       sx={{
-        padding: '48px 0 8px !important',
-        background: '#F1ECE4 0% 0% no-repeat padding-box',
-        height: '100px',
+        padding: '10px 0px !important',
+        background: '#F1ECE4 !important',
         direction: 'rtl',
         
       }}>

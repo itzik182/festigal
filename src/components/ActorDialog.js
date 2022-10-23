@@ -107,7 +107,7 @@ function ActorDialog(props) {
               minWidth: '255px',
               fontSize: '20px',
               textAlign: 'right',
-              fontFamily: 'NotoSansHebrew',
+              fontFamily: 'Noto Sans Hebrew',
               lineHeight: '1.65',
             }}>
             {item?.description}

@@ -57,9 +57,9 @@ function SamplePrevArrow(props) {
 }
 
 const PlaylistCarousel = (props) => {
-  const [sliderInterval, setSliderInterval] = useState();
+  // const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
-  const { items } = props;
+  const { items, handleItemClick } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -76,21 +76,21 @@ const PlaylistCarousel = (props) => {
     prevArrow: <SamplePrevArrow />,
   };
 
-  const stopSlide = () => {
-    clearInterval(sliderInterval);
-  };
+  // const stopSlide = () => {
+  //   clearInterval(sliderInterval);
+  // };
 
-  const startSlide = (isNext) => {
-    const slide = isNext ? sliderRef.slickNext : sliderRef.slickPrev;
-    slide();
-    sliderInterval = setInterval(() => {
-      slide();
-    }, 300);
-  };
+  // const startSlide = (isNext) => {
+  //   const slide = isNext ? sliderRef.slickNext : sliderRef.slickPrev;
+  //   slide();
+  //   sliderInterval = setInterval(() => {
+  //     slide();
+  //   }, 100);
+  // };
 
-  const handleItemClick = (link) => {
-    window.open(link, '_blank');
-  };
+  // const handleItemClick = (link) => {
+  //   window.open(link, '_blank');
+  // };
 
   return (
     <Box
@@ -105,10 +105,10 @@ const PlaylistCarousel = (props) => {
               display: 'flex !important',
               alignItems: 'center',
               justifyContent: 'center',
-              // height: "340px",
               margin: '0 40px',
             }}
-            onClick={() => handleItemClick(item.link)}>
+            // onClick={() => handleItemClick(item.link)}>
+            onClick={() => handleItemClick(item)}>
             <img
               src={item?.imageWeb?.url}
               alt={item?.imageWeb?.alt}
@@ -116,33 +116,17 @@ const PlaylistCarousel = (props) => {
                 cursor: 'pointer',
               }}
             />
-            <img src='./images/Polygon5.png' alt='play' style={{
-              position: 'absolute',
-              cursor: 'pointer',
-            }} />
+            <img
+              src='./images/Polygon5.png'
+              alt='play'
+              style={{
+                position: 'absolute',
+                cursor: 'pointer',
+              }}
+            />
           </Box>
         ))}
       </Slider>
-      {/* <Box
-        sx={{
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          height: '100%',
-          width: '8%',
-        }}
-        onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(false)}></Box>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '0',
-          right: '0',
-          height: '100%',
-          width: '8%',
-        }}
-        onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(true)}></Box> */}
     </Box>
   );
 };

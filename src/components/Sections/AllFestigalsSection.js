@@ -56,6 +56,7 @@ function AllFestigalsSection(props) {
             position: 'absolute',
             top: '380px',
             left: '190px',
+            zIndex: "10",
           }}>
           <img
             src='./images/my_big.png'

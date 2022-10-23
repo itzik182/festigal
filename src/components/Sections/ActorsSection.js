@@ -1,12 +1,7 @@
-import React, {useState} from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import SectionHeader from 'components/SectionHeader';
 import ActorCarousel from '../Carousel/ActorCarousel';
 import ActorDialog from '../ActorDialog';
 
@@ -33,7 +28,6 @@ function ActorsSection(props) {
   }
 
   const handleItemClick = (item) => {
-    // alert(item.name);
     setSelectedItem(item);
     setOpen(item);
   };
@@ -47,11 +41,7 @@ function ActorsSection(props) {
       <Box className={classes.container}>
         <ActorCarousel items={items} handleItemClick={handleItemClick} />
       </Box>
-      <ActorDialog
-        open={open}
-        onClose={handleClose}
-        item={selectedItem}
-      />
+      <ActorDialog open={open} onClose={handleClose} item={selectedItem} />
     </Section>
   );
 }

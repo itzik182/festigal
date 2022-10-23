@@ -32,6 +32,54 @@ a {
   text-decoration: none;
 }
 
-textarea:focus, input:focus, div:focus, img:focus {
+textarea:focus,
+input:focus,
+div:focus,
+img:focus {
   outline: none !important;
+}
+
+
+/* faq */
+
+.faq-row {
+  border-color: #01A2B9 !important;
+  padding: 0 0 2px !important;
+}
+
+.row-content, .expanded  {
+  /* background: transparent radial-gradient(closest-side at 50% 50%, #52B4B1 0%, #01A2B9 100%) 0% 0% no-repeat padding-box; */
+  background-image: linear-gradient(
+  0deg,
+  hsl(178deg 40% 51%) 0%,
+  hsl(180deg 40% 50%) 11%,
+  hsl(181deg 44% 49%) 22%,
+  hsl(183deg 48% 48%) 33%,
+  hsl(184deg 53% 46%) 44%,
+  hsl(185deg 58% 45%) 56%,
+  hsl(186deg 64% 44%) 67%,
+  hsl(187deg 71% 42%) 78%,
+  hsl(187deg 81% 40%) 89%,
+  hsl(188deg 99% 36%) 100%
+);
+}
+
+.expanded  {
+  background: #01A2B9;
+}
+
+.row-title-text {
+  font-weight: bold;
+}
+
+.icon-wrapper {
+  font-size: 32px;
+  top: 2px !important;
+  right: 15px !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.expanded .icon-wrapper {
+  right: 18px !important;
 }

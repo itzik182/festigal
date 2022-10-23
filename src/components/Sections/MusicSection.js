@@ -1,13 +1,9 @@
-import React from 'react';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
+import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
-// import Button from '@material-ui/core/Button';
-// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-// import SectionHeader from 'components/SectionHeader';
 import PlaylistCarousel from '../Carousel/PlaylistCarousel';
+import MusicDialog from '../MusicDialog';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -37,8 +33,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MusicSection(props) {
+  const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState();
+
   const classes = useStyles();
   const { items, mainData } = props;
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    setOpen(item);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Section id='playlists' className={classes.section}>
@@ -135,7 +143,7 @@ function MusicSection(props) {
             {mainData.playlistTitle}
           </Box>
           <Box>
-            <PlaylistCarousel items={items} />
+            <PlaylistCarousel items={items} handleItemClick={handleItemClick} />
           </Box>
           <Box
             className={classes.mediumText}
@@ -146,10 +154,11 @@ function MusicSection(props) {
             {mainData.podcastTitle}
           </Box>
           <Box>
-            <PlaylistCarousel items={items} />
+            <PlaylistCarousel items={items} handleItemClick={handleItemClick} />
           </Box>
         </Box>
       </Box>
+      <MusicDialog open={open} onClose={handleClose} item={selectedItem} />
     </Section>
   );
 }

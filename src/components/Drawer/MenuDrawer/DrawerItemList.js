@@ -1,10 +1,10 @@
 import List from '@mui/material/List';
 import { MenuItem } from './MenuItem';
 import Box from '@material-ui/core/Box';
-import InformationTicketButton from 'components/InformationTicketButton';
+import GoldButton from 'components/GoldButton';
 
 export const DrawerItemList = (props) => {
-  const { items, isDrawerOpen, handleItemClick, ticketsInformationText } =
+  const { items, isDrawerOpen, handleItemClick, ticketsInformationText, ticketsInformationLink } =
     props;
 
   return (
@@ -26,7 +26,7 @@ export const DrawerItemList = (props) => {
           sx={{
             margin: '0 70px 0',
           }}>
-          <InformationTicketButton text={ticketsInformationText} />
+          <GoldButton text={ticketsInformationText} link={ticketsInformationLink} />
         </Box>
       </List>
     </>

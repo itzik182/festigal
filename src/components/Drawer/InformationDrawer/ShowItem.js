@@ -1,8 +1,4 @@
 import React from 'react';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Box from '@material-ui/core/Box';
 import BuyTicketButton from 'components/BuyTicketButton';
@@ -40,6 +36,7 @@ export const ShowItem = (props) => {
       <Box
         sx={{
           fontSize: '26px',
+          fontWeight: 'bold',
         }}>
         {city}
       </Box>
@@ -49,20 +46,30 @@ export const ShowItem = (props) => {
         }}>
         {auditorium}
       </Box>
-      <Box sx={{
-        margin: '10px 0',
-      }}>
+      <Box
+        sx={{
+          margin: '10px 0',
+        }}>
         <BuyTicketButton
-          text={isTicketsAvailable ? 'הזמנת כרטיסים' : 'הכרטיסים אזלו'}
+          link={buyTicketLink}
+          isTicketsAvailable={isTicketsAvailable}
         />
       </Box>
       <Box
         sx={{
           fontSize: '14px',
           color: '#A2711D',
+          fontWeight: 'bold',
+          textDecoration: 'underline',
+          width: 'max-content',
+          margin: '0 auto',
         }}>
-        <Box>דרכי הגעה</Box>
-        <Box>ל{auditorium}</Box>
+        <Link href={locationLink}>
+          <a target={'_blank'}>
+            <Box>דרכי הגעה</Box>
+            <Box>ל{auditorium}</Box>
+          </a>
+        </Link>
       </Box>
     </Box>
   );

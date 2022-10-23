@@ -1,17 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-// import Container from '@material-ui/core/Container';
-// import Typography from '@material-ui/core/Typography';
-// import LinkMui from '@material-ui/core/Link';
-// import TwitterIcon from '@material-ui/icons/Twitter';
-// import FacebookIcon from '@material-ui/icons/Facebook';
-// import InstagramIcon from '@material-ui/icons/Instagram';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import { useDarkMode } from 'util/theme';
 import Box from '@material-ui/core/Box';
 import SocialIcons from 'components/SocialIcons';
-import InformationTicketButton from 'components/InformationTicketButton';
+import GoldButton from 'components/GoldButton';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -32,12 +25,6 @@ function Footer(props) {
   const column3 = items?.filter((item) => item.column.columnNumber === 3);
   const column4 = items?.filter((item) => item.column.columnNumber === 4);
   const column5 = items?.filter((item) => item.column.columnNumber === 5);
-
-  const darkMode = useDarkMode();
-  // Use inverted logo if specified
-  // and we are in dark mode
-  const logo =
-    props.logoInverted && darkMode.value ? props.logoInverted : props.logo;
 
   return (
     <Section
@@ -63,7 +50,7 @@ function Footer(props) {
       }}>
       <Box
         sx={{
-          padding: '0 163px 50px 122px',
+          padding: '0px 5% 50px 5%',
           display: 'flex',
           justifyContent: 'space-between',
           fontFamily: 'Noto Sans Hebrew',
@@ -104,7 +91,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '18px' : '12px',
+                        fontSize: isBold ? '0.946vw' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -132,7 +119,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '18px' : '12px',
+                        fontSize: isBold ? '0.946vw' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -160,7 +147,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '18px' : '12px',
+                        fontSize: isBold ? '0.946vw' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -188,7 +175,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '18px' : '12px',
+                        fontSize: isBold ? '0.946vw' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -214,7 +201,7 @@ function Footer(props) {
                 }}>
                 <Box
                   sx={{
-                    fontSize: '18px',
+                    fontSize: '0.946vw',
                     fontWeight: 'bold',
                   }}>
                   {mainData.youtubeText}
@@ -243,6 +230,7 @@ function Footer(props) {
           <Box
             sx={{
               border: '1px solid #2A7D98',
+              margin: '25px 0',
             }}></Box>
           <Box sx={{ display: 'flex' }}>
             {column5.map((col) => {
@@ -255,7 +243,7 @@ function Footer(props) {
                     marginBottom: '15px',
                     marginLeft: '20px',
                     color: isBold && '#36D4DE',
-                    fontSize: isBold ? '18px' : '12px',
+                    fontSize: isBold ? '0.946vw' : '12px',
                     fontWeight: isBold ? '400' : 'none',
                   }}>
                   <Link href={link}>
@@ -280,7 +268,7 @@ function Footer(props) {
           <Box>
             <Link href='/'>
               <a>
-                <img src={logo} alt='Logo' className={classes.brand} />
+                <img src='./images/image2.png' alt='Logo' className={classes.brand} />
               </a>
             </Link>
           </Box>
@@ -289,7 +277,7 @@ function Footer(props) {
             isUseOriginalSize={true}
             margin={'0 10px 20px'}
           />
-          <InformationTicketButton text={mainData.ticketsInformationText} />
+          <GoldButton text={mainData.ticketsInformationText} link={mainData.ticketsInformationLink} />
         </Box>
       </Box>
     </Section>

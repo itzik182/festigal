@@ -43,7 +43,7 @@ const ActorCarousel = (props) => {
     slide();
     sliderInterval = setInterval(() => {
       slide();
-    }, 300);
+    }, 100);
   };
 
   return (
@@ -55,13 +55,6 @@ const ActorCarousel = (props) => {
         {items.map((item, index) => (
           <Box
             key={index}
-            sx={
-              {
-                //   width: '627px',
-                //   background:
-                //     'transparent url(./images/FRAME.png) center center no-repeat',
-              }
-            }
             onClick={() => handleItemClick(item)}>
             <Box
               sx={{

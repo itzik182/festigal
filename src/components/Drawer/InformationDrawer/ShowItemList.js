@@ -1,7 +1,7 @@
 import { ShowItem } from './ShowItem';
 
-export const DrawerItemList = (props) => {
-  const { items, isDrawerOpen, handleItemClick, ticketsInformationText } =
+export const ShowItemList = (props) => {
+  const { items, isDrawerOpen, handleItemClick } =
     props;
 
   return (

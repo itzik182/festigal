@@ -37,6 +37,7 @@ export async function getMainData() {
     mainText {
       youtubeText
       ticketsInformationText
+      ticketsInformationLink
       podcastTitle
       playlistTitle
       myFestigalWebsiteText
@@ -52,6 +53,12 @@ export async function getMainData() {
       festigalSongName
       festigalSong
       comingSoonText
+      videoBigText
+      videoSmallText
+      flagText
+      firstShowDate
+      flagButtonText
+      showLink
       video {
         url
         width
@@ -145,9 +152,8 @@ export async function getAllShows() {
 export async function getAllFaqs() {
   const query = `query allFaqs {
     allFaqs(filter: {isDisplay: {eq: "true"}}) {
-      id
-      question
-      answer
+      title
+      content
     }
   }
   `;

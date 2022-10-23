@@ -52,7 +52,7 @@ function AboutSection(props) {
     <Section id='about' className={classes.section}>
       <Box className={classes.container}>
         <Box className={classes.containerA}>
-        <Box
+          <Box
             sx={{
               maxWidth: '800px',
             }}>
@@ -98,7 +98,7 @@ function AboutSection(props) {
                 paddingLeft: '40px',
                 direction: 'rtl',
                 // fontFamily: 'NotoSansHebrew',
-                fontFamily: "Noto Sans Hebrew",
+                fontFamily: 'Noto Sans Hebrew',
               }}>
               {item.description}
             </Box>
@@ -107,17 +107,13 @@ function AboutSection(props) {
             sx={{
               position: 'relative',
             }}>
-              <img
+            <img
+              sizes='(min-width: 400px) 80vw, 100vw'
+              srcset='./images/image-60.png 375w,
+              ./images/image-60.png 1500w'
               src='./images/image-60.png'
-              alt=''
+              alt='image-60'
               title=''
-              style={
-                {
-                  // height: 'auto',
-                  // width: '100%',
-                  // maxWidth: '677px',
-                }
-              }
             />
             <Box
               sx={{
@@ -138,7 +134,7 @@ function AboutSection(props) {
               </span>
               <img
                 src='./images/Group7277.png'
-                alt=''
+                alt='Group7277'
                 title=''
                 style={{
                   maxWidth: '380px',
@@ -156,7 +152,7 @@ function AboutSection(props) {
               lineHeight: '1.74',
               padding: '90px',
               direction: 'rtl',
-              fontFamily: "Noto Sans Hebrew",
+              fontFamily: 'Noto Sans Hebrew',
             }}>
             {item.details}
           </Box>
