@@ -55,6 +55,10 @@ function ShopSection(props) {
               height: '70px',
               textAlign: 'center',
               margin: '67px auto 0',
+              transition: 'all .2s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.1)',
+              }
             }}>
             <GoldButton text={'COMING SOON'} />
           </Box>
