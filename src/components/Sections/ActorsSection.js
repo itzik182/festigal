@@ -41,7 +41,7 @@ function ActorsSection(props) {
     setOpen(false);
   };
 
-  const shareUrl = `${router.pathname}/#${sectionId}`;
+  const shareUrl = `${router.pathname}#${sectionId}`;
 
   return (
     <Section id={sectionId} className={classes.section}>
