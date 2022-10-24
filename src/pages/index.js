@@ -5,6 +5,7 @@ import {
   getMainData,
   getTicketsInformationData,
   getSocialIcons,
+  getAllNewsFlashes,
   getAllShows,
   getAllFaqs,
   getAllFooters,
@@ -36,6 +37,7 @@ function IndexPage(props) {
     mainData,
     ticketsInformationData,
     socialIcons,
+    newsFlashesItems,
     showsItems,
     faqItems,
     footerItems,
@@ -49,8 +51,8 @@ function IndexPage(props) {
     games,
   } = props;
 
-  // console.log('mainData', mainData);
-  // console.log('showsItems', showsItems);
+  console.log('mainData', mainData);
+  console.log('newsFlashesItems', newsFlashesItems);
   // console.log('faqItems', faqItems);
 
   return (
@@ -58,6 +60,7 @@ function IndexPage(props) {
       <Navbar
         mainData={mainData}
         ticketsInformationData={ticketsInformationData}
+        newsFlashesItems={newsFlashesItems}
         showsItems={showsItems}
         faqItems={faqItems}
         socialIcons={socialIcons}
@@ -94,6 +97,7 @@ export async function getStaticProps() {
       mainData: (await getMainData()) || [],
       ticketsInformationData: (await getTicketsInformationData()) || [],
       socialIcons: (await getSocialIcons()) || [],
+      newsFlashesItems: (await getAllNewsFlashes()) || [],
       showsItems: (await getAllShows()) || [],
       faqItems: (await getAllFaqs()) || [],
       footerItems: (await getAllFooters()) || [],

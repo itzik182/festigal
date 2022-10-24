@@ -35,7 +35,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const HeaderBar = (props) => {
   const classes = useStyles();
-  const { socialIcons, ticketsInformationText, setMenuDrawerOpen, setInformationDrawerOpen } = props;
+  const {
+    socialIcons,
+    ticketsInformationText,
+    setMenuDrawerOpen,
+    setInformationDrawerOpen,
+    setNewsFlashesDrawerOpen,
+  } = props;
 
   return (
     <AppBar position='static' color='transparent' elevation={0}>
@@ -64,6 +70,21 @@ export const HeaderBar = (props) => {
         </Box>
         <Box
           sx={{
+            position: 'absolute',
+            left: '180px',
+            zIndex: '10',
+            top: '30px',
+          }}>
+          <IconButton
+            onClick={() => {
+              setNewsFlashesDrawerOpen(true);
+            }}
+            color='inherit'>
+            <img src='./images/ring.svg' alt='Ring' />
+          </IconButton>
+        </Box>
+        <Box
+          sx={{
             top: '68px',
             left: '40px',
             zIndex: '10',
@@ -81,11 +102,12 @@ export const HeaderBar = (props) => {
               position: 'absolute',
               width: '100%',
             }}></Box>
-          <IconButton style={{
-            fontFamily: "Noto Sans Hebrew",
-            fontSize: '19px',
-            fontWeight: 'bold',
-          }}
+          <IconButton
+            style={{
+              fontFamily: 'Noto Sans Hebrew',
+              fontSize: '19px',
+              fontWeight: 'bold',
+            }}
             onClick={() => {
               setInformationDrawerOpen(true);
             }}

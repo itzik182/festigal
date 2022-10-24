@@ -27,7 +27,6 @@ export const InformationDrawer = (props) => {
     ticketsInformationData,
     showsItems,
     faqItems,
-    handleItemClick,
     ticketsInformationText,
     drawerOpen,
     setDrawerOpen,
@@ -82,7 +81,6 @@ export const InformationDrawer = (props) => {
           <ShowItemList
             ticketsInformationText={ticketsInformationText}
             items={showsItems}
-            handleItemClick={handleItemClick}
             isDrawerOpen={drawerOpen}
           />
         </Box>
@@ -97,7 +95,6 @@ export const InformationDrawer = (props) => {
           <FaqItemList
             ticketsInformationText={ticketsInformationText}
             items={faqItems}
-            handleItemClick={handleItemClick}
             isDrawerOpen={drawerOpen}
           />
         </Box>

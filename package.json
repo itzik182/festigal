@@ -16,6 +16,7 @@
     "@material-ui/lab": "4.0.0-alpha.60",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.9",
+    "@u-wave/react-vimeo": "^0.9.10",
     "@u-wave/react-youtube": "^0.7.4",
     "analytics": "0.3.1",
     "graphql": "^16.6.0",

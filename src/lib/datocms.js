@@ -59,6 +59,8 @@ export async function getMainData() {
       firstShowDate
       flagButtonText
       showLink
+      allNewsFlashLink
+      allNewsFlashText
       video {
         url
         width
@@ -126,6 +128,38 @@ export async function getSocialIcons() {
   });
 
   return data?.allSocialMediaIcons;
+}
+
+export async function getAllNewsFlashes() {
+  const query = `query allNewsFlashes {
+    allNewsFlashes(filter: {isDisplay: {eq: "true"}}) {
+      id
+      publisherName
+      link
+      description
+      image {
+        alt
+        width
+        url
+        title
+        height
+      }
+      publisherImage {
+        alt
+        width
+        url
+        title
+        height
+      }
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.allNewsFlashes;
 }
 
 export async function getAllShows() {

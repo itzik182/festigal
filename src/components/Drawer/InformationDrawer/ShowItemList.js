@@ -1,7 +1,7 @@
 import { ShowItem } from './ShowItem';
 
 export const ShowItemList = (props) => {
-  const { items, isDrawerOpen, handleItemClick } =
+  const { items, isDrawerOpen } =
     props;
 
   return (
@@ -10,7 +10,6 @@ export const ShowItemList = (props) => {
           <ShowItem
             key={item.id}
             item={item}
-            handleItemClick={handleItemClick}
             isDrawerOpen={isDrawerOpen}
           />
         ))}

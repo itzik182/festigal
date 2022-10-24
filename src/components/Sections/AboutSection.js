@@ -1,13 +1,9 @@
 import React from 'react';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-// import Button from '@material-ui/core/Button';
-// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-// import SectionHeader from 'components/SectionHeader';
-import YoutubeEmbed from '../YoutubeEmbed';
+// import YoutubeEmbed from '../YoutubeEmbed';
+import Vimeo from '@u-wave/react-vimeo';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -43,10 +39,15 @@ const useStyles = makeStyles((theme) => ({
 function AboutSection(props) {
   const classes = useStyles();
   const { item } = props;
+  const { text, description, details, video } = item;
 
-  const videoId = item?.video?.url?.substring(
-    item?.video?.url.indexOf('=') + 1
-  );
+  // console.log(item?.video?.url);
+
+  // const videoId = item?.video?.url?.substring(
+  //   item?.video?.url.indexOf('com/') + 1
+  // );
+
+  // console.log(videoId);
 
   return (
     <Section id='about' className={classes.section}>
@@ -100,7 +101,7 @@ function AboutSection(props) {
                 // fontFamily: 'NotoSansHebrew',
                 fontFamily: 'Noto Sans Hebrew',
               }}>
-              {item.description}
+              {description}
             </Box>
           </Box>
           <Box
@@ -130,7 +131,7 @@ function AboutSection(props) {
                   left: '135px',
                   transform: 'rotate(347deg)',
                 }}>
-                {item.text}
+                {text}
               </span>
               <img
                 src='./images/Group7277.png'
@@ -154,11 +155,20 @@ function AboutSection(props) {
               direction: 'rtl',
               fontFamily: 'Noto Sans Hebrew',
             }}>
-            {item.details}
+            {details}
           </Box>
         </Box>
         <Box>
-          <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} />
+          {/* <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} /> */}
+          <Vimeo
+            video={video?.url}
+            showTitle={false}
+            loop={false}
+            controls={true}
+            autoplay={false}
+            height='796px'
+            responsive='true'
+          />
         </Box>
       </Box>
     </Section>

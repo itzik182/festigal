@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 // import Hidden from '@material-ui/core/Hidden';
 // import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import YoutubeEmbed from '../components/YoutubeEmbed';
+// import YoutubeEmbed from '../components/YoutubeEmbed';
 import { MenuDrawer } from './Drawer/MenuDrawer/MenuDrawer';
 import { InformationDrawer } from './Drawer/InformationDrawer/InformationDrawer';
+import { NewsFlashesDrawer } from './Drawer/NewsFlashesDrawer/NewsFlashesDrawer';
 import HeaderBar from 'components/HeaderBar';
 import FirstShowFlag from 'components/FirstShowFlag';
 import VideoText from 'components/VideoText';
+import Vimeo from '@u-wave/react-vimeo';
 
 // const useStyles = makeStyles((theme) => ({
 
@@ -16,9 +18,11 @@ import VideoText from 'components/VideoText';
 function Navbar(props) {
   const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
   const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
+  const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
 
   const {
     menuItems,
+    newsFlashesItems,
     showsItems,
     faqItems,
     mainData,
@@ -36,13 +40,15 @@ function Navbar(props) {
     videoSmallText,
     ticketsInformationText,
     ticketsInformationLink,
+    allNewsFlashText,
+    allNewsFlashLink,
   } = mainData;
 
-  const handleItemClick = () => {
+  const handleMenuDrawerItemClick = () => {
     setMenuDrawerOpen(false);
   };
 
-  const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
+  // const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
 
   return (
     <Section
@@ -50,7 +56,7 @@ function Navbar(props) {
       sx={{
         minHeight: '796px',
       }}>
-      <YoutubeEmbed
+      {/* <YoutubeEmbed
         // url={'iCAKpASnFgw'}
         url={videoId}
         autoplay={true}
@@ -60,6 +66,22 @@ function Navbar(props) {
           margin: '0px auto',
           position: 'absolute',
           minHeight: '796px',
+        }}
+      /> */}
+      <Vimeo
+        video={video?.url}
+        showTitle={false}
+        loop={true}
+        controls={true}
+        autoplay={true}
+        height='796px'
+        width={'100%'}
+        responsive='true'
+        style={{
+          margin: '0px auto',
+          position: 'absolute',
+          minHeight: '796px',
+          width: '100%',
         }}
       />
       <FirstShowFlag
@@ -74,10 +96,11 @@ function Navbar(props) {
         ticketsInformationText={ticketsInformationText}
         setMenuDrawerOpen={setMenuDrawerOpen}
         setInformationDrawerOpen={setInformationDrawerOpen}
+        setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
       />
       <MenuDrawer
         items={menuItems}
-        handleItemClick={handleItemClick}
+        handleItemClick={handleMenuDrawerItemClick}
         ticketsInformationText={ticketsInformationText}
         ticketsInformationLink={ticketsInformationLink}
         drawerOpen={menuDrawerOpen}
@@ -87,10 +110,16 @@ function Navbar(props) {
         ticketsInformationData={ticketsInformationData}
         showsItems={showsItems}
         faqItems={faqItems}
-        handleItemClick={handleItemClick}
         ticketsInformationText={ticketsInformationText}
         drawerOpen={informationDrawerOpen}
         setDrawerOpen={setInformationDrawerOpen}
+      />
+      <NewsFlashesDrawer
+        items={newsFlashesItems}
+        allNewsFlashText={allNewsFlashText}
+        allNewsFlashLink={allNewsFlashLink}
+        drawerOpen={newsFlashesDrawerOpen}
+        setDrawerOpen={setNewsFlashesDrawerOpen}
       />
     </Section>
   );
