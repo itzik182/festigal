@@ -83,3 +83,7 @@ img:focus {
 .expanded .icon-wrapper {
   right: 18px !important;
 }
+
+.share-icon {
+  margin-right: 10px;
+}

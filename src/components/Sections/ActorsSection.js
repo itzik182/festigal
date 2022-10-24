@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import ActorCarousel from '../Carousel/ActorCarousel';
 import ActorDialog from '../ActorDialog';
+import { ShareSocialButton } from '../ShareSocialButton';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -17,11 +19,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ActorsSection(props) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState();
 
+  const sectionId = 'actors';
+
   const classes = useStyles();
-  const { items } = props;
+  const { items, socialIcons } = props;
 
   if (!items) {
     return <></>;
@@ -36,9 +41,18 @@ function ActorsSection(props) {
     setOpen(false);
   };
 
+  const shareUrl = `${router.pathname}/#${sectionId}`;
+
   return (
-    <Section id='actors' className={classes.section}>
+    <Section id={sectionId} className={classes.section}>
       <Box className={classes.container}>
+        <Box
+          sx={{
+            textAlign: 'left',
+            margin: '20px 0 0 20px',
+          }}>
+          <ShareSocialButton socialIcons={socialIcons} shareUrl={shareUrl} />
+        </Box>
         <ActorCarousel items={items} handleItemClick={handleItemClick} />
       </Box>
       <ActorDialog open={open} onClose={handleClose} item={selectedItem} />

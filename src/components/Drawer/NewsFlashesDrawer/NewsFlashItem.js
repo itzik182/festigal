@@ -19,18 +19,8 @@ export const NewsFlashItem = (props) => {
     <ListItem
       button
       sx={{
-        '.MuiListItemText-root': {
-          // color: selected && '#011434',
-        },
         textAlign: 'center',
         margin: '0 0 34px !important',
-        // marginBottom: '25px !important',
-        // '&:hover': {
-        //   background: '#f5f8ac',
-        //   '.MuiListItemText-root': {
-        //     color: '#011434',
-        //   },
-        // },
       }}>
       <Link href={link}>
         <a
@@ -40,7 +30,7 @@ export const NewsFlashItem = (props) => {
           }}>
           <Box
             sx={{
-              background: '#FFFFFF 0% 0% no-repeat padding-box',
+              background: '#fff 0% 0% no-repeat padding-box',
               borderRadius: '15px',
               color: '#000',
               fontFamily: 'Noto Sans Hebrew',
@@ -50,14 +40,13 @@ export const NewsFlashItem = (props) => {
               <Box sx={{
                   width: "50px", 
                   height: "50px", 
-                  border: "3px solid #FFFFFF", 
-                  // background: `transparent url(${publisherImageUrl}) 0% 0% no-repeat padding-box`,
+                  border: "3px solid #fff", 
                   borderRadius: '50px',
                   position: 'absolute',
                   top: "-8px", 
                   right: "-23px",
                   textAlign: 'center',
-                  backgroundColor: '#021B23',
+                  backgroundColor: publisherImageUrl ? '#fff' : '#021B23',
               }}>
                 <img src={publisherImageUrl} style={{
                   height: 'auto',

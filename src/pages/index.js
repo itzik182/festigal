@@ -69,7 +69,7 @@ function IndexPage(props) {
       <Meta />
       <NewsTicker item={news} />
       <AboutSection item={about} />
-      <ActorsSection items={actors} />
+      <ActorsSection items={actors} socialIcons={socialIcons} />
       <ShopSection items={products} mainData={mainData} />
       <LastNewsSection
         items={lastNews}
