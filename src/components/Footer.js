@@ -25,6 +25,7 @@ function Footer(props) {
   const column3 = items?.filter((item) => item.column.columnNumber === 3);
   const column4 = items?.filter((item) => item.column.columnNumber === 4);
   const column5 = items?.filter((item) => item.column.columnNumber === 5);
+  const column6 = items?.filter((item) => item.column.columnNumber === 6);
 
   return (
     <Section
@@ -87,7 +88,7 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
-                    key={id}
+                      key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
@@ -115,7 +116,7 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
-                    key={id}
+                      key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
@@ -143,7 +144,7 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
-                    key={id}
+                      key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
@@ -171,7 +172,7 @@ function Footer(props) {
                   const isBlank = link.includes('http');
                   return (
                     <Box
-                    key={id}
+                      key={id}
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
@@ -238,7 +239,7 @@ function Footer(props) {
               const isBlank = link.includes('http');
               return (
                 <Box
-                key={id}
+                  key={id}
                   sx={{
                     marginBottom: '15px',
                     marginLeft: '20px',
@@ -257,6 +258,28 @@ function Footer(props) {
               );
             })}
           </Box>
+          <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+            {column6.map((col, index) => {
+              const { id, text, link, isBold } = col;
+              const isBlank = link.includes('http');
+              return (
+                <>
+                  <Box
+                    key={id}
+                    sx={{
+                      color: '#47988C',
+                      fontSize: '12px',
+                      fontWeight: 'none',
+                    }}
+                    dangerouslySetInnerHTML={{ __html: text }}>
+                  </Box>{' '}
+                  {index !== column6.length-1 && (
+                    <span style={{ margin: '0 10px', color: '#47988C', }}>|</span>
+                  )}
+                </>
+              );
+            })}
+          </Box>
         </Box>
         <Box
           sx={{
@@ -268,7 +291,11 @@ function Footer(props) {
           <Box>
             <Link href='/'>
               <a>
-                <img src='./images/image2.png' alt='Logo' className={classes.brand} />
+                <img
+                  src='./images/image2.png'
+                  alt='Logo'
+                  className={classes.brand}
+                />
               </a>
             </Link>
           </Box>
@@ -277,7 +304,10 @@ function Footer(props) {
             isUseOriginalSize={true}
             margin={'0 10px 20px'}
           />
-          <GoldButton text={mainData.ticketsInformationText} link={mainData.ticketsInformationLink} />
+          <GoldButton
+            text={mainData.ticketsInformationText}
+            link={mainData.ticketsInformationLink}
+          />
         </Box>
       </Box>
     </Section>

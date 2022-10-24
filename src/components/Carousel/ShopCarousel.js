@@ -20,7 +20,7 @@ const ShopCarousel = (props) => {
     variableWidth: true,
     arrows: false,
     swipeToSlide: true,
-    swipe: false,
+    swipe: true,
   };
 
   const stopSlide = () => {
