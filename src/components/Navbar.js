@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import Hidden from '@material-ui/core/Hidden';
 // import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -10,6 +10,7 @@ import HeaderBar from 'components/HeaderBar';
 import FirstShowFlag from 'components/FirstShowFlag';
 import VideoText from 'components/VideoText';
 import Vimeo from '@u-wave/react-vimeo';
+import { useWindowWidth } from '@react-hook/window-size';
 
 // const useStyles = makeStyles((theme) => ({
 
@@ -19,6 +20,8 @@ function Navbar(props) {
   const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
   const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
   const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
+  const windowWidth = useWindowWidth();
+  const isDesktopLayout = windowWidth >= 960;
 
   const {
     menuItems,
@@ -31,7 +34,8 @@ function Navbar(props) {
   } = props;
 
   const {
-    video,
+    mainVideo,
+    mainVideoMobile,
     flagText,
     firstShowDate,
     flagButtonText,
@@ -48,13 +52,17 @@ function Navbar(props) {
     setMenuDrawerOpen(false);
   };
 
+  useEffect(() => {
+
+  }, [isDesktopLayout])
+
   // const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
 
   return (
     <Section
       size='auto'
       sx={{
-        minHeight: '796px',
+        // minHeight: '796px',
       }}>
       {/* <YoutubeEmbed
         // url={'iCAKpASnFgw'}
@@ -69,7 +77,7 @@ function Navbar(props) {
         }}
       /> */}
       <Vimeo
-        video={video?.url}
+        video={isDesktopLayout ? mainVideo?.url : mainVideoMobile?.url}
         showTitle={false}
         loop={true}
         controls={true}
@@ -77,11 +85,15 @@ function Navbar(props) {
         playsInline={true}
         height='796px'
         width={'100%'}
+        // volume={1}
+        // paused={false}
+        // muted={false}
+        // background={true}
         responsive={true}
         style={{
           margin: '0px auto',
-          position: 'absolute',
-          minHeight: '796px',
+          position: 'relative',
+          // minHeight: '796px',
           width: '100%',
         }}
       />
@@ -92,7 +104,9 @@ function Navbar(props) {
         firstShowDate={firstShowDate}
       />
       <VideoText videoBigText={videoBigText} videoSmallText={videoSmallText} />
+      
       <HeaderBar
+      isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}
         ticketsInformationText={ticketsInformationText}
         setMenuDrawerOpen={setMenuDrawerOpen}

@@ -292,7 +292,7 @@ function Footer(props) {
             <Link href='/'>
               <a>
                 <img
-                  src='./images/image2.png'
+                  src='./logo/logo-web-big.png'
                   alt='Logo'
                   className={classes.brand}
                 />

@@ -3,17 +3,14 @@ import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Image from 'next/image';
 
 function ActorDialog(props) {
   const { open, item, onClose } = props;
 
-  //   const handleClose = () => {
-  //     onClose(selectedValue);
-  //   };
-
-  //   const handleListItemClick = (value: string) => {
-  //     onClose(value);
-  //   };
+  if (!item) {
+    return <></>;
+  }
 
   return (
     <Dialog
@@ -21,9 +18,9 @@ function ActorDialog(props) {
       open={open}
       sx={{
         '.MuiPaper-root': {
-          maxWidth: '70%',
+          maxWidth: '60%',
           minWidth: '900px',
-          minHeight: '465px',
+          minHeight: '564px',
           height: 'auto',
           margin: '0',
           borderRadius: '44px',
@@ -52,30 +49,23 @@ function ActorDialog(props) {
       <Box
         sx={{
           display: 'flex',
-          //   flexDirection: 'row-reverse',
-          //   width: '627px',
-          //   background:
-          //     'transparent url(./images/FRAME.png) center center no-repeat',
         }}>
         <Box
           sx={{
             textAlign: 'right',
-            // position: 'relative',
-            // width: '500px',
-            // height: '748px',
-            // background:
-            //   'transparent url(./images/frame-2.png) center center no-repeat',
+            width: '100%',
+            position: 'relative',
+            marginTop: '-55px',
+            top: '6px',
           }}>
+          <Image
+            width={'585px'}
+            height={'847px'}
+            src={item?.imageBig?.url}
+            alt={item?.imageBig?.alt}
+          />
+
           {/* <img
-            //   width={'168px'}
-            src={'./images/frame-3.png'}
-            style={{
-              position: 'absolute',
-            //   width: '100%',
-              height: 'auto',
-            }}
-          /> */}
-          <img
             src={item?.imageBig?.url}
             style={{
               position: 'relative',
@@ -84,12 +74,13 @@ function ActorDialog(props) {
               marginTop: '-55px',
               top: '6px',
             }}
-          />
+          /> */}
         </Box>
         <Box
           sx={{
-            padding: '100px 40px 0 60px',
+            padding: '10% 40px 0 60px',
             height: 'fit-content',
+            width: '100%',
           }}>
           <Box
             sx={{

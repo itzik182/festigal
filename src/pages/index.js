@@ -70,21 +70,21 @@ function IndexPage(props) {
       {newsTicker.isDisplay && <NewsTicker item={newsTicker} />}
       <AboutSection item={about} />
       <ActorsSection items={actors} socialIcons={socialIcons} />
-      <ShopSection items={products} mainData={mainData} />
-      <LastNewsSection
+      {/* <ShopSection items={products} mainData={mainData} /> */}
+      {/* <LastNewsSection
         items={lastNews}
         mainData={mainData}
         socialIcons={socialIcons}
-      />
+      /> */}
       <MusicSection items={musics} mainData={mainData} />
       <GamesSection items={games} mainData={mainData} />
       <AllFestigalsSection mainData={mainData} />
 
-      <Footer
+      {/* <Footer
         mainData={mainData}
         socialIcons={socialIcons}
         items={footerItems}
-      />
+      /> */}
     </>
   );
 }

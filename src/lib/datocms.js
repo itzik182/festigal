@@ -62,7 +62,13 @@ export async function getMainData() {
       showLink
       allNewsFlashLink
       allNewsFlashText
-      video {
+      mainVideo {
+        url
+        width
+        title
+        height
+      }
+      mainVideoMobile {
         url
         width
         title

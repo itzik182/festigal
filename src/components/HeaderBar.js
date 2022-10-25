@@ -7,8 +7,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from 'next/link';
+import { useWindowWidth } from '@react-hook/window-size';
+import Hidden from '@material-ui/core/Hidden';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((isDesktopLayout) => ({
   layers: {
     position: 'absolute',
     width: '508px',
@@ -28,23 +30,91 @@ const useStyles = makeStyles((theme) => ({
       top: '-9px',
     },
   },
+  layersMobile: {
+    position: 'absolute',
+    width: '139px',
+    height: '101px',
+    zIndex: '1',
+
+    '&.layerRight': {
+      background:
+        'transparent url(./mobile/header/layer-right.png) 0% 0% no-repeat padding-box',
+      right: '0',
+      top: '-9px',
+    },
+    '&.layerLeft': {
+      background:
+        'transparent url(./mobile/header/layer-left.png) 0% 0% no-repeat padding-box',
+      left: '0',
+      top: '-9px',
+    },
+  },
   spacer: {
     flexGrow: 1,
+  },
+  menuDrawerIcon: {
+    position: 'absolute',
+    right: '60px',
+    top: '75px',
+    zIndex: '10',
+    '&.mobile': {
+      top: '20px',
+      right: '25px',
+    },
+  },
+  InformationDrawerIcon: {
+    top: '68px',
+    left: '40px',
+    zIndex: '10',
+    position: 'absolute',
+    width: 'min-content',
+    fontFamily: "'Noto Sans Hebrew'",
+    fontSize: '19px',
+    '&.mobile': {
+      top: '22px',
+      left: '24px',
+      // 'button': {
+      //   fontSize: '14px',
+      // },
+    },
+  },
+  shadowBg: {
+    filter: 'blur(18px)',
+    background:
+      "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
+    height: isDesktopLayout ? '98px' : '58px',
+    position: 'absolute',
+    width: '100%',
   },
 }));
 
 export const HeaderBar = (props) => {
-  const classes = useStyles();
+  // const windowWidth = useWindowWidth();
+  // const isDesktopLayout = windowWidth >= 960;
+
+
+  // console.log('windowWidth', windowWidth);
+  // console.log('isDesktopLayout', isDesktopLayout);
+
   const {
+    isDesktopLayout,
     socialIcons,
     ticketsInformationText,
     setMenuDrawerOpen,
     setInformationDrawerOpen,
     setNewsFlashesDrawerOpen,
   } = props;
+  const classes = useStyles(isDesktopLayout);
 
   return (
-    <AppBar position='static' color='transparent' elevation={0}>
+    <AppBar
+      position='absolute'
+      color='transparent'
+      elevation={0}
+      sx={{
+        position: 'absolute',
+        top: 0,
+      }}>
       <Box
         sx={{
           height: '133px',
@@ -53,13 +123,11 @@ export const HeaderBar = (props) => {
           position: 'relative',
           zIndex: '1',
         }}>
+        {/* Menu Drawer Button */}
         <Box
-          sx={{
-            position: 'absolute',
-            right: '60px',
-            zIndex: '10',
-            top: '75px',
-          }}>
+          className={`${classes.menuDrawerIcon} ${
+            !isDesktopLayout && 'mobile'
+          }`}>
           <IconButton
             onClick={() => {
               setMenuDrawerOpen(true);
@@ -68,44 +136,36 @@ export const HeaderBar = (props) => {
             <MenuIcon style={{ fontSize: '40px' }} />
           </IconButton>
         </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            left: '180px',
-            zIndex: '10',
-            top: '30px',
-          }}>
-          <IconButton
-            onClick={() => {
-              setNewsFlashesDrawerOpen(true);
-            }}
-            color='inherit'>
-            <img src='./images/ring.svg' alt='Ring' />
-          </IconButton>
-        </Box>
-        <Box
-          sx={{
-            top: '68px',
-            left: '40px',
-            zIndex: '10',
-            position: 'absolute',
-            width: 'min-content',
-            fontFamily: "'Noto Sans Hebrew'",
-            fontSize: '19px',
-          }}>
+        <Hidden implementation='css' smDown>
+          {/* News Flashes Drawer Button */}
           <Box
             sx={{
-              filter: 'blur(18px)',
-              background:
-                "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
-              height: '98px',
               position: 'absolute',
-              width: '100%',
-            }}></Box>
+              left: '180px',
+              zIndex: '10',
+              top: '30px',
+            }}>
+            <IconButton
+              onClick={() => {
+                setNewsFlashesDrawerOpen(true);
+              }}
+              color='inherit'>
+              <img src='./images/ring.svg' alt='Ring' />
+            </IconButton>
+          </Box>
+        </Hidden>
+        {/* Information Drawer Button */}
+        <Box
+          className={`${classes.InformationDrawerIcon} ${
+            !isDesktopLayout && 'mobile'
+          }`}>
+          <Box className={classes.shadowBg} sx={{
+            height: !isDesktopLayout && '58px !important',
+          }}></Box>
           <IconButton
             style={{
               fontFamily: 'Noto Sans Hebrew',
-              fontSize: '19px',
+              fontSize: isDesktopLayout ? '19px' : '14px',
               fontWeight: 'bold',
             }}
             onClick={() => {
@@ -124,32 +184,40 @@ export const HeaderBar = (props) => {
             height: '100%',
             margin: 'auto',
           }}>
-          <Box className={`${classes.layers} layerRight`}></Box>
-          <Box className={`${classes.layers} layerLeft`}></Box>
           <Box
-            sx={{
-              position: 'absolute',
-              right: '220px',
-              zIndex: '1',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              top: '0',
-              bottom: '0',
-            }}>
-            <img
-              style={{
-                marginLeft: '25px',
-              }}
-              src='./images/my_small.png'
-              alt='my-festigal'
-            />
-            <SocialIcons
-              items={socialIcons}
-              isUseOriginalSize={true}
-              margin={'0 10px'}
-            />
-          </Box>
+            className={`${
+              isDesktopLayout ? classes.layers : classes.layersMobile
+            } layerRight`}></Box>
+          <Box
+            className={`${
+              isDesktopLayout ? classes.layers : classes.layersMobile
+            } layerLeft`}></Box>
+          <Hidden implementation='css' smDown>
+            <Box
+              sx={{
+                position: 'absolute',
+                right: '220px',
+                zIndex: '1',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                top: '0',
+                bottom: '0',
+              }}>
+              <img
+                style={{
+                  marginLeft: '25px',
+                }}
+                src='./images/my_small.png'
+                alt='my-festigal'
+              />
+              <SocialIcons
+                items={socialIcons}
+                isUseOriginalSize={true}
+                margin={'0 10px'}
+              />
+            </Box>
+          </Hidden>
           <Container
             disableGutters={true}
             style={{
@@ -161,7 +229,11 @@ export const HeaderBar = (props) => {
               <Link href='/'>
                 <a>
                   <img
-                    src='./logo.png'
+                    src={
+                      isDesktopLayout
+                        ? './logo/logo-web-small.png'
+                        : './mobile/logo/logo.png'
+                    }
                     alt='Logo'
                     style={{
                       marginTop: '10px',
