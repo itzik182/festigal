@@ -35,6 +35,7 @@ export async function getSiteParams() {
 export async function getMainData() {
   const query = `query mainText {
     mainText {
+      id
       youtubeText
       ticketsInformationText
       ticketsInformationLink
@@ -43,11 +44,11 @@ export async function getMainData() {
       myFestigalWebsiteText
       lastNewsTitle
       lastNewsText
-      id
       gamesTitle
       gamesText
       festigalYoutubeText
       festigalStorText
+      festigalStorUnderItemText
       festigalSongWriter
       festigalSongSinger
       festigalSongName
@@ -246,10 +247,11 @@ export async function getMenuItems() {
   return data?.allMenuItems;
 }
 
-export async function getNews() {
+export async function getNewsTicker() {
   const query = `query ticker {
     ticker {
       text
+      isDisplay
     }
   }
   `;

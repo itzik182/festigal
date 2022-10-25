@@ -1,6 +1,7 @@
 {
   "name": "my-divjoy-project",
   "version": "0.1.0",
+  "main": "next.config.js",
   "private": true,
   "keywords": [
     "divjoy"

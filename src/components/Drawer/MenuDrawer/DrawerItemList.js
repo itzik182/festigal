@@ -13,6 +13,7 @@ export const DrawerItemList = (props) => {
         sx={{
           marginRight: '5px',
           paddingTop: '0',
+          height: '100%',
         }}>
         {items.map((item) => (
           <MenuItem
@@ -24,7 +25,10 @@ export const DrawerItemList = (props) => {
         ))}
         <Box
           sx={{
-            margin: '0 70px 0',
+            position: "absolute", 
+            width: "100%", 
+            padding: "0 70px", 
+            bottom: "45px",
           }}>
           <GoldButton text={ticketsInformationText} link={ticketsInformationLink} />
         </Box>

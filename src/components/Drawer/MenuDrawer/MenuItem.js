@@ -18,7 +18,8 @@ export const MenuItem = (props) => {
           // color: selected && '#011434',
         },
         textAlign: 'center',
-        marginBottom: '25px !important',
+        marginBottom: '5px !important',
+        padding: '10px 0 10px !important',
         // '&:hover': {
         //   background: '#f5f8ac',
         //   '.MuiListItemText-root': {

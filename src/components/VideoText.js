@@ -6,6 +6,7 @@ export const VideoText = (props) => {
   return (
     <Box
       sx={{
+        opacity: '0.7',
         position: 'absolute',
         zIndex: '10',
         bottom: '50px',

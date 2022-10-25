@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 function ShopSection(props) {
   const classes = useStyles();
   const { items, mainData } = props;
+  const { festigalStorText, festigalStorUnderItemText } = mainData;
 
   if (!items) {
     return <></>;
@@ -30,7 +31,7 @@ function ShopSection(props) {
   return (
     <Section id='store' className={classes.section}>
       <Box className={classes.container}>
-        <ShopCarousel items={itemsUp} />
+        <ShopCarousel items={itemsUp} festigalStorUnderItemText={festigalStorUnderItemText} />
         <Box
           sx={{
             textAlign: 'center',
@@ -48,7 +49,7 @@ function ShopSection(props) {
               fontSize: '31px',
               // marginTop: '20px',
             }}>
-            {mainData.festigalStorText}
+            {festigalStorText}
           </Box>
           <Box
             sx={{
@@ -64,7 +65,7 @@ function ShopSection(props) {
             <GoldButton text={'COMING SOON'} isBold />
           </Box>
         </Box>
-        <ShopCarousel items={itemsDown} />
+        <ShopCarousel items={itemsDown} festigalStorUnderItemText={festigalStorUnderItemText} />
       </Box>
     </Section>
   );

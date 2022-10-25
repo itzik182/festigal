@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const ShopCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
-  const { items } = props;
+  const { items, festigalStorUnderItemText } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -47,7 +47,7 @@ const ShopCarousel = (props) => {
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
-            key={item.id ||index}
+            key={item.id || index}
             sx={{
               display: 'flex !important',
               alignItems: 'center',
@@ -55,7 +55,8 @@ const ShopCarousel = (props) => {
               height: '340px',
               margin: '0 80px',
               '&:hover .itemTitle': {
-                display: 'block',
+                // display: 'block',
+                opacity: '1',
               },
             }}
             onClick={() => handleItemClick(item.link)}>
@@ -70,20 +71,26 @@ const ShopCarousel = (props) => {
               />
             </Box>
             <Box
-              sx={{ display: 'none', position: 'absolute', bottom: '5px' }}
+              sx={{
+                display: 'block',
+                opacity: '0',
+                position: 'absolute',
+                bottom: '5px',
+                transition: 'all 0.2s ease-in-out 0.1s',
+              }}
               className='itemTitle'>
-                <span
+              <span
                 style={{
                   fontFamily: 'GveretLevinAlefAlefAlef',
                   position: 'absolute',
-                  width: "95px", 
-                  textAlign: "center", 
-                  color: "#2a94a2", 
-                  top: "17px", 
-                  left: "62px",
+                  width: '95px',
+                  textAlign: 'center',
+                  color: '#2a94a2',
+                  top: '17px',
+                  left: '62px',
                   transform: 'rotate(347deg)',
                 }}>
-                חייבים את זה? קנו את זה עכשיו
+               {festigalStorUnderItemText}
               </span>
               <img
                 src='./images/Group6791.svg'

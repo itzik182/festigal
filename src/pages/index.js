@@ -10,7 +10,7 @@ import {
   getAllFaqs,
   getAllFooters,
   getMenuItems,
-  getNews,
+  getNewsTicker,
   getAbout,
   getAllActors,
   getAllShops,
@@ -42,7 +42,7 @@ function IndexPage(props) {
     faqItems,
     footerItems,
     menuItems,
-    news,
+    newsTicker,
     about,
     actors,
     products,
@@ -52,7 +52,7 @@ function IndexPage(props) {
   } = props;
 
   console.log('mainData', mainData);
-  console.log('newsFlashesItems', newsFlashesItems);
+  console.log('newsTicker', newsTicker);
   // console.log('faqItems', faqItems);
 
   return (
@@ -67,7 +67,7 @@ function IndexPage(props) {
         menuItems={menuItems}
       />
       <Meta />
-      <NewsTicker item={news} />
+      {newsTicker.isDisplay && <NewsTicker item={newsTicker} />}
       <AboutSection item={about} />
       <ActorsSection items={actors} socialIcons={socialIcons} />
       <ShopSection items={products} mainData={mainData} />
@@ -102,7 +102,7 @@ export async function getStaticProps() {
       faqItems: (await getAllFaqs()) || [],
       footerItems: (await getAllFooters()) || [],
       menuItems: (await getMenuItems()) || [],
-      news: (await getNews()) || [],
+      newsTicker: (await getNewsTicker()) || [],
       about: (await getAbout()) || [],
       actors: (await getAllActors()) || [],
       products: (await getAllShops()) || [],

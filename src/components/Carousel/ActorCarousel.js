@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import Image from 'next/image'
 import Box from '@material-ui/core/Box';
 import Slider from 'react-slick';
 // Import css files
@@ -65,19 +66,41 @@ const ActorCarousel = (props) => {
                 background:
                   'transparent url(./images/frame-4.png) center center no-repeat',
               }}>
-              <img
-                src={item?.imageSmall?.url}
-                alt={item?.imageSmall?.alt}
-                style={{
+                <Box sx={{
                   outline: '0 !important',
                   position: 'absolute',
                   top: '107px',
-                  right: '30px',
-                  left: '0',
+                  transition: 'all .1s ease-in-out .1s',
+                  // right: '30px',
+                  left: '80px',
                   margin: 'auto',
                   cursor: 'pointer',
-                }}
+                  '&:hover': {
+                    top: '81px',
+                    transform: 'scale(1.1)',
+                    
+                  }
+                }} >
+              <Image
+              width={item.imageSmall?.width}
+              height={item.imageSmall?.height}
+                src={item?.imageSmall?.url}
+                alt={item?.imageSmall?.alt}
+                // style={{
+                //   outline: '0 !important',
+                //   position: 'absolute',
+                //   top: '107px',
+                //   right: '30px',
+                //   left: '0',
+                //   margin: 'auto',
+                //   cursor: 'pointer',
+                //   '&:hover': {
+                //     transform: 'scale(1.1)',
+                //     top: '81px',
+                //   }
+                // }}
               />
+              </Box>
             </Box>
             <Box
               sx={{
