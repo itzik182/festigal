@@ -43,6 +43,7 @@ function ShopSection(props) {
           />
           <Box
             sx={{
+              color: '#000000',
               fontFamily: 'GveretLevinAlefAlefAlef',
               fontSize: '31px',
               // marginTop: '20px',
@@ -60,7 +61,7 @@ function ShopSection(props) {
                 transform: 'scale(1.1)',
               }
             }}>
-            <GoldButton text={'COMING SOON'} />
+            <GoldButton text={'COMING SOON'} isBold />
           </Box>
         </Box>
         <ShopCarousel items={itemsDown} />

@@ -20,7 +20,7 @@ export const ShareSocialButton = (props) => {
         onClick={() => handleItemClick()}
         sx={{
           width: '100%',
-          height: '55px',
+          height: '50px',
           cursor: 'pointer',
           display: shareSocialButtonOpen ? 'none' : 'flex',
           backgroundColor: color || '#fff',
@@ -55,6 +55,7 @@ export const ShareSocialButton = (props) => {
       <Box
         sx={{
           display: !shareSocialButtonOpen ? 'none' : 'flex',
+          height: '50px',
         }}>
           <ShareComponent shareUrl={shareUrl} />
         {/* {socialIcons

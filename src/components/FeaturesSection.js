@@ -88,7 +88,7 @@ function FeaturesSection(props) {
               item={true}
               alignItems="center"
               spacing={4}
-              key={index}
+              key={item.id ||index}
             >
               <Grid item={true} xs={12} md={6}>
                 <Box

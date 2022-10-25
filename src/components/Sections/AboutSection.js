@@ -119,16 +119,19 @@ function AboutSection(props) {
             <Box
               sx={{
                 position: 'absolute',
-                top: '680px',
-                left: '590px',
+                top: '77%',
+                left: '87%',
                 color: '#2a94a2',
               }}>
               <span
                 style={{
                   fontFamily: 'GveretLevinAlefAlefAlef',
                   position: 'absolute',
-                  top: '184px',
-                  left: '135px',
+                  bottom: "11%", 
+                  right: "16%", 
+                  textAlign: "center", 
+                  fontSize: "1.104vw", 
+                  width: "42%",
                   transform: 'rotate(347deg)',
                 }}>
                 {text}
@@ -138,7 +141,7 @@ function AboutSection(props) {
                 alt='Group7277'
                 title=''
                 style={{
-                  maxWidth: '380px',
+                  width: '22vw',
                 }}
               />
             </Box>

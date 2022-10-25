@@ -54,7 +54,7 @@ const ActorCarousel = (props) => {
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
-            key={index}
+            key={item.id ||index}
             onClick={() => handleItemClick(item)}>
             <Box
               sx={{
@@ -82,13 +82,11 @@ const ActorCarousel = (props) => {
             <Box
               sx={{
                 textAlign: 'center',
-                marginTop: '-75px',
+                marginTop: '-80px',
                 color: '#FFFFFF',
                 textShadow: '0px 3px 0px #000000c4',
-                fontSize: '38px',
-                fontFamily: "Noto Sans Hebrew",
-                fontWeight: '800',
-                fontStyle: 'normal',
+                font: 'normal normal 800 38px/72px Noto Sans Hebrew',
+                letterSpacing: "-0.8px",
               }}>
               {item.name}
             </Box>
@@ -108,9 +106,9 @@ const ActorCarousel = (props) => {
       <Box
         sx={{
           position: 'absolute',
-          top: '0',
+          top: '50px',
           right: '0',
-          height: '100%',
+          height: '93%',
           width: '8%',
         }}
         onMouseLeave={() => stopSlide()}

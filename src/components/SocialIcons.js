@@ -43,7 +43,7 @@ function SocialIcons(props) {
         .filter((i) => i.isDisplayShortPanel)
         .map((item, index) => (
           <a
-            key={index}
+            key={item.id ||index}
             href={item.link}
             target='_blank'
             rel='noreferrer'

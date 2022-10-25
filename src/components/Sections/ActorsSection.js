@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     background:
       'transparent url(./background/bg-2.png) 0% 0% repeat padding-box',
-    padding: '10px 0 30px',
+    padding: '5px 0 50px',
   },
 }));
 

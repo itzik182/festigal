@@ -71,7 +71,7 @@ function TeamBiosSection(props) {
         />
         <Grid container={true} justifyContent="center" spacing={4}>
           {items.map((item, index) => (
-            <Grid item={true} xs={12} sm={6} md={4} key={index}>
+            <Grid item={true} xs={12} sm={6} md={4} key={item.id ||index}>
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.media}

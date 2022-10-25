@@ -100,7 +100,7 @@ const PlaylistCarousel = (props) => {
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
-            key={index}
+            key={item.id ||index}
             sx={{
               display: 'flex !important',
               alignItems: 'center',

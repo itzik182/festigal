@@ -74,9 +74,10 @@ function Navbar(props) {
         loop={true}
         controls={true}
         autoplay={true}
+        playsInline={true}
         height='796px'
         width={'100%'}
-        responsive='true'
+        responsive={true}
         style={{
           margin: '0px auto',
           position: 'absolute',

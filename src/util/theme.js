@@ -41,18 +41,6 @@ const themeConfig = {
   dark: {
     palette: {
       type: "dark",
-      primary: {
-        // Same as in light but we could
-        // adjust color hue if needed
-        main: colors.indigo["500"],
-      },
-      secondary: {
-        main: colors.pink["500"],
-      },
-      background: {
-        default: colors.grey["900"],
-        paper: colors.grey["800"],
-      },
     },
   },
 
@@ -135,7 +123,7 @@ export const ThemeProvider = (props) => {
     isDarkModeStored === undefined ? prefersDarkMode : isDarkModeStored;
 
   // Get MUI theme object
-  const themeName = isDarkMode ? "dark" : "light";
+  const themeName = isDarkMode ? "light" : "light";
   const theme = getTheme(themeName);
 
   // Add toggle function to theme object
@@ -166,7 +154,7 @@ export function useDarkMode() {
   // Get current Material UI theme
   const theme = useTheme();
   // Check if it's the dark theme
-  const isDarkMode = theme.palette.type === "dark";
+  const isDarkMode = false;
   // Return object containing dark mode value and toggle function
   return { value: isDarkMode, toggle: theme.palette.toggle };
 }
