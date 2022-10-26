@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 // import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 // import YoutubeEmbed from '../components/YoutubeEmbed';
-import { MenuDrawer } from './Drawer/MenuDrawer/MenuDrawer';
-import { InformationDrawer } from './Drawer/InformationDrawer/InformationDrawer';
-import { NewsFlashesDrawer } from './Drawer/NewsFlashesDrawer/NewsFlashesDrawer';
+import {MenuDrawer} from './Drawer/MenuDrawer/MenuDrawer';
+import {InformationDrawer} from './Drawer/InformationDrawer/InformationDrawer';
+import {NewsFlashesDrawer} from './Drawer/NewsFlashesDrawer/NewsFlashesDrawer';
 import HeaderBar from 'components/HeaderBar';
 import FirstShowFlag from 'components/FirstShowFlag';
 import VideoText from 'components/VideoText';
@@ -31,24 +31,24 @@ function Navbar(props) {
     socialIcons,
   } = props;
 
-  const {
-    mainVideo,
-    mainVideoMobile,
-    flagText,
-    firstShowDate,
-    flagButtonText,
-    showLink,
-    videoBigText,
-    videoSmallText,
-    ticketsInformationText,
-    ticketsInformationLink,
-    allNewsFlashText,
-    allNewsFlashLink,
-  } = mainData;
+    const {
+        mainVideo,
+        mainVideoMobile,
+        flagText,
+        firstShowDate,
+        flagButtonText,
+        showLink,
+        videoBigText,
+        videoSmallText,
+        ticketsInformationText,
+        ticketsInformationLink,
+        allNewsFlashText,
+        allNewsFlashLink,
+    } = mainData;
 
-  const handleMenuDrawerItemClick = () => {
-    setMenuDrawerOpen(false);
-  };
+    const handleMenuDrawerItemClick = () => {
+        setMenuDrawerOpen(false);
+    };
 
   // const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
 
