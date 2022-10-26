@@ -281,6 +281,12 @@ export async function getAbout() {
         title
         height
       }
+      videoMobile {
+        url
+        width
+        title
+        height
+      }
       image {
         alt
         width
@@ -312,7 +318,21 @@ export async function getAllActors() {
         height
         width
       }
+      imageBigMobile {
+        alt
+        url
+        title
+        height
+        width
+      }
       imageSmall {
+        alt
+        url
+        title
+        width
+        height
+      }
+      imageSmallMobile {
         alt
         url
         title

@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const ShopCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
-  const { items, festigalStorUnderItemText } = props;
+  const { items, festigalStorUnderItemText, isDesktopLayout = true } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -52,8 +52,8 @@ const ShopCarousel = (props) => {
               display: 'flex !important',
               alignItems: 'center',
               justifyContent: 'center',
-              height: '340px',
-              margin: '0 80px',
+              height: isDesktopLayout ? '340px' : 'auto',
+              margin: isDesktopLayout ? '0 80px' : '0 30px',
               '&:hover .itemTitle': {
                 // display: 'block',
                 opacity: '1',
@@ -70,60 +70,66 @@ const ShopCarousel = (props) => {
                 }}
               />
             </Box>
-            <Box
-              sx={{
-                display: 'block',
-                opacity: '0',
-                position: 'absolute',
-                bottom: '5px',
-                transition: 'all 0.2s ease-in-out 0.1s',
-              }}
-              className='itemTitle'>
-              <span
-                style={{
-                  fontFamily: 'GveretLevinAlefAlefAlef',
+            {isDesktopLayout && (
+              <Box
+                sx={{
+                  display: 'block',
+                  opacity: '0',
                   position: 'absolute',
-                  width: '95px',
-                  textAlign: 'center',
-                  color: '#2a94a2',
-                  top: '17px',
-                  left: '62px',
-                  transform: 'rotate(347deg)',
-                }}>
-               {festigalStorUnderItemText}
-              </span>
-              <img
-                src='./images/Group6791.svg'
-                alt='circle'
-                style={{
-                  width: '210px',
-                  height: '75px',
+                  bottom: '5px',
+                  transition: 'all 0.2s ease-in-out 0.1s',
                 }}
-              />
-            </Box>
+                className='itemTitle'>
+                <span
+                  style={{
+                    fontFamily: 'GveretLevinAlefAlefAlef',
+                    position: 'absolute',
+                    width: '95px',
+                    textAlign: 'center',
+                    color: '#2a94a2',
+                    top: '17px',
+                    left: '62px',
+                    transform: 'rotate(347deg)',
+                  }}>
+                  {festigalStorUnderItemText}
+                </span>
+                <img
+                  src='./images/Group6791.svg'
+                  alt='circle'
+                  style={{
+                    width: '210px',
+                    height: '75px',
+                  }}
+                />
+              </Box>
+            )}
           </Box>
         ))}
       </Slider>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          height: '100%',
-          width: '8%',
-        }}
-        onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(false)}></Box>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '0',
-          right: '0',
-          height: '100%',
-          width: '8%',
-        }}
-        onMouseLeave={() => stopSlide()}
-        onMouseOver={() => startSlide(true)}></Box>
+      {isDesktopLayout && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            height: '100%',
+            width: '8%',
+          }}
+          onMouseLeave={() => stopSlide()}
+          onMouseOver={() => startSlide(false)}></Box>
+      )}
+      {isDesktopLayout && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            height: '100%',
+            width: '8%',
+          }}
+          onMouseLeave={() => stopSlide()}
+          onMouseOver={() => startSlide(true)}></Box>
+      )}
     </Box>
   );
 };

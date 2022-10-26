@@ -2,7 +2,7 @@ import Box from '@material-ui/core/Box';
 import Link from 'next/link';
 
 export const GoldButton = (props) => {
-  const { text, link = '', isBold= false } = props;
+  const { text, link = '', isBold= false, style } = props;
 
   return (
     <Box sx={{
@@ -39,6 +39,7 @@ export const GoldButton = (props) => {
               textAlign: 'center',
               borderRadius: '35px',
               fontWeight: isBold ? 'bold' : '600',
+              ...style,
               // backgroundImage:
               //   'linear-gradient(245deg, hsl(43deg 95% 32%) 0%, hsl(43deg 63% 42%) 10%, hsl(44deg 50% 51%) 20%, hsl(46deg 56% 61%) 30%, hsl(48deg 68% 72%) 40%, hsl(50deg 100% 84%) 50%, hsl(50deg 93% 82%) 60%, hsl(51deg 88% 80%) 70%, hsl(48deg 74% 72%) 80%, hsl(44deg 64% 58%) 90%, hsl(42deg 76% 44%) 100%)',
             }}>

@@ -1,12 +1,32 @@
 import * as React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from 'next/image';
 
+const useStyles = makeStyles((isDesktopLayout) => ({
+  description: {
+    minWidth: '255px',
+    fontSize: '20px',
+    textAlign: 'right',
+    fontFamily: 'Noto Sans Hebrew',
+    lineHeight: '1.65',
+    '&.mobile': {
+      display: '-webkit-box',
+      WebkitLineClamp: '13',
+      WebkitBoxOrient: 'vertical',
+      overflow: 'hidden',
+      font: 'normal normal normal 14px/20px Noto Sans Hebrew',
+      letterSpacing: '0px',
+    },
+  },
+}));
+
 function ActorDialog(props) {
-  const { open, item, onClose } = props;
+  const { open, item, onClose, isDesktopLayout } = props;
+  const classes = useStyles(isDesktopLayout);
 
   if (!item) {
     return <></>;
@@ -18,8 +38,8 @@ function ActorDialog(props) {
       open={open}
       sx={{
         '.MuiPaper-root': {
-          maxWidth: '60%',
-          minWidth: '900px',
+          maxWidth: isDesktopLayout ? '60%' : '90%',
+          minWidth: isDesktopLayout ? '900px' : 'auto',
           minHeight: '564px',
           height: 'auto',
           margin: '0',
@@ -49,21 +69,31 @@ function ActorDialog(props) {
       <Box
         sx={{
           display: 'flex',
+          flexDirection: isDesktopLayout ? 'row' : 'column',
         }}>
         <Box
           sx={{
-            textAlign: 'right',
+            textAlign: isDesktopLayout ? 'right' : 'center',
             width: '100%',
             position: 'relative',
-            marginTop: '-55px',
-            top: '6px',
+            marginTop: isDesktopLayout ? '-55px' : '30px',
+            top: isDesktopLayout ? '6px' : 0,
           }}>
-          <Image
-            width={'585px'}
-            height={'847px'}
-            src={item?.imageBig?.url}
-            alt={item?.imageBig?.alt}
-          />
+          {isDesktopLayout ? (
+            <Image
+              width={'585px'}
+              height={'847px'}
+              src={item?.imageBig?.url}
+              alt={item?.imageBig?.alt}
+            />
+          ) : (
+            <Image
+              width={'285px'}
+              height={'407px'}
+              src={item?.imageBigMobile?.url}
+              alt={item?.imageBigMobile?.alt}
+            />
+          )}
 
           {/* <img
             src={item?.imageBig?.url}
@@ -78,15 +108,15 @@ function ActorDialog(props) {
         </Box>
         <Box
           sx={{
-            padding: '10% 40px 0 60px',
+            padding: isDesktopLayout ? '10% 40px 0 60px' : '10px 30px 20px',
             height: 'fit-content',
             width: '100%',
           }}>
           <Box
             sx={{
-              margin: '0 0 80px',
+              margin: isDesktopLayout ? '0 0 80px' : '0 0 20px',
               textAlign: 'right',
-              fontSize: '40px',
+              fontSize: isDesktopLayout ? '40px' : '30px',
               fontFamily: 'GveretLevinAlefAlefAlef',
               lineHeight: '0.7',
               letterSpacing: '2.24px',
@@ -94,13 +124,9 @@ function ActorDialog(props) {
             {item?.name}
           </Box>
           <Box
-            sx={{
-              minWidth: '255px',
-              fontSize: '20px',
-              textAlign: 'right',
-              fontFamily: 'Noto Sans Hebrew',
-              lineHeight: '1.65',
-            }}>
+            className={`${classes.description} ${
+              !isDesktopLayout && 'mobile'
+            }`}>
             {item?.description}
           </Box>
         </Box>

@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     background:
       'transparent url(./background/bg-2.png) 0% 0% repeat padding-box',
     padding: '5px 0 50px',
+    '&.mobile': {
+      padding: '5px 0 10px',
+    },
   },
 }));
 
@@ -26,7 +29,7 @@ function ActorsSection(props) {
   const sectionId = 'actors';
 
   const classes = useStyles();
-  const { items, socialIcons } = props;
+  const { items, socialIcons, isDesktopLayout } = props;
 
   if (!items) {
     return <></>;
@@ -45,7 +48,8 @@ function ActorsSection(props) {
 
   return (
     <Section id={sectionId} className={classes.section}>
-      <Box className={classes.container}>
+      <Box
+        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <Box
           sx={{
             textAlign: 'left',
@@ -53,9 +57,18 @@ function ActorsSection(props) {
           }}>
           <ShareSocialButton socialIcons={socialIcons} shareUrl={shareUrl} />
         </Box>
-        <ActorCarousel items={items} handleItemClick={handleItemClick} />
+        <ActorCarousel
+          items={items}
+          handleItemClick={handleItemClick}
+          isDesktopLayout={isDesktopLayout}
+        />
       </Box>
-      <ActorDialog open={open} onClose={handleClose} item={selectedItem} />
+      <ActorDialog
+        open={open}
+        onClose={handleClose}
+        item={selectedItem}
+        isDesktopLayout={isDesktopLayout}
+      />
     </Section>
   );
 }

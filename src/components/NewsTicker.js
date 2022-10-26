@@ -2,7 +2,7 @@ import Section from './Section';
 import Ticker from 'react-ticker';
 
 export const NewsTicker = (props) => {
-  const { item } = props;
+  const { item, isDesktopLayout = true } = props;
 
   // const a = ['👑 ברוכים הבאים ל״פסטיגל על פסטיגל״ מקווים שהתגעגתם- כי אנחנו ממש', '💕 מוכנים? כי המסע לממלכת פנטזיה יוצא לדרך'];
 
@@ -20,7 +20,8 @@ export const NewsTicker = (props) => {
             <span
               style={{
                 // fontSize: '0.9vw',
-                fontSize: '32px',
+                fontSize: isDesktopLayout ? '32px' : '24px',
+                whiteSpace: "nowrap",
                 // fontWeight: 'bold',
                 // direction: 'rtl',
                 // fontFamily: "Noto Sans Hebrew",

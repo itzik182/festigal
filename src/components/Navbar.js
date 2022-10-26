@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import Hidden from '@material-ui/core/Hidden';
 // import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -10,7 +10,6 @@ import HeaderBar from 'components/HeaderBar';
 import FirstShowFlag from 'components/FirstShowFlag';
 import VideoText from 'components/VideoText';
 import Vimeo from '@u-wave/react-vimeo';
-import { useWindowWidth } from '@react-hook/window-size';
 
 // const useStyles = makeStyles((theme) => ({
 
@@ -20,10 +19,9 @@ function Navbar(props) {
   const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
   const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
   const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
-  const windowWidth = useWindowWidth();
-  const isDesktopLayout = windowWidth >= 960;
 
   const {
+    isDesktopLayout = true,
     menuItems,
     newsFlashesItems,
     showsItems,
@@ -52,18 +50,16 @@ function Navbar(props) {
     setMenuDrawerOpen(false);
   };
 
-  useEffect(() => {
-
-  }, [isDesktopLayout])
-
   // const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
 
   return (
     <Section
       size='auto'
-      sx={{
-        // minHeight: '796px',
-      }}>
+      sx={
+        {
+          // minHeight: '796px',
+        }
+      }>
       {/* <YoutubeEmbed
         // url={'iCAKpASnFgw'}
         url={videoId}
@@ -76,8 +72,8 @@ function Navbar(props) {
           minHeight: '796px',
         }}
       /> */}
-      <Vimeo
-        video={isDesktopLayout ? mainVideo?.url : mainVideoMobile?.url}
+      {isDesktopLayout && <Vimeo
+        video={mainVideo?.url}
         showTitle={false}
         loop={true}
         controls={true}
@@ -96,17 +92,42 @@ function Navbar(props) {
           // minHeight: '796px',
           width: '100%',
         }}
-      />
+      />}
+      {!isDesktopLayout && <Vimeo
+      video={mainVideoMobile?.url}
+      showTitle={false}
+      loop={true}
+      controls={true}
+      autoplay={true}
+      playsInline={true}
+      height='796px'
+      width={'100%'}
+      // volume={1}
+      // paused={false}
+      // muted={false}
+      // background={true}
+      responsive={true}
+      style={{
+        margin: '0px auto',
+        position: 'relative',
+        // minHeight: '796px',
+        width: '100%',
+      }}
+    />}
       <FirstShowFlag
         flagButtonText={flagButtonText}
         showLink={showLink}
         flagText={flagText}
         firstShowDate={firstShowDate}
       />
-      <VideoText videoBigText={videoBigText} videoSmallText={videoSmallText} />
-      
+      <VideoText
+        videoBigText={videoBigText}
+        videoSmallText={videoSmallText}
+        isDesktopLayout={isDesktopLayout}
+      />
+
       <HeaderBar
-      isDesktopLayout={isDesktopLayout}
+        isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}
         ticketsInformationText={ticketsInformationText}
         setMenuDrawerOpen={setMenuDrawerOpen}

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 // import YoutubeEmbed from '../YoutubeEmbed';
 import Vimeo from '@u-wave/react-vimeo';
+import TextTruncate from 'react-text-truncate';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -28,6 +29,21 @@ const useStyles = makeStyles((theme) => ({
     background:
       'transparent url(./background/stars1.png) 0% 0% repeat padding-box',
     padding: '100px 65px',
+    '&.mobile': {
+      padding: '70px 15px 30px',
+    },
+    '&.mobile .details': {
+      fontSize: '18px',
+      padding: '23px 0 18px',
+    },
+    '&.mobile .description': {
+      textAlign: 'center',
+      fontSize: '14px',
+      paddingLeft: '0',
+    },
+    '&.mobile .containerA': {
+      flexDirection: 'column',
+    },
   },
   containerA: {
     display: 'flex',
@@ -38,28 +54,43 @@ const useStyles = makeStyles((theme) => ({
 
 function AboutSection(props) {
   const classes = useStyles();
-  const { item } = props;
-  const { text, description, details, video } = item;
 
-  // console.log(item?.video?.url);
+  const mobileDescriptionLines = 5;
+  const DesktopDescriptionLines = 1000;
+  const [descriptionLinesNumber, setDescriptionLinesNumber] = useState(
+    DesktopDescriptionLines
+  );
+  const { item, isDesktopLayout = true } = props;
+  const { text, description, details, video, videoMobile } = item;
 
-  // const videoId = item?.video?.url?.substring(
-  //   item?.video?.url.indexOf('com/') + 1
-  // );
+  useEffect(() => {
+    if (isDesktopLayout) {
+      setDescriptionLinesNumber(DesktopDescriptionLines);
+    } else {
+      setDescriptionLinesNumber(mobileDescriptionLines);
+    }
+  }, [isDesktopLayout]);
 
-  // console.log(videoId);
+  const heandleReadMore = () => {
+    if (mobileDescriptionLines === descriptionLinesNumber) {
+      setDescriptionLinesNumber(DesktopDescriptionLines);
+    } else {
+      setDescriptionLinesNumber(mobileDescriptionLines);
+    }
+  };
 
   return (
     <Section id='about' className={classes.section}>
-      <Box className={classes.container}>
-        <Box className={classes.containerA}>
+      <Box
+        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
+        <Box className={`${classes.containerA} containerA`}>
           <Box
             sx={{
               maxWidth: '800px',
             }}>
             <Box
               sx={{
-                textAlign: 'right',
+                textAlign: isDesktopLayout ? 'right' : 'center',
                 margin: '0 0 20px',
               }}>
               <img
@@ -69,7 +100,7 @@ function AboutSection(props) {
                 style={{
                   height: 'auto',
                   width: '100%',
-                  maxWidth: '397px',
+                  maxWidth: isDesktopLayout ? '397px' : '165px',
                 }}
               />
             </Box>
@@ -90,6 +121,7 @@ function AboutSection(props) {
               />
             </Box> */}
             <Box
+              className={'description'}
               sx={{
                 color: '#fff',
                 textAlign: 'right',
@@ -101,14 +133,53 @@ function AboutSection(props) {
                 // fontFamily: 'NotoSansHebrew',
                 fontFamily: 'Noto Sans Hebrew',
               }}>
-              {description}
+              {/* {description} */}
+              <TextTruncate
+                line={descriptionLinesNumber}
+                element='span'
+                truncateText='...'
+                text={description}
+                textTruncateChild={
+                  isDesktopLayout ? (
+                    ''
+                  ) : (
+                    <Box
+                      onClick={() => heandleReadMore()}
+                      sx={{ color: '#2C9DAC', fontSize: '16px' }}>
+                      קרא עוד
+                    </Box>
+                  )
+                }
+              />
+              {!isDesktopLayout &&
+                mobileDescriptionLines !== descriptionLinesNumber && (
+                  <Box
+                    onClick={() => heandleReadMore()}
+                    sx={{ color: '#2C9DAC', fontSize: '16px' }}>
+                    קרא פחות
+                  </Box>
+                )}
+
+              {/* {description.split('\n').map((line, i, arr) => {
+                line = <span key={i}>{line}</span>;
+
+                if (i === arr.length - 1) {
+                  return line;
+                } else {
+                  return [line, <br key={i + 'br'} />];
+                }
+              })} */}
             </Box>
           </Box>
           <Box
             sx={{
               position: 'relative',
+              marginTop: isDesktopLayout ? '0' : '25px',
             }}>
             <img
+              style={{
+                width: isDesktopLayout ? 'auto' : '100%',
+              }}
               sizes='(min-width: 400px) 80vw, 100vw'
               srcset='./images/image-60.png 375w,
               ./images/image-60.png 1500w'
@@ -127,11 +198,11 @@ function AboutSection(props) {
                 style={{
                   fontFamily: 'GveretLevinAlefAlefAlef',
                   position: 'absolute',
-                  bottom: "11%", 
-                  right: "16%", 
-                  textAlign: "center", 
-                  fontSize: "1.104vw", 
-                  width: "42%",
+                  bottom: '11%',
+                  right: '16%',
+                  textAlign: 'center',
+                  fontSize: '1.104vw',
+                  width: '42%',
                   transform: 'rotate(347deg)',
                 }}>
                 {text}
@@ -149,6 +220,7 @@ function AboutSection(props) {
         </Box>
         <Box className={classes.containerB}>
           <Box
+            className={'details'}
             sx={{
               textAlign: 'center',
               color: '#d08f20',
@@ -163,15 +235,26 @@ function AboutSection(props) {
         </Box>
         <Box>
           {/* <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} /> */}
-          <Vimeo
-            video={video?.url}
+          {isDesktopLayout && <Vimeo
+            video={video.url}
             showTitle={false}
             loop={false}
             controls={true}
             autoplay={false}
+            playsInline={true}
             height='796px'
             responsive='true'
-          />
+          />}
+          {!isDesktopLayout && <Vimeo
+            video={videoMobile.url}
+            showTitle={false}
+            loop={false}
+            controls={true}
+            autoplay={false}
+            playsInline={true}
+            height='796px'
+            responsive='true'
+          />}
         </Box>
       </Box>
     </Section>

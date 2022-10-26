@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Meta from 'components/Meta';
 import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import {
@@ -31,8 +31,17 @@ import GamesSection from 'components/Sections/GamesSection';
 import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
 import Navbar from 'components/Navbar';
 import Footer from 'components/Footer';
+import { useWindowWidth } from '@react-hook/window-size';
 
 function IndexPage(props) {
+  const windowWidth = useWindowWidth();
+  const isDesktopLayouta = windowWidth >= 960;
+  const [isDesktopLayout, setIsDesktopLayout] = useState();
+
+  useEffect(() => {
+    setIsDesktopLayout(isDesktopLayouta);
+  }, []);
+
   const {
     mainData,
     ticketsInformationData,
@@ -51,13 +60,15 @@ function IndexPage(props) {
     games,
   } = props;
 
-  console.log('mainData', mainData);
-  console.log('newsTicker', newsTicker);
+  // console.log('mainData', mainData);
+  // console.log('newsTicker', newsTicker);
   // console.log('faqItems', faqItems);
 
   return (
     <>
+      <Meta />
       <Navbar
+        isDesktopLayout={isDesktopLayout}
         mainData={mainData}
         ticketsInformationData={ticketsInformationData}
         newsFlashesItems={newsFlashesItems}
@@ -66,25 +77,34 @@ function IndexPage(props) {
         socialIcons={socialIcons}
         menuItems={menuItems}
       />
-      <Meta />
-      {newsTicker.isDisplay && <NewsTicker item={newsTicker} />}
-      <AboutSection item={about} />
-      <ActorsSection items={actors} socialIcons={socialIcons} />
-      <ShopSection items={products} mainData={mainData} />
-      <LastNewsSection
+      {newsTicker.isDisplay && (
+        <NewsTicker item={newsTicker} isDesktopLayout={isDesktopLayout} />
+      )}
+      <AboutSection item={about} isDesktopLayout={isDesktopLayout} />
+      <ActorsSection
+        items={actors}
+        socialIcons={socialIcons}
+        isDesktopLayout={isDesktopLayout}
+      />
+      <ShopSection
+        items={products}
+        mainData={mainData}
+        isDesktopLayout={isDesktopLayout}
+      />
+      {/* <LastNewsSection
         items={lastNews}
         mainData={mainData}
         socialIcons={socialIcons}
-      />
+      /> */}
       <MusicSection items={musics} mainData={mainData} />
       <GamesSection items={games} mainData={mainData} />
       <AllFestigalsSection mainData={mainData} />
 
-      <Footer
+      {/* <Footer
         mainData={mainData}
         socialIcons={socialIcons}
         items={footerItems}
-      />
+      /> */}
     </>
   );
 }

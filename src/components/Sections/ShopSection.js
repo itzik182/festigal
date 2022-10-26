@@ -13,12 +13,15 @@ const useStyles = makeStyles((theme) => ({
     background:
       'transparent url(./background/crown-bg.png) 0% 0% repeat padding-box',
     padding: '10px 0 40px',
+    '&.mobile': {
+      padding: '40px 0',
+    },
   },
 }));
 
 function ShopSection(props) {
   const classes = useStyles();
-  const { items, mainData } = props;
+  const { items, mainData, isDesktopLayout } = props;
   const { festigalStorText, festigalStorUnderItemText } = mainData;
 
   if (!items) {
@@ -30,17 +33,25 @@ function ShopSection(props) {
 
   return (
     <Section id='store' className={classes.section}>
-      <Box className={classes.container}>
-        <ShopCarousel items={itemsUp} festigalStorUnderItemText={festigalStorUnderItemText} />
+      <Box
+        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
+        <ShopCarousel
+          items={itemsUp}
+          festigalStorUnderItemText={festigalStorUnderItemText}
+          isDesktopLayout={isDesktopLayout}
+        />
         <Box
           sx={{
             textAlign: 'center',
-            margin: '3% 0px 0',
+            margin: isDesktopLayout ? '3% 0px 0' : '50px 0px',
           }}>
           <img
             //   width={'168px'}
-            src={'./images/mystore.png'}
-            style={{}}
+            src={
+              isDesktopLayout
+                ? './images/mystore.png'
+                : './mobile/images/mystore.png'
+            }
           />
           <Box
             sx={{
@@ -53,19 +64,27 @@ function ShopSection(props) {
           </Box>
           <Box
             sx={{
-              width: '255px',
+              width: isDesktopLayout ? '255px' : '206px',
               height: '70px',
               textAlign: 'center',
-              margin: '67px auto 0',
+              margin: isDesktopLayout ? '67px auto 0' : '30px auto 0px',
               transition: 'all .2s ease-in-out',
               '&:hover': {
                 transform: 'scale(1.1)',
-              }
+              },
             }}>
-            <GoldButton text={'COMING SOON'} isBold />
+            <GoldButton
+              text={'COMING SOON'}
+              isBold
+              style={!isDesktopLayout && { padding: '8px 0', fontSize: '20px' }}
+            />
           </Box>
         </Box>
-        <ShopCarousel items={itemsDown} festigalStorUnderItemText={festigalStorUnderItemText} />
+        <ShopCarousel
+          items={itemsDown}
+          festigalStorUnderItemText={festigalStorUnderItemText}
+          isDesktopLayout={isDesktopLayout}
+        />
       </Box>
     </Section>
   );
