@@ -91,20 +91,20 @@ function IndexPage(props) {
         mainData={mainData}
         isDesktopLayout={isDesktopLayout}
       />
-      {/* <LastNewsSection
+      <LastNewsSection
         items={lastNews}
         mainData={mainData}
         socialIcons={socialIcons}
-      /> */}
+      />
       <MusicSection items={musics} mainData={mainData} />
       <GamesSection items={games} mainData={mainData} />
       <AllFestigalsSection mainData={mainData} />
 
-      {/* <Footer
+      <Footer
         mainData={mainData}
         socialIcons={socialIcons}
         items={footerItems}
-      /> */}
+      />
     </>
   );
 }
