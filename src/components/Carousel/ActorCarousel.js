@@ -13,15 +13,22 @@ const ActorCarousel = (props) => {
 
   const settings = {
     className: 'slider variable-width',
+    // className: 'center',
     dots: false,
     infinite: true,
     centerMode: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 2,
+    slidesToScroll: 2,
     variableWidth: true,
     arrows: false,
-    swipeToSlide: isDesktopLayout ? false : true,
-    swipe: isDesktopLayout ? false : true,
+    swipeToSlide: isDesktopLayout ? true : true,
+    swipe: isDesktopLayout ? true : true,
+    speed: 1000,
+    // autoplay: true,
+    // autoplaySpeed: 0,
+    cssEase: 'linear',
+    //draggable: false,
+    // adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 768,
@@ -54,14 +61,12 @@ const ActorCarousel = (props) => {
 
   const renderSlides = items.map((item, index) => {
     const { id, name, imageSmall, imageSmallMobile } = item;
-    const currentImageSmall = isDesktopLayout
-      ? imageSmall
-      : imageSmallMobile;
-      // console.log('isDesktopLayout', isDesktopLayout);
-      // console.log('currentImageSmall', currentImageSmall);
+    const currentImageSmall = isDesktopLayout ? imageSmall : imageSmallMobile;
+    // console.log('isDesktopLayout', isDesktopLayout);
+    // console.log('currentImageSmall', currentImageSmall);
 
     return (
-      <Box key={id || index} onClick={() => handleItemClick(item)}>
+      <Box key={id || index} >
         <Box
           sx={{
             position: 'relative',
@@ -110,7 +115,7 @@ const ActorCarousel = (props) => {
         </Box>
       </Box>
     );
-  })
+  });
 
   return (
     <Box
@@ -119,7 +124,7 @@ const ActorCarousel = (props) => {
         maxHeight: isDesktopLayout ? 'auto' : '600px',
       }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
-      {renderSlides}
+        {renderSlides}
       </Slider>
       {isDesktopLayout && (
         <Box
