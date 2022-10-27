@@ -13,7 +13,7 @@ export const DrawerItemList = (props) => {
         sx={{
           marginRight: '5px',
           paddingTop: '0',
-          height: '100%',
+          height: 'auto',
         }}>
         {items.map((item) => (
           <MenuItem
@@ -23,16 +23,18 @@ export const DrawerItemList = (props) => {
             isDrawerOpen={isDrawerOpen}
           />
         ))}
-        <Box
+      </List>
+      <Box
           sx={{
-            position: "absolute", 
-            width: "100%", 
-            padding: "0 70px", 
-            bottom: "45px",
+            margin: '0 70px 0',
+            position: 'relative',
+            // position: "absolute", 
+            // width: "100%", 
+            padding: "15px 0", 
+            //bottom: "20px",
           }}>
           <GoldButton text={ticketsInformationText} link={ticketsInformationLink} />
         </Box>
-      </List>
     </>
   );
 };

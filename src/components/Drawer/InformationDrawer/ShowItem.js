@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import BuyTicketButton from 'components/BuyTicketButton';
 
 export const ShowItem = (props) => {
-  const { item, handleItemClick, isDrawerOpen } = props;
+  const { item, isDrawerOpen, isDesktopLayout } = props;
   const {
     auditorium,
     city,
@@ -25,51 +25,62 @@ export const ShowItem = (props) => {
         textAlign: 'center',
         color: '#000',
         borderRadius: '10px',
-        padding: '15px 10px',
+        padding: isDesktopLayout ? '15px 10px' : '13px 20px',
+        margin: isDesktopLayout ? '0' : '0 0 10px',
+        display: isDesktopLayout ? 'block' : 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
       }}>
-      <Box
-        sx={{
-          fontSize: '30px',
-        }}>
-        {date}
+      <Box>
+        <Box
+          sx={{
+            fontSize: isDesktopLayout ? '30px' : '18px',
+          }}>
+          {date}
+        </Box>
+        <Box
+          sx={{
+            fontSize: isDesktopLayout ? '26px' : '20px',
+            fontWeight: 'bold',
+          }}>
+          {city}
+        </Box>
+        <Box
+          sx={{
+            fontSize: isDesktopLayout ? '19px' : '14px',
+          }}>
+          {auditorium}
+        </Box>
       </Box>
-      <Box
-        sx={{
-          fontSize: '26px',
-          fontWeight: 'bold',
-        }}>
-        {city}
-      </Box>
-      <Box
-        sx={{
-          fontSize: '19px',
-        }}>
-        {auditorium}
-      </Box>
-      <Box
-        sx={{
-          margin: '10px 0',
-        }}>
-        <BuyTicketButton
-          link={buyTicketLink}
-          isTicketsAvailable={isTicketsAvailable}
-        />
-      </Box>
-      <Box
-        sx={{
-          fontSize: '14px',
-          color: '#A2711D',
-          fontWeight: 'bold',
-          textDecoration: 'underline',
-          width: 'max-content',
-          margin: '0 auto',
-        }}>
-        <Link href={locationLink}>
-          <a target={'_blank'}>
-            <Box>דרכי הגעה</Box>
-            <Box>ל{auditorium}</Box>
-          </a>
-        </Link>
+      <Box>
+        <Box
+          sx={{
+            margin: '10px 0',
+          }}>
+          <BuyTicketButton
+            link={buyTicketLink}
+            isTicketsAvailable={isTicketsAvailable}
+            isDesktopLayout={isDesktopLayout}
+          />
+        </Box>
+        <Box
+          sx={{
+            fontSize: isDesktopLayout ? '14px' : '10px',
+            color: '#A2711D',
+            fontWeight: 'bold',
+            textDecoration: 'underline',
+            width: 'max-content',
+            margin: '0 auto',
+          }}>
+          <Link href={locationLink}>
+            <a target={'_blank'}>
+              <Box sx={{ display: isDesktopLayout ? 'block' : 'inline' }}>
+                דרכי הגעה {' '}
+              </Box>
+              <Box sx={{ display: isDesktopLayout ? 'block' : 'inline' }}>ל{auditorium}</Box>
+            </a>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );

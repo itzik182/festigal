@@ -1,7 +1,7 @@
 import { ShowItem } from './ShowItem';
 
 export const ShowItemList = (props) => {
-  const { items, isDrawerOpen } =
+  const { items, isDrawerOpen, isDesktopLayout = true } =
     props;
 
   return (
@@ -11,6 +11,7 @@ export const ShowItemList = (props) => {
             key={item.id}
             item={item}
             isDrawerOpen={isDrawerOpen}
+            isDesktopLayout={isDesktopLayout}
           />
         ))}
     </>

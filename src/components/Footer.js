@@ -71,20 +71,20 @@ function Footer(props) {
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
-              marginBottom: '50px',
+              marginBottom: isDesktopLayout ? '50px' : '0',
             }}>
             <Box
               sx={{
                 display: 'flex',
                 flex: '1',
                 justifyContent: 'space-between',
-                paddingLeft: '4vw',
+                paddingLeft: isDesktopLayout ? '4vw' : '0',
                 flexWrap: isDesktopLayout ? 'nowrap' : 'wrap',
               }}>
               <Box
                 sx={{
                   width: isDesktopLayout ? '100%' : '60%',
-                  paddingLeft: isDesktopLayout ? '20px' : '0',
+                  padding: isDesktopLayout ? '0 0 0 20px' : '0 0 25px',
                 }}>
                 {column1.map((col) => {
                   const { id, text, link, isBold } = col;
@@ -95,7 +95,11 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
+                        fontSize: isBold
+                          ? isDesktopLayout
+                            ? '0.946vw'
+                            : '18px'
+                          : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -123,7 +127,11 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
+                        fontSize: isBold
+                          ? isDesktopLayout
+                            ? '0.946vw'
+                            : '18px'
+                          : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -151,7 +159,11 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
+                        fontSize: isBold
+                          ? isDesktopLayout
+                            ? '0.946vw'
+                            : '18px'
+                          : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -179,7 +191,11 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
+                        fontSize: isBold
+                          ? isDesktopLayout
+                            ? '0.946vw'
+                            : '18px'
+                          : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -201,7 +217,11 @@ function Footer(props) {
               border: '1px solid #2A7D98',
               margin: '25px 0',
             }}></Box>
-          <Box sx={{ display: 'flex' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: isDesktopLayout ? 'initial' : 'center',
+            }}>
             {column5.map((col) => {
               const { id, text, link, isBold } = col;
               const isBlank = link.includes('http');
@@ -209,10 +229,14 @@ function Footer(props) {
                 <Box
                   key={id}
                   sx={{
-                    marginBottom: '15px',
+                    marginBottom: isDesktopLayout ? '15px' : '25px',
                     marginLeft: '20px',
                     color: isBold && '#36D4DE',
-                    fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
+                    fontSize: isBold
+                      ? isDesktopLayout
+                        ? '0.946vw'
+                        : '18px'
+                      : '12px',
                     fontWeight: isBold ? '400' : 'none',
                   }}>
                   <Link href={link}>
@@ -226,7 +250,13 @@ function Footer(props) {
               );
             })}
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'baseline',
+              textAlign: isDesktopLayout ? 'initial' : 'center',
+              flexDirection: isDesktopLayout ? 'initial' : 'column',
+            }}>
             {column6.map((col, index) => {
               const { id, text, link, isBold } = col;
               const isBlank = link.includes('http');
@@ -235,12 +265,14 @@ function Footer(props) {
                   <Box
                     key={id}
                     sx={{
+                      width: isDesktopLayout ? 'auto' : '100%',
                       color: '#47988C',
                       fontSize: '12px',
                       fontWeight: 'none',
+                      marginBottom: isDesktopLayout ? '0' : '10px',
                     }}
                     dangerouslySetInnerHTML={{ __html: text }}></Box>{' '}
-                  {index !== column6.length - 1 && (
+                  {isDesktopLayout && index !== column6.length - 1 && (
                     <span style={{ margin: '0 10px', color: '#47988C' }}>
                       |
                     </span>
@@ -288,8 +320,9 @@ function Footer(props) {
             }}></Box>
           <SocialIcons
             items={socialIcons}
-            isUseOriginalSize={true}
             style={{ margin: '0 10px 20px' }}
+            isDesktopLayout={isDesktopLayout}
+            isUseOriginalSize={false}
           />
           <Box
             sx={{

@@ -6,10 +6,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const ActorCarousel = (props) => {
+const LastNewsCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
-  const { items, handleItemClick, isDesktopLayout = true } = props;
+  const { items, isDesktopLayout = false } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -52,46 +52,39 @@ const ActorCarousel = (props) => {
     }, 100);
   };
 
+  const handleItemClick = (link) => {
+    window.open(link, '_blank');
+  };
+
   const renderSlides = items.map((item, index) => {
-    const { id, name, imageSmall, imageSmallMobile } = item;
-    const currentImageSmall = isDesktopLayout
-      ? imageSmall
-      : imageSmallMobile;
-      // console.log('isDesktopLayout', isDesktopLayout);
-      // console.log('currentImageSmall', currentImageSmall);
+    const { id, name, link, imageWeb } = item;
 
     return (
-      <Box key={id || index} onClick={() => handleItemClick(item)}>
+      <Box key={id || index} onClick={() => handleItemClick(link)}>
         <Box
           sx={{
             position: 'relative',
-            width: isDesktopLayout ? '500px' : '333.2px',
-            height: isDesktopLayout ? '748px' : '583px',
-            marginTop: isDesktopLayout && index % 2 ? '90px' : 0,
-            background: isDesktopLayout
-              ? 'transparent url(./images/frame-4.png) center center no-repeat'
-              : 'transparent url(./mobile/images/frame-4.png) center center no-repeat',
+            width: isDesktopLayout ? '500px' : '302px',
+            height: isDesktopLayout ? '748px' : '435px',
+            marginTop: index % 2 ? '45px' : 0,
+            padding: '0 9px'
           }}>
           <Box
             sx={{
-              outline: '0 !important',
-              position: 'absolute',
-              top: isDesktopLayout ? '107px' : '79px',
-              transition: 'all .1s ease-in-out .1s',
+              // outline: '0 !important',
+              // position: 'absolute',
+              // top: isDesktopLayout ? '107px' : '79px',
+              // transition: 'all .1s ease-in-out .1s',
               // right: '30px',
-              left: isDesktopLayout ? '80px' : '45px',
+              // left: isDesktopLayout ? '80px' : '45px',
               margin: 'auto',
               cursor: 'pointer',
-              '&:hover': {
-                top: '81px',
-                transform: 'scale(1.1)',
-              },
             }}>
             <Image
-              width={currentImageSmall?.width}
-              height={currentImageSmall?.height}
-              src={currentImageSmall?.url}
-              alt={currentImageSmall?.alt}
+              width={imageWeb?.width}
+              height={imageWeb?.height}
+              src={imageWeb?.url}
+              alt={imageWeb?.alt}
             />
           </Box>
         </Box>
@@ -149,4 +142,4 @@ const ActorCarousel = (props) => {
   );
 };
 
-export default ActorCarousel;
+export default LastNewsCarousel;

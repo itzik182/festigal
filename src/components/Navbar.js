@@ -125,7 +125,6 @@ function Navbar(props) {
         videoSmallText={videoSmallText}
         isDesktopLayout={isDesktopLayout}
       />
-
       <HeaderBar
         isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}
@@ -134,6 +133,9 @@ function Navbar(props) {
         setInformationDrawerOpen={setInformationDrawerOpen}
         setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
       />
+
+      {/* Drawer: */}
+
       <MenuDrawer
         items={menuItems}
         handleItemClick={handleMenuDrawerItemClick}
@@ -141,6 +143,7 @@ function Navbar(props) {
         ticketsInformationLink={ticketsInformationLink}
         drawerOpen={menuDrawerOpen}
         setDrawerOpen={setMenuDrawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
       <InformationDrawer
         ticketsInformationData={ticketsInformationData}
@@ -149,6 +152,7 @@ function Navbar(props) {
         ticketsInformationText={ticketsInformationText}
         drawerOpen={informationDrawerOpen}
         setDrawerOpen={setInformationDrawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
       <NewsFlashesDrawer
         items={newsFlashesItems}

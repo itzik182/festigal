@@ -33,7 +33,7 @@ export const GoldButton = (props) => {
               },
               color: '#000',
               cursor: 'pointer',
-              padding: '8px 35px',
+              padding: '8px 0',
               border: '3px solid #C79A4F',
               fontFamily: "'Noto Sans Hebrew'",
               fontSize: '19px',

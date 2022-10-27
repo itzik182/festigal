@@ -102,8 +102,15 @@ function IndexPage(props) {
         mainData={mainData}
         isDesktopLayout={isDesktopLayout}
       />
-      <GamesSection items={games} mainData={mainData} />
-      <AllFestigalsSection mainData={mainData} />
+      <GamesSection
+        items={games}
+        mainData={mainData}
+        isDesktopLayout={isDesktopLayout}
+      />
+      <AllFestigalsSection
+        mainData={mainData}
+        isDesktopLayout={isDesktopLayout}
+      />
 
       <Footer
         mainData={mainData}

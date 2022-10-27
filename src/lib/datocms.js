@@ -116,6 +116,8 @@ export async function getSocialIcons() {
       link
       iconWidth
       iconHeight
+      iconWidthMobile
+      iconHeightMobile
       icon {
         url
         width
@@ -381,7 +383,15 @@ export async function getAllGames() {
       imageText
       firstTitle
       firstName
+      isDisplayMobile
       imageWeb {
+        alt
+        height
+        width
+        url
+        title
+      }
+      imageMobile {
         alt
         height
         width

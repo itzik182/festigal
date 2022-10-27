@@ -2,7 +2,7 @@ import Box from '@material-ui/core/Box';
 import Link from 'next/link';
 
 export const BuyTicketButton = (props) => {
-  const { isTicketsAvailable, link } = props;
+  const { isTicketsAvailable, link, isDesktopLayout } = props;
 
   return (
     <Link href={link} sx={{
@@ -16,10 +16,10 @@ export const BuyTicketButton = (props) => {
             display: 'flex',
             color: '#fff',
             cursor: 'pointer',
-            padding: '8px 20px',
+            padding: isDesktopLayout ? '8px 20px' : '12px 26px',
             fontFamily: "'Noto Sans Hebrew'",
             fontWeight: isTicketsAvailable ? '900' : 'normal',
-            fontSize: isTicketsAvailable ? '19px' : '20px',
+            fontSize: isDesktopLayout ? isTicketsAvailable ? '19px' : '20px' : '14px',
             textAlign: 'center',
             borderRadius: '35px',
             background: isTicketsAvailable

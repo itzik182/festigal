@@ -1,13 +1,9 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-import SectionHeader from 'components/SectionHeader';
 import GameCarousel from '../Carousel/GameCarousel';
+import GameBlock from 'components/GameBlock';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -19,20 +15,24 @@ const useStyles = makeStyles((theme) => ({
     padding: '150px 30px',
     color: '#FFFFFF',
     textAlign: 'center',
+    '&.mobile': {
+      padding: '55px 0px',
+    },
   },
 }));
 
 function GamesSection(props) {
   const classes = useStyles();
-  const { items, mainData } = props;
+  const { items, mainData, isDesktopLayout = true } = props;
 
   return (
     <Section id='games' className={classes.section}>
-      <Box className={classes.container}>
+      <Box className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <Box
           sx={{
             color: '#000',
-            fontSize: '24px',
+            fontSize: isDesktopLayout ? '24px' : '25px',
+            letterSpacing: isDesktopLayout ? 'normal' : '1.7px',
             fontFamily: 'GveretLevinAlefAlefAlef',
           }}>
           {mainData.gamesTitle}
@@ -40,13 +40,14 @@ function GamesSection(props) {
         <Box
           sx={{
             color: '#2D555B',
-            fontSize: '73px',
-            marginBottom: '130px',
+            fontSize: isDesktopLayout ? '73px' : '35px',
+            fontWeight: isDesktopLayout ? 'normal' : 'bold',
+            marginBottom: isDesktopLayout ? '130px' : '30px',
           }}>
           {mainData.gamesText}
         </Box>
         <Box>
-          <GameCarousel items={items} />
+          {isDesktopLayout ? <GameCarousel items={items} /> : <GameBlock items={items} />}
         </Box>
       </Box>
     </Section>

@@ -1,14 +1,10 @@
 import React from 'react';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-// import Button from '@material-ui/core/Button';
-// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-// import SectionHeader from 'components/SectionHeader';
 import ImageNews from 'components/ImageNews';
 import SocialIcons from 'components/SocialIcons';
+import LastNewsCarousel from 'components/Carousel/LastNewsCarousel';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -43,7 +39,7 @@ function LastNewsSection(props) {
             textAlign: 'center',
             fontFamily: 'GveretLevinAlefAlefAlef',
             lineHeight: isDesktopLayout ? '0.9' : '1.5',
-            letterSpacing: '1.74px',
+            letterSpacing: isDesktopLayout ? '1.74px' : '1.4px',
           }}>
           {mainData.lastNewsText}
         </Box>
@@ -62,15 +58,20 @@ function LastNewsSection(props) {
         <Box
           sx={{
             textAlign: 'center',
-            padding: '50px 0 25px',
+            padding: isDesktopLayout ? '50px 0 25px' : '25px 0px 50px',
           }}>
           <SocialIcons
+            isDesktopLayout={isDesktopLayout}
             items={socialIcons}
-            isUseOriginalSize={true}
+            isUseOriginalSize={false}
             style={{ backgroundColor: '#2D555B', margin: '0 15px' }}
           />
         </Box>
-        <ImageNews items={items} />
+        {isDesktopLayout ? (
+          <ImageNews items={items} />
+        ) : (
+          <LastNewsCarousel items={items} />
+        )}
       </Box>
     </Section>
   );

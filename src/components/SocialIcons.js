@@ -31,7 +31,12 @@ const useStyles = makeStyles((theme) => ({
 
 function SocialIcons(props) {
   const classes = useStyles();
-  const { items, style, isUseOriginalSize = true, } = props;
+  const {
+    items,
+    style,
+    isUseOriginalSize = true,
+    isDesktopLayout = true,
+  } = props;
 
   if (!items) {
     return <></>;
@@ -41,26 +46,47 @@ function SocialIcons(props) {
     <Box className={classes.container}>
       {items
         .filter((i) => i.isDisplayShortPanel)
-        .map((item, index) => (
-          <a
-            key={item.id ||index}
-            href={item.link}
-            target='_blank'
-            rel='noreferrer'
-            className={classes.link}>
-            <Box
-              sx={{
-                margin: '0 25px',
-                width: `${isUseOriginalSize ? item.icon.width : item.iconWidth || item.icon.width}px`,
-                height: `${isUseOriginalSize ? item.icon.height : item.iconHeight || item.icon.height}px`,
-                backgroundColor: '#fff',
-                WebkitMask: `url(${item.icon.url}) no-repeat 50% 50%`,
-                mask: `url(${item.icon.url}) no-repeat 50% 50%`,
-                ...style,
-              }}
-              className={classes.icon}></Box>
-          </a>
-        ))}
+        .map((item, index) => {
+          const {
+            id,
+            link,
+            icon,
+            iconWidth,
+            iconHeight,
+            iconWidthMobile,
+            iconHeightMobile,
+          } = item;
+          const { width, height, url } = icon;
+          return (
+            <a
+              key={id || index}
+              href={link}
+              target='_blank'
+              rel='noreferrer'
+              className={classes.link}>
+              <Box
+                sx={{
+                  margin: '0 25px',
+                  width: `${
+                    isUseOriginalSize
+                      ? width
+                      : (isDesktopLayout ? iconWidth : iconWidthMobile) || width
+                  }px`,
+                  height: `${
+                    isUseOriginalSize
+                      ? height
+                      : (isDesktopLayout ? iconHeight : iconHeightMobile) ||
+                        height
+                  }px`,
+                  backgroundColor: '#fff',
+                  WebkitMask: `url(${url}) no-repeat 50% 50%`,
+                  mask: `url(${url}) no-repeat 50% 50%`,
+                  ...style,
+                }}
+                className={classes.icon}></Box>
+            </a>
+          );
+        })}
     </Box>
   );
 }

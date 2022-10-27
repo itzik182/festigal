@@ -10,6 +10,7 @@ export const MenuDrawer = (props) => {
     ticketsInformationLink,
     drawerOpen,
     setDrawerOpen,
+    isDesktopLayout,
   } = props;
 
   return (
@@ -21,7 +22,7 @@ export const MenuDrawer = (props) => {
         '.MuiPaper-root': {
           background:
             'transparent linear-gradient(180deg, #058E9C 0%, #03474E 100%) 0% 0% no-repeat padding-box;',
-          width: '35%',
+          width: isDesktopLayout ? '35%' : '95%',
         },
       }}>
       <img

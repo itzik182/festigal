@@ -10,14 +10,23 @@ const useStyles = makeStyles((theme) => ({
     padding: '0 80px 30px',
     color: '#fff',
     fontFamily: 'Noto Sans Hebrew',
+    '&.mobile': {
+      padding: '0 12px 30px',
+    },
   },
   title: {
     fontSize: '35px',
     padding: '45px 0 20px',
+    '&.mobile': {
+      fontSize: '22px',
+    },
   },
   description: {
     fontSize: '18px',
     width: '80%',
+    '&.mobile': {
+      width: '100%',
+    },
   },
 }));
 
@@ -30,6 +39,7 @@ export const InformationDrawer = (props) => {
     ticketsInformationText,
     drawerOpen,
     setDrawerOpen,
+    isDesktopLayout,
   } = props;
 
   const {
@@ -55,7 +65,7 @@ export const InformationDrawer = (props) => {
             'transparent linear-gradient(180deg, #058E9C 0%, #03474E 100%) 0% 0% no-repeat padding-box',
           boxShadow: '-23px 3px 22px #00000073',
           // minWidth: '60%',
-          width: '1100px',
+          width: isDesktopLayout ? '1100px' : '100%',
         },
       }}>
       <img
@@ -69,19 +79,23 @@ export const InformationDrawer = (props) => {
           top: '47px',
         }}
       />
-      <Box className={classes.main}>
-        <Box className={classes.title}>{ticketTitle}</Box>
+      <Box className={`${classes.main} ${isDesktopLayout ? '' : 'mobile'}`}>
+        <Box className={`${classes.title} ${isDesktopLayout ? '' : 'mobile'}`}>
+          {ticketTitle}
+        </Box>
         <Box className={classes.description}>{ticketDescription}</Box>
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             marginTop: '30px',
+            flexDirection: isDesktopLayout ? 'row' : 'column',
           }}>
           <ShowItemList
             ticketsInformationText={ticketsInformationText}
             items={showsItems}
             isDrawerOpen={drawerOpen}
+            isDesktopLayout={isDesktopLayout}
           />
         </Box>
         <Box className={classes.title}>{faqTitle}</Box>
@@ -99,9 +113,9 @@ export const InformationDrawer = (props) => {
           />
         </Box>
         <Box className={classes.title}>{accessibilityTitle}</Box>
-        <Box className={classes.description}>{accessibilityDescription}</Box>
+        <Box className={`${classes.description} ${isDesktopLayout ? '' : 'mobile'}`}>{accessibilityDescription}</Box>
         <Box className={classes.title}>{informationTitle}</Box>
-        <Box className={classes.description}>{informationDescription}</Box>
+        <Box className={`${classes.description} ${isDesktopLayout ? '' : 'mobile'}`}>{informationDescription}</Box>
       </Box>
     </Drawer>
   );

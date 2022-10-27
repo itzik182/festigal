@@ -16,34 +16,42 @@ const useStyles = makeStyles((theme) => ({
   container: {
     background:
       'transparent linear-gradient(117deg, #950291 0%, #3D1D58 100%) 0% 0% no-repeat padding-box',
-    padding: '110px 0 0px',
+    padding: '110px 0 0',
     textAlign: 'right',
+    '&.mobile': {
+      padding: '0px 0 0',
+      minHeight: '550px',
+      overflow: 'hidden',
+    },
   },
 }));
 
 function AllFestigalsSection(props) {
   const classes = useStyles();
 
-  const { mainData } = props;
+  const { mainData, isDesktopLayout } = props;
 
   return (
     <Section id='all-festigals' className={classes.section}>
-      <Box className={classes.container}>
+      <Box
+        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <Box
           sx={{
-            background:
-              "transparent url('images/my_back.svg') -13% 0% no-repeat padding-box",
+            background: isDesktopLayout
+              ? "transparent url('images/my_back.svg') -15% 0% no-repeat padding-box"
+              : 'url("images/my_back.svg") 0% 10% / contain no-repeat padding-box padding-box transparent',
             mixBlendMode: 'overlay',
             width: '100%',
             height: '100%',
             position: 'absolute',
+            backgroundPositionX: '-15px',
           }}></Box>
         <Box
           sx={{
             position: 'absolute',
-            top: '170px',
-            left: '55px',
-            font: 'normal normal bold 49px/54px Noto Sans Hebrew',
+            top: isDesktopLayout ? '170px' : '60px',
+            left: isDesktopLayout ? '55px' : '18px',
+            font: isDesktopLayout ? 'normal normal bold 49px/54px Noto Sans Hebrew' : 'bold 30px / 0px "Noto Sans Hebrew"',
             letterSpacing: '1.08px',
             color: '#FFFFFF',
             textShadow: '0px 0px 14px #FFFFFF9C',
@@ -54,23 +62,25 @@ function AllFestigalsSection(props) {
         <Box
           sx={{
             position: 'absolute',
-            top: '380px',
-            left: '190px',
-            zIndex: "10",
+            top: isDesktopLayout ? '380px' : '85px',
+            left: isDesktopLayout ? '190px' : '20px',
+            zIndex: '10',
           }}>
           <img
             src='./images/my_big.png'
             alt=''
             style={{
               height: 'auto',
+              width: isDesktopLayout ? 'auto' : '330px',
             }}
           />
           <Box
             sx={{
-              fontSize: '45px',
+              fontSize: isDesktopLayout ? '45px' : '21px',
               fontFamily: 'GveretLevinAlefAlefAlef',
               color: '#fff',
-              marginTop: '20px',
+              margin: isDesktopLayout ? '20px 0 0' : '2px 13px 0 0',
+              letterSpacing: isDesktopLayout ? 'normal' : '1.43px',
             }}>
             {mainData.myFestigalWebsiteText}
           </Box>
@@ -81,10 +91,10 @@ function AllFestigalsSection(props) {
           style={{
             height: 'auto',
             position: 'relative',
-            bottom: '-6px',
+            bottom: isDesktopLayout ? '-6px' : '-215px',
             right: '-200px',
             zIndex: '1',
-            width: '63%',
+            width: isDesktopLayout ? '63%' : '150%',
           }}
         />
       </Box>

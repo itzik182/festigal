@@ -71,9 +71,9 @@ function MusicSection(props) {
           <Box
             sx={{
               position: isDesktopLayout ? 'absolute' : 'relative',
-              top: isDesktopLayout ? '355px' : '20px',
+              top: isDesktopLayout ? '355px' : '0',
               left: isDesktopLayout ? '485px' : '0',
-              right: isDesktopLayout ? 'auto' : '10px',
+              right: isDesktopLayout ? 'auto' : '0',
               padding: isDesktopLayout ? '0' : '20px 20px 0 0',
               maxWidth: isDesktopLayout ? '380px' : '265px',
             }}>
@@ -82,7 +82,7 @@ function MusicSection(props) {
                 fontFamily: 'GveretLevinAlefAlefAlef',
                 position: 'absolute',
                 top: isDesktopLayout ? '42px' : '50px',
-                left: isDesktopLayout ? '24px' : '0px',
+                left: isDesktopLayout ? '24px' : '-10px',
                 transform: 'rotate(349deg)',
                 fontSize: isDesktopLayout ? '24px' : '16px',
                 color: '#fff',
