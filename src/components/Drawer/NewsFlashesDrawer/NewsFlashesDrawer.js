@@ -11,6 +11,7 @@ export const NewsFlashesDrawer = (props) => {
     allNewsFlashLink,
     drawerOpen,
     setDrawerOpen,
+    isDesktopLayout = true,
   } = props;
 
   return (
@@ -22,7 +23,7 @@ export const NewsFlashesDrawer = (props) => {
         '.MuiPaper-root': {
           background:
             'transparent linear-gradient(180deg, #058E9C 0%, #03474E 100%) 0% 0% no-repeat padding-box;',
-          width: '493px',
+          width: isDesktopLayout ? '493px' : '100%',
           padding: '42px 37px 0 42px',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -64,7 +65,7 @@ export const NewsFlashesDrawer = (props) => {
           color: '#fff',
           background: '#021B23',
           bottom: '0',
-          width: '493px',
+          width: isDesktopLayout ? '493px' : '100%',
           left: '0',
           height: '124px',
           display: 'flex',

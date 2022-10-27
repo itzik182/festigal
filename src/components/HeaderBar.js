@@ -97,7 +97,7 @@ export const HeaderBar = (props) => {
   // console.log('isDesktopLayout', isDesktopLayout);
 
   const {
-    isDesktopLayout,
+    isDesktopLayout = true,
     socialIcons,
     ticketsInformationText,
     setMenuDrawerOpen,
@@ -237,7 +237,7 @@ export const HeaderBar = (props) => {
                     }
                     alt='Logo'
                     style={{
-                      marginTop: '10px',
+                      marginTop: isDesktopLayout ? '10px' : '0',
                     }}
                   />
                 </a>

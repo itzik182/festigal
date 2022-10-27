@@ -39,7 +39,7 @@ export const InformationDrawer = (props) => {
     ticketsInformationText,
     drawerOpen,
     setDrawerOpen,
-    isDesktopLayout,
+    isDesktopLayout = true,
   } = props;
 
   const {

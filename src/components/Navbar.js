@@ -160,6 +160,7 @@ function Navbar(props) {
         allNewsFlashLink={allNewsFlashLink}
         drawerOpen={newsFlashesDrawerOpen}
         setDrawerOpen={setNewsFlashesDrawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
     </Section>
   );

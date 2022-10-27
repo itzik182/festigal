@@ -10,7 +10,7 @@ export const MenuDrawer = (props) => {
     ticketsInformationLink,
     drawerOpen,
     setDrawerOpen,
-    isDesktopLayout,
+    isDesktopLayout = true,
   } = props;
 
   return (
