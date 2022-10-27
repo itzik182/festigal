@@ -17,12 +17,15 @@ const useStyles = makeStyles((theme) => ({
   container: {
     background: '#fff',
     padding: '100px 195px 130px',
+    '&.mobile': {
+      padding: '50px 0px',
+    },
   },
 }));
 
 function LastNewsSection(props) {
   const classes = useStyles();
-  const { items, mainData, socialIcons } = props;
+  const { items, mainData, socialIcons, isDesktopLayout = true } = props;
 
   if (!items) {
     return <></>;
@@ -30,24 +33,25 @@ function LastNewsSection(props) {
 
   return (
     <Section id='last-news' className={classes.section}>
-      <Box className={classes.container}>
+      <Box
+        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <Box
           sx={{
+            padding: isDesktopLayout ? '0' : '0 40px',
             color: '#000000',
-            fontSize: '31px',
+            fontSize: isDesktopLayout ? '31px' : '25px',
             textAlign: 'center',
             fontFamily: 'GveretLevinAlefAlefAlef',
-            lineHeight: '0.9',
+            lineHeight: isDesktopLayout ? '0.9' : '1.5',
             letterSpacing: '1.74px',
           }}>
           {mainData.lastNewsText}
         </Box>
         <Box
           sx={{
-            color: '#2D555B',
-            fontSize: '73px',
-            fontWeight: '900',
             textAlign: 'center',
+            color: '#2D555B',
+            fontSize: isDesktopLayout ? '73px' : '35px',
             fontFamily: 'Noto Sans Hebrew',
             fontWeight: '900',
             fontStyle: 'normal',
@@ -62,8 +66,8 @@ function LastNewsSection(props) {
           }}>
           <SocialIcons
             items={socialIcons}
-            isUseOriginalSize={false}
-            color={'#2D555B'}
+            isUseOriginalSize={true}
+            style={{ backgroundColor: '#2D555B', margin: '0 15px' }}
           />
         </Box>
         <ImageNews items={items} />

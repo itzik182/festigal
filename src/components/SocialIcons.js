@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SocialIcons(props) {
   const classes = useStyles();
-  const { items, color, isUseOriginalSize = true, margin } = props;
+  const { items, style, isUseOriginalSize = true, } = props;
 
   if (!items) {
     return <></>;
@@ -50,12 +50,13 @@ function SocialIcons(props) {
             className={classes.link}>
             <Box
               sx={{
-                margin: margin || '0 25px',
+                margin: '0 25px',
                 width: `${isUseOriginalSize ? item.icon.width : item.iconWidth || item.icon.width}px`,
                 height: `${isUseOriginalSize ? item.icon.height : item.iconHeight || item.icon.height}px`,
-                backgroundColor: color || '#fff',
+                backgroundColor: '#fff',
                 WebkitMask: `url(${item.icon.url}) no-repeat 50% 50%`,
                 mask: `url(${item.icon.url}) no-repeat 50% 50%`,
+                ...style,
               }}
               className={classes.icon}></Box>
           </a>

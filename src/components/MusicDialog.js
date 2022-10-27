@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import YoutubeEmbed from '../components/YoutubeEmbed';
 
 function MusicDialog(props) {
-  const { open, item, onClose } = props;
+  const { open, item, onClose, isDesktopLayout = true } = props;
 
   const videoId = item?.link?.substring(item?.link?.indexOf('=') + 1);
 
@@ -16,9 +16,9 @@ function MusicDialog(props) {
       open={open}
       sx={{
         '.MuiPaper-root': {
-          maxWidth: '70%',
-          minWidth: '900px',
-          minHeight: '755px',
+          maxWidth: isDesktopLayout ? '70%' : 'auto',
+          minWidth: isDesktopLayout ? '900px' : 'auto',
+          minHeight: isDesktopLayout ? '755px' : 'auto',
           height: 'auto',
           margin: '0',
           borderRadius: '44px',
@@ -31,7 +31,7 @@ function MusicDialog(props) {
         <Box
           sx={{
             zIndex: 1,
-            position: 'absolute',
+            position: isDesktopLayout ? 'absolute' : 'auto',
             left: 10,
             top: 10,
           }}>
@@ -52,12 +52,12 @@ function MusicDialog(props) {
         // url={'iCAKpASnFgw'}
         url={videoId}
         autoplay={true}
-        width={'100%'}
-        height={'796px'}
+        width={isDesktopLayout ? '100%' : '100%'}
+        height={isDesktopLayout ? '796px' : 'auto'}
         containerStyle={{
           margin: '0px auto',
-          position: 'absolute',
-          minHeight: '796px',
+          position: isDesktopLayout ? 'absolute' : 'auto',
+          minHeight: isDesktopLayout ? '796px' : 'auto',
         }}
       />
       </Box>

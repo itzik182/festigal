@@ -40,7 +40,7 @@ function IndexPage(props) {
 
   useEffect(() => {
     setIsDesktopLayout(isDesktopLayouta);
-  }, []);
+  }, [windowWidth]);
 
   const {
     mainData,
@@ -95,8 +95,13 @@ function IndexPage(props) {
         items={lastNews}
         mainData={mainData}
         socialIcons={socialIcons}
+        isDesktopLayout={isDesktopLayout}
       />
-      <MusicSection items={musics} mainData={mainData} />
+      <MusicSection
+        items={musics}
+        mainData={mainData}
+        isDesktopLayout={isDesktopLayout}
+      />
       <GamesSection items={games} mainData={mainData} />
       <AllFestigalsSection mainData={mainData} />
 
@@ -104,6 +109,7 @@ function IndexPage(props) {
         mainData={mainData}
         socialIcons={socialIcons}
         items={footerItems}
+        isDesktopLayout={isDesktopLayout}
       />
     </>
   );

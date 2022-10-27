@@ -8,6 +8,7 @@ import MusicDialog from '../MusicDialog';
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    backgroundColor: '#021B23 !important',
   },
   container: {
     margin: '0',
@@ -18,9 +19,11 @@ const useStyles = makeStyles((theme) => ({
     color: '#FFFFFF',
     textAlign: 'right',
     padding: '100px 11.193vw 150px',
+    '&.mobile': {
+      padding: '50px 0 140px',
+    },
   },
   mediumText: {
-    fontSize: '2.312vw',
     fontFamily: 'Noto Sans Hebrew',
     fontWeight: '400',
     fontStyle: 'normal',
@@ -29,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 0px 7px #FFD284',
     border: '1px solid #A2711D',
     borderRadius: '2px',
+    width: '90%',
+    margin: 'auto',
   },
 }));
 
@@ -37,7 +42,10 @@ function MusicSection(props) {
   const [selectedItem, setSelectedItem] = useState();
 
   const classes = useStyles();
-  const { items, mainData } = props;
+  const { items, mainData, isDesktopLayout } = props;
+
+  const playlists = items.filter((item) => item.isPlaylist);
+  const podcast = items.filter((item) => !item.isPlaylist);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -53,25 +61,36 @@ function MusicSection(props) {
       <Box className={classes.container}>
         <Box
           sx={{
-            padding: '190px 11.193vw 0',
-            background:
-              'transparent url(./background/image47.png) no-repeat padding-box',
+            padding: isDesktopLayout ? '197px 11.193vw 0' : '0',
+            backgroundSize: !isDesktopLayout && 'cover',
+            minHeight: isDesktopLayout ? '588px' : 'auto',
+            background: isDesktopLayout
+              ? 'transparent url(./background/image47.png) no-repeat padding-box'
+              : 'transparent url(./background/image47.png) 21% center no-repeat padding-box',
           }}>
           <Box
             sx={{
-              position: 'absolute',
-              top: '355px',
-              left: '485px',
+              position: isDesktopLayout ? 'absolute' : 'relative',
+              top: isDesktopLayout ? '355px' : '20px',
+              left: isDesktopLayout ? '485px' : '0',
+              right: isDesktopLayout ? 'auto' : '10px',
+              padding: isDesktopLayout ? '0' : '20px 20px 0 0',
+              maxWidth: isDesktopLayout ? '380px' : '265px',
             }}>
             <span
               style={{
                 fontFamily: 'GveretLevinAlefAlefAlef',
                 position: 'absolute',
-                top: '46px',
-                left: '100px',
+                top: isDesktopLayout ? '42px' : '50px',
+                left: isDesktopLayout ? '24px' : '0px',
                 transform: 'rotate(349deg)',
-                fontSize: '24px',
+                fontSize: isDesktopLayout ? '24px' : '16px',
                 color: '#fff',
+                textShadow: '1px 1px 1px #000000c4',
+                width: '100%',
+                textAlign: 'center',
+                maxWidth: isDesktopLayout ? '90%' : 'auto',
+                maxWidth: isDesktopLayout ? '380px' : '265px',
               }}>
               {mainData.festigalSongWriter}
             </span>
@@ -80,29 +99,30 @@ function MusicSection(props) {
               alt=''
               title=''
               style={{
-                maxWidth: '380px',
+                maxWidth: isDesktopLayout ? '380px' : '265px',
               }}
             />
           </Box>
           <Box
             sx={{
-              display: 'flex',
+              display: isDesktopLayout ? 'flex' : 'block',
               marginBottom: '25px',
             }}>
             <Box
               sx={{
                 color: '#fff',
+                margin: isDesktopLayout ? '0' : '40px 20px 20px 0px',
               }}>
               <Box
                 sx={{
-                  fontSize: '1.524vw',
+                  fontSize: isDesktopLayout ? '1.524vw' : '25px',
                   fontFamily: 'GveretLevinAlefAlefAlef',
                 }}>
                 {mainData.festigalSong}
               </Box>
               <Box
                 sx={{
-                  fontSize: '4.467vw',
+                  fontSize: isDesktopLayout ? '4.467vw' : '33px',
                   fontFamily: 'Noto Sans Hebrew',
                   fontWeight: '800',
                   fontStyle: 'normal',
@@ -112,53 +132,78 @@ function MusicSection(props) {
               <Box
                 className={classes.mediumText}
                 sx={{
-                  fontSize: '1.944vw',
+                  fontSize: isDesktopLayout ? '1.944vw' : '25px',
                 }}>
                 {mainData.festigalSongSinger}
               </Box>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                textAlign: isDesktopLayout ? 'auto' : 'center',
+              }}>
               <a
                 href='https://www.youtube.com/watch?v=iCAKpASnFgw'
                 target='_blank'>
                 <img
                   style={{
                     cursor: 'pointer',
+                    maxWidth: isDesktopLayout ? '100%' : '120px',
                   }}
+                  sizes='(min-width: 400px) 80vw, 100vw'
+                  srcset='./images/play.png 375w,
+              ./images/play.png 1500w'
                   src='./images/play.png'
                   alt='play'
                 />
               </a>
             </Box>
           </Box>
-          <Box className={classes.rectangle}></Box>
         </Box>
-        <Box className={classes.containerA}>
+        <Box className={classes.rectangle}></Box>
+        <Box
+          className={`${classes.containerA} ${
+            isDesktopLayout ? '' : 'mobile'
+          }`}>
           <Box
             className={classes.mediumText}
             sx={{
-              fontSize: '2.312vw',
-              padding: '0 0 50px',
+              fontSize: isDesktopLayout ? '2.312vw' : '30px',
+              padding: isDesktopLayout ? '0 0 50px' : '0 0 35px',
+              textAlign: isDesktopLayout ? 'right' : 'center',
             }}>
             {mainData.playlistTitle}
           </Box>
           <Box>
-            <PlaylistCarousel items={items} handleItemClick={handleItemClick} />
+            <PlaylistCarousel
+              items={playlists}
+              handleItemClick={handleItemClick}
+              isDesktopLayout={isDesktopLayout}
+            />
           </Box>
           <Box
             className={classes.mediumText}
             sx={{
-              fontSize: '2.312vw',
-              padding: '100px 0 50px',
+              fontSize: isDesktopLayout ? '2.312vw' : '30px',
+              padding: isDesktopLayout ? '100px 0 50px' : '120px 0 35px',
+              textAlign: isDesktopLayout ? 'right' : 'center',
             }}>
             {mainData.podcastTitle}
           </Box>
           <Box>
-            <PlaylistCarousel items={items} handleItemClick={handleItemClick} />
+            <PlaylistCarousel
+              items={podcast}
+              handleItemClick={handleItemClick}
+              isDesktopLayout={isDesktopLayout}
+            />
           </Box>
         </Box>
       </Box>
-      <MusicDialog open={open} onClose={handleClose} item={selectedItem} />
+      <MusicDialog
+        open={open}
+        onClose={handleClose}
+        item={selectedItem}
+        isDesktopLayout={isDesktopLayout}
+      />
     </Section>
   );
 }

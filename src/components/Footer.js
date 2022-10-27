@@ -5,6 +5,7 @@ import Section from 'components/Section';
 import Box from '@material-ui/core/Box';
 import SocialIcons from 'components/SocialIcons';
 import GoldButton from 'components/GoldButton';
+import YoutubeChannel from 'components/YoutubeChannel';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer(props) {
   const classes = useStyles();
-  const { items, mainData, socialIcons } = props;
+  const { items, mainData, socialIcons, isDesktopLayout } = props;
 
   const column1 = items?.filter((item) => item.column.columnNumber === 1);
   const column2 = items?.filter((item) => item.column.columnNumber === 2);
@@ -56,11 +57,12 @@ function Footer(props) {
           justifyContent: 'space-between',
           fontFamily: 'Noto Sans Hebrew',
           color: '#fff',
+          flexDirection: isDesktopLayout ? 'row' : 'column-reverse',
         }}>
         <Box
           sx={{
             width: '100%',
-            padding: '85px 0 0 13.925vw',
+            padding: isDesktopLayout ? '85px 0 0 13.925vw' : '47px 0 0 0',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -77,11 +79,12 @@ function Footer(props) {
                 flex: '1',
                 justifyContent: 'space-between',
                 paddingLeft: '4vw',
+                flexWrap: isDesktopLayout ? 'nowrap' : 'wrap',
               }}>
               <Box
                 sx={{
-                  width: '100%',
-                  paddingLeft: '20px',
+                  width: isDesktopLayout ? '100%' : '60%',
+                  paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column1.map((col) => {
                   const { id, text, link, isBold } = col;
@@ -92,7 +95,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '0.946vw' : '12px',
+                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -108,8 +111,8 @@ function Footer(props) {
               </Box>
               <Box
                 sx={{
-                  width: '100%',
-                  paddingLeft: '20px',
+                  width: isDesktopLayout ? '100%' : '40%',
+                  paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column2.map((col) => {
                   const { id, text, link, isBold } = col;
@@ -120,7 +123,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '0.946vw' : '12px',
+                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -136,8 +139,8 @@ function Footer(props) {
               </Box>
               <Box
                 sx={{
-                  width: '100%',
-                  paddingLeft: '20px',
+                  width: isDesktopLayout ? '100%' : '60%',
+                  paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column3.map((col) => {
                   const { id, text, link, isBold } = col;
@@ -148,7 +151,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '0.946vw' : '12px',
+                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -164,8 +167,8 @@ function Footer(props) {
               </Box>
               <Box
                 sx={{
-                  width: '100%',
-                  paddingLeft: '20px',
+                  width: isDesktopLayout ? '100%' : '40%',
+                  paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column4.map((col) => {
                   const { id, text, link, isBold } = col;
@@ -176,7 +179,7 @@ function Footer(props) {
                       sx={{
                         marginBottom: '15px',
                         color: isBold && '#36D4DE',
-                        fontSize: isBold ? '0.946vw' : '12px',
+                        fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
                         fontWeight: isBold ? '400' : 'none',
                       }}>
                       <Link href={link}>
@@ -191,42 +194,7 @@ function Footer(props) {
                 })}
               </Box>
             </Box>
-            <Box
-              sx={{
-                display: 'flex',
-              }}>
-              <Box
-                sx={{
-                  textAlign: 'center',
-                  margin: '5px 0 0 19px',
-                }}>
-                <Box
-                  sx={{
-                    fontSize: '0.946vw',
-                    fontWeight: 'bold',
-                  }}>
-                  {mainData.youtubeText}
-                </Box>
-                <Box
-                  sx={{
-                    fontSize: '27px',
-                  }}>
-                  {mainData.festigalYoutubeText}
-                </Box>
-              </Box>
-              <Box>
-                <a
-                  href='https://www.youtube.com/c/myfestigalofficial/featured'
-                  target='_blank'
-                  rel='noreferrer'
-                  className={classes.link}>
-                  <img
-                    src='./social-icons/youtube-logo.png'
-                    alt='youtube-logo'
-                  />
-                </a>
-              </Box>
-            </Box>
+            {isDesktopLayout && <YoutubeChannel mainData={mainData} />}
           </Box>
           <Box
             sx={{
@@ -244,7 +212,7 @@ function Footer(props) {
                     marginBottom: '15px',
                     marginLeft: '20px',
                     color: isBold && '#36D4DE',
-                    fontSize: isBold ? '0.946vw' : '12px',
+                    fontSize: isBold ? isDesktopLayout ? '0.946vw' : '18px' : '12px',
                     fontWeight: isBold ? '400' : 'none',
                   }}>
                   <Link href={link}>
@@ -271,10 +239,11 @@ function Footer(props) {
                       fontSize: '12px',
                       fontWeight: 'none',
                     }}
-                    dangerouslySetInnerHTML={{ __html: text }}>
-                  </Box>{' '}
-                  {index !== column6.length-1 && (
-                    <span style={{ margin: '0 10px', color: '#47988C', }}>|</span>
+                    dangerouslySetInnerHTML={{ __html: text }}></Box>{' '}
+                  {index !== column6.length - 1 && (
+                    <span style={{ margin: '0 10px', color: '#47988C' }}>
+                      |
+                    </span>
                   )}
                 </>
               );
@@ -288,26 +257,49 @@ function Footer(props) {
             flexDirection: 'column',
             justifyContent: 'space-between',
           }}>
-          <Box>
+          <Box
+            sx={{
+              padding: '12px 0 40px',
+            }}>
             <Link href='/'>
               <a>
                 <img
-                  src='./logo/logo-web-big.png'
+                  src={
+                    isDesktopLayout
+                      ? './logo/logo-big.png'
+                      : './mobile/logo/logo-big.png'
+                  }
                   alt='Logo'
                   className={classes.brand}
                 />
               </a>
             </Link>
           </Box>
+          {!isDesktopLayout && (
+            <YoutubeChannel
+              mainData={mainData}
+              isDesktopLayout={isDesktopLayout}
+            />
+          )}
+          <Box
+            sx={{
+              border: '1px solid #2A7D98',
+              margin: '32px 0',
+            }}></Box>
           <SocialIcons
             items={socialIcons}
             isUseOriginalSize={true}
-            margin={'0 10px 20px'}
+            style={{ margin: '0 10px 20px' }}
           />
-          <GoldButton
-            text={mainData.ticketsInformationText}
-            link={mainData.ticketsInformationLink}
-          />
+          <Box
+            sx={{
+              marginTop: isDesktopLayout ? '0' : '20px',
+            }}>
+            <GoldButton
+              text={mainData.ticketsInformationText}
+              link={mainData.ticketsInformationLink}
+            />
+          </Box>
         </Box>
       </Box>
     </Section>

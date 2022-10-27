@@ -215,7 +215,7 @@ export const HeaderBar = (props) => {
               <SocialIcons
                 items={socialIcons}
                 isUseOriginalSize={true}
-                margin={'0 10px'}
+                style={{ margin: '0 10px' }}
               />
             </Box>
           </Hidden>
