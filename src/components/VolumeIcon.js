@@ -3,7 +3,7 @@ import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
 import VolumeOffOutlinedIcon from '@mui/icons-material/VolumeOffOutlined';
 
 export const VolumeIcon = (props) => {
-  const { isVideoMute, setVideoMute } = props;
+  const { isVideoMute, setVideoMute, isDesktopLayout } = props;
 
   return (
     <Box
@@ -19,7 +19,7 @@ export const VolumeIcon = (props) => {
         zIndex: '100',
         cursor: 'pointer',
         '& svg': {
-          fontSize: 150,
+          fontSize: isDesktopLayout ? 150 : 80,
         },
       }}>
       {isVideoMute ? <VolumeOffOutlinedIcon /> : <VolumeUpOutlinedIcon />}

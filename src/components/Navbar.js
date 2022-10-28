@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Box from '@material-ui/core/Box';
 // import Hidden from '@material-ui/core/Hidden';
 // import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -69,6 +70,7 @@ function Navbar(props) {
       sx={
         {
           // minHeight: '796px',
+          backgroundColor: '#000',
         }
       }>
       {/* <YoutubeEmbed
@@ -83,17 +85,20 @@ function Navbar(props) {
           minHeight: '796px',
         }}
       /> */}
-      {isDesktopLayout && (
-        <div
-          style={{
+        <Box
+          sx={{
+            
+            // transition: 'visibility 0.3s linear 2s',
+            // opacity: isVideoReady ? '0' : '1',
             display: isVideoReady ? 'none' : 'block',
+            // visibility: isVideoReady ? 'hidden' : 'visible',
             width: '100%',
-            minHeight: '800px',
+            minHeight: isDesktopLayout ? '800px' : '750px',
             backgroundColor: '#000',
             backgroundSize: `cover`,
             backgroundImage: `url('./background/videoBg.png')`,
-          }}></div>
-      )}
+            backgroundPosition: 'center',
+          }}></Box>
       {isDesktopLayout && (
         <Vimeo
           onReady={() => videoOnReady()}
@@ -122,6 +127,7 @@ function Navbar(props) {
       )}
       {!isDesktopLayout && (
         <Vimeo
+        onReady={() => videoOnReady()}
           video={mainVideoMobile?.url}
           showTitle={false}
           loop={true}
@@ -136,6 +142,7 @@ function Navbar(props) {
           background={true}
           responsive={true}
           style={{
+            display: !isVideoReady ? 'none' : 'block',
             margin: '0px auto',
             position: 'relative',
             // minHeight: '796px',
@@ -143,7 +150,11 @@ function Navbar(props) {
           }}
         />
       )}
-      <VolumeIcon isVideoMute={isVideoMute} setVideoMute={setVideoMute} />
+      <VolumeIcon
+        isVideoMute={isVideoMute}
+        setVideoMute={setVideoMute}
+        isDesktopLayout={isDesktopLayout}
+      />
       {isVideoReady && (
         <FirstShowFlag
           flagButtonText={flagButtonText}
