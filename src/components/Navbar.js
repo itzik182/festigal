@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import Hidden from '@material-ui/core/Hidden';
 // import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 // import YoutubeEmbed from '../components/YoutubeEmbed';
-import {MenuDrawer} from './Drawer/MenuDrawer/MenuDrawer';
-import {InformationDrawer} from './Drawer/InformationDrawer/InformationDrawer';
-import {NewsFlashesDrawer} from './Drawer/NewsFlashesDrawer/NewsFlashesDrawer';
+import { MenuDrawer } from './Drawer/MenuDrawer/MenuDrawer';
+import { InformationDrawer } from './Drawer/InformationDrawer/InformationDrawer';
+import { NewsFlashesDrawer } from './Drawer/NewsFlashesDrawer/NewsFlashesDrawer';
 import HeaderBar from 'components/HeaderBar';
 import FirstShowFlag from 'components/FirstShowFlag';
 import VideoText from 'components/VideoText';
+import VolumeIcon from 'components/VolumeIcon';
 import Vimeo from '@u-wave/react-vimeo';
 
 // const useStyles = makeStyles((theme) => ({
@@ -16,9 +17,15 @@ import Vimeo from '@u-wave/react-vimeo';
 // }));
 
 function Navbar(props) {
+  const [isVideoMute, setVideoMute] = useState(true);
+  const [isVideoReady, setVideoReady] = useState(false);
   const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
   const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
   const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    console.log('isVideoMute', isVideoMute);
+  }, [isVideoMute, isVideoReady]);
 
   const {
     isDesktopLayout = true,
@@ -31,24 +38,28 @@ function Navbar(props) {
     socialIcons,
   } = props;
 
-    const {
-        mainVideo,
-        mainVideoMobile,
-        flagText,
-        firstShowDate,
-        flagButtonText,
-        showLink,
-        videoBigText,
-        videoSmallText,
-        ticketsInformationText,
-        ticketsInformationLink,
-        allNewsFlashText,
-        allNewsFlashLink,
-    } = mainData;
+  const {
+    mainVideo,
+    mainVideoMobile,
+    flagText,
+    firstShowDate,
+    flagButtonText,
+    showLink,
+    videoBigText,
+    videoSmallText,
+    ticketsInformationText,
+    ticketsInformationLink,
+    allNewsFlashText,
+    allNewsFlashLink,
+  } = mainData;
 
-    const handleMenuDrawerItemClick = () => {
-        setMenuDrawerOpen(false);
-    };
+  const handleMenuDrawerItemClick = () => {
+    setMenuDrawerOpen(false);
+  };
+
+  const videoOnReady = () => {
+    setVideoReady(true);
+  }
 
   // const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
 
@@ -72,59 +83,75 @@ function Navbar(props) {
           minHeight: '796px',
         }}
       /> */}
-      {isDesktopLayout && <Vimeo
-        video={mainVideo?.url}
-        showTitle={false}
-        loop={true}
-        controls={true}
-        autoplay={true}
-        playsInline={true}
-        height='796px'
-        width={'100%'}
-        // volume={1}
-        // paused={false}
-        // muted={false}
-        // background={true}
-        responsive={true}
-        style={{
-          margin: '0px auto',
-          position: 'relative',
-          // minHeight: '796px',
-          width: '100%',
-        }}
-      />}
-      {!isDesktopLayout && <Vimeo
-      video={mainVideoMobile?.url}
-      showTitle={false}
-      loop={true}
-      controls={true}
-      autoplay={true}
-      playsInline={true}
-      height='796px'
-      width={'100%'}
-      // volume={1}
-      // paused={false}
-      // muted={false}
-      // background={true}
-      responsive={true}
-      style={{
-        margin: '0px auto',
-        position: 'relative',
-        // minHeight: '796px',
-        width: '100%',
-      }}
-    />}
-      <FirstShowFlag
+      {isDesktopLayout && <div style={{
+        display: isVideoReady ? 'none' : 'block',
+        width: "100%",
+        minHeight: '800px',
+        backgroundColor: '#000',
+        backgroundSize: `cover`,
+        backgroundImage: `url('./background/videoBg.png')`
+      }}></div>}
+      {isDesktopLayout && (
+        <Vimeo
+        onReady={() => videoOnReady()}
+        // transparent={false}
+          video={mainVideo?.url}
+          showTitle={false}
+          loop={true}
+          controls={true}
+          autoplay={true}
+          playsInline={true}
+          height='796px'
+          width={'100%'}
+          volume={isVideoMute ? 0 : 1}
+          // paused={!isVideoMute}
+          muted={isVideoMute}
+          // background={true}
+          responsive={true}
+          style={{
+            display: !isVideoReady ? 'none' : 'block',
+            margin: '0px auto',
+            position: 'relative',
+            // minHeight: '796px',
+            width: '100%',
+          }}
+        />
+      )}
+      {!isDesktopLayout && (
+        <Vimeo
+          video={mainVideoMobile?.url}
+          showTitle={false}
+          loop={true}
+          controls={true}
+          autoplay={true}
+          playsInline={true}
+          height='796px'
+          width={'100%'}
+          volume={isVideoMute ? 0 : 1}
+          // paused={!isVideoMute}
+          muted={isVideoMute}
+          background={true}
+          responsive={true}
+          style={{
+            margin: '0px auto',
+            position: 'relative',
+            // minHeight: '796px',
+            width: '100%',
+          }}
+        />
+      )}
+      <VolumeIcon isVideoMute={isVideoMute} setVideoMute={setVideoMute} />
+      {isVideoReady && <FirstShowFlag
         flagButtonText={flagButtonText}
         showLink={showLink}
         flagText={flagText}
         firstShowDate={firstShowDate}
-      />
-      <VideoText
+      />}
+      {isVideoReady && <VideoText
         videoBigText={videoBigText}
         videoSmallText={videoSmallText}
         isDesktopLayout={isDesktopLayout}
-      />
+      />}
       <HeaderBar
         isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}

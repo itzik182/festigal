@@ -22,11 +22,11 @@ const ActorCarousel = (props) => {
     variableWidth: true,
     arrows: false,
     swipeToSlide: isDesktopLayout ? true : true,
-    swipe: isDesktopLayout ? true : true,
-    speed: 1000,
+    swipe: isDesktopLayout ? false : true,
+    // speed: 1000,
     // autoplay: true,
     // autoplaySpeed: 0,
-    cssEase: 'linear',
+    // cssEase: 'linear',
     //draggable: false,
     // adaptiveHeight: true,
     responsive: [
@@ -66,7 +66,7 @@ const ActorCarousel = (props) => {
     // console.log('currentImageSmall', currentImageSmall);
 
     return (
-      <Box key={id || index} >
+      <Box key={id || index} onClick={() => handleItemClick(item)}>
         <Box
           sx={{
             position: 'relative',
