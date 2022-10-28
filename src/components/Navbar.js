@@ -59,7 +59,7 @@ function Navbar(props) {
 
   const videoOnReady = () => {
     setVideoReady(true);
-  }
+  };
 
   // const videoId = video?.url?.substring(video?.url.indexOf('=') + 1);
 
@@ -83,18 +83,21 @@ function Navbar(props) {
           minHeight: '796px',
         }}
       /> */}
-      {isDesktopLayout && <div style={{
-        display: isVideoReady ? 'none' : 'block',
-        width: "100%",
-        minHeight: '800px',
-        backgroundColor: '#000',
-        backgroundSize: `cover`,
-        backgroundImage: `url('./background/videoBg.png')`
-      }}></div>}
+      {isDesktopLayout && (
+        <div
+          style={{
+            display: isVideoReady ? 'none' : 'block',
+            width: '100%',
+            minHeight: '800px',
+            backgroundColor: '#000',
+            backgroundSize: `cover`,
+            backgroundImage: `url('./background/videoBg.png')`,
+          }}></div>
+      )}
       {isDesktopLayout && (
         <Vimeo
-        onReady={() => videoOnReady()}
-        // transparent={false}
+          onReady={() => videoOnReady()}
+          // transparent={false}
           video={mainVideo?.url}
           showTitle={false}
           loop={true}
@@ -141,17 +144,21 @@ function Navbar(props) {
         />
       )}
       <VolumeIcon isVideoMute={isVideoMute} setVideoMute={setVideoMute} />
-      {isVideoReady && <FirstShowFlag
-        flagButtonText={flagButtonText}
-        showLink={showLink}
-        flagText={flagText}
-        firstShowDate={firstShowDate}
-      />}
-      {isVideoReady && <VideoText
-        videoBigText={videoBigText}
-        videoSmallText={videoSmallText}
-        isDesktopLayout={isDesktopLayout}
-      />}
+      {isVideoReady && (
+        <FirstShowFlag
+          flagButtonText={flagButtonText}
+          showLink={showLink}
+          flagText={flagText}
+          firstShowDate={firstShowDate}
+        />
+      )}
+      {isVideoReady && (
+        <VideoText
+          videoBigText={videoBigText}
+          videoSmallText={videoSmallText}
+          isDesktopLayout={isDesktopLayout}
+        />
+      )}
       <HeaderBar
         isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}
