@@ -67,12 +67,10 @@ function Navbar(props) {
   return (
     <Section
       size='auto'
-      sx={
-        {
-          // minHeight: '796px',
-          backgroundColor: '#000',
-        }
-      }>
+      sx={{
+        // minHeight: '796px',
+        backgroundColor: '#000',
+      }}>
       {/* <YoutubeEmbed
         // url={'iCAKpASnFgw'}
         url={videoId}
@@ -85,23 +83,22 @@ function Navbar(props) {
           minHeight: '796px',
         }}
       /> */}
-        <Box
-          sx={{
-            
-            // transition: 'visibility 0.3s linear 2s',
-            // opacity: isVideoReady ? '0' : '1',
-            display: isVideoReady ? 'none' : 'block',
-            // visibility: isVideoReady ? 'hidden' : 'visible',
-            width: '100%',
-            minHeight: isDesktopLayout ? '800px' : '750px',
-            backgroundColor: '#000',
-            backgroundSize: `cover`,
-            backgroundImage: `url('./background/videoBg.png')`,
-            backgroundPosition: 'center',
-          }}></Box>
+      <Box
+        sx={{
+          // transition: 'visibility 0.3s linear 2s',
+          // opacity: isVideoReady ? '0' : '1',
+          display: isVideoReady ? 'none' : 'block',
+          // visibility: isVideoReady ? 'hidden' : 'visible',
+          width: '100%',
+          minHeight: isDesktopLayout ? '800px' : '750px',
+          backgroundColor: '#000',
+          backgroundSize: `cover`,
+          backgroundImage: `url('./background/videoBg.png')`,
+          backgroundPosition: 'center',
+        }}></Box>
       {isDesktopLayout && (
         <Vimeo
-          onReady={() => videoOnReady()}
+          onPlay={() => videoOnReady()}
           // transparent={false}
           video={mainVideo?.url}
           showTitle={false}
@@ -127,7 +124,7 @@ function Navbar(props) {
       )}
       {!isDesktopLayout && (
         <Vimeo
-        onReady={() => videoOnReady()}
+          onPlay={() => videoOnReady()}
           video={mainVideoMobile?.url}
           showTitle={false}
           loop={true}
