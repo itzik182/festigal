@@ -3,12 +3,14 @@ import Drawer from '@mui/material/Drawer';
 import { NewsFlashItemList } from './NewsFlashItemList';
 import Box from '@material-ui/core/Box';
 import GoldButton from 'components/GoldButton';
+import CloseButton from '../CloseButton';
 
 export const NewsFlashesDrawer = (props) => {
   const {
     items,
     allNewsFlashText,
     allNewsFlashLink,
+    allNewsFlashMissText,
     drawerOpen,
     setDrawerOpen,
     isDesktopLayout = true,
@@ -32,17 +34,9 @@ export const NewsFlashesDrawer = (props) => {
           },
         },
       }}>
-      <img
-        src='./images/close.svg'
-        alt='close'
-        onClick={() => setDrawerOpen(false)}
-        style={{
-          position: 'absolute',
-          cursor: 'pointer',
-          left: '37px',
-          top: '47px',
-          zIndex: 1,
-        }}
+      <CloseButton
+        setDrawerOpen={setDrawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
       <Box
         sx={{
@@ -77,9 +71,13 @@ export const NewsFlashesDrawer = (props) => {
           style={{
             font: 'normal normal 600 21px/28px Noto Sans Hebrew',
           }}>
-          לא חבל לפספס?
+          {allNewsFlashMissText}
         </span>
-        <GoldButton text={allNewsFlashText} link={allNewsFlashLink} />
+        <GoldButton
+          text={allNewsFlashText}
+          link={allNewsFlashLink}
+          style={{ padding: '8px 35px' }}
+        />
       </Box>
     </Drawer>
   );

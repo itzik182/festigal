@@ -1,24 +1,24 @@
 import Countdown from 'react-countdown';
 
-// const Completionist = () => <span>You are good to go!</span>;
+const Completionist = () => <></>;
 
 // Renderer callback with condition
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
-//   if (completed) {
-//     // Render a complete state
-//     return <Completionist />;
-//   } else {
-    const diffInHours = (days * 24) + hours;
+  if (completed) {
+    // Render a complete state
+    return <Completionist />;
+  } else {
+    const diffInHours = days * 24 + hours;
     // Render a countdown
     return (
       <span>
         {diffInHours}:{minutes}:{seconds}
       </span>
     );
-//   }
+  }
 };
 
-export const Counter = (props) => {
+const Counter = (props) => {
   const { date } = props;
 
   const date1 = new Date(Date.now());

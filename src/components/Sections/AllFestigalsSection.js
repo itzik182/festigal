@@ -1,17 +1,13 @@
 import React from 'react';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-// import Button from '@material-ui/core/Button';
-// import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-// import SectionHeader from 'components/SectionHeader';
-// import ImageNews from '../ImageNews';
+import { ShareSocialButton } from 'components/ShareSocialButton';
 
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    width: '100%',
   },
   container: {
     background:
@@ -29,12 +25,24 @@ const useStyles = makeStyles((theme) => ({
 function AllFestigalsSection(props) {
   const classes = useStyles();
 
-  const { mainData, isDesktopLayout } = props;
+  const { socialIcons, mainData, isDesktopLayout } = props;
+  const sectionId = 'all-festigals';
+  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
 
   return (
-    <Section id='all-festigals' className={classes.section}>
+    <Section id={sectionId} className={classes.section}>
       <Box
         className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
+          <ShareSocialButton
+              sx={{
+                position: 'absolute',
+                top: isDesktopLayout ? '10%' : '2%',
+                left: '4%',
+              }}
+              socialIcons={socialIcons}
+              shareUrl={shareUrl}
+              isDesktopLayout={isDesktopLayout}
+            />
         <Box
           sx={{
             background: isDesktopLayout

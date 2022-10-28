@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       margin: '-6px 0px 2px',
     },
     '&.mobile .flagButtonText': {
-        padding: '0 20px 0',
+      padding: '0 20px 0',
     },
   },
   flagText: {
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const FirstShowFlag = (props) => {
+const FirstShowFlag = (props) => {
   const windowWidth = useWindowWidth();
   const isDesktopLayout = windowWidth >= 960;
   const classes = useStyles();

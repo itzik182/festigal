@@ -5,9 +5,11 @@ import Section from 'components/Section';
 // import YoutubeEmbed from '../YoutubeEmbed';
 import Vimeo from '@u-wave/react-vimeo';
 import TextTruncate from 'react-text-truncate';
+import { ShareSocialButton } from '../ShareSocialButton';
 
 const useStyles = makeStyles((theme) => ({
   section: {
+    width: '100%',
     backgroundImage: `linear-gradient(
       180deg,
       hsl(187deg 50% 13%) 0%,
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '&.mobile .details': {
       fontSize: '18px',
-      padding: '23px 0 18px',
+      padding: '23px 0 20px',
     },
     '&.mobile .description': {
       textAlign: 'center',
@@ -60,8 +62,8 @@ function AboutSection(props) {
   const [descriptionLinesNumber, setDescriptionLinesNumber] = useState(
     DesktopDescriptionLines
   );
-  const { item, isDesktopLayout = true } = props;
-  const { text, description, details, video, videoMobile } = item;
+  const { item, socialIcons, isDesktopLayout = true } = props;
+  const { text, description, details, video, videoMobile, image } = item;
 
   useEffect(() => {
     if (isDesktopLayout) {
@@ -176,16 +178,25 @@ function AboutSection(props) {
               position: 'relative',
               marginTop: isDesktopLayout ? '0' : '25px',
             }}>
+            <ShareSocialButton
+              sx={{
+                position: 'absolute',
+                top: '20px',
+                left: '10px',
+              }}
+              socialIcons={socialIcons}
+              shareUrl={image.url}
+              isDesktopLayout={isDesktopLayout}
+            />
             <img
               style={{
                 width: isDesktopLayout ? 'auto' : '100%',
               }}
               sizes='(min-width: 400px) 80vw, 100vw'
-              srcset='./images/image-60.png 375w,
-              ./images/image-60.png 1500w'
-              src='./images/image-60.png'
-              alt='image-60'
-              title=''
+              srcset={`${image.url} 375w, ${image.url} 1500w`}
+              src={image.url}
+              alt={image.alt}
+              title={image.title}
             />
             <Box
               sx={{
@@ -235,26 +246,30 @@ function AboutSection(props) {
         </Box>
         <Box>
           {/* <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} /> */}
-          {isDesktopLayout && <Vimeo
-            video={video.url}
-            showTitle={false}
-            loop={false}
-            controls={true}
-            autoplay={false}
-            playsInline={true}
-            height='796px'
-            responsive='true'
-          />}
-          {!isDesktopLayout && <Vimeo
-            video={videoMobile.url}
-            showTitle={false}
-            loop={false}
-            controls={true}
-            autoplay={false}
-            playsInline={true}
-            height='796px'
-            responsive='true'
-          />}
+          {isDesktopLayout && (
+            <Vimeo
+              video={video.url}
+              showTitle={false}
+              loop={false}
+              controls={true}
+              autoplay={false}
+              playsInline={true}
+              height='796px'
+              responsive='true'
+            />
+          )}
+          {!isDesktopLayout && (
+            <Vimeo
+              video={videoMobile.url}
+              showTitle={false}
+              loop={false}
+              controls={true}
+              autoplay={false}
+              playsInline={true}
+              height='796px'
+              responsive='true'
+            />
+          )}
         </Box>
       </Box>
     </Section>

@@ -9,6 +9,7 @@ import LastNewsCarousel from 'components/Carousel/LastNewsCarousel';
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    width: '100%',
   },
   container: {
     background: '#fff',
@@ -68,9 +69,16 @@ function LastNewsSection(props) {
           />
         </Box>
         {isDesktopLayout ? (
-          <ImageNews items={items} />
+          <ImageNews
+            items={items}
+            socialIcons={socialIcons}
+            isDesktopLayout={isDesktopLayout}
+          />
         ) : (
-          <LastNewsCarousel items={items} />
+          <LastNewsCarousel
+            items={items}
+            socialIcons={socialIcons}
+          />
         )}
       </Box>
     </Section>

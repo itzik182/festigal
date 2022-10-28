@@ -5,11 +5,12 @@ import Slider from 'react-slick';
 // Import css files
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ShareSocialButton } from 'components/ShareSocialButton';
 
 const LastNewsCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
-  const { items, isDesktopLayout = false } = props;
+  const { items, socialIcons, isDesktopLayout = false } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -60,27 +61,32 @@ const LastNewsCarousel = (props) => {
     const { id, name, link, imageWeb } = item;
 
     return (
-      <Box key={id || index} onClick={() => handleItemClick(link)}>
+      <Box key={id || index}>
         <Box
           sx={{
             position: 'relative',
             width: isDesktopLayout ? '500px' : '302px',
             height: isDesktopLayout ? '748px' : '435px',
             marginTop: index % 2 ? '45px' : 0,
-            padding: '0 9px'
+            padding: '0 9px',
           }}>
           <Box
             sx={{
-              // outline: '0 !important',
-              // position: 'absolute',
-              // top: isDesktopLayout ? '107px' : '79px',
-              // transition: 'all .1s ease-in-out .1s',
-              // right: '30px',
-              // left: isDesktopLayout ? '80px' : '45px',
               margin: 'auto',
               cursor: 'pointer',
             }}>
+            <ShareSocialButton
+              sx={{
+                position: 'absolute',
+                left: '20px',
+                top: '15px',
+              }}
+              socialIcons={socialIcons}
+              shareUrl={link}
+              isDesktopLayout={isDesktopLayout}
+            />
             <Image
+              onClick={() => handleItemClick(link)}
               width={imageWeb?.width}
               height={imageWeb?.height}
               src={imageWeb?.url}
@@ -103,7 +109,7 @@ const LastNewsCarousel = (props) => {
         </Box>
       </Box>
     );
-  })
+  });
 
   return (
     <Box
@@ -112,7 +118,7 @@ const LastNewsCarousel = (props) => {
         maxHeight: isDesktopLayout ? 'auto' : '600px',
       }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
-      {renderSlides}
+        {renderSlides}
       </Slider>
       {isDesktopLayout && (
         <Box

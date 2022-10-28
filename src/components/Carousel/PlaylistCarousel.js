@@ -23,7 +23,6 @@ function SampleNextArrow(props) {
 
 function SamplePrevArrow(props) {
   const { className, style, onClick, isDesktopLayout, arrowStyle } = props;
-  console.log('style', style);
   return (
     <div
       style={{

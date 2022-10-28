@@ -1,10 +1,9 @@
 import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 import React from 'react';
 import YouTube from '@u-wave/react-youtube';
 
-export const YoutubeEmbed = (props) => {
+const YoutubeEmbed = (props) => {
   const { url, autoplay, width, height, containerStyle } = props;
 
   return (

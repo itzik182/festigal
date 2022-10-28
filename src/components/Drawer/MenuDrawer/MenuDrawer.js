@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import { DrawerItemList } from './DrawerItemList';
+import CloseButton from '../CloseButton';
 
 export const MenuDrawer = (props) => {
   const {
@@ -8,6 +9,9 @@ export const MenuDrawer = (props) => {
     handleItemClick,
     ticketsInformationText,
     ticketsInformationLink,
+    allNewsFlashMenuText,
+    socialIcons,
+    setNewsFlashesDrawerOpen,
     drawerOpen,
     setDrawerOpen,
     isDesktopLayout = true,
@@ -25,24 +29,20 @@ export const MenuDrawer = (props) => {
           width: isDesktopLayout ? '35%' : '95%',
         },
       }}>
-      <img
-        src='./images/close.svg'
-        alt='close'
-        onClick={() => setDrawerOpen(false)}
-        style={{
-          position: 'absolute',
-          cursor: 'pointer',
-          left: '37px',
-          top: '47px',
-          zIndex: 1,
-        }}
+      <CloseButton
+        setDrawerOpen={setDrawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
       <DrawerItemList
+        items={items}
         ticketsInformationText={ticketsInformationText}
         ticketsInformationLink={ticketsInformationLink}
-        items={items}
+        allNewsFlashMenuText={allNewsFlashMenuText}
+        setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
+        socialIcons={socialIcons}
         handleItemClick={handleItemClick}
         isDrawerOpen={drawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
     </Drawer>
   );

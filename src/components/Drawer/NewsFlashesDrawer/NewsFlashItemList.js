@@ -1,7 +1,5 @@
 import List from '@mui/material/List';
 import { NewsFlashItem } from './NewsFlashItem';
-import Box from '@material-ui/core/Box';
-import GoldButton from 'components/GoldButton';
 
 export const NewsFlashItemList = (props) => {
   const { items, isDrawerOpen, allNewsFlashText, allNewsFlashLink } =

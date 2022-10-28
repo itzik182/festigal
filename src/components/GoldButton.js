@@ -1,7 +1,7 @@
 import Box from '@material-ui/core/Box';
 import Link from 'next/link';
 
-export const GoldButton = (props) => {
+const GoldButton = (props) => {
   const { text, link = '', isBold = false, style } = props;
 
   return (

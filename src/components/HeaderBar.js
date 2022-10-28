@@ -7,95 +7,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from 'next/link';
-import { useWindowWidth } from '@react-hook/window-size';
 import Hidden from '@material-ui/core/Hidden';
 
-const useStyles = makeStyles((isDesktopLayout) => ({
-  layers: {
-    position: 'absolute',
-    width: '508px',
-    height: '182px',
-    zIndex: '1',
-
-    '&.layerRight': {
-      background:
-        'transparent url(./header/layer-right.png) 0% 0% no-repeat padding-box',
-      right: '0',
-      top: '-9px',
-    },
-    '&.layerLeft': {
-      background:
-        'transparent url(./header/layer-left.png) 0% 0% no-repeat padding-box',
-      left: '0',
-      top: '-9px',
-    },
-  },
-  layersMobile: {
-    position: 'absolute',
-    width: '139px',
-    height: '101px',
-    zIndex: '1',
-
-    '&.layerRight': {
-      background:
-        'transparent url(./mobile/header/layer-right.png) 0% 0% no-repeat padding-box',
-      right: '0',
-      top: '-9px',
-    },
-    '&.layerLeft': {
-      background:
-        'transparent url(./mobile/header/layer-left.png) 0% 0% no-repeat padding-box',
-      left: '0',
-      top: '-9px',
-    },
-  },
-  spacer: {
-    flexGrow: 1,
-  },
-  menuDrawerIcon: {
-    position: 'absolute',
-    right: '60px',
-    top: '75px',
-    zIndex: '10',
-    '&.mobile': {
-      top: '20px',
-      right: '25px',
-    },
-  },
-  InformationDrawerIcon: {
-    top: '68px',
-    left: '40px',
-    zIndex: '10',
-    position: 'absolute',
-    width: 'min-content',
-    fontFamily: "'Noto Sans Hebrew'",
-    fontSize: '19px',
-    '&.mobile': {
-      top: '22px',
-      left: '24px',
-      // 'button': {
-      //   fontSize: '14px',
-      // },
-    },
-  },
-  shadowBg: {
-    filter: 'blur(18px)',
-    background:
-      "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
-    height: isDesktopLayout ? '98px' : '58px',
-    position: 'absolute',
-    width: '100%',
-  },
-}));
-
-export const HeaderBar = (props) => {
-  // const windowWidth = useWindowWidth();
-  // const isDesktopLayout = windowWidth >= 960;
-
-
-  // console.log('windowWidth', windowWidth);
-  // console.log('isDesktopLayout', isDesktopLayout);
-
+const HeaderBar = (props) => {
   const {
     isDesktopLayout = true,
     socialIcons,
@@ -123,7 +37,7 @@ export const HeaderBar = (props) => {
           position: 'relative',
           zIndex: '1',
         }}>
-        {/* Menu Drawer Button */}
+        {/* Button to open Menu Drawer Button */}
         <Box
           className={`${classes.menuDrawerIcon} ${
             !isDesktopLayout && 'mobile'
@@ -137,7 +51,7 @@ export const HeaderBar = (props) => {
           </IconButton>
         </Box>
         <Hidden implementation='css' smDown>
-          {/* News Flashes Drawer Button */}
+          {/* Button to open News Flashes Drawer Button */}
           <Box
             sx={{
               position: 'absolute',
@@ -154,14 +68,16 @@ export const HeaderBar = (props) => {
             </IconButton>
           </Box>
         </Hidden>
-        {/* Information Drawer Button */}
+        {/* Button to open Information Drawer Button */}
         <Box
           className={`${classes.InformationDrawerIcon} ${
             !isDesktopLayout && 'mobile'
           }`}>
-          <Box className={classes.shadowBg} sx={{
-            height: !isDesktopLayout && '58px !important',
-          }}></Box>
+          <Box
+            className={classes.shadowBg}
+            sx={{
+              height: !isDesktopLayout && '58px !important',
+            }}></Box>
           <IconButton
             style={{
               fontFamily: 'Noto Sans Hebrew',
@@ -177,9 +93,9 @@ export const HeaderBar = (props) => {
         </Box>
         <Box
           sx={{
-            background:
-            isDesktopLayout ? 'transparent url(./header/header-bg.png) center center no-repeat padding-box' :
-            'transparent url(mobile/header/header-bg.png) center -9% no-repeat padding-box',
+            background: isDesktopLayout
+              ? 'transparent url(./header/header-bg.png) center center no-repeat padding-box'
+              : 'transparent url(mobile/header/header-bg.png) center -9% no-repeat padding-box',
             // 'transparent linear-gradient(270deg, #296B78 0%, #29ABBC 29%, #2CA4B2 40%, #28AFBF 56%, #286673 100%) 0% 0% no-repeat padding-box',
             width: '80%',
             height: '100%',
@@ -253,5 +169,80 @@ export const HeaderBar = (props) => {
     </AppBar>
   );
 };
+
+const useStyles = makeStyles((isDesktopLayout) => ({
+  layers: {
+    position: 'absolute',
+    width: '508px',
+    height: '182px',
+    zIndex: '1',
+
+    '&.layerRight': {
+      background:
+        'transparent url(./header/layer-right.png) 0% 0% no-repeat padding-box',
+      right: '0',
+      top: '-9px',
+    },
+    '&.layerLeft': {
+      background:
+        'transparent url(./header/layer-left.png) 0% 0% no-repeat padding-box',
+      left: '0',
+      top: '-9px',
+    },
+  },
+  layersMobile: {
+    position: 'absolute',
+    width: '139px',
+    height: '101px',
+    zIndex: '1',
+
+    '&.layerRight': {
+      background:
+        'transparent url(./mobile/header/layer-right.png) 0% 0% no-repeat padding-box',
+      right: '0',
+      top: '-9px',
+    },
+    '&.layerLeft': {
+      background:
+        'transparent url(./mobile/header/layer-left.png) 0% 0% no-repeat padding-box',
+      left: '0',
+      top: '-9px',
+    },
+  },
+  spacer: {
+    flexGrow: 1,
+  },
+  menuDrawerIcon: {
+    position: 'absolute',
+    right: '60px',
+    top: '75px',
+    zIndex: '10',
+    '&.mobile': {
+      top: '20px',
+      right: '25px',
+    },
+  },
+  InformationDrawerIcon: {
+    top: '68px',
+    left: '40px',
+    zIndex: '10',
+    position: 'absolute',
+    width: 'min-content',
+    fontFamily: "'Noto Sans Hebrew'",
+    fontSize: '19px',
+    '&.mobile': {
+      top: '22px',
+      left: '24px',
+    },
+  },
+  shadowBg: {
+    filter: 'blur(18px)',
+    background:
+      "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
+    height: isDesktopLayout ? '98px' : '58px',
+    position: 'absolute',
+    width: '100%',
+  },
+}));
 
 export default HeaderBar;

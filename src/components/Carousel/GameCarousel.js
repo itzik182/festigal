@@ -4,11 +4,12 @@ import Slider from 'react-slick';
 // Import css files
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ShareSocialButton } from 'components/ShareSocialButton';
 
 const GameCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
   const sliderRef = useRef();
-  const { items } = props;
+  const { items, socialIcons, isDesktopLayout } = props;
 
   const settings = {
     className: 'slider variable-width',
@@ -47,7 +48,7 @@ const GameCarousel = (props) => {
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {items.map((item, index) => (
           <Box
-            key={item.id ||index}
+            key={item.id || index}
             sx={{
               display: 'flex !important',
               flexDirection: 'column',
@@ -57,13 +58,26 @@ const GameCarousel = (props) => {
               margin: '0 25px',
               color: '#000',
               cursor: 'pointer',
-            }}
-            onClick={() => handleItemClick(item.link)}>
+            }}>
             <Box
               sx={{
                 position: 'relative',
               }}>
-              <img src={item?.imageWeb?.url} alt={item?.imageWeb?.alt} />
+              <ShareSocialButton
+                sx={{
+                  position: 'absolute',
+                  top: '10px',
+                  left: '15px',
+                }}
+                socialIcons={socialIcons}
+                shareUrl={item.link}
+                isDesktopLayout={isDesktopLayout}
+              />
+              <img
+                src={item?.imageWeb?.url}
+                alt={item?.imageWeb?.alt}
+                onClick={() => handleItemClick(item.link)}
+              />
               {item.imageText && (
                 <Box
                   sx={{

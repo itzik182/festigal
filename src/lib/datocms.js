@@ -37,6 +37,7 @@ export async function getMainData() {
     mainText {
       id
       youtubeText
+      isDisplayFlag
       ticketsInformationText
       ticketsInformationLink
       podcastTitle
@@ -62,6 +63,9 @@ export async function getMainData() {
       showLink
       allNewsFlashLink
       allNewsFlashText
+      allNewsFlashMissText
+      allNewsFlashMenuText
+      arrivalText
       mainVideo {
         url
         width
@@ -126,7 +130,6 @@ export async function getSocialIcons() {
         height
         alt
       }
-      isDisplaySharePanel
       isDisplayShortPanel
     }
   }
@@ -195,6 +198,7 @@ export async function getAllShows() {
 export async function getAllFaqs() {
   const query = `query allFaqs {
     allFaqs(filter: {isDisplay: {eq: "true"}}) {
+      id
       title
       content
     }
@@ -258,6 +262,7 @@ export async function getMenuItems() {
 export async function getNewsTicker() {
   const query = `query ticker {
     ticker {
+      id
       text
       isDisplay
     }
@@ -274,6 +279,7 @@ export async function getNewsTicker() {
 export async function getAbout() {
   const query = `query about {
     about {
+      id
       details
       description
       text
@@ -411,6 +417,7 @@ export async function getAllGames() {
 export async function getAllLastNews() {
   const query = `query allLastNews {
     allLastNews(filter: {isDisplay: {eq: "true"}}) {
+      id
       link
       imageWeb {
         alt
@@ -439,6 +446,7 @@ export async function getAllLastNews() {
 export async function getAllMusics() {
   const query = `query allMusics {
     allMusics(filter: {isDisplay: {eq: "true"}}) {
+      id
       name
       link
       description

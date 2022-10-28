@@ -62,8 +62,6 @@ const ActorCarousel = (props) => {
   const renderSlides = items.map((item, index) => {
     const { id, name, imageSmall, imageSmallMobile } = item;
     const currentImageSmall = isDesktopLayout ? imageSmall : imageSmallMobile;
-    // console.log('isDesktopLayout', isDesktopLayout);
-    // console.log('currentImageSmall', currentImageSmall);
 
     return (
       <Box key={id || index} onClick={() => handleItemClick(item)}>

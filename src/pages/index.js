@@ -35,11 +35,13 @@ import { useWindowWidth } from '@react-hook/window-size';
 
 function IndexPage(props) {
   const windowWidth = useWindowWidth();
-  const isDesktopLayouta = windowWidth >= 960;
-  const [isDesktopLayout, setIsDesktopLayout] = useState();
+  const isDesktop = windowWidth >= 960;
+  const [isDesktopLayout, setIsDesktopLayout] = useState(isDesktop);
 
   useEffect(() => {
-    setIsDesktopLayout(isDesktopLayouta);
+    if (isDesktop !== isDesktopLayout) {
+      setIsDesktopLayout(isDesktop);
+    }
   }, [windowWidth]);
 
   const {
@@ -80,7 +82,11 @@ function IndexPage(props) {
       {newsTicker.isDisplay && (
         <NewsTicker item={newsTicker} isDesktopLayout={isDesktopLayout} />
       )}
-      <AboutSection item={about} isDesktopLayout={isDesktopLayout} />
+      <AboutSection
+        item={about}
+        socialIcons={socialIcons}
+        isDesktopLayout={isDesktopLayout}
+      />
       <ActorsSection
         items={actors}
         socialIcons={socialIcons}
@@ -88,6 +94,7 @@ function IndexPage(props) {
       />
       <ShopSection
         items={products}
+        socialIcons={socialIcons}
         mainData={mainData}
         isDesktopLayout={isDesktopLayout}
       />
@@ -100,15 +107,18 @@ function IndexPage(props) {
       <MusicSection
         items={musics}
         mainData={mainData}
+        socialIcons={socialIcons}
         isDesktopLayout={isDesktopLayout}
       />
       <GamesSection
         items={games}
         mainData={mainData}
+        socialIcons={socialIcons}
         isDesktopLayout={isDesktopLayout}
       />
       <AllFestigalsSection
         mainData={mainData}
+        socialIcons={socialIcons}
         isDesktopLayout={isDesktopLayout}
       />
 

@@ -4,6 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import Box from '@material-ui/core/Box';
 import { ShowItemList } from './ShowItemList';
 import { FaqItemList } from './FaqItemList';
+import CloseButton from '../CloseButton';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -37,6 +38,7 @@ export const InformationDrawer = (props) => {
     showsItems,
     faqItems,
     ticketsInformationText,
+    arrivalText,
     drawerOpen,
     setDrawerOpen,
     isDesktopLayout = true,
@@ -68,16 +70,9 @@ export const InformationDrawer = (props) => {
           width: isDesktopLayout ? '1100px' : '100%',
         },
       }}>
-      <img
-        src='./images/close.svg'
-        alt='close'
-        onClick={() => setDrawerOpen(false)}
-        style={{
-          position: 'absolute',
-          cursor: 'pointer',
-          left: '37px',
-          top: '47px',
-        }}
+      <CloseButton
+        setDrawerOpen={setDrawerOpen}
+        isDesktopLayout={isDesktopLayout}
       />
       <Box className={`${classes.main} ${isDesktopLayout ? '' : 'mobile'}`}>
         <Box className={`${classes.title} ${isDesktopLayout ? '' : 'mobile'}`}>
@@ -94,6 +89,7 @@ export const InformationDrawer = (props) => {
           <ShowItemList
             ticketsInformationText={ticketsInformationText}
             items={showsItems}
+            arrivalText={arrivalText}
             isDrawerOpen={drawerOpen}
             isDesktopLayout={isDesktopLayout}
           />
@@ -113,9 +109,19 @@ export const InformationDrawer = (props) => {
           />
         </Box>
         <Box className={classes.title}>{accessibilityTitle}</Box>
-        <Box className={`${classes.description} ${isDesktopLayout ? '' : 'mobile'}`}>{accessibilityDescription}</Box>
+        <Box
+          className={`${classes.description} ${
+            isDesktopLayout ? '' : 'mobile'
+          }`}>
+          {accessibilityDescription}
+        </Box>
         <Box className={classes.title}>{informationTitle}</Box>
-        <Box className={`${classes.description} ${isDesktopLayout ? '' : 'mobile'}`}>{informationDescription}</Box>
+        <Box
+          className={`${classes.description} ${
+            isDesktopLayout ? '' : 'mobile'
+          }`}>
+          {informationDescription}
+        </Box>
       </Box>
     </Drawer>
   );

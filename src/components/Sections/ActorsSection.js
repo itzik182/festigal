@@ -10,6 +10,7 @@ import { ShareSocialButton } from '../ShareSocialButton';
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    width: '100%',
   },
   container: {
     background:
@@ -44,19 +45,22 @@ function ActorsSection(props) {
     setOpen(false);
   };
 
-  const shareUrl = `${router.pathname}#${sectionId}`;
+  // const shareUrl = `${router.pathname}#${sectionId}`;
+  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
 
   return (
     <Section id={sectionId} className={classes.section}>
       <Box
         className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
-        <Box
+        <ShareSocialButton
           sx={{
-            textAlign: 'left',
+            position: 'relative',
             margin: '20px 0 0 20px',
-          }}>
-          <ShareSocialButton socialIcons={socialIcons} shareUrl={shareUrl} />
-        </Box>
+          }}
+          socialIcons={socialIcons}
+          shareUrl={shareUrl}
+          isDesktopLayout={isDesktopLayout}
+        />
         <ActorCarousel
           items={items}
           handleItemClick={handleItemClick}

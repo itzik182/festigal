@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Box from '@material-ui/core/Box';
 
 export const MenuItem = (props) => {
-  const { item, handleItemClick, isDrawerOpen } = props;
+  const { item, handleItemClick, isDrawerOpen, isDesktopLayout } = props;
   const { image, text, link } = item;
   const { url, title, alt } = image;
 
@@ -34,12 +34,20 @@ export const MenuItem = (props) => {
           style={{
             textDecoration: 'none',
           }}>
-          {image && <img src={url} title={title} alt={alt} />}
-
+          {image && (
+            <img
+              src={url}
+              title={title}
+              alt={alt}
+              style={{
+                width: isDesktopLayout ? '100%' : `calc(${(image.width/100)*70}px)`,
+              }}
+            />
+          )}
           <Box
             sx={{
               color: '#fff',
-              fontSize: '29px',
+              fontSize: isDesktopLayout ? '29px' : '18pt',
               marginTop: '-15px',
             }}>
             {text}

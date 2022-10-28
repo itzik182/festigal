@@ -35,14 +35,6 @@ export const FaqItemList = (props) => {
 
   return (
     <>
-      {/* {items.map((item) => (
-        <FaqItem
-          key={item.id}
-          item={item}
-          handleItemClick={handleItemClick}
-          isDrawerOpen={isDrawerOpen}
-        />
-      ))} */}
       <Box
         sx={{
           color: 'black !important',

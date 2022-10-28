@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import BuyTicketButton from 'components/BuyTicketButton';
 
 export const ShowItem = (props) => {
-  const { item, isDrawerOpen, isDesktopLayout } = props;
+  const { item, isDrawerOpen, isDesktopLayout, arrivalText } = props;
   const {
     auditorium,
     city,
@@ -75,7 +75,7 @@ export const ShowItem = (props) => {
           <Link href={locationLink}>
             <a target={'_blank'}>
               <Box sx={{ display: isDesktopLayout ? 'block' : 'inline' }}>
-                דרכי הגעה {' '}
+                {arrivalText}{' '}
               </Box>
               <Box sx={{ display: isDesktopLayout ? 'block' : 'inline' }}>ל{auditorium}</Box>
             </a>

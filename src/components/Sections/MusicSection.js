@@ -4,10 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import PlaylistCarousel from '../Carousel/PlaylistCarousel';
 import MusicDialog from '../MusicDialog';
+import { ShareSocialButton } from 'components/ShareSocialButton';
 
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    width: '100%',
     backgroundColor: '#021B23 !important',
   },
   container: {
@@ -40,12 +42,15 @@ const useStyles = makeStyles((theme) => ({
 function MusicSection(props) {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState();
+  const sectionId = 'playlists';
 
   const classes = useStyles();
-  const { items, mainData, isDesktopLayout } = props;
+  const { items, socialIcons, mainData, isDesktopLayout } = props;
 
   const playlists = items.filter((item) => item.isPlaylist);
   const podcast = items.filter((item) => !item.isPlaylist);
+
+  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -57,7 +62,7 @@ function MusicSection(props) {
   };
 
   return (
-    <Section id='playlists' className={classes.section}>
+    <Section id={sectionId} className={classes.section}>
       <Box className={classes.container}>
         <Box
           sx={{
@@ -71,8 +76,8 @@ function MusicSection(props) {
           <Box
             sx={{
               position: isDesktopLayout ? 'absolute' : 'relative',
-              top: isDesktopLayout ? '355px' : '0',
-              left: isDesktopLayout ? '485px' : '0',
+              top: isDesktopLayout ? '18%' : '0',
+              left: isDesktopLayout ? '26%' : '0',
               right: isDesktopLayout ? 'auto' : '0',
               padding: isDesktopLayout ? '0' : '20px 20px 0 0',
               maxWidth: isDesktopLayout ? '380px' : '265px',
@@ -149,7 +154,11 @@ function MusicSection(props) {
                     cursor: 'pointer',
                     maxWidth: isDesktopLayout ? '100%' : '120px',
                   }}
-                  sizes='(min-width: 400px) 80vw, 100vw'
+                  sizes={
+                    isDesktopLayout
+                      ? '(min-width: 172px) 70vw, 90vw'
+                      : '(min-width: 172px) 80vw, 90vw'
+                  }
                   srcset='./images/play.png 375w,
               ./images/play.png 1500w'
                   src='./images/play.png'
@@ -168,10 +177,21 @@ function MusicSection(props) {
             className={classes.mediumText}
             sx={{
               fontSize: isDesktopLayout ? '2.312vw' : '30px',
-              padding: isDesktopLayout ? '0 0 50px' : '0 0 35px',
+              margin: isDesktopLayout ? '0 0 50px' : '0 0 35px',
               textAlign: isDesktopLayout ? 'right' : 'center',
+              position: 'relative',
             }}>
             {mainData.playlistTitle}
+            <ShareSocialButton
+              sx={{
+                position: 'absolute',
+                top: isDesktopLayout ? '5px' : '305px',
+                right: '342px',
+              }}
+              socialIcons={socialIcons}
+              shareUrl={shareUrl}
+              isDesktopLayout={isDesktopLayout}
+            />
           </Box>
           <Box>
             <PlaylistCarousel
@@ -184,10 +204,21 @@ function MusicSection(props) {
             className={classes.mediumText}
             sx={{
               fontSize: isDesktopLayout ? '2.312vw' : '30px',
-              padding: isDesktopLayout ? '100px 0 50px' : '120px 0 35px',
+              margin: isDesktopLayout ? '100px 0 50px' : '120px 0 35px',
               textAlign: isDesktopLayout ? 'right' : 'center',
+              position: 'relative',
             }}>
             {mainData.podcastTitle}
+            <ShareSocialButton
+              sx={{
+                position: 'absolute',
+                top: isDesktopLayout ? '5px' : '305px',
+                right: '342px',
+              }}
+              socialIcons={socialIcons}
+              shareUrl={shareUrl}
+              isDesktopLayout={isDesktopLayout}
+            />
           </Box>
           <Box>
             <PlaylistCarousel

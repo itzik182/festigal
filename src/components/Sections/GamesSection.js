@@ -8,6 +8,7 @@ import GameBlock from 'components/GameBlock';
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    width: '100%',
   },
   container: {
     background:
@@ -23,11 +24,13 @@ const useStyles = makeStyles((theme) => ({
 
 function GamesSection(props) {
   const classes = useStyles();
-  const { items, mainData, isDesktopLayout = true } = props;
+  const { items, socialIcons, mainData, isDesktopLayout = true } = props;
+  const sectionId = 'games';
 
   return (
-    <Section id='games' className={classes.section}>
-      <Box className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
+    <Section id={sectionId} className={classes.section}>
+      <Box
+        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <Box
           sx={{
             color: '#000',
@@ -47,7 +50,19 @@ function GamesSection(props) {
           {mainData.gamesText}
         </Box>
         <Box>
-          {isDesktopLayout ? <GameCarousel items={items} /> : <GameBlock items={items} />}
+          {isDesktopLayout ? (
+            <GameCarousel
+              items={items}
+              socialIcons={socialIcons}
+              isDesktopLayout={isDesktopLayout}
+            />
+          ) : (
+            <GameBlock
+              items={items}
+              socialIcons={socialIcons}
+              isDesktopLayout={isDesktopLayout}
+            />
+          )}
         </Box>
       </Box>
     </Section>

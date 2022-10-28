@@ -52,6 +52,10 @@ function Navbar(props) {
     ticketsInformationLink,
     allNewsFlashText,
     allNewsFlashLink,
+    allNewsFlashMenuText,
+    allNewsFlashMissText,
+    isDisplayFlag,
+    arrivalText,
   } = mainData;
 
   const handleMenuDrawerItemClick = () => {
@@ -70,6 +74,7 @@ function Navbar(props) {
       sx={{
         // minHeight: '796px',
         backgroundColor: '#000',
+        width: '100%',
       }}>
       {/* <YoutubeEmbed
         // url={'iCAKpASnFgw'}
@@ -152,7 +157,7 @@ function Navbar(props) {
         setVideoMute={setVideoMute}
         isDesktopLayout={isDesktopLayout}
       />
-      {isVideoReady && (
+      {isVideoReady && isDisplayFlag && (
         <FirstShowFlag
           flagButtonText={flagButtonText}
           showLink={showLink}
@@ -165,6 +170,7 @@ function Navbar(props) {
           videoBigText={videoBigText}
           videoSmallText={videoSmallText}
           isDesktopLayout={isDesktopLayout}
+          isDisplayFlag={isDisplayFlag}
         />
       )}
       <HeaderBar
@@ -176,15 +182,18 @@ function Navbar(props) {
         setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
       />
 
-      {/* Drawer: */}
+      {/* Drawers: */}
 
       <MenuDrawer
         items={menuItems}
         handleItemClick={handleMenuDrawerItemClick}
         ticketsInformationText={ticketsInformationText}
         ticketsInformationLink={ticketsInformationLink}
+        allNewsFlashMenuText={allNewsFlashMenuText}
+        socialIcons={socialIcons}
         drawerOpen={menuDrawerOpen}
         setDrawerOpen={setMenuDrawerOpen}
+        setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
         isDesktopLayout={isDesktopLayout}
       />
       <InformationDrawer
@@ -192,6 +201,7 @@ function Navbar(props) {
         showsItems={showsItems}
         faqItems={faqItems}
         ticketsInformationText={ticketsInformationText}
+        arrivalText={arrivalText}
         drawerOpen={informationDrawerOpen}
         setDrawerOpen={setInformationDrawerOpen}
         isDesktopLayout={isDesktopLayout}
@@ -200,6 +210,7 @@ function Navbar(props) {
         items={newsFlashesItems}
         allNewsFlashText={allNewsFlashText}
         allNewsFlashLink={allNewsFlashLink}
+        allNewsFlashMissText={allNewsFlashMissText}
         drawerOpen={newsFlashesDrawerOpen}
         setDrawerOpen={setNewsFlashesDrawerOpen}
         isDesktopLayout={isDesktopLayout}

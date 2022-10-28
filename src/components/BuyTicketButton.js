@@ -1,7 +1,7 @@
 import Box from '@material-ui/core/Box';
 import Link from 'next/link';
 
-export const BuyTicketButton = (props) => {
+const BuyTicketButton = (props) => {
   const { isTicketsAvailable, link, isDesktopLayout } = props;
 
   return (

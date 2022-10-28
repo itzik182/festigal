@@ -39,5 +39,3 @@ export const NewsTicker = (props) => {
     </Section>
   );
 };
-
-export default Ticker;

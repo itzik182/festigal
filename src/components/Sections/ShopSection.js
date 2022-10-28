@@ -4,10 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
 import ShopCarousel from '../Carousel/ShopCarousel';
 import GoldButton from 'components/GoldButton';
+import { ShareSocialButton } from '../ShareSocialButton';
 
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
+    width: '100%',
   },
   container: {
     background:
@@ -19,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ShopSection(props) {
+const ShopSection = (props) => {
   const classes = useStyles();
-  const { items, mainData, isDesktopLayout } = props;
+  const { items, socialIcons, mainData, isDesktopLayout } = props;
   const { festigalStorText, festigalStorUnderItemText } = mainData;
+  const sectionId = 'store';
 
   if (!items) {
     return <></>;
@@ -30,9 +33,10 @@ function ShopSection(props) {
 
   const itemsUp = items?.filter((item) => item.isDisplayUp);
   const itemsDown = items?.filter((item) => !item.isDisplayUp);
+  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
 
   return (
-    <Section id='store' className={classes.section}>
+    <Section id={sectionId} className={classes.section}>
       <Box
         className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <ShopCarousel
@@ -43,10 +47,21 @@ function ShopSection(props) {
         <Box
           sx={{
             textAlign: 'center',
-            margin: isDesktopLayout ? '3% 0px 0' : '50px 0px',
+            margin: isDesktopLayout ? '2% 0px 0' : '50px 0px',
           }}>
+          <ShareSocialButton
+            sx={{
+              position: 'relative',
+              left: '49%',
+              marginBottom: '15px',
+            }}
+            isVertical={isDesktopLayout ? false : true}
+            buttonColor={'#000'}
+            socialIcons={socialIcons}
+            shareUrl={shareUrl}
+            isDesktopLayout={isDesktopLayout}
+          />
           <img
-            //   width={'168px'}
             src={
               isDesktopLayout
                 ? './images/mystore.png'
@@ -58,7 +73,6 @@ function ShopSection(props) {
               color: '#000000',
               fontFamily: 'GveretLevinAlefAlefAlef',
               fontSize: '31px',
-              // marginTop: '20px',
             }}>
             {festigalStorText}
           </Box>
@@ -88,6 +102,6 @@ function ShopSection(props) {
       </Box>
     </Section>
   );
-}
+};
 
 export default ShopSection;

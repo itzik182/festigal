@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 import SocialIcons from 'components/SocialIcons';
 import GoldButton from 'components/GoldButton';
 import YoutubeChannel from 'components/YoutubeChannel';
+import Separator from 'components/Separator';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -32,6 +33,7 @@ function Footer(props) {
     <Section
       sx={{
         padding: '0 !important',
+        width: '100%',
         // height: '428px',
         backgroundImage: `linear-gradient(
           180deg,
@@ -212,11 +214,7 @@ function Footer(props) {
             </Box>
             {isDesktopLayout && <YoutubeChannel mainData={mainData} />}
           </Box>
-          <Box
-            sx={{
-              border: '1px solid #2A7D98',
-              margin: '25px 0',
-            }}></Box>
+          <Separator />
           <Box
             sx={{
               display: 'flex',
@@ -313,11 +311,7 @@ function Footer(props) {
               isDesktopLayout={isDesktopLayout}
             />
           )}
-          <Box
-            sx={{
-              border: '1px solid #2A7D98',
-              margin: '32px 0',
-            }}></Box>
+            <Separator margin={'32px 0'} />
           <SocialIcons
             items={socialIcons}
             style={{ margin: '0 10px 20px' }}

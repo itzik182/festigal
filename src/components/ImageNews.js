@@ -1,33 +1,8 @@
 import Box from '@material-ui/core/Box';
-import Slider from 'react-slick';
-// Import css files
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-// import TouchCarousel from 'react-touch-carousel'
-// import Carousel from '@brainhubeu/react-carousel';
-// import '@brainhubeu/react-carousel/lib/style.css';
-// import dynamic from 'next/dynamic';
-// import { useState } from 'react';
-
-// const { default: Carousel } = dynamic(
-//  () => require('@brainhubeu/react-carousel'),
-//  { ssr: false },
-// );
+import { ShareSocialButton } from './ShareSocialButton';
 
 const ImageNews = (props) => {
-  const { items } = props;
-
-  const settings = {
-    className: 'slider variable-width',
-    dots: false,
-    infinite: true,
-    centerMode: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: true,
-    arrows: false,
-  };
+  const { items, socialIcons, isDesktopLayout = true } = props;
 
   const handleItemClick = (link) => {
     window.open(link, '_blank');
@@ -40,33 +15,28 @@ const ImageNews = (props) => {
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         padding: '150px 0 0',
-        // '&:after': {
-        //   content: "",
-        //   clear: 'both',
-        //   display: 'table',
-        // }
       }}>
       {items.map((item, index) => (
         <Box
-          onClick={() => handleItemClick(item.link)}
-          key={index}
+          key={item.id || index}
           sx={{
-            // marginBottom: '25px',
-            // marginLeft: '12px',
-            // marginRight: '12px',
+            position: 'relative',
             cursor: 'pointer',
-            // float: 'left',
             width: '32%',
-            // padding: '5px',
-            // marginRight: '15px',
-            // position: 'relative',
-            // width: '610px',
-            // height: '860px',
             marginTop: index === 1 || index === 4 ? '-90px' : '-20px',
-            // background: `transparent url(${item.url}) center center no-repeat`,
-            
           }}>
+          <ShareSocialButton
+            sx={{
+              position: 'absolute',
+              left: '10px',
+              top: '10px',
+            }}
+            socialIcons={socialIcons}
+            shareUrl={item.link}
+            isDesktopLayout={isDesktopLayout}
+          />
           <img
+            onClick={() => handleItemClick(item.link)}
             src={item.imageWeb?.url}
             title={item.imageWeb?.title}
             alt={item.imageWeb?.alt}
