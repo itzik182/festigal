@@ -15,17 +15,10 @@ export const MenuItem = (props) => {
       button
       sx={{
         '.MuiListItemText-root': {
-          // color: selected && '#011434',
         },
         textAlign: 'center',
         marginBottom: '5px !important',
-        padding: '10px 0 10px !important',
-        // '&:hover': {
-        //   background: '#f5f8ac',
-        //   '.MuiListItemText-root': {
-        //     color: '#011434',
-        //   },
-        // },
+        padding: isDesktopLayout ? '10px 0 10px !important' : '0 0 19px !important',
       }}>
       <Link href={link}>
         <a
@@ -40,7 +33,7 @@ export const MenuItem = (props) => {
               title={title}
               alt={alt}
               style={{
-                width: isDesktopLayout ? '100%' : `calc(${(image.width/100)*70}px)`,
+                width: isDesktopLayout ? 'auto' : `calc(${(image.width/100)*70}px)`,
               }}
             />
           )}

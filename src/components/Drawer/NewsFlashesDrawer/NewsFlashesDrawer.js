@@ -76,7 +76,7 @@ export const NewsFlashesDrawer = (props) => {
         <GoldButton
           text={allNewsFlashText}
           link={allNewsFlashLink}
-          style={{ padding: '8px 35px' }}
+          sx={{ padding: '8px 35px' }}
         />
       </Box>
     </Drawer>

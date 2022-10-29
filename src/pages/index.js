@@ -36,7 +36,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 function IndexPage(props) {
   const windowWidth = useWindowWidth();
   const isDesktop = windowWidth >= 960;
-  const [isDesktopLayout, setIsDesktopLayout] = useState(isDesktop);
+  const [isDesktopLayout, setIsDesktopLayout] = useState(true);
 
   useEffect(() => {
     if (isDesktop !== isDesktopLayout) {

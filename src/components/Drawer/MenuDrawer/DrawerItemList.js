@@ -21,14 +21,15 @@ export const DrawerItemList = (props) => {
 
   return (
     <>
-      <Box sx={{
-        maxHeight: isDesktopLayout ? '100%' : 'calc(100% - 167px)',
-        overflow: isDesktopLayout ? 'initial' : 'auto', 
-      }}>
+      <Box
+        sx={{
+          maxHeight: isDesktopLayout ? '100%' : 'calc(100% - 167px)',
+          overflow: isDesktopLayout ? 'initial' : 'auto',
+        }}>
         <List
           sx={{
             marginRight: '5px',
-            paddingTop: '0',
+            paddingTop: '50px',
             height: 'auto',
           }}>
           {items.map((item) => (

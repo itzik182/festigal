@@ -119,7 +119,7 @@ const ActorCarousel = (props) => {
     <Box
       sx={{
         position: 'relative',
-        maxHeight: isDesktopLayout ? 'auto' : '600px',
+        maxHeight: isDesktopLayout ? 'auto' : '650px',
       }}>
       <Slider ref={(c) => (sliderRef = c)} {...settings}>
         {renderSlides}

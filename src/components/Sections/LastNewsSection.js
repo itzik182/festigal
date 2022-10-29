@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function LastNewsSection(props) {
   const classes = useStyles();
   const { items, mainData, socialIcons, isDesktopLayout = true } = props;
+  const { lastNewsText, lastNewsTitle, lastNewsImage } = mainData;
 
   if (!items) {
     return <></>;
@@ -42,24 +43,29 @@ function LastNewsSection(props) {
             lineHeight: isDesktopLayout ? '0.9' : '1.5',
             letterSpacing: isDesktopLayout ? '1.74px' : '1.4px',
           }}>
-          {mainData.lastNewsText}
+          {lastNewsText}
         </Box>
         <Box
           sx={{
             textAlign: 'center',
-            color: '#2D555B',
-            fontSize: isDesktopLayout ? '73px' : '35px',
-            fontFamily: 'Noto Sans Hebrew',
-            fontWeight: '900',
-            fontStyle: 'normal',
-            marginTop: '20px',
+            marginTop: '30px',
+            // color: '#2D555B',
+            // fontSize: isDesktopLayout ? '73px' : '35px',
+            // fontFamily: 'Noto Sans Hebrew',
+            // fontWeight: '900',
+            // fontStyle: 'normal',
           }}>
-          {mainData.lastNewsTitle}
+          {/* {lastNewsTitle} */}
+          <img
+            src={lastNewsImage.url}
+            alt={lastNewsImage.alt}
+            title={lastNewsImage.title}
+          />
         </Box>
         <Box
           sx={{
             textAlign: 'center',
-            padding: isDesktopLayout ? '50px 0 25px' : '25px 0px 50px',
+            padding: isDesktopLayout ? '30px 0 25px' : '25px 0px 50px',
           }}>
           <SocialIcons
             isDesktopLayout={isDesktopLayout}
@@ -75,10 +81,7 @@ function LastNewsSection(props) {
             isDesktopLayout={isDesktopLayout}
           />
         ) : (
-          <LastNewsCarousel
-            items={items}
-            socialIcons={socialIcons}
-          />
+          <LastNewsCarousel items={items} socialIcons={socialIcons} />
         )}
       </Box>
     </Section>

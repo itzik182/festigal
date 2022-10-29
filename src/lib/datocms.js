@@ -48,6 +48,9 @@ export async function getMainData() {
       gamesTitle
       gamesText
       festigalYoutubeText
+      headerShopText
+      headerShopLink
+      shopFromPackageText
       festigalStorText
       festigalStorUnderItemText
       festigalSongWriter
@@ -77,6 +80,14 @@ export async function getMainData() {
         width
         title
         height
+      }
+      lastNewsImage {
+        url
+        width
+        title
+        id
+        height
+        alt
       }
     }
   }
@@ -361,8 +372,10 @@ export async function getAllShops() {
   const query = `query allShops {
     allShops(filter: {isDisplay: {eq: "true"}}) {
       id
+      name
       link
       isDisplayUp
+      isFromPackage
       imageWeb {
         alt
         width

@@ -13,11 +13,18 @@ const HeaderBar = (props) => {
   const {
     isDesktopLayout = true,
     socialIcons,
-    ticketsInformationText,
+    mainData,
     setMenuDrawerOpen,
     setInformationDrawerOpen,
     setNewsFlashesDrawerOpen,
   } = props;
+  const {
+    ticketsInformationText,
+    headerShopText,
+    headerShopLink,
+    comingSoonText,
+  } = mainData;
+
   const classes = useStyles(isDesktopLayout);
 
   return (
@@ -58,13 +65,40 @@ const HeaderBar = (props) => {
               left: '180px',
               zIndex: '10',
               top: '30px',
+              display: 'flex',
+              alignItems: 'baseline',
             }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                marginLeft: '60px',
+              }}>
+              <IconButton
+                style={{
+                  paddingBottom: '5px',
+                }}
+                onClick={() => {
+                  window.open(headerShopLink, '_blank');
+                }}
+                color='inherit'>
+                <img src='./images/cart.svg' alt='cart' />
+              </IconButton>
+              <span
+                style={{
+                  color: '#fff',
+                  font: 'normal normal medium 16px/58px Noto Sans Hebrew',
+                  letterSpacing: '0.19px',
+                }}>
+                {headerShopText}
+              </span>
+            </Box>
             <IconButton
               onClick={() => {
                 setNewsFlashesDrawerOpen(true);
               }}
               color='inherit'>
-              <img src='./images/ring.svg' alt='Ring' />
+              <img src='./images/ring.svg' alt='ring' />
             </IconButton>
           </Box>
         </Hidden>
@@ -121,13 +155,29 @@ const HeaderBar = (props) => {
                 top: '0',
                 bottom: '0',
               }}>
-              <img
-                style={{
-                  marginLeft: '25px',
-                }}
-                src='./images/my_small.png'
-                alt='my-festigal'
-              />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  margin: '25px 25px 0',
+                }}>
+                <img
+                  src='./images/my_small.png'
+                  alt='my-festigal logo'
+                />
+                <span
+                  style={{
+                    fontSize: '16px',
+                    fontWeight: '900',
+                    fontFamily: 'Noto Sans Hebrew',
+                    letterSpacing: '0.19px',
+                    color: '#D08F20',
+                  }}>
+                  {comingSoonText}
+                </span>
+              </Box>
               <SocialIcons
                 items={socialIcons}
                 isUseOriginalSize={true}

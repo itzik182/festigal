@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const ShopSection = (props) => {
   const classes = useStyles();
   const { items, socialIcons, mainData, isDesktopLayout } = props;
-  const { festigalStorText, festigalStorUnderItemText } = mainData;
+  const { festigalStorText, festigalStorUnderItemText, shopFromPackageText } = mainData;
   const sectionId = 'store';
 
   if (!items) {
@@ -41,6 +41,7 @@ const ShopSection = (props) => {
         className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
         <ShopCarousel
           items={itemsUp}
+          shopFromPackageText={shopFromPackageText}
           festigalStorUnderItemText={festigalStorUnderItemText}
           isDesktopLayout={isDesktopLayout}
         />
@@ -90,12 +91,13 @@ const ShopSection = (props) => {
             <GoldButton
               text={'COMING SOON'}
               isBold
-              style={!isDesktopLayout && { padding: '8px 0', fontSize: '20px' }}
+              sx={!isDesktopLayout && { padding: '8px 0', fontSize: '20px' }}
             />
           </Box>
         </Box>
         <ShopCarousel
           items={itemsDown}
+          shopFromPackageText={shopFromPackageText}
           festigalStorUnderItemText={festigalStorUnderItemText}
           isDesktopLayout={isDesktopLayout}
         />

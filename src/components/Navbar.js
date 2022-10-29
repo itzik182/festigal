@@ -50,6 +50,8 @@ function Navbar(props) {
     videoSmallText,
     ticketsInformationText,
     ticketsInformationLink,
+    headerShopText,
+    headerShopLink,
     allNewsFlashText,
     allNewsFlashLink,
     allNewsFlashMenuText,
@@ -176,7 +178,7 @@ function Navbar(props) {
       <HeaderBar
         isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}
-        ticketsInformationText={ticketsInformationText}
+        mainData={mainData}
         setMenuDrawerOpen={setMenuDrawerOpen}
         setInformationDrawerOpen={setInformationDrawerOpen}
         setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
