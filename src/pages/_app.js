@@ -13,18 +13,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      <>
-        {getLayout(
-          <>
-            <GoogleAnalytics
-              strategy='lazyOnload'
-              trackPageViews
-              gtagUrl='/gtag.js'
-            />
-            <Component {...pageProps} />
-          </>
-        )}
-      </>
+      <GoogleAnalytics
+        strategy='lazyOnload'
+        trackPageViews
+        gtagUrl='/gtag.js'
+      />
+      <>{getLayout(<Component {...pageProps} />)}</>
     </ThemeProvider>
   );
 }
