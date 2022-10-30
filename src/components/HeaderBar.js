@@ -32,7 +32,7 @@ const HeaderBar = (props) => {
       position='absolute'
       color='transparent'
       elevation={0}
-      sx={{
+      style={{
         position: 'absolute',
         top: 0,
       }}>

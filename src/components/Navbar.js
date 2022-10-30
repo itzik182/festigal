@@ -13,10 +13,6 @@ import VideoText from 'components/VideoText';
 import VolumeIcon from 'components/VolumeIcon';
 import Vimeo from '@u-wave/react-vimeo';
 
-// const useStyles = makeStyles((theme) => ({
-
-// }));
-
 function Navbar(props) {
   const [isVideoMute, setVideoMute] = useState(true);
   const [isVideoReady, setVideoReady] = useState(false);
@@ -25,7 +21,7 @@ function Navbar(props) {
   const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
 
   useEffect(() => {
-    console.log('isVideoMute', isVideoMute);
+    // console.log('isVideoMute', isVideoMute);
   }, [isVideoMute, isVideoReady]);
 
   const {
@@ -175,18 +171,18 @@ function Navbar(props) {
           isDisplayFlag={isDisplayFlag}
         />
       )}
-      <HeaderBar
+      {/* <HeaderBar
         isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}
         mainData={mainData}
         setMenuDrawerOpen={setMenuDrawerOpen}
         setInformationDrawerOpen={setInformationDrawerOpen}
         setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
-      />
+      /> */}
 
       {/* Drawers: */}
 
-      <MenuDrawer
+      {/* <MenuDrawer
         items={menuItems}
         handleItemClick={handleMenuDrawerItemClick}
         ticketsInformationText={ticketsInformationText}
@@ -216,7 +212,7 @@ function Navbar(props) {
         drawerOpen={newsFlashesDrawerOpen}
         setDrawerOpen={setNewsFlashesDrawerOpen}
         isDesktopLayout={isDesktopLayout}
-      />
+      /> */}
     </Section>
   );
 }

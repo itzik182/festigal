@@ -289,7 +289,7 @@ function Footer(props) {
           }}>
           <Box
             sx={{
-              padding: '12px 0 40px',
+              padding: isDesktopLayout ? '80px 0px 54px' : '12px 0 40px',
             }}>
             <Link href='/'>
               <a>
@@ -311,12 +311,12 @@ function Footer(props) {
               isDesktopLayout={isDesktopLayout}
             />
           )}
-            <Separator margin={'32px 0'} />
+          {!isDesktopLayout && <Separator margin={'32px 0'} />}
           <SocialIcons
             items={socialIcons}
             style={{ margin: '0 10px 20px' }}
             isDesktopLayout={isDesktopLayout}
-            isUseOriginalSize={false}
+            isUseOriginalSize={isDesktopLayout ? true : false}
           />
           <Box
             sx={{

@@ -1,14 +1,14 @@
 import Box from '@material-ui/core/Box';
 
 const VideoText = (props) => {
-  const { videoBigText, videoSmallText, isDesktopLayout, isDisplayFlag } =
+  const { videoBigText, videoSmallText, isDesktopLayout, isDisplayFlag, sx, } =
     props;
 
   return (
     <Box
       sx={{
         width: isDesktopLayout ? '100%' : isDisplayFlag ? '110px' : 'auto',
-        opacity: '0.7',
+        opacity: isDesktopLayout ? '0.7' : videoSmallText ? '0.7' : '1',
         position: 'absolute',
         zIndex: '10',
         bottom: isDesktopLayout ? '50px' : '40px',
@@ -17,6 +17,7 @@ const VideoText = (props) => {
         textAlign: isDesktopLayout ? 'center' : isDisplayFlag ? 'right' : 'center',
         fontFamily: 'Noto Sans Hebrew',
         textShadow: '0px 3px 14px #0000005c',
+        ...sx,
       }}>
       <Box
         sx={{

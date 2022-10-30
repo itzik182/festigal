@@ -1,19 +1,18 @@
-import React from "react";
+import React from 'react';
 // import Navbar from "components/Navbar";
 // import Footer from "components/Footer";
-import "util/analytics";
-import "../styles/globals.css";
-import "../styles/fonts.css";
-import { ThemeProvider } from "util/theme";
-// import Box from '@material-ui/core/Box';
-// import YoutubeEmbed from '../components/YoutubeEmbed';
+import 'util/analytics';
+import '../styles/globals.css';
+import '../styles/fonts.css';
+import { ThemeProvider } from 'util/theme';
+import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 
 function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <ThemeProvider>
-      <>
-        <Component {...pageProps} />
-      </>
+      <>{getLayout(<Component {...pageProps} />)}</>
     </ThemeProvider>
   );
 }

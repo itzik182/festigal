@@ -25,6 +25,7 @@ button {
 
 body {
   direction: rtl;
+  width: fit-content;
 }
 
 a {

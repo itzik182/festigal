@@ -480,3 +480,75 @@ export async function getAllMusics() {
 
   return data?.allMusics;
 }
+
+export async function getMyBioPage() {
+  const query = `query myBioPage {
+    myBioPage {
+      id
+      text1
+      text2
+      videoText
+      image1 {
+        id
+        alt
+        height
+        width
+        url
+        title
+      }
+      image2 {
+        id
+        alt
+        height
+        width
+        url
+        title
+      }
+      video {
+        width
+        url
+        title
+        height
+      }
+      videoMobile {
+        width
+        url
+        title
+        height
+      }
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.myBioPage;
+}
+
+export async function getInquiriesAndDonationPage() {
+  const query = `query inquiriesAndDonationPage {
+    inquiriesAndDonationPage {
+      id
+      title
+      description
+      firstName
+      lastName
+      email
+      phone
+      birthDate
+      city
+      send
+      writeUsText
+      details
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.inquiriesAndDonationPage;
+}

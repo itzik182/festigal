@@ -1,6 +1,17 @@
 import { useState, useEffect } from 'react';
 import Meta from 'components/Meta';
-import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
+// import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
+import Navbar from 'components/Navbar';
+import { NewsTicker } from 'components/NewsTicker';
+import AboutSection from 'components/Sections/AboutSection';
+import ActorsSection from 'components/Sections/ActorsSection';
+import ShopSection from 'components/Sections/ShopSection';
+import LastNewsSection from 'components/Sections/LastNewsSection';
+import MusicSection from 'components/Sections/MusicSection';
+import GamesSection from 'components/Sections/GamesSection';
+import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
+import NestedLayout from 'components/NestedLayout';
+import { useWindowWidth } from '@react-hook/window-size';
 import {
   getMainData,
   getTicketsInformationData,
@@ -18,20 +29,6 @@ import {
   getAllMusics,
   getAllGames,
 } from '../lib/datocms';
-// import HeroSection from "components/HeroSection";
-// import FeaturesSection from "components/FeaturesSection";
-// import TeamBiosSection from "components/TeamBiosSection";
-import { NewsTicker } from 'components/NewsTicker';
-import AboutSection from 'components/Sections/AboutSection';
-import ActorsSection from 'components/Sections/ActorsSection';
-import ShopSection from 'components/Sections/ShopSection';
-import LastNewsSection from 'components/Sections/LastNewsSection';
-import MusicSection from 'components/Sections/MusicSection';
-import GamesSection from 'components/Sections/GamesSection';
-import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
-import Navbar from 'components/Navbar';
-import Footer from 'components/Footer';
-import { useWindowWidth } from '@react-hook/window-size';
 
 function IndexPage(props) {
   const windowWidth = useWindowWidth();
@@ -46,8 +43,8 @@ function IndexPage(props) {
 
   const {
     mainData,
-    ticketsInformationData,
     socialIcons,
+    ticketsInformationData,
     newsFlashesItems,
     showsItems,
     faqItems,
@@ -122,17 +119,25 @@ function IndexPage(props) {
         isDesktopLayout={isDesktopLayout}
       />
 
-      <Footer
+      {/* <Footer
         mainData={mainData}
         socialIcons={socialIcons}
         items={footerItems}
         isDesktopLayout={isDesktopLayout}
-      />
+      /> */}
     </>
   );
 }
 
 export default IndexPage;
+
+IndexPage.getLayout = function getLayout(page) {
+  return (
+    <NestedLayout>
+      {page}
+    </NestedLayout>
+  );
+};
 
 export async function getStaticProps() {
   return {
