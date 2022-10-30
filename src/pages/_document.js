@@ -25,6 +25,16 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
           {/* <link rel="stylesheet" href="https://use.typekit.net/eit4grc.css"></link> */}
+
+           {/* Global site tag (gtag.js) - Google Analytics */}
+          {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-H26QJN2QS5"></script>
+          <script>
+            {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-H26QJN2QS5');`}
+          </script> */}
         </Head>
         <body>
           <Main />

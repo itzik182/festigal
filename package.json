@@ -26,6 +26,7 @@
     "graphql-language-service-parser": "^1.10.4",
     "graphql-request": "^5.0.0",
     "next": "12.2.5",
+    "nextjs-google-analytics": "^2.2.0",
     "nice-react-ticker": "^2.1.0",
     "react": "17.0.2",
     "react-countdown": "^2.3.3",
