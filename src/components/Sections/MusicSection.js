@@ -185,8 +185,8 @@ function MusicSection(props) {
             <ShareSocialButton
               sx={{
                 position: 'absolute',
-                top: isDesktopLayout ? '5px' : '305px',
-                right: '342px',
+                top: isDesktopLayout ? '15px' : '305px',
+                right: '464px',
               }}
               socialIcons={socialIcons}
               shareUrl={shareUrl}
@@ -212,8 +212,8 @@ function MusicSection(props) {
             <ShareSocialButton
               sx={{
                 position: 'absolute',
-                top: isDesktopLayout ? '5px' : '305px',
-                right: '342px',
+                top: isDesktopLayout ? '15px' : '305px',
+                right: '464px',
               }}
               socialIcons={socialIcons}
               shareUrl={shareUrl}
