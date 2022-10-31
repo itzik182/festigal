@@ -133,7 +133,7 @@ const ShopCarousel = (props) => {
                       link={link}
                       text={'לקניה'}
                       isBold
-                      sx={{ padding: '5px 30px', fontSize: '16px' }}
+                      buttonStyle={{ padding: '5px 30px', fontSize: '16px' }}
                     />
                   </Box>
                   <img

@@ -91,11 +91,13 @@ const themeConfig = {
 function getTheme(name) {
   // Create MUI theme from themeConfig
   return createTheme({
+    direction: 'rtl',
     ...themeConfig[name],
     // Merge in common values
     ...themeConfig.common,
     overrides: {
       // Merge overrides
+      direction: 'rtl',
       ...(themeConfig[name] && themeConfig[name].overrides),
       ...(themeConfig.common && themeConfig.common.overrides),
     },

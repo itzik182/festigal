@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
             gtag('config', 'G-H26QJN2QS5');`}
           </script> */}
         </Head>
-        <body>
+        <body dir="rtl">
           <Main />
           <NextScript />
         </body>

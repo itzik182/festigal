@@ -68,10 +68,7 @@ function AboutPage(props) {
         }}>
           <Box
             sx={{
-              // transition: 'visibility 0.3s linear 2s',
-              // opacity: isVideoReady ? '0' : '1',
               display: isVideoReady ? 'none' : 'block',
-              // visibility: isVideoReady ? 'hidden' : 'visible',
               width: '100%',
               minHeight: isDesktopLayout ? '800px' : '750px',
               backgroundColor: '#000',
@@ -144,7 +141,7 @@ function AboutPage(props) {
             />
           )}
         </Box>
-        <About aboutData={aboutData} isDesktopLayout={isDesktopLayout} />
+        <About pageData={aboutData} isDesktopLayout={isDesktopLayout} />
       </Section>
     </>
   );

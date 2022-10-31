@@ -2,8 +2,8 @@ import Box from '@material-ui/core/Box';
 import Image from 'next/image';
 
 const About = (props) => {
-  const { aboutData, isDesktopLayout = true } = props;
-  const { id, text1, text2, image1, image2 } = aboutData;
+  const { pageData, isDesktopLayout = true } = props;
+  const { id, text1, text2, image1, image2 } = pageData;
   //   const {
   //     id: image1Id,
   //     image1Alt,

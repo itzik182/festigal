@@ -54,7 +54,7 @@ function Footer(props) {
       }}>
       <Box
         sx={{
-          padding: '0px 5% 50px 5%',
+          padding: '0px 7% 50px 7%',
           display: 'flex',
           justifyContent: 'space-between',
           fontFamily: 'Noto Sans Hebrew',
@@ -300,7 +300,6 @@ function Footer(props) {
                       : './mobile/logo/logo-big.png'
                   }
                   alt='Logo'
-                  className={classes.brand}
                 />
               </a>
             </Link>

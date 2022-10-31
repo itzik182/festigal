@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
 const ShopSection = (props) => {
   const classes = useStyles();
   const { items, socialIcons, mainData, isDesktopLayout } = props;
-  const { festigalStorText, festigalStorUnderItemText, shopFromPackageText } = mainData;
+  const { festigalStorText, festigalStorUnderItemText, shopFromPackageText } =
+    mainData;
   const sectionId = 'store';
 
   if (!items) {
@@ -91,7 +92,9 @@ const ShopSection = (props) => {
             <GoldButton
               text={'COMING SOON'}
               isBold
-              sx={!isDesktopLayout && { padding: '8px 0', fontSize: '20px' }}
+              buttonStyle={
+                !isDesktopLayout && { padding: '8px 0', fontSize: '20px' }
+              }
             />
           </Box>
         </Box>

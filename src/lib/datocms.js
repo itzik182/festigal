@@ -527,6 +527,37 @@ export async function getMyBioPage() {
   return data?.myBioPage;
 }
 
+export async function getMyFriendsPage() {
+  const query = `query myFriendsPage {
+    myFriendsPage {
+      id
+      title
+      descriptionBold
+      description
+      birthDate
+      firstName
+      lastName
+      phone
+      email
+      city
+      registerText
+      registerLink
+      gender
+      genderFemale
+      genderMale
+      genderOther
+      send
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.myFriendsPage;
+}
+
 export async function getInquiriesAndDonationPage() {
   const query = `query inquiriesAndDonationPage {
     inquiriesAndDonationPage {
