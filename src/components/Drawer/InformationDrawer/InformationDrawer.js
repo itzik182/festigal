@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     fontFamily: 'Noto Sans Hebrew',
     '&.mobile': {
-      padding: '0 12px 30px',
+      padding: '0 12px 100px',
     },
   },
   title: {

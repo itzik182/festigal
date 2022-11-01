@@ -129,7 +129,7 @@ const HeaderBar = (props) => {
           sx={{
             background: isDesktopLayout
               ? 'transparent url(./header/header-bg.png) center center no-repeat padding-box'
-              : 'transparent url(mobile/header/header-bg.jpg) center -9% no-repeat padding-box',
+              : 'transparent url(mobile/header/header-bg.png) center -9% no-repeat padding-box',
             // 'transparent linear-gradient(270deg, #296B78 0%, #29ABBC 29%, #2CA4B2 40%, #28AFBF 56%, #286673 100%) 0% 0% no-repeat padding-box',
             width: '80%',
             height: '100%',

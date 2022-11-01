@@ -21,7 +21,7 @@ const GoldButton = (props) => {
       <input
         type='submit'
         style={{
-          width: '229px',
+          // width: '229px',
           height: '50px',
           position: 'absolute',
           borderRadius: '50px',

@@ -186,7 +186,7 @@ function MusicSection(props) {
               sx={{
                 position: 'absolute',
                 top: isDesktopLayout ? '15px' : '305px',
-                right: '464px',
+                right: isDesktopLayout ? '464px' : '300px',
               }}
               socialIcons={socialIcons}
               shareUrl={shareUrl}
@@ -213,7 +213,7 @@ function MusicSection(props) {
               sx={{
                 position: 'absolute',
                 top: isDesktopLayout ? '15px' : '305px',
-                right: '464px',
+                right: isDesktopLayout ? '464px' : '300px',
               }}
               socialIcons={socialIcons}
               shareUrl={shareUrl}
