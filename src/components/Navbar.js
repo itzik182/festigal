@@ -155,7 +155,7 @@ function Navbar(props) {
         setVideoMute={setVideoMute}
         isDesktopLayout={isDesktopLayout}
       />
-      {isVideoReady && isDisplayFlag && (
+      {isDisplayFlag && (
         <FirstShowFlag
           flagButtonText={flagButtonText}
           showLink={showLink}
@@ -163,14 +163,14 @@ function Navbar(props) {
           firstShowDate={firstShowDate}
         />
       )}
-      {isVideoReady && (
+      {/* {isVideoReady && ( */}
         <VideoText
           videoBigText={videoBigText}
           videoSmallText={videoSmallText}
           isDesktopLayout={isDesktopLayout}
           isDisplayFlag={isDisplayFlag}
         />
-      )}
+      {/* )} */}
       {/* <HeaderBar
         isDesktopLayout={isDesktopLayout}
         socialIcons={socialIcons}

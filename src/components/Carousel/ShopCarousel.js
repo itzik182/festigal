@@ -130,6 +130,7 @@ const ShopCarousel = (props) => {
                       left: '87px',
                     }}>
                     <GoldButton
+                      isDesktopLayout={isDesktopLayout}
                       link={link}
                       text={'לקניה'}
                       isBold

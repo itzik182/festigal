@@ -90,6 +90,7 @@ const ShopSection = (props) => {
               },
             }}>
             <GoldButton
+              isDesktopLayout={isDesktopLayout}
               text={'COMING SOON'}
               isBold
               buttonStyle={

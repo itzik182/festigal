@@ -3,9 +3,9 @@ import Meta from 'components/Meta';
 import NestedLayout from 'components/NestedLayout';
 import Section from 'components/Section';
 import { useWindowWidth } from '@react-hook/window-size';
-import MyFriends from 'components/MyFriends';
+import Contact from 'components/Contact';
 import {
-  getMyFriendsPage,
+  getContactPage,
   getMainData,
   getTicketsInformationData,
   getSocialIcons,
@@ -16,7 +16,7 @@ import {
   getMenuItems,
 } from '../lib/datocms';
 
-function MyFriendsPage(props) {
+function ContactPage(props) {
   const windowWidth = useWindowWidth();
   const isDesktop = windowWidth >= 960;
   const [isDesktopLayout, setIsDesktopLayout] = useState(true);
@@ -27,7 +27,7 @@ function MyFriendsPage(props) {
     }
   }, [windowWidth]);
 
-  const { mainData, myFriendsPageData } = props;
+  const { mainData, contactPageData } = props;
 
   return (
     <>
@@ -38,8 +38,8 @@ function MyFriendsPage(props) {
           backgroundColor: '#000',
           width: '100%',
         }}>
-        <MyFriends
-          pageData={myFriendsPageData}
+        <Contact
+          pageData={contactPageData}
           isDesktopLayout={isDesktopLayout}
         />
       </Section>
@@ -47,16 +47,16 @@ function MyFriendsPage(props) {
   );
 }
 
-export default MyFriendsPage;
+export default ContactPage;
 
-MyFriendsPage.getLayout = function getLayout(page) {
+ContactPage.getLayout = function getLayout(page) {
   return <NestedLayout>{page}</NestedLayout>;
 };
 
 export async function getStaticProps() {
   return {
     props: {
-      myFriendsPageData: (await getMyFriendsPage()) || [],
+      contactPageData: (await getContactPage()) || [],
       mainData: (await getMainData()) || [],
       ticketsInformationData: (await getTicketsInformationData()) || [],
       socialIcons: (await getSocialIcons()) || [],

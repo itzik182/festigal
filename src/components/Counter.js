@@ -4,7 +4,8 @@ import Box from '@material-ui/core/Box';
 const Completionist = () => <></>;
 
 // Renderer callback with condition
-const renderer = ({ days, hours, minutes, seconds, completed }) => {
+const renderer = (props) => {
+  const { days, hours, minutes, seconds, completed, isDesktopLayout } = props;
   if (completed) {
     // Render a complete state
     return <Completionist />;
@@ -14,20 +15,25 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return (
       <>
         <Box>
-        {days < 10 && 0}{days}:{hours < 10 && 0}{hours}:{minutes < 10 && 0}{minutes}:{seconds < 10 && 0}{seconds}
+          {days < 10 && 0}
+          {days}:{hours < 10 && 0}
+          {hours}:{minutes < 10 && 0}
+          {minutes}:{seconds < 10 && 0}
+          {seconds}
         </Box>
         <Box
           sx={{
             font: 'normal normal normal 16px/18px Noto Sans Hebrew',
             letterSpacing: '-0.1px',
+            marginTop: isDesktopLayout ? '0' : '-8px',
             '& span': {
-                padding: '0 5px 0 19px',
-            }
+              padding: isDesktopLayout ? '0 5px 0 19px' : '0 4px 0',
+            },
           }}>
-            <span>שניות</span>
-            <span>דקות</span>
-            <span>שעות</span>
-            <span>ימים</span>
+          <span>שניות</span>
+          <span>דקות</span>
+          <span>שעות</span>
+          <span>ימים</span>
         </Box>
       </>
     );
@@ -35,13 +41,18 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 };
 
 const Counter = (props) => {
-  const { date } = props;
+  const { date, isDesktopLayout } = props;
 
   const date1 = new Date(Date.now());
   const date2 = new Date(date);
   const diffInTime = date2 - date1;
 
-  return <Countdown date={Date.now() + diffInTime} renderer={renderer} />;
+  return (
+    <Countdown
+      date={Date.now() + diffInTime}
+      renderer={(props) => renderer({ ...props, isDesktopLayout })}
+    />
+  );
 };
 
 export default Counter;

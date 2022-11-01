@@ -74,6 +74,7 @@ export const NewsFlashesDrawer = (props) => {
           {allNewsFlashMissText}
         </span>
         <GoldButton
+          isDesktopLayout={isDesktopLayout}
           text={allNewsFlashText}
           link={allNewsFlashLink}
           buttonStyle={{ padding: isDesktopLayout ? '8px 35px' : '8px 15px' }}

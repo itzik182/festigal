@@ -322,6 +322,7 @@ function Footer(props) {
               marginTop: isDesktopLayout ? '0' : '20px',
             }}>
             <GoldButton
+              isDesktopLayout={isDesktopLayout}
               text={mainData.ticketsInformationText}
               link={mainData.ticketsInformationLink}
             />

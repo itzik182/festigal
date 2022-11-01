@@ -36,72 +36,72 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const RadiosGroup = (props) => {
   const { data, register, isDesktopLayout = true } = props;
-  const {
-    gender,
-    genderFemale,
-    genderMale,
-    genderOther,
-  } = data;
-//   const classes = useStyles();
+  const { gender, genderFemale, genderMale, genderOther } = data;
+  //   const classes = useStyles();
 
   return (
     <>
-      <FormLabel
-        sx={{
-          color: '#fff',
-          margin: '20px 22px 0 15px',
-          '&.Mui-focused': {
+      <Box sx={{
+        display: 'flex',
+        flexDirection: "row", 
+      }}>
+        <FormLabel
+          sx={{
             color: '#fff',
-          },
-        }}
-        id='demo-radio-buttons-group-label'>
-        {gender}
-      </FormLabel>
+            margin: isDesktopLayout ? '20px 22px 0 0px' : '20px 50px 0 0',
+            '&.Mui-focused': {
+              color: '#fff',
+            },
+          }}
+          id='demo-radio-buttons-group-label'>
+          {gender}
+        </FormLabel>
 
-      <RadioGroup
-        name='radio'
-        inputRef={register}
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          marginTop: '11px',
-          columnGap: '50px',
-          color: '#fff !important',
-          '& .MuiTypography-root': {
-            fontFamily: "Noto Sans Hebrew",
-          },
-          '& .MuiButtonBase-root': {
+        <RadioGroup
+          name='radio'
+          inputRef={register}
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            marginTop: '11px',
+            columnGap: isDesktopLayout ? '20px' : '30px',
             color: '#fff !important',
-          },
-          color: '#fff',
-          '&.Mui-checked': {
+            '& .MuiTypography-root': {
+              fontFamily: 'Noto Sans Hebrew',
+            },
+            '& .MuiButtonBase-root': {
+              color: '#fff !important',
+            },
             color: '#fff',
-          },
-        }}
-        aria-labelledby='demo-radio-buttons-group-label'
-        defaultValue={genderMale}>
-        <FormControlLabel
-          inputRef={register}
-          name='gender'
-          value={genderMale}
-          control={<Radio />}
-          label={genderMale}
-        />
-        <FormControlLabel
-          inputRef={register}
-          name='gender'
-          value={genderFemale}
-          control={<Radio />}
-          label={genderFemale}
-        />
-        <FormControlLabel
-          inputRef={register}
-          name='gender'
-          value={genderOther}
-          control={<Radio />}
-          label={genderOther}
-        />
-      </RadioGroup>
+            '&.Mui-checked': {
+              color: '#fff',
+            },
+          }}
+          aria-labelledby='demo-radio-buttons-group-label'
+          defaultValue={genderMale}>
+          <FormControlLabel
+            inputRef={register}
+            name='gender'
+            value={genderMale}
+            control={<Radio />}
+            label={genderMale}
+          />
+          <FormControlLabel
+            inputRef={register}
+            name='gender'
+            value={genderFemale}
+            control={<Radio />}
+            label={genderFemale}
+          />
+          <FormControlLabel
+            inputRef={register}
+            name='gender'
+            value={genderOther}
+            control={<Radio />}
+            label={genderOther}
+          />
+        </RadioGroup>
+      </Box>
     </>
   );
 };

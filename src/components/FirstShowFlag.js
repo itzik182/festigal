@@ -28,13 +28,14 @@ const useStyles = makeStyles((theme) => ({
     '&.mobile .flagText': {
       fontSize: '18px',
       marginBottom: '0',
+      lineHeight: '20px',
     },
     '&.mobile .flagTimer': {
       fontSize: '30px',
       margin: '-6px 0px 2px',
     },
     '&.mobile .flagButtonText': {
-      padding: '0 20px 0',
+      padding: '4px 20px 0',
     },
   },
   flagText: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '41px',
     color: '#2D555B',
     fontWeight: 'bold',
-    marginBottom: '25px',
+    marginBottom: '20px',
   },
 }));
 
@@ -63,10 +64,11 @@ const FirstShowFlag = (props) => {
       <Box className={`${classes.flagText} flagText`}>{flagText}</Box>
       <img src='./images/Path-994.svg' alt='Path' />
       <Box className={`${classes.flagTimer} flagTimer`}>
-        <Counter date={firstShowDate} />
+        <Counter date={firstShowDate} isDesktopLayout={isDesktopLayout} />
       </Box>
       <Box className={'flagButtonText'}>
         <GoldButton
+          isDesktopLayout={isDesktopLayout}
           buttonStyle={!isDesktopLayout && { padding: '4px 35px' }}
           text={flagButtonText}
           link={showLink}

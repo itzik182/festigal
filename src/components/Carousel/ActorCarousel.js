@@ -80,7 +80,7 @@ const ActorCarousel = (props) => {
               outline: '0 !important',
               position: 'absolute',
               top: isDesktopLayout ? '107px' : '79px',
-              transition: 'all .1s ease-in-out .1s',
+              transition: 'all .3s ease-in-out .1s',
               // right: '30px',
               left: isDesktopLayout ? '80px' : '45px',
               margin: 'auto',

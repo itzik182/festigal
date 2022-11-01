@@ -49,6 +49,7 @@ export const DrawerItemList = (props) => {
             padding: '15px 0',
           }}>
           <GoldButton
+            isDesktopLayout={isDesktopLayout}
             text={ticketsInformationText}
             link={ticketsInformationLink}
           />

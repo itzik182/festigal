@@ -25,6 +25,7 @@ button {
 
 body {
   direction: rtl;
+  /* overflow-x: hidden; */
   /* width: fit-content; */
 }
 

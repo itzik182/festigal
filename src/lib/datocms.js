@@ -558,9 +558,9 @@ export async function getMyFriendsPage() {
   return data?.myFriendsPage;
 }
 
-export async function getInquiriesAndDonationPage() {
-  const query = `query inquiriesAndDonationPage {
-    inquiriesAndDonationPage {
+export async function getContactPage() {
+  const query = `query contactPage {
+    contactPage {
       id
       title
       description
@@ -581,5 +581,5 @@ export async function getInquiriesAndDonationPage() {
     query,
   });
 
-  return data?.inquiriesAndDonationPage;
+  return data?.contactPage;
 }

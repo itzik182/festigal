@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Select from '@material-ui/core/Select';
 import { useForm, Controller } from 'react-hook-form';
 import Box from '@material-ui/core/Box';
 import FormControl from '@mui/material/FormControl';
@@ -34,11 +33,23 @@ const MyFriendsForm = (props) => {
     }, 4000);
   };
 
-  const { pageData, isDesktopLayout = true } = props;
+  const {
+    pageData,
+    isContactPage = false,
+    isGender = true,
+    isMultiLineTextBox = true,
+    isDesktopLayout = true,
+  } = props;
   const { send } = pageData;
 
   return (
-    <Box dir='rtl'>
+    <Box
+      dir='rtl'
+      sx={{
+        zIndex: '10',
+        position: 'relative',
+        padding: isDesktopLayout ? '0' : '0 15px',
+      }}>
       {/* <form onSubmit={handleSubmit(onSubmit)}> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl
@@ -46,21 +57,38 @@ const MyFriendsForm = (props) => {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            width: '78%',
+            width: isDesktopLayout ? isContactPage ? '90%' : '80%' : '100%',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'start',
-            rowGap: '70px',
+            rowGap: isDesktopLayout ? isContactPage ? '50px' : '70px' : '50px',
+            columnGap: isDesktopLayout ? isContactPage ? '50px' : '70px' : '50px',
           }}>
-          <TextFields data={pageData} register={register} />
-          <RadiosGroup data={pageData} register={register} />
-          <Box>
+          <TextFields
+            data={pageData}
+            isMultiLineTextBox={isMultiLineTextBox}
+            register={register}
+            isDesktopLayout={isDesktopLayout}
+          />
+          {isGender && (
+            <RadiosGroup
+              data={pageData}
+              register={register}
+              isDesktopLayout={isDesktopLayout}
+            />
+          )}
+          <Box
+            sx={{
+              width: isDesktopLayout ? 'auto' : '100%',
+              marginTop: isContactPage ? isDesktopLayout ? '61px' : '0' : '0',
+            }}>
             <GoldButton
+              isDesktopLayout={isDesktopLayout}
               sx={{
                 marginTop: '8px',
               }}
               type='submit'
-              buttonStyle={{ width: '228px' }}
+              buttonStyle={{ width: isDesktopLayout ? '228px' : '100%' }}
               text={send}
               // link={registerLink}
             />
@@ -69,7 +97,7 @@ const MyFriendsForm = (props) => {
                 transition: 'all .2s ease-in-out',
                 color: '#fff',
                 textAlign: 'center',
-                margin: '5px 0 0',
+                margin: isDesktopLayout ? '5px 0 0' : '15px 0 0',
                 fontSize: '18px',
                 fontFamily: 'Noto Sans Hebrew',
                 opacity: isFormSent ? 1 : 0,
