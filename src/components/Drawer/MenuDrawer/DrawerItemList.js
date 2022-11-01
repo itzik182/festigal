@@ -23,13 +23,13 @@ export const DrawerItemList = (props) => {
     <>
       <Box
         sx={{
-          maxHeight: isDesktopLayout ? '100%' : 'calc(100% - 230px)',
+          maxHeight: isDesktopLayout ? '100%' : 'calc(100% - 167px)',
           overflow: isDesktopLayout ? 'initial' : 'auto',
         }}>
         <List
           sx={{
             marginRight: '5px',
-            paddingTop: '25px',
+            paddingTop: '50px',
             height: 'auto',
           }}>
           {items.map((item) => (
@@ -62,7 +62,6 @@ export const DrawerItemList = (props) => {
             bottom: '0',
             right: '0',
             width: '95%',
-            height: '230px',
           }}>
           <Separator color={'#B4B4B4'} />
           <Box
