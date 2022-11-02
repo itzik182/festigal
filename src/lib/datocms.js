@@ -12,24 +12,24 @@ export function request({ query, variables, preview }) {
 }
 
 export async function getSiteParams() {
-  const Site_QUERY = `query Site() {
+  const query = `query Site(fallbackLocales: en) {
     _site {
-      globalSeo {
-        siteName
-        fallbackSeo {
-          title
-          description
-        }
-        titleSuffix
+      favicon {
+        url
+        title
+        width
+        id
+        height
+        alt
       }
     }
   }`;
 
   const data = await request({
-    query: Site_QUERY,
+    query,
   });
-
-  return data?.allArtists;
+console.log(data);
+  return data?._site;
 }
 
 export async function getMainData() {

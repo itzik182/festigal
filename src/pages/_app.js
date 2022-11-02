@@ -12,6 +12,8 @@ function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
   const [showBackDrop, setShowBackDrop] = useState(false);
   const router = useRouter();
+    // const { siteParams } = pageProps;
+  // console.log('siteParams', siteParams);
 
   useEffect(() => {
     const showBackDrop = (url, { shallow }) => {

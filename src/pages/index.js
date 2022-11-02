@@ -13,6 +13,7 @@ import AllFestigalsSection from 'components/Sections/AllFestigalsSection';
 import NestedLayout from 'components/NestedLayout';
 import { useWindowWidth } from '@react-hook/window-size';
 import {
+  getSiteParams,
   getMainData,
   getTicketsInformationData,
   getSocialIcons,
@@ -142,6 +143,7 @@ IndexPage.getLayout = function getLayout(page) {
 export async function getStaticProps() {
   return {
     props: {
+      // siteParams: (await getSiteParams()) || [],
       mainData: (await getMainData()) || [],
       ticketsInformationData: (await getTicketsInformationData()) || [],
       socialIcons: (await getSocialIcons()) || [],

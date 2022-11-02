@@ -25,12 +25,19 @@ export const DrawerItemList = (props) => {
         sx={{
           maxHeight: isDesktopLayout ? '100%' : 'calc(100% - 167px)',
           overflow: isDesktopLayout ? 'initial' : 'auto',
+          display: "flex", 
+          flexDirection: "column", 
+          height: isDesktopLayout ? '100%' : 'calc(100% - 167px)',
         }}>
         <List
           sx={{
             marginRight: '5px',
-            paddingTop: '50px',
             height: 'auto',
+            display: "flex", 
+            flexDirection: "column", 
+            height: "100%", 
+            justifyContent: "space-between", 
+            padding: "25px 0",
           }}>
           {items.map((item) => (
             <MenuItem
