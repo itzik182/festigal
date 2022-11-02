@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,6 +26,12 @@ function ActorsSection(props) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState();
+  const [siteUrl, setSiteUrl] = useState();
+
+  useEffect(() => {
+    const location = window?.location?.origin;
+    setSiteUrl(location);
+  });
 
   const sectionId = 'actors';
 
@@ -46,7 +52,7 @@ function ActorsSection(props) {
   };
 
   // const shareUrl = `${router.pathname}#${sectionId}`;
-  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
+  const shareUrl = `${siteUrl}/#${sectionId}`;
 
   return (
     <Section id={sectionId} className={classes.section}>

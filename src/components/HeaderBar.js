@@ -40,7 +40,7 @@ const HeaderBar = (props) => {
         sx={{
           height: '133px',
           width: '95%',
-          margin: '20px auto 0',
+          margin: isDesktopLayout ? '20px auto 0' : '8px auto 0',
           position: 'relative',
           zIndex: '1',
         }}>
@@ -129,7 +129,7 @@ const HeaderBar = (props) => {
           sx={{
             background: isDesktopLayout
               ? 'transparent url(./header/header-bg.png) center center no-repeat padding-box'
-              : 'transparent url(mobile/header/header-bg.png) center -9% no-repeat padding-box',
+              : 'transparent url(mobile/header/header-bg.png) center -4% no-repeat padding-box',
             // 'transparent linear-gradient(270deg, #296B78 0%, #29ABBC 29%, #2CA4B2 40%, #28AFBF 56%, #286673 100%) 0% 0% no-repeat padding-box',
             width: '80%',
             height: '100%',
@@ -248,15 +248,15 @@ const useStyles = makeStyles((isDesktopLayout) => ({
 
     '&.layerRight': {
       background:
-        'transparent url(./mobile/header/layer-right.png) 0% 0% no-repeat padding-box',
+        'transparent url(./mobile/header/layer-right.png) 110% 0% no-repeat padding-box',
       right: '0',
-      top: '-9px',
+      top: '-6px',
     },
     '&.layerLeft': {
       background:
-        'transparent url(./mobile/header/layer-left.png) 0% 0% no-repeat padding-box',
+        'transparent url(./mobile/header/layer-left.png) -16% 0% no-repeat padding-box',
       left: '0',
-      top: '-9px',
+      top: '-6px',
     },
   },
   spacer: {
