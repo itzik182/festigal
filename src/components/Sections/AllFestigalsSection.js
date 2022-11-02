@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -24,10 +24,16 @@ const useStyles = makeStyles((theme) => ({
 
 function AllFestigalsSection(props) {
   const classes = useStyles();
+  const [siteUrl, setSiteUrl] = useState();
+
+  useEffect(() => {
+    const location = window?.location?.origin;
+    setSiteUrl(location);
+  });
 
   const { socialIcons, mainData, isDesktopLayout } = props;
   const sectionId = 'all-festigals';
-  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
+  const shareUrl = `${siteUrl}/#${sectionId}`;
 
   return (
     <Section id={sectionId} className={classes.section}>

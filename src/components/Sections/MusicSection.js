@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -42,6 +42,13 @@ const useStyles = makeStyles((theme) => ({
 function MusicSection(props) {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState();
+  const [siteUrl, setSiteUrl] = useState();
+
+  useEffect(() => {
+    const location = window?.location?.origin;
+    setSiteUrl(location);
+  });
+
   const sectionId = 'playlists';
 
   const classes = useStyles();
@@ -50,7 +57,7 @@ function MusicSection(props) {
   const playlists = items.filter((item) => item.isPlaylist);
   const podcast = items.filter((item) => !item.isPlaylist);
 
-  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
+  const shareUrl = `${siteUrl}/#${sectionId}`;
 
   const handleItemClick = (item) => {
     setSelectedItem(item);

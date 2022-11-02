@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -23,6 +23,13 @@ const useStyles = makeStyles((theme) => ({
 
 const ShopSection = (props) => {
   const classes = useStyles();
+  const [siteUrl, setSiteUrl] = useState();
+
+  useEffect(() => {
+    const location = window?.location?.origin;
+    setSiteUrl(location);
+  });
+
   const { items, socialIcons, mainData, isDesktopLayout } = props;
   const { festigalStorText, festigalStorUnderItemText, shopFromPackageText } =
     mainData;
@@ -34,7 +41,8 @@ const ShopSection = (props) => {
 
   const itemsUp = items?.filter((item) => item.isDisplayUp);
   const itemsDown = items?.filter((item) => !item.isDisplayUp);
-  const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
+  // const shareUrl = `${process.env.BASE_URL}#${sectionId}`;
+  const shareUrl = `${siteUrl}/#${sectionId}`;
 
   return (
     <Section id={sectionId} className={classes.section}>
