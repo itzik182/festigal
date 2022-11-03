@@ -12,8 +12,28 @@ export function request({ query, variables, preview }) {
 }
 
 export async function getSiteParams() {
-  const query = `query Site(fallbackLocales: en) {
+  const query = `query Site(fallbackLocales: en, locale: en) {
     _site {
+      globalSeo {
+        twitterAccount
+        titleSuffix
+        siteName
+        fallbackSeo {
+          title
+          image {
+            url
+            width
+            tags
+            title
+            id
+            height
+            alt
+          }
+          description
+          twitterCard
+        }
+        facebookPageUrl
+      }
       favicon {
         url
         title
@@ -28,7 +48,7 @@ export async function getSiteParams() {
   const data = await request({
     query,
   });
-console.log(data);
+
   return data?._site;
 }
 
