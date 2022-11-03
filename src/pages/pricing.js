@@ -17,5 +17,5 @@ function PricingPage(props) {
     </>
   );
 }
-
+ 
 export default PricingPage;
