@@ -50,7 +50,6 @@ function MusicSection(props) {
   });
 
   const sectionId = 'playlists';
-
   const classes = useStyles();
   const { items, socialIcons, mainData, isDesktopLayout } = props;
 

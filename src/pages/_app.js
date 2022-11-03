@@ -7,6 +7,7 @@ import { ThemeProvider } from 'util/theme';
 import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { BackdropLoading } from '../components/Backdrop';
+import CrispWithNoSSR from "components/Crisp";
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -16,6 +17,17 @@ function MyApp({ Component, pageProps }) {
   // console.log('siteParams', siteParams);
 
   useEffect(() => {
+    // crisp chat:
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "f64db7de-7c72-40ea-9f36-2faac0582e16";
+    (() => {
+      const d = document;
+      const s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("body")[0].appendChild(s);
+    })();
+
     const showBackDrop = (url, { shallow }) => {
       setShowBackDrop(true);
     };
@@ -42,6 +54,7 @@ function MyApp({ Component, pageProps }) {
         gtagUrl='/gtag.js'
       />
       {getLayout(<Component {...pageProps} />)}
+      <CrispWithNoSSR />
       {showBackDrop && (
         <BackdropLoading key={showBackDrop} />
       )}

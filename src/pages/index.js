@@ -108,12 +108,12 @@ function IndexPage(props) {
         socialIcons={socialIcons}
         isDesktopLayout={isDesktopLayout}
       />
-      <GamesSection
+      {/* <GamesSection
         items={games}
         mainData={mainData}
         socialIcons={socialIcons}
         isDesktopLayout={isDesktopLayout}
-      />
+      /> */}
       <AllFestigalsSection
         mainData={mainData}
         socialIcons={socialIcons}
