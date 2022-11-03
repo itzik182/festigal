@@ -16,6 +16,7 @@ export const DrawerItemList = (props) => {
     ticketsInformationLink,
     allNewsFlashMenuText,
     setNewsFlashesDrawerOpen,
+    setInformationDrawerOpen,
     isDesktopLayout,
   } = props;
 
@@ -58,7 +59,10 @@ export const DrawerItemList = (props) => {
           <GoldButton
             isDesktopLayout={isDesktopLayout}
             text={ticketsInformationText}
-            link={ticketsInformationLink}
+            // link={ticketsInformationLink}
+            onClick={() => {
+              setInformationDrawerOpen(true)
+            }}
           />
         </Box>
       </Box>

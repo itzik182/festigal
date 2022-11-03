@@ -5,6 +5,7 @@ const GoldButton = (props) => {
   const {
     text,
     link = '',
+    onClick,
     isBold = false,
     sx,
     buttonStyle,
@@ -14,7 +15,9 @@ const GoldButton = (props) => {
 
   return (
     <Box
+    onClick={onClick && onClick}
       sx={{
+        cursor: onClick ? 'pointer' : 'auto',
         position: 'relative',
         transition: 'all .2s ease-in-out',
         backgroundImage:

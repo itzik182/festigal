@@ -88,6 +88,7 @@ export default function NestedLayout(props) {
           mainData={mainData}
           socialIcons={socialIcons}
           items={footerItems}
+          setInformationDrawerOpen={setInformationDrawerOpen}
           isDesktopLayout={isDesktopLayout}
         />
       </Box>
@@ -102,6 +103,7 @@ export default function NestedLayout(props) {
         drawerOpen={menuDrawerOpen}
         setDrawerOpen={setMenuDrawerOpen}
         setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
+        setInformationDrawerOpen={setInformationDrawerOpen}
         isDesktopLayout={isDesktopLayout}
       />
       <InformationDrawer

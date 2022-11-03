@@ -12,6 +12,7 @@ export const MenuDrawer = (props) => {
     allNewsFlashMenuText,
     socialIcons,
     setNewsFlashesDrawerOpen,
+    setInformationDrawerOpen,
     drawerOpen,
     setDrawerOpen,
     isDesktopLayout = true,
@@ -39,6 +40,7 @@ export const MenuDrawer = (props) => {
         ticketsInformationLink={ticketsInformationLink}
         allNewsFlashMenuText={allNewsFlashMenuText}
         setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
+        setInformationDrawerOpen={setInformationDrawerOpen}
         socialIcons={socialIcons}
         handleItemClick={handleItemClick}
         isDrawerOpen={drawerOpen}

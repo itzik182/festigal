@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer(props) {
   const classes = useStyles();
-  const { items, mainData, socialIcons, isDesktopLayout } = props;
+  const { items, mainData, socialIcons, isDesktopLayout, setInformationDrawerOpen } = props;
 
   const column1 = items?.filter((item) => item.column.columnNumber === 1);
   const column2 = items?.filter((item) => item.column.columnNumber === 2);
@@ -324,7 +324,10 @@ function Footer(props) {
             <GoldButton
               isDesktopLayout={isDesktopLayout}
               text={mainData.ticketsInformationText}
-              link={mainData.ticketsInformationLink}
+              onClick={() => {
+                setInformationDrawerOpen(true)
+              }}
+              // link={mainData.ticketsInformationLink}
             />
           </Box>
         </Box>
