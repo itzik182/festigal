@@ -1,5 +1,5 @@
 import Box from '@material-ui/core/Box';
-import MyFriendsForm from './Form/MyFriendsForm';
+import CustomForm from './Form/CustomForm';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import { CacheProvider } from '@emotion/react';
@@ -76,7 +76,7 @@ const Contact = (props) => {
           {writeUsText}
         </Box>
         <CacheProvider value={cacheRtl}>
-          <MyFriendsForm
+          <CustomForm
             pageData={pageData}
             isContactPage={true}
             isGender={false}
