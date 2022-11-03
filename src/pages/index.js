@@ -133,11 +133,7 @@ function IndexPage(props) {
 export default IndexPage;
 
 IndexPage.getLayout = function getLayout(page) {
-  return (
-    <NestedLayout>
-      {page}
-    </NestedLayout>
-  );
+  return <NestedLayout>{page}</NestedLayout>;
 };
 
 export async function getStaticProps() {
@@ -160,5 +156,6 @@ export async function getStaticProps() {
       lastNews: (await getAllLastNews()) || [],
       musics: (await getAllMusics()) || [],
     },
+    revalidate: 30,
   };
 }
