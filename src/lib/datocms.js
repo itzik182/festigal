@@ -250,10 +250,18 @@ export async function getAllFooters() {
       text
       link
       isBold
+      logoSize
       column {
         name
         id
         columnNumber
+      }
+      logo {
+        alt
+        width
+        url
+        title
+        height
       }
     }
   }

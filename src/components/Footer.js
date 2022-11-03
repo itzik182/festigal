@@ -20,7 +20,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer(props) {
   const classes = useStyles();
-  const { items, mainData, socialIcons, isDesktopLayout, setInformationDrawerOpen } = props;
+  const {
+    items,
+    mainData,
+    socialIcons,
+    isDesktopLayout,
+    setInformationDrawerOpen,
+  } = props;
 
   const column1 = items?.filter((item) => item.column.columnNumber === 1);
   const column2 = items?.filter((item) => item.column.columnNumber === 2);
@@ -89,7 +95,7 @@ function Footer(props) {
                   padding: isDesktopLayout ? '0 0 0 20px' : '0 0 25px',
                 }}>
                 {column1.map((col) => {
-                  const { id, text, link, isBold } = col;
+                  const { id, text, logo, logoSize, link, isBold } = col;
                   const isBlank = link.includes('http');
                   return (
                     <Box
@@ -108,7 +114,18 @@ function Footer(props) {
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
-                          {text}
+                          {logo ? (
+                            <img
+                              src={logo.url}
+                              title={logo.title}
+                              alt={logo.alt}
+                              style={{
+                                width: logoSize
+                              }}
+                            />
+                          ) : (
+                            text
+                          )}
                         </a>
                       </Link>
                     </Box>
@@ -121,7 +138,7 @@ function Footer(props) {
                   paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column2.map((col) => {
-                  const { id, text, link, isBold } = col;
+                  const { id, text, logo, logoSize, link, isBold } = col;
                   const isBlank = link.includes('http');
                   return (
                     <Box
@@ -140,7 +157,18 @@ function Footer(props) {
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
-                          {text}
+                          {logo ? (
+                            <img
+                              src={logo.url}
+                              title={logo.title}
+                              alt={logo.alt}
+                              style={{
+                                width: logoSize
+                              }}
+                            />
+                          ) : (
+                            text
+                          )}
                         </a>
                       </Link>
                     </Box>
@@ -153,7 +181,7 @@ function Footer(props) {
                   paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column3.map((col) => {
-                  const { id, text, link, isBold } = col;
+                  const { id, text, logo, logoSize, link, isBold } = col;
                   const isBlank = link.includes('http');
                   return (
                     <Box
@@ -172,7 +200,18 @@ function Footer(props) {
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
-                          {text}
+                          {logo ? (
+                            <img
+                            style={{
+                              width: logoSize
+                            }}
+                              src={logo.url}
+                              title={logo.title}
+                              alt={logo.alt}
+                            />
+                          ) : (
+                            text
+                          )}
                         </a>
                       </Link>
                     </Box>
@@ -185,7 +224,7 @@ function Footer(props) {
                   paddingLeft: isDesktopLayout ? '20px' : '0',
                 }}>
                 {column4.map((col) => {
-                  const { id, text, link, isBold } = col;
+                  const { id, text, logo, logoSize, link, isBold } = col;
                   const isBlank = link.includes('http');
                   return (
                     <Box
@@ -204,7 +243,18 @@ function Footer(props) {
                         <a
                           target={isBlank ? '_blank' : '_self'}
                           rel='noopener noreferrer'>
-                          {text}
+                          {logo ? (
+                            <img
+                              src={logo.url}
+                              title={logo.title}
+                              alt={logo.alt}
+                              style={{
+                                width: logoSize
+                              }}
+                            />
+                          ) : (
+                            text
+                          )}
                         </a>
                       </Link>
                     </Box>
@@ -221,7 +271,7 @@ function Footer(props) {
               justifyContent: isDesktopLayout ? 'initial' : 'center',
             }}>
             {column5.map((col) => {
-              const { id, text, link, isBold } = col;
+              const { id, text, logo, logoSize, link, isBold } = col;
               const isBlank = link.includes('http');
               return (
                 <Box
@@ -241,7 +291,18 @@ function Footer(props) {
                     <a
                       target={isBlank ? '_blank' : '_self'}
                       rel='noopener noreferrer'>
-                      {text}
+                      {logo ? (
+                            <img
+                              src={logo.url}
+                              title={logo.title}
+                              alt={logo.alt}
+                              style={{
+                                width: logoSize
+                              }}
+                            />
+                          ) : (
+                            text
+                          )}
                     </a>
                   </Link>
                 </Box>
@@ -256,7 +317,7 @@ function Footer(props) {
               flexDirection: isDesktopLayout ? 'initial' : 'column',
             }}>
             {column6.map((col, index) => {
-              const { id, text, link, isBold } = col;
+              const { id, text, logo, logoSize, link, isBold } = col;
               const isBlank = link.includes('http');
               return (
                 <>
@@ -325,7 +386,7 @@ function Footer(props) {
               isDesktopLayout={isDesktopLayout}
               text={mainData.ticketsInformationText}
               onClick={() => {
-                setInformationDrawerOpen(true)
+                setInformationDrawerOpen(true);
               }}
               // link={mainData.ticketsInformationLink}
             />
