@@ -198,7 +198,7 @@ function AboutSection(props) {
               alt={image.alt}
               title={image.title}
             />
-            <Box
+            {/* <Box
               sx={{
                 position: 'absolute',
                 top: '77%',
@@ -226,7 +226,7 @@ function AboutSection(props) {
                   width: '22vw',
                 }}
               />
-            </Box>
+            </Box> */}
           </Box>
         </Box>
         <Box className={classes.containerB}>
