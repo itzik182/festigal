@@ -94,11 +94,11 @@ export const InformationDrawer = (props) => {
             isDesktopLayout={isDesktopLayout}
           />
         </Box>
-        <Box className={classes.title}>{faqTitle}</Box>
+        {/* <Box className={classes.title}>{faqTitle}</Box>
         <Box
           className={classes.description}
           dangerouslySetInnerHTML={{ __html: faqDescription }}></Box>
-        <Box
+          <Box
           sx={{
             marginTop: '30px',
           }}>
@@ -107,7 +107,7 @@ export const InformationDrawer = (props) => {
             items={faqItems}
             isDrawerOpen={drawerOpen}
           />
-        </Box>
+        </Box> */}
         <Box className={classes.title}>{accessibilityTitle}</Box>
         <Box
           className={`${classes.description} ${
@@ -115,13 +115,13 @@ export const InformationDrawer = (props) => {
           }`}>
           {accessibilityDescription}
         </Box>
-        <Box className={classes.title}>{informationTitle}</Box>
+        {/* <Box className={classes.title}>{informationTitle}</Box>
         <Box
           className={`${classes.description} ${
             isDesktopLayout ? '' : 'mobile'
           }`}>
           {informationDescription}
-        </Box>
+        </Box> */}
       </Box>
     </Drawer>
   );

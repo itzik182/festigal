@@ -25,7 +25,7 @@ const ActorCarousel = (props) => {
     swipe: isDesktopLayout ? false : true,
     // speed: 1000,
     // autoplay: true,
-    // autoplaySpeed: 0,
+    // autoplaySpeed: 2000,
     // cssEase: 'linear',
     //draggable: false,
     // adaptiveHeight: true,

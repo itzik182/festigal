@@ -174,8 +174,8 @@ function MusicSection(props) {
             </Box>
           </Box>
         </Box>
-        <Box className={classes.rectangle}></Box>
-        <Box
+        {/*<Box className={classes.rectangle}></Box>
+         <Box
           className={`${classes.containerA} ${
             isDesktopLayout ? '' : 'mobile'
           }`}>
@@ -199,7 +199,7 @@ function MusicSection(props) {
               isDesktopLayout={isDesktopLayout}
             />
           </Box>
-          <Box>
+           <Box>
             <PlaylistCarousel
               items={playlists}
               handleItemClick={handleItemClick}
@@ -233,7 +233,7 @@ function MusicSection(props) {
               isDesktopLayout={isDesktopLayout}
             />
           </Box>
-        </Box>
+        </Box> */}
       </Box>
       <MusicDialog
         open={open}
