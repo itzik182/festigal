@@ -36,6 +36,7 @@ const ShopCarousel = (props) => {
   const startSlide = (isNext) => {
     const slide = isNext ? sliderRef.slickNext : sliderRef.slickPrev;
     slide();
+    sliderInterval && stopSlide();
     sliderInterval = setInterval(() => {
       slide();
     }, 300);

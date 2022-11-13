@@ -101,6 +101,18 @@ export async function getMainData() {
         title
         height
       }
+      shopVideo {
+        url
+        width
+        title
+        height
+      }
+      shopVideoMobile {
+        url
+        width
+        title
+        height
+      }
       lastNewsImage {
         url
         width
