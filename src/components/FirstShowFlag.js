@@ -68,6 +68,7 @@ const FirstShowFlag = (props) => {
       </Box>
       <Box className={'flagButtonText'}>
         <GoldButton
+          isBlank={false}
           isDesktopLayout={isDesktopLayout}
           buttonStyle={!isDesktopLayout && { padding: '4px 35px' }}
           text={flagButtonText}

@@ -7,6 +7,7 @@ const GoldButton = (props) => {
     link = '',
     onClick,
     isBold = false,
+    isBlank = true,
     sx,
     buttonStyle,
     type = '',
@@ -47,7 +48,7 @@ const GoldButton = (props) => {
       )}
       <Link href={link}>
         <a
-          target='_blank'
+          target={isBlank ? '_blank' : '_self'}
           style={{ pointerEvents: link && link.length ? 'auto' : 'none' }}>
           <Box
             className='box-primary'

@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import FormControl from '@mui/material/FormControl';
 import TextFields from 'components/Form/TextFields';
 import RadiosGroup from 'components/Form/RadiosGroup';
+import CheckboxLabels from 'components/Form/CheckboxLabels';
 import GoldButton from 'components/GoldButton';
 
 const defaultValues = {
@@ -107,6 +108,18 @@ const CustomForm = (props) => {
               isDesktopLayout={isDesktopLayout}
             />
           )}
+          <Box
+            sx={{
+              position: isDesktopLayout ? 'absolute' : 'initial',
+              bottom: isContactPage ? '13px' : '-62px',
+            }}>
+            <CheckboxLabels
+              register={register}
+              isMarketing={true}
+              isTerms={isContactPage ? false : true}
+              isDesktopLayout={isDesktopLayout}
+            />
+          </Box>
           <Box
             sx={{
               width: isDesktopLayout ? 'auto' : '100%',

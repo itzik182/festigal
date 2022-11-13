@@ -467,13 +467,6 @@ export async function getAllLastNews() {
         url
         title
       }
-      imageMobile {
-        alt
-        height
-        width
-        url
-        title
-      }
     }
   }`;
 
@@ -610,4 +603,22 @@ export async function getContactPage() {
   });
 
   return data?.contactPage;
+}
+
+export async function getTermsPage() {
+  const query = `query termsPage {
+    termsPage {
+      id
+      title
+      subTitle
+      text
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.termsPage;
 }

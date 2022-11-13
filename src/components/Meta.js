@@ -21,7 +21,7 @@ function Meta(props) {
     // Page title
     title: "My Festigal",
     // Page description
-    description: "My app description",
+    description: "My Festigal",
     // Social share image (create this file in /public/images/)
     image: "/images/social.png",
     // Page type (see https://ogp.me/#types)

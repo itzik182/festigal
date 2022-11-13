@@ -17,7 +17,7 @@ const BuyTicketButton = (props) => {
             color: '#fff',
             cursor: 'pointer',
             padding: isDesktopLayout ? '8px 20px' : '12px 26px',
-            fontFamily: "'Noto Sans Hebrew'",
+            fontFamily: "Noto Sans Hebrew",
             fontWeight: isTicketsAvailable ? '900' : 'normal',
             fontSize: isDesktopLayout ? isTicketsAvailable ? '19px' : '20px' : '14px',
             textAlign: 'center',

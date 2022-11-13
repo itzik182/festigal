@@ -2,7 +2,7 @@ import React from "react";
 import Meta from "components/Meta";
 import PricingSection from "components/PricingSection";
 
-function PricingPage(props) {
+function PricingPage11(props) {
   return (
     <>
       <Meta title="Pricing" />
@@ -18,4 +18,4 @@ function PricingPage(props) {
   );
 }
  
-export default PricingPage;
+export default PricingPage11;
