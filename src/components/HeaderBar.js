@@ -72,7 +72,7 @@ const HeaderBar = (props) => {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                marginLeft: '60px',
+                marginLeft: '50px',
               }}>
               <IconButton
                 style={{
@@ -82,16 +82,17 @@ const HeaderBar = (props) => {
                   window.open(headerShopLink, '_blank');
                 }}
                 color='inherit'>
-                <img src='./images/cart.svg' alt='cart' />
+                {/* <img src='./images/cart.svg' alt='cart' /> */}
+                <img src='./images/my_store.png' alt='store' />
               </IconButton>
-              <span
+              {/* <span
                 style={{
                   color: '#fff',
                   font: 'normal normal medium 16px/58px Noto Sans Hebrew',
                   letterSpacing: '0.19px',
                 }}>
                 {headerShopText}
-              </span>
+              </span> */}
             </Box>
             <IconButton
               onClick={() => {
@@ -150,7 +151,8 @@ const HeaderBar = (props) => {
                 right: '220px',
                 zIndex: '1',
                 display: 'flex',
-                justifyContent: 'center',
+                justifyContent: 'space-around',
+                flexDirection: 'column',
                 alignItems: 'center',
                 top: '0',
                 bottom: '0',
@@ -161,7 +163,7 @@ const HeaderBar = (props) => {
                   flexDirection: 'column',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  margin: '25px 25px 0',
+                  margin: '5px 25px 0',
                 }}>
                 <img
                   src='./images/my_small.png'

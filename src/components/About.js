@@ -39,7 +39,7 @@ const About = (props) => {
             margin: isDesktopLayout ? '0 0 0 100px' : '0',
             textAlign: isDesktopLayout ? 'right' : 'center',
           }}>
-          <Box>
+          {/* <Box>
             <img
               src='./images/my_big.png'
               alt=''
@@ -48,7 +48,7 @@ const About = (props) => {
                 width: isDesktopLayout ? '95%' : '330px',
               }}
             />
-          </Box>
+          </Box> */}
           <Box
             sx={{
               letterSpacing: '-0.15px',
@@ -58,7 +58,7 @@ const About = (props) => {
                 ? 'normal normal normal 1.576vw/2.302vw Noto Sans Hebrew'
                 : 'normal normal normal 20pt Noto Sans Hebrew',
               maxWidth: isDesktopLayout ? '850px' : '100%',
-              margin: isDesktopLayout ? '60px 0 0 0' : '35px 18px',
+              // margin: isDesktopLayout ? '60px 0 0 0' : '35px 18px',
             }}>
             {text1}
           </Box>

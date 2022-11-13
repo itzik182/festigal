@@ -72,54 +72,113 @@ function MusicSection(props) {
       <Box className={classes.container}>
         <Box
           sx={{
-            padding: isDesktopLayout ? '197px 11.193vw 0' : '0',
+            // padding: isDesktopLayout ? '197px 11.193vw 0' : '0',
             backgroundSize: !isDesktopLayout && 'cover',
-            minHeight: isDesktopLayout ? '588px' : 'auto',
+            minHeight: isDesktopLayout ? '588px' : '362px',
             background: isDesktopLayout
-              ? 'transparent url(./background/image47.png) no-repeat padding-box'
-              : 'transparent url(./background/image47.png) 21% center no-repeat padding-box',
+              ? 'transparent url(./background/myplaylist.png) center center no-repeat padding-box'
+              : 'transparent url(./background/myplaylist.png) 53% center no-repeat padding-box',
+            backgroundSize: isDesktopLayout ? 'auto' : '288%',
           }}>
           <Box
             sx={{
-              position: isDesktopLayout ? 'absolute' : 'relative',
-              top: isDesktopLayout ? '18%' : '0',
-              left: isDesktopLayout ? '26%' : '0',
-              right: isDesktopLayout ? 'auto' : '0',
+              position: isDesktopLayout ? 'absolute' : 'absolute',
+              bottom: isDesktopLayout ? '2%' : '0',
+              left: isDesktopLayout ? 'auto' : '0',
+              right: isDesktopLayout ? '17%' : '-14px',
               padding: isDesktopLayout ? '0' : '20px 20px 0 0',
-              maxWidth: isDesktopLayout ? '380px' : '265px',
+              maxWidth: isDesktopLayout ? '380px' : '224px',
             }}>
             <span
               style={{
                 fontFamily: 'GveretLevinAlefAlefAlef',
                 position: 'absolute',
-                top: isDesktopLayout ? '42px' : '50px',
-                left: isDesktopLayout ? '24px' : '-10px',
+                top: isDesktopLayout ? '47px' : '44px',
+                left: isDesktopLayout ? '7px' : '14px',
                 transform: 'rotate(349deg)',
-                fontSize: isDesktopLayout ? '24px' : '16px',
+                fontSize: isDesktopLayout ? '24px' : '13px',
                 color: '#fff',
-                textShadow: '1px 1px 1px #000000c4',
+                // textShadow: '1px 1px 1px #000000c4',
+                color: '#000000',
                 width: '100%',
                 textAlign: 'center',
                 maxWidth: isDesktopLayout ? '90%' : 'auto',
-                maxWidth: isDesktopLayout ? '380px' : '265px',
-              }}>
-              {mainData.festigalSongWriter}
+                maxWidth: isDesktopLayout ? '380px' : '184px',
+              }}
+              dangerouslySetInnerHTML={{ __html: mainData.festigalSongWriter }}>
+              {/* {mainData.festigalSongWriter} */}
             </span>
             <img
               src='./images/Group6746.png'
               alt=''
               title=''
               style={{
-                maxWidth: isDesktopLayout ? '380px' : '265px',
+                maxWidth: isDesktopLayout ? '380px' : '194px',
               }}
             />
           </Box>
           <Box
             sx={{
-              display: isDesktopLayout ? 'flex' : 'block',
-              marginBottom: '25px',
+              fontSize: isDesktopLayout ? '1.524vw' : '25px',
+              fontFamily: 'GveretLevinAlefAlefAlef',
+              top: '6%',
+              position: 'absolute',
+              right: isDesktopLayout ? '38%' : '25%',
             }}>
-            <Box
+            <img
+              src='./images/Group7362.png'
+              alt=''
+              title=''
+              style={{
+                maxWidth: isDesktopLayout ? '380px' : '194px',
+              }}
+            />
+          </Box>
+          <Box
+            sx={{
+              fontSize: isDesktopLayout ? '1.524vw' : '25px',
+              fontFamily: 'GveretLevinAlefAlefAlef',
+              bottom: '16%',
+              position: 'absolute',
+              right: '44%',
+            }}>
+            {mainData.festigalSong}
+          </Box>
+
+          <Box
+            sx={{
+              textAlign: isDesktopLayout ? 'auto' : 'center',
+              top: isDesktopLayout ? '28%' : '55%',
+              right: isDesktopLayout ? '10%' : '5%',
+              position: 'absolute',
+            }}>
+            <a
+              href='https://www.youtube.com/watch?v=iCAKpASnFgw'
+              target='_blank'>
+              <img
+                style={{
+                  cursor: 'pointer',
+                  maxWidth: isDesktopLayout ? '100%' : '120px',
+                }}
+                sizes={
+                  isDesktopLayout
+                    ? '(min-width: 172px) 70vw, 90vw'
+                    : '(min-width: 172px) 80vw, 90vw'
+                }
+                srcset='./images/play.png 375w,
+              ./images/play.png 1500w'
+                src='./images/play.png'
+                alt='play'
+              />
+            </a>
+          </Box>
+
+          {/*<Box
+            sx={{
+              display: isDesktopLayout ? 'flex' : 'block',
+              // marginBottom: '25px',
+            }}>
+             <Box
               sx={{
                 color: '#fff',
                 margin: isDesktopLayout ? '0' : '40px 20px 20px 0px',
@@ -147,7 +206,7 @@ function MusicSection(props) {
                 }}>
                 {mainData.festigalSongSinger}
               </Box>
-            </Box>
+            </Box> 
             <Box
               sx={{
                 textAlign: isDesktopLayout ? 'auto' : 'center',
@@ -172,7 +231,7 @@ function MusicSection(props) {
                 />
               </a>
             </Box>
-          </Box>
+          </Box>*/}
         </Box>
         {/*<Box className={classes.rectangle}></Box>
          <Box

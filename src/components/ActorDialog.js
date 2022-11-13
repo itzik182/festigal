@@ -46,6 +46,14 @@ function ActorDialog(props) {
           borderRadius: '44px',
           overflow: 'visible',
           direction: 'rtl',
+          backgroundImage: isDesktopLayout
+            ? `url('./background/tapet.png')`
+            : `url('./mobile/background/tapet.png')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: isDesktopLayout ? '110%' : '0% 50%',
+          backgroundColor: '#00656D',
+          backgroundSize: isDesktopLayout ? '54%' : '100%',
+          color: '#ffffff',
         },
       }}>
       {onClose ? (
@@ -56,13 +64,8 @@ function ActorDialog(props) {
             left: 10,
             top: 10,
           }}>
-          <IconButton
-            aria-label='close'
-            onClick={onClose}
-            sx={{
-              color: (theme) => theme.palette.grey[500],
-            }}>
-            <CloseIcon />
+          <IconButton aria-label='close' onClick={onClose}>
+            <CloseIcon sx={{ color: '#ffffff' }} />
           </IconButton>
         </Box>
       ) : null}

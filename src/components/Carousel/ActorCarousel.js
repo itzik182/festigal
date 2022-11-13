@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const ActorCarousel = (props) => {
   const [sliderInterval, setSliderInterval] = useState();
+  // let sliderInterval = null;
   const sliderRef = useRef();
   const { items, handleItemClick, isDesktopLayout = true } = props;
 
@@ -49,15 +50,18 @@ const ActorCarousel = (props) => {
 
   const stopSlide = () => {
     clearInterval(sliderInterval);
+    sliderInterval = null;
+    setSliderInterval(null);
   };
 
   const startSlide = (isNext) => {
     const slide = isNext ? sliderRef.slickNext : sliderRef.slickPrev;
     slide();
-    sliderInterval && stopSlide();
+    stopSlide();
     sliderInterval = setInterval(() => {
       slide();
     }, 100);
+    setSliderInterval(sliderInterval);
   };
 
   const renderSlides = items.map((item, index) => {
@@ -134,6 +138,7 @@ const ActorCarousel = (props) => {
             height: '100%',
             width: '8%',
           }}
+          onMouseOut={() => stopSlide()}
           onMouseLeave={() => stopSlide()}
           onMouseOver={() => startSlide(false)}></Box>
       )}
@@ -146,6 +151,7 @@ const ActorCarousel = (props) => {
             height: '93%',
             width: '8%',
           }}
+          onMouseOut={() => stopSlide()}
           onMouseLeave={() => stopSlide()}
           onMouseOver={() => startSlide(true)}></Box>
       )}
