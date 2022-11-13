@@ -1,6 +1,6 @@
 import Box from '@material-ui/core/Box';
 
-const Terms = (props) => {
+const TextPage = (props) => {
   const { pageData, isDesktopLayout = true } = props;
   const { title, subTitle, text } = pageData;
 
@@ -25,7 +25,7 @@ const Terms = (props) => {
           }}>
           {title}
         </Box>
-        <Box
+        {subTitle && <Box
           sx={{
             fontFamily: 'Noto Sans Hebrew',
             fontWeight: '900',
@@ -34,7 +34,7 @@ const Terms = (props) => {
             padding: isDesktopLayout ? '0 0 25px 0' : '0 0 10px 0',
           }}>
           {subTitle}
-        </Box>
+        </Box>}
         <Box
           sx={{
             font: 'normal normal normal 16px/20px Noto Sans Hebrew',
@@ -46,4 +46,4 @@ const Terms = (props) => {
   );
 };
 
-export default Terms;
+export default TextPage;

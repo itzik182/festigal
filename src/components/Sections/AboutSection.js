@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
@@ -6,6 +6,7 @@ import Section from 'components/Section';
 import Vimeo from '@u-wave/react-vimeo';
 import TextTruncate from 'react-text-truncate';
 import { ShareSocialButton } from '../ShareSocialButton';
+import GlobalContext from "contexts/global.context";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -56,22 +57,24 @@ const useStyles = makeStyles((theme) => ({
 
 function AboutSection(props) {
   const classes = useStyles();
+  const global = useContext(GlobalContext);
+  const { isDesktop } = global;
 
   const mobileDescriptionLines = 5;
   const DesktopDescriptionLines = 1000;
   const [descriptionLinesNumber, setDescriptionLinesNumber] = useState(
     DesktopDescriptionLines
   );
-  const { item, socialIcons, isDesktopLayout = true } = props;
+  const { item, socialIcons } = props;
   const { text, description, details, video, videoMobile, image } = item;
 
   useEffect(() => {
-    if (isDesktopLayout) {
+    if (isDesktop) {
       setDescriptionLinesNumber(DesktopDescriptionLines);
     } else {
       setDescriptionLinesNumber(mobileDescriptionLines);
     }
-  }, [isDesktopLayout]);
+  }, [isDesktop]);
 
   const heandleReadMore = () => {
     if (mobileDescriptionLines === descriptionLinesNumber) {
@@ -84,7 +87,7 @@ function AboutSection(props) {
   return (
     <Section id='about' className={classes.section}>
       <Box
-        className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
+        className={`${classes.container} ${isDesktop ? '' : 'mobile'}`}>
         <Box className={`${classes.containerA} containerA`}>
           <Box
             sx={{
@@ -92,7 +95,7 @@ function AboutSection(props) {
             }}>
             <Box
               sx={{
-                textAlign: isDesktopLayout ? 'right' : 'center',
+                textAlign: isDesktop ? 'right' : 'center',
                 margin: '0 0 20px',
               }}>
               <img
@@ -102,7 +105,7 @@ function AboutSection(props) {
                 style={{
                   height: 'auto',
                   width: '100%',
-                  maxWidth: isDesktopLayout ? '397px' : '165px',
+                  maxWidth: isDesktop ? '397px' : '165px',
                 }}
               />
             </Box>
@@ -142,7 +145,7 @@ function AboutSection(props) {
                 truncateText='...'
                 text={description}
                 textTruncateChild={
-                  isDesktopLayout ? (
+                  isDesktop ? (
                     ''
                   ) : (
                     <Box
@@ -153,7 +156,7 @@ function AboutSection(props) {
                   )
                 }
               />
-              {!isDesktopLayout &&
+              {!isDesktop &&
                 mobileDescriptionLines !== descriptionLinesNumber && (
                   <Box
                     onClick={() => heandleReadMore()}
@@ -176,7 +179,7 @@ function AboutSection(props) {
           <Box
             sx={{
               position: 'relative',
-              marginTop: isDesktopLayout ? '0' : '25px',
+              marginTop: isDesktop ? '0' : '25px',
             }}>
             <ShareSocialButton
               sx={{
@@ -186,11 +189,11 @@ function AboutSection(props) {
               }}
               socialIcons={socialIcons}
               shareUrl={image.url}
-              isDesktopLayout={isDesktopLayout}
+              isDesktop={isDesktop}
             />
             <img
               style={{
-                width: isDesktopLayout ? 'auto' : '100%',
+                width: isDesktop ? 'auto' : '100%',
               }}
               sizes='(min-width: 400px) 80vw, 100vw'
               srcset={`${image.url} 375w, ${image.url} 1500w`}
@@ -246,7 +249,7 @@ function AboutSection(props) {
         </Box>
         <Box>
           {/* <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} /> */}
-          {isDesktopLayout && (
+          {isDesktop && (
             <Vimeo
               video={video.url}
               showTitle={false}
@@ -258,7 +261,7 @@ function AboutSection(props) {
               responsive='true'
             />
           )}
-          {!isDesktopLayout && (
+          {!isDesktop && (
             <Vimeo
               video={videoMobile.url}
               showTitle={false}

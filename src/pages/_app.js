@@ -1,31 +1,44 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 import 'util/analytics';
 import '../styles/globals.css';
 import '../styles/fonts.css';
-import {useRouter} from "next/router";
+import { useRouter } from 'next/router';
 import { ThemeProvider } from 'util/theme';
 import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { BackdropLoading } from '../components/Backdrop';
-import CrispWithNoSSR from "components/Crisp";
+import CrispWithNoSSR from 'components/Crisp';
+import GlobalContext from '../contexts/global.context';
+import { useWindowWidth } from '@react-hook/window-size';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
   const [showBackDrop, setShowBackDrop] = useState(false);
   const router = useRouter();
-    // const { siteParams } = pageProps;
+
+  const windowWidth = useWindowWidth();
+  const isDesktop = windowWidth >= 960;
+  const [isDesktopLayout, setIsDesktopLayout] = useState({ isDesktop: true });
+
+  // const { siteParams } = pageProps;
   // console.log('siteParams', siteParams);
+
+  useEffect(() => {
+    if (isDesktop !== isDesktopLayout) {
+      setIsDesktopLayout({ isDesktop });
+    }
+  }, [windowWidth]);
 
   useEffect(() => {
     // crisp chat:
     window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "f64db7de-7c72-40ea-9f36-2faac0582e16";
+    window.CRISP_WEBSITE_ID = 'f64db7de-7c72-40ea-9f36-2faac0582e16';
     (() => {
       const d = document;
-      const s = d.createElement("script");
-      s.src = "https://client.crisp.chat/l.js";
+      const s = d.createElement('script');
+      s.src = 'https://client.crisp.chat/l.js';
       s.async = 1;
-      d.getElementsByTagName("body")[0].appendChild(s);
+      d.getElementsByTagName('body')[0].appendChild(s);
     })();
 
     const showBackDrop = (url, { shallow }) => {
@@ -53,11 +66,11 @@ function MyApp({ Component, pageProps }) {
         trackPageViews
         gtagUrl='/gtag.js'
       />
-      {getLayout(<Component {...pageProps} />)}
-      <CrispWithNoSSR />
-      {showBackDrop && (
-        <BackdropLoading key={showBackDrop} />
-      )}
+      <GlobalContext.Provider value={isDesktopLayout}>
+        {getLayout(<Component {...pageProps} />)}
+        <CrispWithNoSSR />
+        {showBackDrop && <BackdropLoading key={showBackDrop} />}
+      </GlobalContext.Provider>
     </ThemeProvider>
     // </CacheProvider>
   );

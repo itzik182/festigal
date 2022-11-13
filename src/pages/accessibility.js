@@ -5,7 +5,7 @@ import Section from 'components/Section';
 import { useWindowWidth } from '@react-hook/window-size';
 import TextPage from 'components/TextPage';
 import {
-  getTermsPage,
+  getAccessibilityPage,
   getMainData,
   getTicketsInformationData,
   getSocialIcons,
@@ -16,7 +16,7 @@ import {
   getMenuItems,
 } from '../lib/datocms';
 
-function TermsPage(props) {
+function AccessibilityPage(props) {
   const windowWidth = useWindowWidth();
   const isDesktop = windowWidth >= 960;
   const [isDesktopLayout, setIsDesktopLayout] = useState(true);
@@ -27,7 +27,7 @@ function TermsPage(props) {
     }
   }, [windowWidth]);
 
-  const { mainData, termsPageData } = props;
+  const { mainData, accessibilityPageData } = props;
 
   return (
     <>
@@ -38,22 +38,22 @@ function TermsPage(props) {
           backgroundColor: '#000',
           width: '100%',
         }}>
-        <TextPage pageData={termsPageData} isDesktopLayout={isDesktopLayout} />
+        <TextPage pageData={accessibilityPageData} isDesktopLayout={isDesktopLayout} />
       </Section>
     </>
   );
 }
 
-export default TermsPage;
+export default AccessibilityPage;
 
-TermsPage.getLayout = function getLayout(page) {
+AccessibilityPage.getLayout = function getLayout(page) {
   return <NestedLayout>{page}</NestedLayout>;
 };
 
 export async function getStaticProps() {
   return {
     props: {
-      termsPageData: (await getTermsPage()) || [],
+      accessibilityPageData: (await getAccessibilityPage()) || [],
       mainData: (await getMainData()) || [],
       ticketsInformationData: (await getTicketsInformationData()) || [],
       socialIcons: (await getSocialIcons()) || [],

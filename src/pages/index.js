@@ -83,7 +83,6 @@ function IndexPage(props) {
       <AboutSection
         item={about}
         socialIcons={socialIcons}
-        isDesktopLayout={isDesktopLayout}
       />
       <ActorsSection
         items={actors}

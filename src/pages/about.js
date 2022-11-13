@@ -39,13 +39,13 @@ function AboutPage(props) {
 
   const { mainData, aboutData } = props;
 
-  const {
-    mainVideo,
-    mainVideoMobile,
-    videoBigText,
-    videoSmallText,
-    isDisplayFlag,
-  } = mainData;
+  // const {
+  //   mainVideo,
+  //   mainVideoMobile,
+  //   videoBigText,
+  //   videoSmallText,
+  //   isDisplayFlag,
+  // } = mainData;
 
   const { video, videoMobile, videoText } = aboutData;
 

@@ -634,3 +634,20 @@ export async function getTermsPage() {
 
   return data?.termsPage;
 }
+
+export async function getAccessibilityPage() {
+  const query = `query accessibilityPage {
+    accessibilityPage {
+      id
+      title
+      text
+    }
+  }
+  `;
+
+  const data = await request({
+    query,
+  });
+
+  return data?.accessibilityPage;
+}

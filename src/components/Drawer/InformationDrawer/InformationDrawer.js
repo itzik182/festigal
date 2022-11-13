@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
     '&.mobile': {
       padding: '0 12px 50px',
     },
+    '&a': {
+      color: '#06A6BB !important',
+      textDecoration: 'underline',
+    }
   },
   title: {
     fontSize: '35px',
@@ -113,7 +117,10 @@ export const InformationDrawer = (props) => {
           className={`${classes.description} ${
             isDesktopLayout ? '' : 'mobile'
           }`}>
-          {accessibilityDescription}
+            <Box
+          className={classes.description}
+          dangerouslySetInnerHTML={{ __html: accessibilityDescription }}></Box>
+          {/* {accessibilityDescription} */}
         </Box>
         {/* <Box className={classes.title}>{informationTitle}</Box>
         <Box

@@ -12,9 +12,9 @@ import Vimeo from '@u-wave/react-vimeo';
 function Navbar(props) {
   const [isVideoMute, setVideoMute] = useState(true);
   const [isVideoReady, setVideoReady] = useState(false);
-  const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
-  const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
-  const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
+  // const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
+  // const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
+  // const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
 
   useEffect(() => {
     // console.log('isVideoMute', isVideoMute);
@@ -22,13 +22,13 @@ function Navbar(props) {
 
   const {
     isDesktopLayout = true,
-    menuItems,
-    newsFlashesItems,
-    showsItems,
-    faqItems,
+    // menuItems,
+    // newsFlashesItems,
+    // showsItems,
+    // faqItems,
     mainData,
-    ticketsInformationData,
-    socialIcons,
+    // ticketsInformationData,
+    // socialIcons,
   } = props;
 
   const {
@@ -40,21 +40,21 @@ function Navbar(props) {
     showLink,
     videoBigText,
     videoSmallText,
-    ticketsInformationText,
-    ticketsInformationLink,
-    headerShopText,
-    headerShopLink,
-    allNewsFlashText,
-    allNewsFlashLink,
-    allNewsFlashMenuText,
-    allNewsFlashMissText,
+    // ticketsInformationText,
+    // ticketsInformationLink,
+    // headerShopText,
+    // headerShopLink,
+    // allNewsFlashText,
+    // allNewsFlashLink,
+    // allNewsFlashMenuText,
+    // allNewsFlashMissText,
     isDisplayFlag,
-    arrivalText,
+    // arrivalText,
   } = mainData;
 
-  const handleMenuDrawerItemClick = () => {
-    setMenuDrawerOpen(false);
-  };
+  // const handleMenuDrawerItemClick = () => {
+  //   setMenuDrawerOpen(false);
+  // };
 
   const videoOnReady = () => {
     setVideoReady(true);
@@ -70,18 +70,6 @@ function Navbar(props) {
         backgroundColor: '#000',
         width: '100%',
       }}>
-      {/* <YoutubeEmbed
-        // url={'iCAKpASnFgw'}
-        url={videoId}
-        autoplay={true}
-        width={'100%'}
-        height={'796px'}
-        containerStyle={{
-          margin: '0px auto',
-          position: 'absolute',
-          minHeight: '796px',
-        }}
-      /> */}
       <Box
         sx={{
           // transition: 'visibility 0.3s linear 2s',
@@ -159,56 +147,12 @@ function Navbar(props) {
           firstShowDate={firstShowDate}
         />
       )}
-      {/* {isVideoReady && ( */}
-        <VideoText
-          videoBigText={videoBigText}
-          videoSmallText={videoSmallText}
-          isDesktopLayout={isDesktopLayout}
-          isDisplayFlag={isDisplayFlag}
-        />
-      {/* )} */}
-      {/* <HeaderBar
+      <VideoText
+        videoBigText={videoBigText}
+        videoSmallText={videoSmallText}
         isDesktopLayout={isDesktopLayout}
-        socialIcons={socialIcons}
-        mainData={mainData}
-        setMenuDrawerOpen={setMenuDrawerOpen}
-        setInformationDrawerOpen={setInformationDrawerOpen}
-        setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
-      /> */}
-
-      {/* Drawers: */}
-
-      {/* <MenuDrawer
-        items={menuItems}
-        handleItemClick={handleMenuDrawerItemClick}
-        ticketsInformationText={ticketsInformationText}
-        ticketsInformationLink={ticketsInformationLink}
-        allNewsFlashMenuText={allNewsFlashMenuText}
-        socialIcons={socialIcons}
-        drawerOpen={menuDrawerOpen}
-        setDrawerOpen={setMenuDrawerOpen}
-        setNewsFlashesDrawerOpen={setNewsFlashesDrawerOpen}
-        isDesktopLayout={isDesktopLayout}
+        isDisplayFlag={isDisplayFlag}
       />
-      <InformationDrawer
-        ticketsInformationData={ticketsInformationData}
-        showsItems={showsItems}
-        faqItems={faqItems}
-        ticketsInformationText={ticketsInformationText}
-        arrivalText={arrivalText}
-        drawerOpen={informationDrawerOpen}
-        setDrawerOpen={setInformationDrawerOpen}
-        isDesktopLayout={isDesktopLayout}
-      />
-      <NewsFlashesDrawer
-        items={newsFlashesItems}
-        allNewsFlashText={allNewsFlashText}
-        allNewsFlashLink={allNewsFlashLink}
-        allNewsFlashMissText={allNewsFlashMissText}
-        drawerOpen={newsFlashesDrawerOpen}
-        setDrawerOpen={setNewsFlashesDrawerOpen}
-        isDesktopLayout={isDesktopLayout}
-      /> */}
     </Section>
   );
 }
