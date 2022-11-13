@@ -11,23 +11,27 @@ const Terms = (props) => {
           background:
             'transparent linear-gradient(180deg, #FFFFFF 0%, #D8D8D8 100%) 0% 0% no-repeat padding-box',
           padding: isDesktopLayout
-            ? '210px 246px 100px 226px'
-            : '150px 0px 30px',
+            ? '210px 295px 100px 226px'
+            : '100px 50px 30px',
         }}>
         <Box
           sx={{
-            font: 'normal normal 900 45px Noto Sans Hebrew',
+            fontFamily: 'Noto Sans Hebrew',
+            fontWeight: '900',
+            fontSize: isDesktopLayout ? '45px' : '35px',
             letterSpacing: '-0.23px',
             color: '#D08F20',
-            padding: '35px 0',
+            padding: isDesktopLayout ? '35px 0' : '20px 0px',
           }}>
           {title}
         </Box>
         <Box
           sx={{
-            font: 'normal normal bold 20px Noto Sans Hebrew',
+            fontFamily: 'Noto Sans Hebrew',
+            fontWeight: '900',
+            fontSize: isDesktopLayout ? '20px' : '18px',
             letterSpacing: '-0.36px',
-            padding: '0 0 25px 0',
+            padding: isDesktopLayout ? '0 0 25px 0' : '0 0 10px 0',
           }}>
           {subTitle}
         </Box>
