@@ -26,16 +26,17 @@ const useStyles = makeStyles((theme) => ({
       padding: '8px 0 0',
     },
     '&.mobile .flagText': {
-      fontSize: '18px',
+      fontSize: '16px',
+      padding: '0 4px 0',
       marginBottom: '0',
       lineHeight: '20px',
     },
     '&.mobile .flagTimer': {
-      fontSize: '30px',
+      fontSize: '28px',
       margin: '-6px 0px 2px',
     },
     '&.mobile .flagButtonText': {
-      padding: '4px 20px 0',
+      padding: '7px 20px 0',
     },
   },
   flagText: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Noto Sans Hebrew',
     fontSize: '41px',
     color: '#2D555B',
-    fontWeight: 'bold',
+    fontWeight: '600',
     marginBottom: '20px',
   },
 }));
@@ -68,9 +69,15 @@ const FirstShowFlag = (props) => {
       </Box>
       <Box className={'flagButtonText'}>
         <GoldButton
+          isClock={true}
           isBlank={false}
           isDesktopLayout={isDesktopLayout}
-          buttonStyle={!isDesktopLayout && { padding: '4px 35px' }}
+          buttonStyle={
+            !isDesktopLayout && {
+              padding: isDesktopLayout ? '4px 35px' : '4px 25px',
+              fontSize: isDesktopLayout ? '19px' : '12pt',
+            }
+          }
           text={flagButtonText}
           link={showLink}
         />

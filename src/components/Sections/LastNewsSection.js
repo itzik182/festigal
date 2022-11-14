@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     background: '#fff',
     padding: '100px 195px 130px',
     '&.mobile': {
-      padding: '50px 0px',
+      padding: '0px 0px',
     },
   },
 }));

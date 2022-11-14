@@ -33,16 +33,17 @@ const useStyles = makeStyles((theme) => ({
       'transparent url(./background/stars1.png) 0% 0% repeat padding-box',
     padding: '100px 65px',
     '&.mobile': {
-      padding: '70px 15px 30px',
+      padding: '70px 0 30px',
     },
     '&.mobile .details': {
       fontSize: '18px',
-      padding: '23px 0 20px',
+      padding: '23px 15px 20px',
     },
     '&.mobile .description': {
       textAlign: 'center',
       fontSize: '14px',
-      paddingLeft: '0',
+      paddingLeft: '15px',
+      paddingRight: '15px',
     },
     '&.mobile .containerA': {
       flexDirection: 'column',
@@ -164,16 +165,6 @@ function AboutSection(props) {
                     קרא פחות
                   </Box>
                 )}
-
-              {/* {description.split('\n').map((line, i, arr) => {
-                line = <span key={i}>{line}</span>;
-
-                if (i === arr.length - 1) {
-                  return line;
-                } else {
-                  return [line, <br key={i + 'br'} />];
-                }
-              })} */}
             </Box>
           </Box>
           <Box

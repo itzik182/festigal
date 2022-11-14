@@ -20,6 +20,7 @@ const useStyles = makeStyles((isDesktopLayout) => ({
       overflow: 'hidden',
       font: 'normal normal normal 14px/20px Noto Sans Hebrew',
       letterSpacing: '0px',
+      overflowY: 'auto',
     },
   },
 }));
@@ -43,7 +44,7 @@ function ActorDialog(props) {
           minHeight: '564px',
           height: 'auto',
           margin: '0',
-          borderRadius: '44px',
+          borderRadius: isDesktopLayout ? '40px' : '20px',
           overflow: 'visible',
           direction: 'rtl',
           backgroundImage: isDesktopLayout
@@ -61,8 +62,8 @@ function ActorDialog(props) {
           sx={{
             zIndex: 1,
             position: 'absolute',
-            left: 10,
-            top: 10,
+            left: isDesktopLayout ? 10 : 1,
+            top: isDesktopLayout ? 10 : 1,
           }}>
           <IconButton aria-label='close' onClick={onClose}>
             <CloseIcon sx={{ color: '#ffffff' }} />

@@ -44,7 +44,7 @@ function GamesSection(props) {
           sx={{
             color: '#2D555B',
             fontSize: isDesktopLayout ? '73px' : '35px',
-            fontWeight: isDesktopLayout ? 'normal' : 'bold',
+            fontWeight: isDesktopLayout ? '900' : '900',
             marginBottom: isDesktopLayout ? '130px' : '30px',
           }}>
           {mainData.gamesText}

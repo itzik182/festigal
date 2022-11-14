@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import 'util/analytics';
 import '../styles/globals.css';
+// import '../styles/hourglass.css';
 import '../styles/fonts.css';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'util/theme';
-import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
+// import '@fontsource/noto-sans-hebrew'; // Defaults to weight 400.
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { BackdropLoading } from '../components/Backdrop';
 import CrispWithNoSSR from 'components/Crisp';

@@ -97,10 +97,11 @@ const ShopSection = (props) => {
             opacity: '1',
           }}>
           <img
+            style={{
+              width: isDesktopLayout ? 'auto' : 'inherit',
+            }}
             src={
-              isDesktopLayout
-                ? './images/mystore.png'
-                : './mobile/images/mystore.png'
+              isDesktopLayout ? './images/mystore.png' : './images/mystore.png'
             }
           />
           <Box

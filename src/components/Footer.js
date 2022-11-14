@@ -120,7 +120,7 @@ function Footer(props) {
                               title={logo.title}
                               alt={logo.alt}
                               style={{
-                                width: logoSize
+                                width: logoSize,
                               }}
                             />
                           ) : (
@@ -163,7 +163,7 @@ function Footer(props) {
                               title={logo.title}
                               alt={logo.alt}
                               style={{
-                                width: logoSize
+                                width: logoSize,
                               }}
                             />
                           ) : (
@@ -202,9 +202,9 @@ function Footer(props) {
                           rel='noopener noreferrer'>
                           {logo ? (
                             <img
-                            style={{
-                              width: logoSize
-                            }}
+                              style={{
+                                width: logoSize,
+                              }}
                               src={logo.url}
                               title={logo.title}
                               alt={logo.alt}
@@ -249,7 +249,7 @@ function Footer(props) {
                               title={logo.title}
                               alt={logo.alt}
                               style={{
-                                width: logoSize
+                                width: logoSize,
                               }}
                             />
                           ) : (
@@ -264,7 +264,7 @@ function Footer(props) {
             </Box>
             {isDesktopLayout && <YoutubeChannel mainData={mainData} />}
           </Box>
-          <Separator />
+          <Separator color={'#B4B4B4'} />
           <Box
             sx={{
               display: 'flex',
@@ -292,17 +292,17 @@ function Footer(props) {
                       target={isBlank ? '_blank' : '_self'}
                       rel='noopener noreferrer'>
                       {logo ? (
-                            <img
-                              src={logo.url}
-                              title={logo.title}
-                              alt={logo.alt}
-                              style={{
-                                width: logoSize
-                              }}
-                            />
-                          ) : (
-                            text
-                          )}
+                        <img
+                          src={logo.url}
+                          title={logo.title}
+                          alt={logo.alt}
+                          style={{
+                            width: logoSize,
+                          }}
+                        />
+                      ) : (
+                        text
+                      )}
                     </a>
                   </Link>
                 </Box>
@@ -371,7 +371,9 @@ function Footer(props) {
               isDesktopLayout={isDesktopLayout}
             />
           )}
-          {!isDesktopLayout && <Separator margin={'32px 0'} />}
+          {!isDesktopLayout && (
+            <Separator margin={'32px 0'} color={'#B4B4B4'} />
+          )}
           <SocialIcons
             items={socialIcons}
             style={{ margin: '0 10px 20px' }}
@@ -383,6 +385,14 @@ function Footer(props) {
               marginTop: isDesktopLayout ? '0' : '20px',
             }}>
             <GoldButton
+              sx={{
+                width: isDesktopLayout ? '100%' : '250px',
+                margin: isDesktopLayout ? '20px 0 0' : '20px auto 0',
+                // height: '70px',
+              }}
+              buttonStyle={{
+                padding: '15px 0px',
+              }}
               isDesktopLayout={isDesktopLayout}
               text={mainData.ticketsInformationText}
               onClick={() => {

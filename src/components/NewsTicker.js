@@ -9,10 +9,9 @@ export const NewsTicker = (props) => {
   return (
     <Section
       sx={{
-        padding: '10px 0px !important',
+        padding: isDesktopLayout ? '10px 0px !important' : '2px 0px !important',
         background: '#F1ECE4 !important',
         direction: 'rtl',
-        
       }}>
       <Ticker direction={'toRight'} speed={5}>
         {({ index }) => (
@@ -21,7 +20,7 @@ export const NewsTicker = (props) => {
               style={{
                 // fontSize: '0.9vw',
                 fontSize: isDesktopLayout ? '32px' : '24px',
-                whiteSpace: "nowrap",
+                whiteSpace: 'nowrap',
                 // fontWeight: 'bold',
                 // direction: 'rtl',
                 // fontFamily: "Noto Sans Hebrew",

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   section: {
     padding: '0',
     width: '100%',
-    backgroundColor: '#021B23 !important',
+    // backgroundColor: '#021B23 !important',
   },
   container: {
     margin: '0',
@@ -83,10 +83,10 @@ function MusicSection(props) {
           <Box
             sx={{
               position: isDesktopLayout ? 'absolute' : 'absolute',
-              bottom: isDesktopLayout ? '2%' : '0',
+              bottom: isDesktopLayout ? '2%' : '24%',
               left: isDesktopLayout ? 'auto' : '0',
-              right: isDesktopLayout ? '17%' : '-14px',
-              padding: isDesktopLayout ? '0' : '20px 20px 0 0',
+              right: isDesktopLayout ? '17%' : '59%',
+              padding: isDesktopLayout ? '0' : '0',
               maxWidth: isDesktopLayout ? '380px' : '224px',
             }}>
             <span
@@ -94,8 +94,8 @@ function MusicSection(props) {
                 fontFamily: 'GveretLevinAlefAlefAlef',
                 position: 'absolute',
                 top: isDesktopLayout ? '47px' : '44px',
-                left: isDesktopLayout ? '7px' : '14px',
-                transform: 'rotate(349deg)',
+                left: isDesktopLayout ? '7px' : '7px',
+                transform: isDesktopLayout ? 'rotate(349deg)' : 'initial',
                 fontSize: isDesktopLayout ? '24px' : '13px',
                 color: '#fff',
                 // textShadow: '1px 1px 1px #000000c4',
@@ -108,20 +108,20 @@ function MusicSection(props) {
               dangerouslySetInnerHTML={{ __html: mainData.festigalSongWriter }}>
               {/* {mainData.festigalSongWriter} */}
             </span>
-            <img
+            {isDesktopLayout && <img
               src='./images/Group6746.png'
               alt=''
               title=''
               style={{
                 maxWidth: isDesktopLayout ? '380px' : '194px',
               }}
-            />
+            />}
           </Box>
           <Box
             sx={{
               fontSize: isDesktopLayout ? '1.524vw' : '25px',
               fontFamily: 'GveretLevinAlefAlefAlef',
-              top: '6%',
+              top: isDesktopLayout ? '6%' : '17%',
               position: 'absolute',
               right: isDesktopLayout ? '38%' : '25%',
             }}>
@@ -140,7 +140,7 @@ function MusicSection(props) {
               fontFamily: 'GveretLevinAlefAlefAlef',
               bottom: '16%',
               position: 'absolute',
-              right: '44%',
+              right: isDesktopLayout ? '44%' : '37%',
             }}>
             {mainData.festigalSong}
           </Box>
@@ -148,8 +148,9 @@ function MusicSection(props) {
           <Box
             sx={{
               textAlign: isDesktopLayout ? 'auto' : 'center',
-              top: isDesktopLayout ? '28%' : '55%',
-              right: isDesktopLayout ? '10%' : '5%',
+              top: isDesktopLayout ? '28%' : '84%',
+              right: isDesktopLayout ? '10%' : '34%',
+              zIndex: 1,
               position: 'absolute',
             }}>
             <a
@@ -163,7 +164,7 @@ function MusicSection(props) {
                 sizes={
                   isDesktopLayout
                     ? '(min-width: 172px) 70vw, 90vw'
-                    : '(min-width: 172px) 80vw, 90vw'
+                    : '(min-width: 172px) 200vw, 100vw'
                 }
                 srcset='./images/play.png 375w,
               ./images/play.png 1500w'
@@ -245,6 +246,7 @@ function MusicSection(props) {
               margin: isDesktopLayout ? '0 0 50px' : '0 0 35px',
               textAlign: isDesktopLayout ? 'right' : 'center',
               position: 'relative',
+              fontWeight: '500',
             }}>
             {mainData.playlistTitle}
             <ShareSocialButton
@@ -272,6 +274,7 @@ function MusicSection(props) {
               margin: isDesktopLayout ? '100px 0 50px' : '120px 0 35px',
               textAlign: isDesktopLayout ? 'right' : 'center',
               position: 'relative',
+              fontWeight: '500',
             }}>
             {mainData.podcastTitle}
             <ShareSocialButton

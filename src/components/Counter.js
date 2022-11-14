@@ -23,7 +23,9 @@ const renderer = (props) => {
         </Box>
         <Box
           sx={{
-            font: 'normal normal normal 16px/18px Noto Sans Hebrew',
+            font: isDesktopLayout
+              ? 'normal normal normal 16px/18px Noto Sans Hebrew'
+              : 'normal normal normal 14px/18px Noto Sans Hebrew',
             letterSpacing: '-0.1px',
             marginTop: isDesktopLayout ? '0' : '-8px',
             '& span': {

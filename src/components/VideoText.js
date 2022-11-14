@@ -22,8 +22,8 @@ const VideoText = (props) => {
       <Box
         sx={{
           font: isDesktopLayout
-            ? 'normal normal bold 4.467vw/76px Noto Sans Hebrew'
-            : 'normal normal bold 30px/31px Noto Sans Hebrew',
+            ? 'normal normal 900 4.467vw/76px Noto Sans Hebrew'
+            : 'normal normal 900 30px/31px Noto Sans Hebrew',
           color: '#fff',
         }}>
         {videoBigText}

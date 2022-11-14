@@ -63,7 +63,7 @@ function AllFestigalsSection(props) {
         <Box
           sx={{
             position: 'absolute',
-            top: isDesktopLayout ? '170px' : '60px',
+            top: isDesktopLayout ? '170px' : '75px',
             left: isDesktopLayout ? '55px' : '18px',
             font: isDesktopLayout ? 'normal normal bold 49px/54px Noto Sans Hebrew' : 'bold 30px / 0px "Noto Sans Hebrew"',
             letterSpacing: '1.08px',
@@ -76,8 +76,8 @@ function AllFestigalsSection(props) {
         <Box
           sx={{
             position: 'absolute',
-            top: isDesktopLayout ? '380px' : '85px',
-            left: isDesktopLayout ? '190px' : '20px',
+            top: isDesktopLayout ? '37%' : '85px',
+            left: isDesktopLayout ? '10%' : '20px',
             zIndex: '10',
           }}>
           <img
@@ -90,7 +90,7 @@ function AllFestigalsSection(props) {
           />
           <Box
             sx={{
-              fontSize: isDesktopLayout ? '45px' : '21px',
+              fontSize: isDesktopLayout ? '2.365vw' : '21px',
               fontFamily: 'GveretLevinAlefAlefAlef',
               color: '#fff',
               margin: isDesktopLayout ? '20px 0 0' : '2px 13px 0 0',

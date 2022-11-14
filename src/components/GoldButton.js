@@ -12,6 +12,7 @@ const GoldButton = (props) => {
     buttonStyle,
     type = '',
     isDesktopLayout = true,
+    isClock = false,
   } = props;
 
   return (
@@ -73,7 +74,8 @@ const GoldButton = (props) => {
               // backgroundImage:
               //   'linear-gradient(245deg, hsl(43deg 95% 32%) 0%, hsl(43deg 63% 42%) 10%, hsl(44deg 50% 51%) 20%, hsl(46deg 56% 61%) 30%, hsl(48deg 68% 72%) 40%, hsl(50deg 100% 84%) 50%, hsl(50deg 93% 82%) 60%, hsl(51deg 88% 80%) 70%, hsl(48deg 74% 72%) 80%, hsl(44deg 64% 58%) 90%, hsl(42deg 76% 44%) 100%)',
             }}>
-            {text}
+          {isClock && <>⏳</>} {text} 
+          {/* <div class="hourglass"></div> */}
           </Box>
         </a>
       </Link>

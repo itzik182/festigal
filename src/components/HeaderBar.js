@@ -117,7 +117,8 @@ const HeaderBar = (props) => {
             style={{
               fontFamily: 'Noto Sans Hebrew',
               fontSize: isDesktopLayout ? '19px' : '14px',
-              fontWeight: 'bold',
+              fontWeight: '800',
+              lineHeight: isDesktopLayout ? 'initial' : '16px',
             }}
             onClick={() => {
               setInformationDrawerOpen(true);
@@ -130,9 +131,9 @@ const HeaderBar = (props) => {
           sx={{
             background: isDesktopLayout
               ? 'transparent url(./header/header-bg.png) center center no-repeat padding-box'
-              : 'transparent url(mobile/header/header-bg.png) center -4% no-repeat padding-box',
+              : 'transparent url(mobile/header/header-bg.png) center 0% no-repeat padding-box',
             // 'transparent linear-gradient(270deg, #296B78 0%, #29ABBC 29%, #2CA4B2 40%, #28AFBF 56%, #286673 100%) 0% 0% no-repeat padding-box',
-            width: '80%',
+            width: isDesktopLayout ? '80%' : '74%',
             height: '100%',
             margin: 'auto',
           }}>
@@ -187,14 +188,16 @@ const HeaderBar = (props) => {
               />
             </Box>
           </Hidden>
-          <Container
+          {/* <Container
             disableGutters={true}
             style={{
               justifyContent: 'center',
               alignItems: 'center',
               display: 'flex',
+            }}> */}
+            <Box sx={{
+              textAlign: 'center',
             }}>
-            <Toolbar>
               <Link href='/'>
                 <a>
                   <img
@@ -214,8 +217,8 @@ const HeaderBar = (props) => {
               {/* <Hidden smUp={true} implementation="css"> */}
 
               {/* </Hidden> */}
-            </Toolbar>
-          </Container>
+            </Box>
+          {/* </Container> */}
         </Box>
       </Box>
     </AppBar>
@@ -244,21 +247,21 @@ const useStyles = makeStyles((isDesktopLayout) => ({
   },
   layersMobile: {
     position: 'absolute',
-    width: '139px',
-    height: '101px',
+    width: '309px',
+    height: '111px',
     zIndex: '1',
 
     '&.layerRight': {
       background:
         'transparent url(./mobile/header/layer-right.png) 110% 0% no-repeat padding-box',
-      right: '0',
-      top: '-6px',
+      right: '-3px',
+      top: '-7px',
     },
     '&.layerLeft': {
       background:
         'transparent url(./mobile/header/layer-left.png) -16% 0% no-repeat padding-box',
-      left: '0',
-      top: '-6px',
+      left: '-3px',
+      top: '-7px',
     },
   },
   spacer: {
@@ -270,8 +273,8 @@ const useStyles = makeStyles((isDesktopLayout) => ({
     top: '75px',
     zIndex: '10',
     '&.mobile': {
-      top: '20px',
-      right: '25px',
+      top: '34px',
+      right: '20px',
     },
   },
   InformationDrawerIcon: {
@@ -280,11 +283,12 @@ const useStyles = makeStyles((isDesktopLayout) => ({
     zIndex: '10',
     position: 'absolute',
     width: 'min-content',
-    fontFamily: "'Noto Sans Hebrew'",
+    // fontFamily: "'Noto Sans Hebrew'",
+    fontFamily: "Noto SansHebrew Extra Bold",
     fontSize: '19px',
     '&.mobile': {
-      top: '22px',
-      left: '24px',
+      top: '35px',
+      left: '10px',
     },
   },
   shadowBg: {

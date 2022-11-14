@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew:regular,bold,ExtraBold,italic&subset=latin,latin-ext');
+
 @font-face {
     font-family: 'GveretLevinAlefAlefAlef';
     font-style: normal;
@@ -25,6 +27,22 @@
     font-weight: normal;
     src: local('GveretLevinAlefAlefAlef'), url(./fonts/GveretLevinAlef/GveretLevinAlefAlefAlef-Regular.woff2) format('woff2');
 }
+
+/* @font-face {
+    font-family: 'NotoSansHebrewExtraBold';
+    font-style: normal;
+    font-weight: 800;
+    src: local('NotoSansHebrewExtraBold'), url(./fonts/NotoSansHebrew/NotoSansHebrew-ExtraBold.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'Noto Sans Hebrew goo';
+    font-style: normal;
+    font-weight: 800;
+    font-stretch: 100%;
+    src: url(https://fonts.gstatic.com/s/notosanshebrew/v38/or3HQ7v33eiDljA1IufXTtVf7V6RvEEdhQlk0LlGxCyaeNKYZC0sqk3xXGiXd4qdpyhkhus.woff2) format('woff2');
+    unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+  } */
 
 /*NotoSansHebrew*/
 
