@@ -96,7 +96,7 @@ function MusicSection(props) {
                 top: isDesktopLayout ? '47px' : '44px',
                 left: isDesktopLayout ? '7px' : '7px',
                 transform: isDesktopLayout ? 'rotate(349deg)' : 'initial',
-                fontSize: isDesktopLayout ? '24px' : '3.3vw',
+                fontSize: isDesktopLayout ? '24px' : '2.5vw',
                 color: '#fff',
                 // textShadow: '1px 1px 1px #000000c4',
                 color: '#000000',
