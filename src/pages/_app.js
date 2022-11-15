@@ -14,7 +14,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
-  const [showBackDrop, setShowBackDrop] = useState(false);
+  const [showBackDrop, setShowBackDrop] = useState(true);
   const router = useRouter();
 
   const windowWidth = useWindowWidth();
@@ -31,6 +31,7 @@ function MyApp({ Component, pageProps }) {
   }, [windowWidth]);
 
   useEffect(() => {
+    setShowBackDrop(false); 
     // crisp chat:
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = 'f64db7de-7c72-40ea-9f36-2faac0582e16';

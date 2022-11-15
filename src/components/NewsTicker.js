@@ -9,7 +9,7 @@ export const NewsTicker = (props) => {
   return (
     <Section
       sx={{
-        padding: isDesktopLayout ? '10px 0px !important' : '2px 0px !important',
+        padding: isDesktopLayout ? '5px 0px !important' : '2px 0px !important',
         background: '#F1ECE4 !important',
         direction: 'rtl',
       }}>

@@ -63,5 +63,6 @@ export async function getStaticProps() {
       footerItems: (await getAllFooters()) || [],
       menuItems: (await getMenuItems()) || [],
     },
+    revalidate: 30,
   };
 }

@@ -39,14 +39,6 @@ function AboutPage(props) {
 
   const { mainData, aboutData } = props;
 
-  // const {
-  //   mainVideo,
-  //   mainVideoMobile,
-  //   videoBigText,
-  //   videoSmallText,
-  //   isDisplayFlag,
-  // } = mainData;
-
   const { video, videoMobile, videoText } = aboutData;
 
   const videoOnReady = () => {
@@ -97,7 +89,6 @@ function AboutPage(props) {
                 display: !isVideoReady ? 'none' : 'block',
                 margin: '0px auto',
                 position: 'relative',
-                // minHeight: '796px',
                 width: '100%',
               }}
             />
@@ -122,7 +113,6 @@ function AboutPage(props) {
                 display: !isVideoReady ? 'none' : 'block',
                 margin: '0px auto',
                 position: 'relative',
-                // minHeight: '796px',
                 width: '100%',
               }}
             />
@@ -166,5 +156,6 @@ export async function getStaticProps() {
       footerItems: (await getAllFooters()) || [],
       menuItems: (await getMenuItems()) || [],
     },
+    revalidate: 30,
   };
 }

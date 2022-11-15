@@ -13,6 +13,8 @@ const useStyles = makeStyles((isDesktopLayout) => ({
     textAlign: 'right',
     fontFamily: 'Noto Sans Hebrew',
     lineHeight: '1.65',
+    overflowY: 'auto',
+    maxHeight: '100%',
     '&.mobile': {
       display: '-webkit-box',
       WebkitLineClamp: '13',
@@ -112,13 +114,14 @@ function ActorDialog(props) {
         </Box>
         <Box
           sx={{
-            padding: isDesktopLayout ? '10% 40px 0 60px' : '10px 30px 20px',
-            height: 'fit-content',
+            padding: isDesktopLayout ? '6% 40px 0 60px' : '10px 30px 20px',
+            // height: 'fit-content',
+            maxHeight: isDesktopLayout ? '480px' : 'auto',
             width: '100%',
           }}>
           <Box
             sx={{
-              margin: isDesktopLayout ? '0 0 80px' : '0 0 20px',
+              margin: isDesktopLayout ? '0 0 40px' : '0 0 20px',
               textAlign: 'right',
               fontSize: isDesktopLayout ? '40px' : '30px',
               fontFamily: 'GveretLevinAlefAlefAlef',
@@ -127,7 +130,13 @@ function ActorDialog(props) {
             }}>
             {item?.name}
           </Box>
-          <Box
+          <Box sx={{
+            scrollbarWidth: "none",
+            "msOverflowStyle": "none",
+            "::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
             className={`${classes.description} ${
               !isDesktopLayout && 'mobile'
             }`}>

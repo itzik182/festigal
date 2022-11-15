@@ -40,7 +40,7 @@ const HeaderBar = (props) => {
         sx={{
           height: '133px',
           width: '95%',
-          margin: isDesktopLayout ? '20px auto 0' : '8px auto 0',
+          margin: isDesktopLayout ? '10px auto 0' : '15px auto 0',
           position: 'relative',
           zIndex: '1',
         }}>
@@ -72,7 +72,9 @@ const HeaderBar = (props) => {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                marginLeft: '50px',
+                marginLeft: '40px',
+                top: '5px',
+                position: 'relative',
               }}>
               <IconButton
                 style={{
@@ -166,10 +168,7 @@ const HeaderBar = (props) => {
                   alignItems: 'center',
                   margin: '5px 25px 0',
                 }}>
-                <img
-                  src='./images/my_small.png'
-                  alt='my-festigal logo'
-                />
+                <img src='./images/my_small.png' alt='my-festigal logo' />
                 <span
                   style={{
                     fontSize: '16px',
@@ -195,29 +194,30 @@ const HeaderBar = (props) => {
               alignItems: 'center',
               display: 'flex',
             }}> */}
-            <Box sx={{
+          <Box
+            sx={{
               textAlign: 'center',
             }}>
-              <Link href='/'>
-                <a>
-                  <img
-                    src={
-                      isDesktopLayout
-                        ? './logo/logo-web-small.png'
-                        : './mobile/logo/logo.png'
-                    }
-                    alt='Logo'
-                    style={{
-                      marginTop: isDesktopLayout ? '10px' : '0',
-                    }}
-                  />
-                </a>
-              </Link>
-              <div className={classes.spacer} />
-              {/* <Hidden smUp={true} implementation="css"> */}
+            <Link href='/'>
+              <a>
+                <img
+                  src={
+                    isDesktopLayout
+                      ? './logo/logo-web-small.png'
+                      : './mobile/logo/logo.png'
+                  }
+                  alt='Logo'
+                  style={{
+                    marginTop: isDesktopLayout ? '10px' : '0',
+                  }}
+                />
+              </a>
+            </Link>
+            <div className={classes.spacer} />
+            {/* <Hidden smUp={true} implementation="css"> */}
 
-              {/* </Hidden> */}
-            </Box>
+            {/* </Hidden> */}
+          </Box>
           {/* </Container> */}
         </Box>
       </Box>
@@ -284,7 +284,7 @@ const useStyles = makeStyles((isDesktopLayout) => ({
     position: 'absolute',
     width: 'min-content',
     // fontFamily: "'Noto Sans Hebrew'",
-    fontFamily: "Noto SansHebrew Extra Bold",
+    fontFamily: 'Noto SansHebrew Extra Bold',
     fontSize: '19px',
     '&.mobile': {
       top: '35px',
