@@ -11,7 +11,8 @@ export const BackdropLoading = () => {
       }}
       open={true}
     >
-      <CircularProgress color="primary" style={{'color': '#fff'}} />
+      <img src='./images/Infinity.svg' />
+      {/* <CircularProgress color="primary" style={{'color': '#fff'}} /> */}
     </Backdrop>
   );
 };

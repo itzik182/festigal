@@ -15,6 +15,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
   const [showBackDrop, setShowBackDrop] = useState(true);
+  const [showFirstBackDrop, setShowFirstBackDrop] = useState(true);
   const router = useRouter();
 
   const windowWidth = useWindowWidth();
@@ -32,7 +33,8 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     setTimeout(() => {
-      setShowBackDrop(false); 
+      setShowBackDrop(false);
+      setShowFirstBackDrop(false);
     }, 2000);
 
     // crisp chat:
@@ -63,8 +65,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    // <CacheProvider value={cacheRtl}>
-    // <ThemeProvider theme={theme}>
     <ThemeProvider>
       <GoogleAnalytics
         strategy='lazyOnload'
@@ -72,12 +72,11 @@ function MyApp({ Component, pageProps }) {
         gtagUrl='/gtag.js'
       />
       <GlobalContext.Provider value={isDesktopLayout}>
-        {getLayout(<Component {...pageProps} />)}
+        {!showFirstBackDrop && getLayout(<Component {...pageProps} />)}
         <CrispWithNoSSR />
         {showBackDrop && <BackdropLoading key={showBackDrop} />}
       </GlobalContext.Provider>
     </ThemeProvider>
-    // </CacheProvider>
   );
 }
 
