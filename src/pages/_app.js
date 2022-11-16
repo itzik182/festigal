@@ -31,7 +31,10 @@ function MyApp({ Component, pageProps }) {
   }, [windowWidth]);
 
   useEffect(() => {
-    setShowBackDrop(false); 
+    setTimeout(() => {
+      setShowBackDrop(false); 
+    }, 2000);
+
     // crisp chat:
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = 'f64db7de-7c72-40ea-9f36-2faac0582e16';

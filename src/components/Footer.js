@@ -7,6 +7,7 @@ import SocialIcons from 'components/SocialIcons';
 import GoldButton from 'components/GoldButton';
 import YoutubeChannel from 'components/YoutubeChannel';
 import Separator from 'components/Separator';
+import FooterColumn from 'components/FooterColumn';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -89,178 +90,42 @@ function Footer(props) {
                 paddingLeft: isDesktopLayout ? '4vw' : '0',
                 flexWrap: isDesktopLayout ? 'nowrap' : 'wrap',
               }}>
-              <Box
+              <FooterColumn
+                colId={'column1'}
+                column={column1}
+                isDesktopLayout={isDesktopLayout}
                 sx={{
                   width: isDesktopLayout ? '100%' : '60%',
                   padding: isDesktopLayout ? '0 0 0 20px' : '0 0 25px',
-                }}>
-                {column1.map((col) => {
-                  const { id, text, logo, logoSize, link, isBold } = col;
-                  const isBlank = link.includes('http');
-                  return (
-                    <Box
-                      key={id}
-                      sx={{
-                        marginBottom: '15px',
-                        color: isBold && '#36D4DE',
-                        fontSize: isBold
-                          ? isDesktopLayout
-                            ? '0.946vw'
-                            : '18px'
-                          : '12px',
-                        fontWeight: isBold ? '400' : 'none',
-                      }}>
-                      <Link href={link}>
-                        <a
-                          target={isBlank ? '_blank' : '_self'}
-                          rel='noopener noreferrer'>
-                          {logo ? (
-                            <img
-                              src={logo.url}
-                              title={logo.title}
-                              alt={logo.alt}
-                              style={{
-                                width: logoSize,
-                              }}
-                            />
-                          ) : (
-                            text
-                          )}
-                        </a>
-                      </Link>
-                    </Box>
-                  );
-                })}
-              </Box>
-              <Box
+                }}
+              />
+              <FooterColumn
+                colId={'column2'}
+                column={column2}
+                isDesktopLayout={isDesktopLayout}
                 sx={{
                   width: isDesktopLayout ? '100%' : '40%',
                   paddingLeft: isDesktopLayout ? '20px' : '0',
-                }}>
-                {column2.map((col) => {
-                  const { id, text, logo, logoSize, link, isBold } = col;
-                  const isBlank = link.includes('http');
-                  return (
-                    <Box
-                      key={id}
-                      sx={{
-                        marginBottom: '15px',
-                        color: isBold && '#36D4DE',
-                        fontSize: isBold
-                          ? isDesktopLayout
-                            ? '0.946vw'
-                            : '18px'
-                          : '12px',
-                        fontWeight: isBold ? '400' : 'none',
-                      }}>
-                      <Link href={link}>
-                        <a
-                          target={isBlank ? '_blank' : '_self'}
-                          rel='noopener noreferrer'>
-                          {logo ? (
-                            <img
-                              src={logo.url}
-                              title={logo.title}
-                              alt={logo.alt}
-                              style={{
-                                width: logoSize,
-                              }}
-                            />
-                          ) : (
-                            text
-                          )}
-                        </a>
-                      </Link>
-                    </Box>
-                  );
-                })}
-              </Box>
-              <Box
+                }}
+              />
+              <FooterColumn
+                colId={'column3'}
+                column={column3}
+                isDesktopLayout={isDesktopLayout}
                 sx={{
                   width: isDesktopLayout ? '100%' : '60%',
                   paddingLeft: isDesktopLayout ? '20px' : '0',
-                }}>
-                {column3.map((col) => {
-                  const { id, text, logo, logoSize, link, isBold } = col;
-                  const isBlank = link.includes('http');
-                  return (
-                    <Box
-                      key={id}
-                      sx={{
-                        marginBottom: '15px',
-                        color: isBold && '#36D4DE',
-                        fontSize: isBold
-                          ? isDesktopLayout
-                            ? '0.946vw'
-                            : '18px'
-                          : '12px',
-                        fontWeight: isBold ? '400' : 'none',
-                      }}>
-                      <Link href={link}>
-                        <a
-                          target={isBlank ? '_blank' : '_self'}
-                          rel='noopener noreferrer'>
-                          {logo ? (
-                            <img
-                              style={{
-                                width: logoSize,
-                              }}
-                              src={logo.url}
-                              title={logo.title}
-                              alt={logo.alt}
-                            />
-                          ) : (
-                            text
-                          )}
-                        </a>
-                      </Link>
-                    </Box>
-                  );
-                })}
-              </Box>
-              <Box
+                }}
+              />
+              <FooterColumn
+                colId={'column4'}
+                column={column4}
+                isDesktopLayout={isDesktopLayout}
                 sx={{
                   width: isDesktopLayout ? '100%' : '40%',
                   paddingLeft: isDesktopLayout ? '20px' : '0',
-                }}>
-                {column4.map((col) => {
-                  const { id, text, logo, logoSize, link, isBold } = col;
-                  const isBlank = link.includes('http');
-                  return (
-                    <Box
-                      key={id}
-                      sx={{
-                        marginBottom: '15px',
-                        color: isBold && '#36D4DE',
-                        fontSize: isBold
-                          ? isDesktopLayout
-                            ? '0.946vw'
-                            : '18px'
-                          : '12px',
-                        fontWeight: isBold ? '400' : 'none',
-                      }}>
-                      <Link href={link}>
-                        <a
-                          target={isBlank ? '_blank' : '_self'}
-                          rel='noopener noreferrer'>
-                          {logo ? (
-                            <img
-                              src={logo.url}
-                              title={logo.title}
-                              alt={logo.alt}
-                              style={{
-                                width: logoSize,
-                              }}
-                            />
-                          ) : (
-                            text
-                          )}
-                        </a>
-                      </Link>
-                    </Box>
-                  );
-                })}
-              </Box>
+                }}
+              />
             </Box>
             {isDesktopLayout && <YoutubeChannel mainData={mainData} />}
           </Box>
@@ -275,7 +140,7 @@ function Footer(props) {
               const isBlank = link.includes('http');
               return (
                 <Box
-                  key={id}
+                  key={id || `column5_${index}`}
                   sx={{
                     marginBottom: isDesktopLayout ? '15px' : '25px',
                     marginLeft: '20px',
@@ -319,10 +184,11 @@ function Footer(props) {
             {column6.map((col, index) => {
               const { id, text, logo, logoSize, link, isBold } = col;
               const isBlank = link.includes('http');
+              console.log(index);
+              console.log(id);
               return (
-                <>
+                <Box key={id || `column6_${index}`}>
                   <Box
-                    key={id}
                     sx={{
                       width: isDesktopLayout ? 'auto' : '100%',
                       color: '#47988C',
@@ -336,7 +202,7 @@ function Footer(props) {
                       |
                     </span>
                   )}
-                </>
+                </Box>
               );
             })}
           </Box>

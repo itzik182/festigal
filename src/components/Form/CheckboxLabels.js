@@ -14,7 +14,7 @@ export default function CheckboxLabels(props) {
     <FormGroup>
       {isMarketing && (
         <FormControlLabel
-          inputRef={register}
+        inputRef={register}
           name='Marketing'
           control={
             <Checkbox

@@ -5,13 +5,13 @@ export const BackdropLoading = () => {
   return (
     <Backdrop
       sx={{
-        backgroundColor: "rgba(104,164,250,0.74)",
+        backgroundColor: "#000",
         zIndex: 1000000,
-        opacity: "0.7 !important",
+        opacity: "0.8 !important",
       }}
       open={true}
     >
-      <CircularProgress color="inherit" />
+      <CircularProgress color="primary" style={{'color': '#fff'}} />
     </Backdrop>
   );
 };

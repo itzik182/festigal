@@ -23,7 +23,22 @@ const ImageNews = (props) => {
             position: 'relative',
             cursor: 'pointer',
             width: '32%',
-            marginTop: index === 1 || index === 4 ? '-90px' : '20px',
+            marginTop: '20px',
+            transition: 'all .2s ease-in-out .1s',
+            '&:hover': {
+              transform: 'scale(1.02)',
+            },
+            // '&:nth-child(4n)': {
+            //   marginTop: '-90px',
+            // },
+            marginTop:
+              index === 1 ||
+              index === 4 ||
+              index === 7 ||
+              index === 10 ||
+              index === 13
+                ? '-90px'
+                : '20px',
           }}>
           <ShareSocialButton
             sx={{

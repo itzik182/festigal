@@ -49,11 +49,6 @@ function LastNewsSection(props) {
           sx={{
             textAlign: 'center',
             marginTop: '30px',
-            // color: '#2D555B',
-            // fontSize: isDesktopLayout ? '73px' : '35px',
-            // fontFamily: 'Noto Sans Hebrew',
-            // fontWeight: '900',
-            // fontStyle: 'normal',
           }}>
           {/* {lastNewsTitle} */}
           <img
