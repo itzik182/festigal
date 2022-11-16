@@ -472,6 +472,7 @@ export async function getAllLastNews() {
     allLastNews(filter: {isDisplay: {eq: "true"}}) {
       id
       link
+      isDisplayMobile
       imageWeb {
         alt
         height

@@ -16,7 +16,7 @@ const ImageNews = (props) => {
         justifyContent: 'space-between',
         padding: '150px 0 0',
       }}>
-      {items.map((item, index) => (
+      {items.filter(item => !item.isDisplayMobile).map((item, index) => (
         <Box
           key={item.id || index}
           sx={{

@@ -187,7 +187,9 @@ function Footer(props) {
               console.log(index);
               console.log(id);
               return (
-                <Box key={id || `column6_${index}`}>
+                <Box key={id || `column6_${index}`} sx={{
+                  display: 'contents',
+                }}>
                   <Box
                     sx={{
                       width: isDesktopLayout ? 'auto' : '100%',
