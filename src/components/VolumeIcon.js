@@ -15,7 +15,7 @@ const VolumeIcon = (props) => {
         left: '5%',
         top: '37%',
         color: '#fff',
-        opacity: '0.4',
+        opacity: '0.6',
         zIndex: '100',
         cursor: 'pointer',
         '& svg': {

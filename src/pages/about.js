@@ -65,7 +65,7 @@ function AboutPage(props) {
               minHeight: isDesktopLayout ? '800px' : '750px',
               backgroundColor: '#000',
               backgroundSize: `cover`,
-              backgroundImage: `url('./background/videoBg.png')`,
+              backgroundImage: `url('./background/videoBg_about.png')`,
               backgroundPosition: 'center',
             }}></Box>
           {isDesktopLayout && (

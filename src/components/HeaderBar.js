@@ -4,8 +4,6 @@ import SocialIcons from 'components/SocialIcons';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppBar from '@material-ui/core/AppBar';
-import Container from '@material-ui/core/Container';
-import Toolbar from '@material-ui/core/Toolbar';
 import Link from 'next/link';
 import Hidden from '@material-ui/core/Hidden';
 
@@ -29,12 +27,13 @@ const HeaderBar = (props) => {
 
   return (
     <AppBar
-      position='absolute'
+      position='relative'
       color='transparent'
       elevation={0}
       style={{
-        position: 'absolute',
+        // position: 'absolute',
         top: 0,
+        background: '#000000',
       }}>
       <Box
         sx={{

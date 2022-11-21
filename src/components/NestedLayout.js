@@ -35,24 +35,13 @@ export default function NestedLayout(props) {
   } = children?.props;
   // console.log('props', props);
 
-    const {
-    mainVideo,
-    mainVideoMobile,
-    flagText,
-    firstShowDate,
-    flagButtonText,
-    showLink,
-    videoBigText,
-    videoSmallText,
+  const {
     ticketsInformationText,
     ticketsInformationLink,
-    headerShopText,
-    headerShopLink,
     allNewsFlashText,
     allNewsFlashLink,
     allNewsFlashMenuText,
     allNewsFlashMissText,
-    isDisplayFlag,
     arrivalText,
   } = mainData;
 
@@ -63,16 +52,6 @@ export default function NestedLayout(props) {
   return (
     <>
       <Box>
-        {/* <Navbar
-          isDesktopLayout={isDesktopLayout}
-          mainData={mainData}
-          ticketsInformationData={ticketsInformationData}
-          newsFlashesItems={newsFlashesItems}
-          showsItems={showsItems}
-          faqItems={faqItems}
-          socialIcons={socialIcons}
-          menuItems={menuItems}
-        /> */}
         <HeaderBar
           isDesktopLayout={isDesktopLayout}
           socialIcons={socialIcons}

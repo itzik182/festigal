@@ -80,7 +80,7 @@ function MusicSection(props) {
               : 'transparent url(./background/myplaylist.png) 53% center no-repeat padding-box',
             backgroundSize: isDesktopLayout ? 'auto' : '288%',
           }}>
-          <Box
+          {/* <Box
             sx={{
               position: isDesktopLayout ? 'absolute' : 'absolute',
               bottom: isDesktopLayout ? '2%' : '24%',
@@ -106,7 +106,6 @@ function MusicSection(props) {
                 maxWidth: isDesktopLayout ? '380px' : '184px',
               }}
               dangerouslySetInnerHTML={{ __html: mainData.festigalSongWriter }}>
-              {/* {mainData.festigalSongWriter} */}
             </span>
             {isDesktopLayout && <img
               src='./images/Group6746.png'
@@ -116,7 +115,7 @@ function MusicSection(props) {
                 maxWidth: isDesktopLayout ? '380px' : '194px',
               }}
             />}
-          </Box>
+          </Box> */}
           <Box
             sx={{
               fontSize: isDesktopLayout ? '1.524vw' : '25px',
