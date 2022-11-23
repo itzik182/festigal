@@ -161,7 +161,6 @@ const HeaderBar = (props) => {
                   flexDirection: 'column',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  margin: '5px 25px 0',
                   height: '133px',
                   width: '95%',
                   margin: isDesktopLayout ? '10px auto 0' : '15px auto 0',
