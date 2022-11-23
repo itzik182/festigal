@@ -4,22 +4,6 @@ import Image from 'next/image';
 const About = (props) => {
   const { pageData, isDesktopLayout = true } = props;
   const { id, text1, text2, image1, image2 } = pageData;
-  //   const {
-  //     id: image1Id,
-  //     image1Alt,
-  //     image1Height,
-  //     image1Width,
-  //     image1Url,
-  //     image1Title,
-  //   } = image1;
-  //   const {
-  //     id: image2Id,
-  //     image2Alt,
-  //     image2Height,
-  //     image2Width,
-  //     image2Url,
-  //     image2Title,
-  //   } = image2;
 
   return (
     <Box

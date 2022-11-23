@@ -116,13 +116,13 @@ function MusicSection(props) {
               }}
             />}
           </Box> */}
-          {/* <Box
+          <Box
             sx={{
               fontSize: isDesktopLayout ? '1.524vw' : '25px',
               fontFamily: 'GveretLevinAlefAlefAlef',
               top: isDesktopLayout ? '6%' : '17%',
               position: 'absolute',
-              right: isDesktopLayout ? '38%' : '25%',
+              right: isDesktopLayout ? '35%' : '25%',
             }}>
             <img
               src='./images/Group7362.png'
@@ -132,7 +132,7 @@ function MusicSection(props) {
                 maxWidth: isDesktopLayout ? '380px' : '194px',
               }}
             />
-          </Box> */}
+          </Box>
           {/* <Box
             sx={{
               fontSize: isDesktopLayout ? '1.524vw' : '25px',

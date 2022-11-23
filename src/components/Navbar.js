@@ -125,7 +125,7 @@ function Navbar(props) {
           volume={isVideoMute ? 0 : 1}
           // paused={!isVideoMute}
           muted={isVideoMute}
-          background={true}
+          // background={true}
           responsive={true}
           style={{
             display: !isVideoReady ? 'none' : 'block',
