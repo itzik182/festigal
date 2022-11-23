@@ -185,9 +185,11 @@ function Footer(props) {
               const { id, text, logo, logoSize, link, isBold } = col;
               const isBlank = link.includes('http');
               return (
-                <Box key={id || `column6_${index}`} sx={{
-                  display: 'contents',
-                }}>
+                <Box
+                  key={id || `column6_${index}`}
+                  sx={{
+                    display: 'contents',
+                  }}>
                   <Box
                     sx={{
                       width: isDesktopLayout ? 'auto' : '100%',
@@ -221,9 +223,9 @@ function Footer(props) {
             <Link href='/'>
               <a>
                 <img
-                    style={{
-                        width: '90%'
-                    }}
+                  style={{
+                    width: '90%',
+                  }}
                   src={
                     isDesktopLayout
                       ? './logo/logo-big.png'
