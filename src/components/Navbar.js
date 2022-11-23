@@ -74,7 +74,8 @@ function Navbar(props) {
         sx={{
           // transition: 'visibility 0.3s linear 2s',
           // opacity: isVideoReady ? '0' : '1',
-          display: isVideoReady ? 'none' : 'block',
+          display: isDesktopLayout ? isVideoReady ? 'none' : 'block' : 'none',
+          // display: 'none',
           // visibility:  isVideoReady ? 'hidden' : 'visible',
           width: '100%',
           minHeight: isDesktopLayout ? '800px' : '733px',
@@ -100,7 +101,7 @@ function Navbar(props) {
           volume={isVideoMute ? 0 : 1}
           // paused={!isVideoMute}
           muted={isVideoMute}
-          // background={true}
+          background={true}
           responsive={true}
           style={{
             display: !isVideoReady ? 'none' : 'block',
@@ -125,10 +126,11 @@ function Navbar(props) {
           volume={isVideoMute ? 0 : 1}
           // paused={!isVideoMute}
           muted={isVideoMute}
-          // background={true}
+          background={true}
           responsive={true}
           style={{
-            display: !isVideoReady ? 'none' : 'block',
+            // display: !isVideoReady ? 'none' : 'block',
+            display: 'block',
             margin: '0px auto',
             position: 'relative',
             // position: 'absolute',
