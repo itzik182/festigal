@@ -57,7 +57,8 @@ const FirstShowFlag = (props) => {
   const windowWidth = useWindowWidth();
   const isDesktopLayout = windowWidth >= 960;
   const classes = useStyles();
-  const { flagButtonText, showLink, flagText, firstShowDate } = props;
+  const { flagButtonText, showLink, flagText, firstShowDate, isSafariAgent } =
+    props;
 
   return (
     <Box
@@ -65,7 +66,11 @@ const FirstShowFlag = (props) => {
       <Box className={`${classes.flagText} flagText`}>{flagText}</Box>
       <img src='./images/Path-994.svg' alt='Path' />
       <Box className={`${classes.flagTimer} flagTimer`}>
-        <Counter date={firstShowDate} isDesktopLayout={isDesktopLayout} />
+        <Counter
+          date={firstShowDate}
+          isDesktopLayout={isDesktopLayout}
+          isSafariAgent={isSafariAgent}
+        />
       </Box>
       <Box className={'flagButtonText'}>
         <GoldButton
@@ -74,8 +79,16 @@ const FirstShowFlag = (props) => {
           isDesktopLayout={isDesktopLayout}
           buttonStyle={
             !isDesktopLayout && {
-              padding: isDesktopLayout ? '4px 35px' : '4px 25px',
-              fontSize: isDesktopLayout ? '19px' : '12pt',
+              padding: isDesktopLayout
+                ? '4px 35px'
+                : isSafariAgent
+                ? '4px 10px'
+                : '4px 25px',
+              fontSize: isDesktopLayout
+                ? '19px'
+                : isSafariAgent
+                ? '10pt'
+                : '12pt',
             }
           }
           text={flagButtonText}

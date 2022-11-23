@@ -8,22 +8,13 @@ import FirstShowFlag from 'components/FirstShowFlag';
 import VideoText from 'components/VideoText';
 import VolumeIcon from 'components/VolumeIcon';
 import Vimeo from '@u-wave/react-vimeo';
-import { browserName, browserVersion } from "react-device-detect";
-
+import { browserName, browserVersion } from 'react-device-detect';
 
 function Navbar(props) {
   const [isVideoMute, setVideoMute] = useState(true);
   const [isVideoReady, setVideoReady] = useState(false);
 
-  // Detect Safari
-  // let isSafariAgent = navigator.userAgent.indexOf('Safari') > -1;
-  // console.log('isSafariAgent', navigator.userAgent);
-  // console.log('isSafariAgent', isSafariAgent);
-
-  console.log(`${browserName} ${browserVersion}`);
   let isSafariAgent = browserName.indexOf('Safari') > -1;
-  console.log('isSafariAgent', isSafariAgent);
-
 
   useEffect(() => {
     // console.log('isVideoMute', isVideoMute);
@@ -157,6 +148,7 @@ function Navbar(props) {
       />
       {isDisplayFlag && (
         <FirstShowFlag
+          isSafariAgent={isSafariAgent}
           flagButtonText={flagButtonText}
           showLink={showLink}
           flagText={flagText}

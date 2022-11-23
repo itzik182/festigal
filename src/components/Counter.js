@@ -5,7 +5,15 @@ const Completionist = () => <></>;
 
 // Renderer callback with condition
 const renderer = (props) => {
-  const { days, hours, minutes, seconds, completed, isDesktopLayout } = props;
+  const {
+    days,
+    hours,
+    minutes,
+    seconds,
+    completed,
+    isDesktopLayout,
+    isSafariAgent,
+  } = props;
   if (completed) {
     // Render a complete state
     return <Completionist />;
@@ -25,6 +33,8 @@ const renderer = (props) => {
           sx={{
             font: isDesktopLayout
               ? 'normal normal normal 16px/18px Noto Sans Hebrew'
+              : isSafariAgent
+              ? 'normal normal normal 12px/18px Noto Sans Hebrew'
               : 'normal normal normal 14px/18px Noto Sans Hebrew',
             letterSpacing: '-0.1px',
             marginTop: isDesktopLayout ? '0' : '-8px',
@@ -43,7 +53,7 @@ const renderer = (props) => {
 };
 
 const Counter = (props) => {
-  const { date, isDesktopLayout } = props;
+  const { date, isDesktopLayout, isSafariAgent } = props;
 
   const date1 = new Date(Date.now());
   const date2 = new Date(date);
@@ -52,7 +62,9 @@ const Counter = (props) => {
   return (
     <Countdown
       date={Date.now() + diffInTime}
-      renderer={(props) => renderer({ ...props, isDesktopLayout })}
+      renderer={(props) =>
+        renderer({ ...props, isDesktopLayout, isSafariAgent })
+      }
     />
   );
 };
