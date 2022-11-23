@@ -68,7 +68,7 @@ const ShopSection = (props) => {
               showTitle={false}
               loop={true}
               controls={true}
-              autoplay={false}
+              autoplay={true}
               playsInline={true}
               height='796px'
               width={'100%'}
