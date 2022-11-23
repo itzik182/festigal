@@ -116,7 +116,7 @@ function MusicSection(props) {
               }}
             />}
           </Box> */}
-          <Box
+          {/* <Box
             sx={{
               fontSize: isDesktopLayout ? '1.524vw' : '25px',
               fontFamily: 'GveretLevinAlefAlefAlef',
@@ -132,8 +132,8 @@ function MusicSection(props) {
                 maxWidth: isDesktopLayout ? '380px' : '194px',
               }}
             />
-          </Box>
-          <Box
+          </Box> */}
+          {/* <Box
             sx={{
               fontSize: isDesktopLayout ? '1.524vw' : '25px',
               fontFamily: 'GveretLevinAlefAlefAlef',
@@ -142,12 +142,12 @@ function MusicSection(props) {
               right: isDesktopLayout ? '44%' : '37%',
             }}>
             {mainData.festigalSong}
-          </Box>
+          </Box> */}
 
           <Box
             sx={{
               textAlign: isDesktopLayout ? 'auto' : 'center',
-              top: isDesktopLayout ? '28%' : '84%',
+              top: isDesktopLayout ? '28%' : '70%',
               right: isDesktopLayout ? '10%' : '34%',
               zIndex: 1,
               position: 'absolute',

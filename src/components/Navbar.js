@@ -74,7 +74,7 @@ function Navbar(props) {
         sx={{
           // transition: 'visibility 0.3s linear 2s',
           // opacity: isVideoReady ? '0' : '1',
-          display: isVideoReady ? 'none' : 'block',
+          // display: isVideoReady ? 'none' : 'block',
           // visibility: isVideoReady ? 'hidden' : 'visible',
           width: '100%',
           minHeight: isDesktopLayout ? '800px' : '750px',
@@ -128,7 +128,9 @@ function Navbar(props) {
           style={{
             display: !isVideoReady ? 'none' : 'block',
             margin: '0px auto',
-            position: 'relative',
+            position: 'absolute',
+            zIndex: '10',
+            top: '0',
             // minHeight: '796px',
             width: '100%',
           }}
