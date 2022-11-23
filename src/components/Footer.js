@@ -223,6 +223,9 @@ function Footer(props) {
             <Link href='/'>
               <a>
                 <img
+                    style={{
+                        width: '90%'
+                    }}
                   src={
                     isDesktopLayout
                       ? './logo/logo-big.png'
