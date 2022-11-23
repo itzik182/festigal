@@ -31,9 +31,9 @@ const HeaderBar = (props) => {
       color='transparent'
       elevation={0}
       style={{
-        // position: 'absolute',
+        position: 'absolute',
         top: 0,
-        background: '#000000',
+        // background: '#000000',
       }}>
       <Box
         sx={{

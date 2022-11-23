@@ -12,9 +12,11 @@ import Vimeo from '@u-wave/react-vimeo';
 function Navbar(props) {
   const [isVideoMute, setVideoMute] = useState(true);
   const [isVideoReady, setVideoReady] = useState(false);
-  // const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
-  // const [informationDrawerOpen, setInformationDrawerOpen] = useState(false);
-  // const [newsFlashesDrawerOpen, setNewsFlashesDrawerOpen] = useState(false);
+
+  // Detect Safari
+  let isSafariAgent = navigator.userAgent.indexOf('Safari') > -1;
+  console.log('isSafariAgent', navigator.userAgent);
+  console.log('isSafariAgent', isSafariAgent);
 
   useEffect(() => {
     // console.log('isVideoMute', isVideoMute);
@@ -74,7 +76,7 @@ function Navbar(props) {
         sx={{
           // transition: 'visibility 0.3s linear 2s',
           // opacity: isVideoReady ? '0' : '1',
-          display: isDesktopLayout ? isVideoReady ? 'none' : 'block' : 'none',
+          display: isDesktopLayout ? (isVideoReady ? 'none' : 'block') : 'none',
           // display: 'none',
           // visibility:  isVideoReady ? 'hidden' : 'visible',
           width: '100%',

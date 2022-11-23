@@ -184,8 +184,6 @@ function Footer(props) {
             {column6.map((col, index) => {
               const { id, text, logo, logoSize, link, isBold } = col;
               const isBlank = link.includes('http');
-              console.log(index);
-              console.log(id);
               return (
                 <Box key={id || `column6_${index}`} sx={{
                   display: 'contents',

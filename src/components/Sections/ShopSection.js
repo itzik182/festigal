@@ -48,10 +48,12 @@ const ShopSection = (props) => {
               video={shopVideo?.url}
               showTitle={false}
               controls={true}
-              autoplay={false}
+              loop={true}
+              autoplay={true}
               playsInline={true}
               height='1000px'
               width={'100%'}
+              background={true}
               responsive={true}
               style={{
                 margin: '0px auto',
