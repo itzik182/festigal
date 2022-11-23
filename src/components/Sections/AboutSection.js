@@ -5,7 +5,7 @@ import Section from 'components/Section';
 import Vimeo from '@u-wave/react-vimeo';
 // import TextTruncate from 'react-text-truncate';
 import { ShareSocialButton } from '../ShareSocialButton';
-import GlobalContext from "contexts/global.context";
+import GlobalContext from 'contexts/global.context';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -32,11 +32,11 @@ const useStyles = makeStyles((theme) => ({
       'transparent url(./background/stars1.png) 0% 0% repeat padding-box',
     padding: '100px 65px',
     '&.mobile': {
-      padding: '70px 0 30px',
+      padding: '70px 0 50px',
     },
     '&.mobile .details': {
       fontSize: '18px',
-      padding: '23px 15px 20px',
+      padding: '23px 15px 40px',
     },
     '&.mobile .description': {
       textAlign: 'center',
@@ -88,8 +88,7 @@ function AboutSection(props) {
 
   return (
     <Section id='about' className={classes.section}>
-      <Box
-        className={`${classes.container} ${isDesktop ? '' : 'mobile'}`}>
+      <Box className={`${classes.container} ${isDesktop ? '' : 'mobile'}`}>
         <Box className={`${classes.containerA} containerA`}>
           <Box
             sx={{
@@ -239,6 +238,19 @@ function AboutSection(props) {
             }}>
             {details}
           </Box>
+        </Box>
+        <Box
+          sx={{
+            textAlign: 'center',
+            font: isDesktop
+              ? 'normal normal 900 2.89vw/105px Noto Sans Hebrew'
+              : 'normal normal 900 30px/105px Noto Sans Hebrew',
+            letterSpacing: '-1.21px',
+            color: '#FFFFFF',
+            textShadow: '0px 3px 14px #0000005C',
+            padding: isDesktop ? '0 0 30px' : '0 0 10px',
+          }}>
+          פסטיגל על פסטיגל - הסרט
         </Box>
         <Box>
           {/* <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} /> */}

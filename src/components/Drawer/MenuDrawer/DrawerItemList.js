@@ -95,7 +95,7 @@ export const DrawerItemList = (props) => {
               display: 'flex',
               justifyContent: 'space-around',
               alignItems: 'center',
-              padding: '0 15px',
+              padding: '0px 15px 0 60px',
             }}>
             <IconButton
               onClick={() => {
