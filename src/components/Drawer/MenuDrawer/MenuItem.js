@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 export const MenuItem = (props) => {
   const { item, handleItemClick, isDrawerOpen, isDesktopLayout } = props;
   const { image, text, link } = item;
-  const { url, title, alt } = image;
+  const { url, customData, title, alt } = image;
 
   const isBlank = link.includes('http');
 
@@ -29,7 +29,8 @@ export const MenuItem = (props) => {
           }}>
           {image && (
             <img
-              src={url}
+              // src={url}
+              src={`./my/${customData?.name}.png`}
               title={title}
               alt={alt}
               style={{
