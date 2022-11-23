@@ -162,6 +162,11 @@ const HeaderBar = (props) => {
                   justifyContent: 'center',
                   alignItems: 'center',
                   margin: '5px 25px 0',
+                  height: '133px',
+                  width: '95%',
+                  margin: isDesktopLayout ? '10px auto 0' : '15px auto 0',
+                  position: 'relative',
+                  zIndex: '1',
                 }}>
                 <img src='./images/my_small.png' alt='my-festigal logo' />
                 <span
