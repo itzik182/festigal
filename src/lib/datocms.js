@@ -295,6 +295,7 @@ export async function getMenuItems() {
       image {
         alt
         width
+        customData
         url
         title
         height
