@@ -37,7 +37,7 @@ const HeaderBar = (props) => {
             }}>
             <Box
                 sx={{
-                    height: '133px',
+                    height: isDesktopLayout ? '133px' : '70px',
                     width: '95%',
                     margin: isDesktopLayout ? '10px auto 0' : '15px auto 0',
                     position: 'relative',
