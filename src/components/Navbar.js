@@ -128,7 +128,7 @@ function Navbar(props) {
           background={true}
           responsive={true}
           style={{
-            // display: !isVideoReady ? 'none' : 'block',
+            display: !isVideoReady ? 'none' : 'block',
             margin: '0px auto',
             position: 'relative',
             // position: 'absolute',
