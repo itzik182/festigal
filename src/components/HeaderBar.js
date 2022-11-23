@@ -102,7 +102,6 @@ const HeaderBar = (props) => {
                         !isDesktopLayout && 'mobile'
                     }`}>
                     <Box
-                        // className={classes.shadowBg}
                         sx={{
                             height: isDesktopLayout ? '98px' : '58px !important',
                             filter: isDesktopLayout ? 'blur(18px)' : 'none',
