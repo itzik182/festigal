@@ -105,9 +105,9 @@ const HeaderBar = (props) => {
                         // className={classes.shadowBg}
                         sx={{
                             height: isDesktopLayout ? '98px' : '58px !important',
-                            filter: 'blur(18px)',
-                            background:
-                                "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
+                            // filter: 'blur(18px)',
+                            // background:
+                            //     "transparent url('images/Ellipse65.png') 50% 50% no-repeat padding-box",
                             position: 'absolute',
                             width: '100%',
                         }}></Box>
