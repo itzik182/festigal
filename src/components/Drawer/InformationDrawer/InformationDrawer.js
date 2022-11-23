@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontSize: '18px',
-    width: '80%',
+    width: '100%',
     '&.mobile': {
       width: '100%',
     },

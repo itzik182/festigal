@@ -74,6 +74,8 @@ export const NewsFlashesDrawer = (props) => {
           {allNewsFlashMissText}
         </span>
         <GoldButton
+          onClick={() => setDrawerOpen(false)}
+          isBlank={false}
           isDesktopLayout={isDesktopLayout}
           text={allNewsFlashText}
           link={allNewsFlashLink}

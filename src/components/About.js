@@ -56,9 +56,9 @@ const About = (props) => {
               textAlign: isDesktopLayout ? 'right' : 'center',
               font: isDesktopLayout
                 ? 'normal normal normal 1.576vw/2.302vw Noto Sans Hebrew'
-                : 'normal normal normal 20pt Noto Sans Hebrew',
+                : 'normal normal normal 16pt Noto Sans Hebrew',
               maxWidth: isDesktopLayout ? '850px' : '100%',
-              // margin: isDesktopLayout ? '60px 0 0 0' : '35px 18px',
+              padding: isDesktopLayout ? '0' : '0 20px 30px',
             }}>
             {text1}
           </Box>
@@ -123,9 +123,10 @@ const About = (props) => {
             textAlign: isDesktopLayout ? 'right' : 'center',
             font: isDesktopLayout
               ? 'normal normal normal 1.576vw/2.302vw Noto Sans Hebrew'
-              : 'normal normal normal 20pt Noto Sans Hebrew',
+              : 'normal normal normal 16pt Noto Sans Hebrew',
             maxWidth: isDesktopLayout ? '850px' : '100%',
             margin: isDesktopLayout ? '86px 90px 0 30px' : '35px 18px',
+            padding: isDesktopLayout ? '0' : '0 20px 30px',
           }}>
           {text2}
         </Box>
