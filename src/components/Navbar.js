@@ -119,14 +119,14 @@ function Navbar(props) {
           showTitle={false}
           loop={true}
           controls={true}
-          autoplay={true}
+          autoplay={false}
           playsInline={true}
           height='796px'
           width={'100%'}
           volume={isVideoMute ? 0 : 1}
           // paused={!isVideoMute}
           muted={isVideoMute}
-          background={true}
+          background={false}
           responsive={true}
           style={{
             // display: !isVideoReady ? 'none' : 'block',
