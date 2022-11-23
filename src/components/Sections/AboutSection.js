@@ -2,9 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from 'components/Section';
-// import YoutubeEmbed from '../YoutubeEmbed';
 import Vimeo from '@u-wave/react-vimeo';
-import TextTruncate from 'react-text-truncate';
+// import TextTruncate from 'react-text-truncate';
 import { ShareSocialButton } from '../ShareSocialButton';
 import GlobalContext from "contexts/global.context";
 
@@ -85,6 +84,8 @@ function AboutSection(props) {
     }
   };
 
+  // const parserDescription = parse(description);
+
   return (
     <Section id='about' className={classes.section}>
       <Box
@@ -138,9 +139,10 @@ function AboutSection(props) {
                 direction: 'rtl',
                 // fontFamily: 'NotoSansHebrew',
                 fontFamily: 'Noto Sans Hebrew',
-              }}>
+              }}
+              dangerouslySetInnerHTML={{ __html: description }}>
               {/* {description} */}
-              <TextTruncate
+              {/* <TextTruncate
                 line={descriptionLinesNumber}
                 element='span'
                 truncateText='...'
@@ -164,7 +166,7 @@ function AboutSection(props) {
                     sx={{ color: '#2C9DAC', fontSize: '16px' }}>
                     קרא פחות
                   </Box>
-                )}
+                )} */}
             </Box>
           </Box>
           <Box
