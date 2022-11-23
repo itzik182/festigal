@@ -83,17 +83,9 @@ const HeaderBar = (props) => {
                   window.open(headerShopLink, '_blank');
                 }}
                 color='inherit'>
-                {/* <img src='./images/cart.svg' alt='cart' /> */}
                 <img src='./images/my_store.png' alt='store' />
               </IconButton>
-              {/* <span
-                style={{
-                  color: '#fff',
-                  font: 'normal normal medium 16px/58px Noto Sans Hebrew',
-                  letterSpacing: '0.19px',
-                }}>
-                {headerShopText}
-              </span> */}
+
             </Box>
             <IconButton
               onClick={() => {
@@ -114,19 +106,20 @@ const HeaderBar = (props) => {
             sx={{
               height: !isDesktopLayout && '58px !important',
             }}></Box>
-          <IconButton
-            style={{
-              fontFamily: 'Noto Sans Hebrew',
-              fontSize: isDesktopLayout ? '19px' : '14px',
-              fontWeight: '800',
-              lineHeight: isDesktopLayout ? 'initial' : '16px',
-            }}
-            onClick={() => {
-              setInformationDrawerOpen(true);
-            }}
-            color='inherit'>
+          {/*<IconButton*/}
+          {/*  style={{*/}
+          {/*    fontFamily: 'Noto Sans Hebrew',*/}
+          {/*    fontSize: isDesktopLayout ? '19px' : '14px',*/}
+          {/*    fontWeight: '800',*/}
+          {/*    lineHeight: isDesktopLayout ? 'initial' : '16px',*/}
+          {/*  }}*/}
+          {/*  onClick={() => {*/}
+          {/*    setInformationDrawerOpen(true);*/}
+          {/*  }}*/}
+          {/*  color='inherit'>*/}
+          {/*  {ticketsInformationText}*/}
+          {/*</IconButton>*/}
             {ticketsInformationText}
-          </IconButton>
         </Box>
         <Box
           sx={{
