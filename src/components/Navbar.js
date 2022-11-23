@@ -77,7 +77,7 @@ function Navbar(props) {
           // display: isVideoReady ? 'none' : 'block',
           // visibility: isVideoReady ? 'hidden' : 'visible',
           width: '100%',
-          minHeight: isDesktopLayout ? '800px' : '750px',
+          minHeight: isDesktopLayout ? '800px' : '733px',
           backgroundColor: '#000',
           backgroundSize: `cover`,
           backgroundImage: isDesktopLayout
