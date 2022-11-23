@@ -28,7 +28,7 @@ const ActorCarousel = (props) => {
     autoplay: true,
     autoplaySpeed: 2000,
     cssEase: 'linear',
-    pauseOnHover: false,
+    pauseOnHover: isDesktopLayout ? false : true,
     //draggable: false,
     // adaptiveHeight: true,
     responsive: [
