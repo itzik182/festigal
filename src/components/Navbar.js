@@ -80,7 +80,9 @@ function Navbar(props) {
           minHeight: isDesktopLayout ? '800px' : '750px',
           backgroundColor: '#000',
           backgroundSize: `cover`,
-          backgroundImage: `url('./background/videoBg.png')`,
+          backgroundImage: isDesktopLayout
+            ? `url('./background/videoBg.png')`
+            : `url('./background/videoBg_mobile.jpg')`,
           backgroundPosition: 'center',
         }}></Box>
       {isDesktopLayout && (
@@ -126,7 +128,7 @@ function Navbar(props) {
           background={true}
           responsive={true}
           style={{
-            display: !isVideoReady ? 'none' : 'block',
+            // display: !isVideoReady ? 'none' : 'block',
             margin: '0px auto',
             position: 'absolute',
             zIndex: '10',
