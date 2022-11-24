@@ -119,7 +119,7 @@ function Navbar(props) {
           showTitle={false}
           loop={true}
           controls={true}
-          autoplay={isSafariAgent ? false : true}
+          autoplay={isSafariAgent ? true : true}
           playsInline={true}
           height='796px'
           width={'100%'}
