@@ -16,8 +16,10 @@ function Navbar(props) {
 
   let isSafariAgent = browserName.indexOf('Safari') > -1;
 
+  console.log('isSafariAgent', isSafariAgent);
+
   useEffect(() => {
-    // console.log('isVideoMute', isVideoMute);
+    console.log('isVideoMute', isVideoMute);
   }, [isVideoMute, isVideoReady]);
 
   const {
@@ -57,6 +59,7 @@ function Navbar(props) {
   // };
 
   const videoOnReady = () => {
+    console.log('videoOnReady', videoOnReady);
     setVideoReady(true);
   };
 
@@ -74,7 +77,7 @@ function Navbar(props) {
         sx={{
           // transition: 'visibility 0.3s linear 2s',
           // opacity: isVideoReady ? '0' : '1',
-          display: isDesktopLayout ? (isVideoReady ? 'none' : 'block') : 'none',
+          display: isSafariAgent ? 'none' : (isVideoReady ? 'none' : 'block'),
           // display: 'none',
           // visibility:  isVideoReady ? 'hidden' : 'visible',
           width: '100%',
@@ -132,10 +135,10 @@ function Navbar(props) {
             // display: !isVideoReady ? 'none' : 'block',
             display: 'block',
             margin: '0px auto',
-            position: 'relative',
+            position: isSafariAgent ? 'relative' : 'absolute',
             // position: 'absolute',
             // zIndex: '10',
-            // top: '0',
+            top: '0',
             // minHeight: '796px',
             width: '100%',
           }}

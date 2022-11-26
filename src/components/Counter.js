@@ -41,7 +41,7 @@ const renderer = (props) => {
             letterSpacing: '-0.1px',
             marginTop: isDesktopLayout ? '0' : '-8px',
             '& span': {
-              padding: isDesktopLayout ? '0 5px 0 19px' : '0 3px 0',
+              padding: isDesktopLayout ? '0 5px 0 5px' : '0 3px 0',
             },
           }}>
           <span>שניות</span>
