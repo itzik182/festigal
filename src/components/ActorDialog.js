@@ -96,6 +96,7 @@ function ActorDialog(props) {
             />
           ) : (
             <Image
+            loading={'eager'}
               width={'285px'}
               height={'407px'}
               src={item?.imageBigMobile?.url}

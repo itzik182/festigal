@@ -86,6 +86,7 @@ const LastNewsCarousel = (props) => {
               isDesktopLayout={isDesktopLayout}
             />
             <Image
+              loading={'eager'}
               onClick={() => handleItemClick(link)}
               width={imageWeb?.width}
               height={imageWeb?.height}
