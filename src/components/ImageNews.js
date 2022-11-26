@@ -38,7 +38,9 @@ const ImageNews = (props) => {
                 index === 4 ||
                 index === 7 ||
                 index === 10 ||
-                index === 13
+                index === 13 ||
+                index === 16 ||
+                index === 19
                   ? '-90px'
                   : '20px',
             }}>
