@@ -100,6 +100,7 @@ function AboutSection(props) {
                 margin: '0 0 20px',
               }}>
               <img
+              loading='eager'
                 src='./images/my-story.png'
                 alt=''
                 title=''
@@ -184,6 +185,7 @@ function AboutSection(props) {
               isDesktop={isDesktop}
             />
             <img
+            loading='eager'
               style={{
                 width: isDesktop ? 'auto' : '100%',
               }}

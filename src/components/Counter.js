@@ -22,7 +22,11 @@ const renderer = (props) => {
     // Render a countdown
     return (
       <>
-        <Box>
+        <Box sx={{
+          fontSize: isDesktopLayout
+          ? '28px'
+          : '22px',
+        }}>
           {days < 10 && 0}
           {days}:{hours < 10 && 0}
           {hours}:{minutes < 10 && 0}
@@ -33,11 +37,11 @@ const renderer = (props) => {
           sx={{
             font: isDesktopLayout
               ? 'normal normal normal 16px/18px Noto Sans Hebrew'
-              : 'normal normal normal 14px/18px Noto Sans Hebrew',
+              : 'normal normal normal 12px/18px Noto Sans Hebrew',
             letterSpacing: '-0.1px',
             marginTop: isDesktopLayout ? '0' : '-8px',
             '& span': {
-              padding: isDesktopLayout ? '0 5px 0 19px' : '0 4px 0',
+              padding: isDesktopLayout ? '0 5px 0 19px' : '0 3px 0',
             },
           }}>
           <span>שניות</span>

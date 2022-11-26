@@ -24,9 +24,9 @@ const ActorCarousel = (props) => {
     arrows: false,
     swipeToSlide: isDesktopLayout ? true : false,
     swipe: isDesktopLayout ? false : true,
-    speed: isDesktopLayout ? 1000 : 0,
+    speed: isDesktopLayout ? 3000 : 0,
     autoplay: isDesktopLayout ? true : false,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1000,
     // cssEase: 'linear',
     pauseOnHover: isDesktopLayout ? false : true,
     //draggable: false,
@@ -101,6 +101,7 @@ const ActorCarousel = (props) => {
               height={currentImageSmall?.height}
               src={currentImageSmall?.url}
               alt={currentImageSmall?.alt}
+              loading={'eager'}
             />
           </Box>
         </Box>

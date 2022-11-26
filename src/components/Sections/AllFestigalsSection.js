@@ -39,16 +39,16 @@ function AllFestigalsSection(props) {
     <Section id={sectionId} className={classes.section}>
       <Box
         className={`${classes.container} ${isDesktopLayout ? '' : 'mobile'}`}>
-          <ShareSocialButton
-              sx={{
-                position: 'absolute',
-                top: isDesktopLayout ? '10%' : '2%',
-                left: '4%',
-              }}
-              socialIcons={socialIcons}
-              shareUrl={shareUrl}
-              isDesktopLayout={isDesktopLayout}
-            />
+        <ShareSocialButton
+          sx={{
+            position: 'absolute',
+            top: isDesktopLayout ? '10%' : '2%',
+            left: '4%',
+          }}
+          socialIcons={socialIcons}
+          shareUrl={shareUrl}
+          isDesktopLayout={isDesktopLayout}
+        />
         <Box
           sx={{
             background: isDesktopLayout
@@ -65,7 +65,9 @@ function AllFestigalsSection(props) {
             position: 'absolute',
             top: isDesktopLayout ? '170px' : '75px',
             left: isDesktopLayout ? '55px' : '18px',
-            font: isDesktopLayout ? 'normal normal bold 49px/54px Noto Sans Hebrew' : 'bold 30px / 0px "Noto Sans Hebrew"',
+            font: isDesktopLayout
+              ? 'normal normal bold 49px/54px Noto Sans Hebrew'
+              : 'bold 30px / 0px "Noto Sans Hebrew"',
             letterSpacing: '1.08px',
             color: '#FFFFFF',
             textShadow: '0px 0px 14px #FFFFFF9C',
@@ -81,6 +83,7 @@ function AllFestigalsSection(props) {
             zIndex: '10',
           }}>
           <img
+            loading='eager'
             src='./images/my_big.png'
             alt=''
             style={{
@@ -100,6 +103,7 @@ function AllFestigalsSection(props) {
           </Box>
         </Box>
         <img
+          loading='eager'
           src='./images/Image34.png'
           alt=''
           style={{

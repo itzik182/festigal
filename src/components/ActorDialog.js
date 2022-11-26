@@ -41,6 +41,7 @@ function ActorDialog(props) {
       open={open}
       sx={{
         '.MuiPaper-root': {
+          overflow: 'hidden',
           maxWidth: isDesktopLayout ? '60%' : '90%',
           minWidth: isDesktopLayout ? '900px' : 'auto',
           minHeight: '564px',
@@ -87,6 +88,7 @@ function ActorDialog(props) {
           }}>
           {isDesktopLayout ? (
             <Image
+            loading={'eager'}
               width={'585px'}
               height={'847px'}
               src={item?.imageBig?.url}

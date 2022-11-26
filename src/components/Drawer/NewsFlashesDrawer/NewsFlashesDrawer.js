@@ -65,7 +65,7 @@ export const NewsFlashesDrawer = (props) => {
           display: 'flex',
           justifyContent: 'space-around',
           alignItems: 'center',
-          padding: '0 15px',
+          padding: isDesktopLayout ? '0 0 0 75px' : '0 0 0 80px',
         }}>
         <span
           style={{
@@ -79,7 +79,10 @@ export const NewsFlashesDrawer = (props) => {
           isDesktopLayout={isDesktopLayout}
           text={allNewsFlashText}
           link={allNewsFlashLink}
-          buttonStyle={{ padding: isDesktopLayout ? '8px 35px' : '8px 15px' }}
+          buttonStyle={{
+            padding: isDesktopLayout ? '8px 25px' : '8px 10px',
+            fontSize: isDesktopLayout ? '19px' : '16px',
+          }}
         />
       </Box>
     </Drawer>

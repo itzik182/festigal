@@ -83,7 +83,7 @@ const HeaderBar = (props) => {
                   window.open(headerShopLink, '_blank');
                 }}
                 color='inherit'>
-                <img src='./images/my_store.png' alt='store' />
+                <img src='./images/my_store.png' alt='store' loading='eager' />
               </IconButton>
             </Box>
             <IconButton
@@ -167,7 +167,7 @@ const HeaderBar = (props) => {
                   position: 'relative',
                   zIndex: '1',
                 }}>
-                <img src='./images/my_small.png' alt='my-festigal logo' />
+                <img src='./images/my_small.png' alt='my-festigal logo' loading='eager' />
                 <span
                   style={{
                     fontSize: '16px',

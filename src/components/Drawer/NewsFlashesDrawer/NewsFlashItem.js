@@ -37,22 +37,27 @@ export const NewsFlashItem = (props) => {
               padding: '4px 30px 15px',
               textAlign: 'right',
             }}>
-              <Box sx={{
-                  width: "50px", 
-                  height: "50px", 
-                  border: "3px solid #fff", 
-                  borderRadius: '50px',
-                  position: 'absolute',
-                  top: "-8px", 
-                  right: "-23px",
-                  textAlign: 'center',
-                  backgroundColor: publisherImageUrl ? '#fff' : '#021B23',
+            <Box
+              sx={{
+                overflow: 'hidden',
+                width: '50px',
+                height: '50px',
+                border: '3px solid #fff',
+                borderRadius: '50px',
+                position: 'absolute',
+                top: '-8px',
+                right: '-23px',
+                textAlign: 'center',
+                backgroundColor: publisherImageUrl ? '#fff' : '#021B23',
               }}>
-                <img src={publisherImageUrl} style={{
+              <img
+                src={publisherImageUrl}
+                style={{
                   height: 'auto',
                   width: '100%',
-                }} />
-              </Box>
+                }}
+              />
+            </Box>
             <Box
               sx={{
                 fontSize: '18px',
