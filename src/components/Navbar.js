@@ -135,10 +135,10 @@ function Navbar(props) {
             // display: !isVideoReady ? 'none' : 'block',
             display: 'block',
             margin: '0px auto',
-            position: isSafariAgent ? 'relative' : 'absolute',
-            // position: 'absolute',
+            //position: isSafariAgent ? 'relative' : 'absolute',
+            position: 'relative',
             // zIndex: '10',
-            top: '0',
+            //top: '0',
             // minHeight: '796px',
             width: '100%',
           }}
