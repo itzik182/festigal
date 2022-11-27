@@ -74,6 +74,7 @@ export async function getMainData() {
       festigalStorText
       festigalStorUnderItemText
       festigalSongWriter
+      playlistPlayLink
       festigalSongSinger
       festigalSongName
       festigalSong
@@ -470,7 +471,7 @@ export async function getAllGames() {
 
 export async function getAllLastNews() {
   const query = `query allLastNews {
-    allLastNews(filter: {isDisplay: {eq: "true"}}) {
+    allLastNews(orderBy: position_DESC, first: "19", filter: {isDisplay: {eq: "true"}}) {
       id
       link
       isDisplayMobile

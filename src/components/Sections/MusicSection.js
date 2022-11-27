@@ -153,7 +153,7 @@ function MusicSection(props) {
               position: 'absolute',
             }}>
             <a
-              href='https://www.youtube.com/watch?v=iCAKpASnFgw'
+              href={mainData.playlistPlayLink}
               target='_blank'>
               <img
                 style={{
