@@ -73,7 +73,7 @@ export default class MyDocument extends Document {
                         main   : "#122231",
                         second : "#fff"
                     },
-                    vPosition : ["80%","15%"], //Y-axis position of the widget, left side is reffering to the desktop version, the right side is for mobile.
+                    vPosition : ["70%","15%"], //Y-axis position of the widget, left side is reffering to the desktop version, the right side is for mobile.
                     scale	  : ["0.5","0.4"], //Size of the widget, the left side is referring to the desktop version, the right side is for mobile.
                     icon	  : { 
                       type	: 10, //You can choose between 1- 14 icons, or set value as string like "Accessibility".

@@ -95,6 +95,8 @@ img:focus {
   margin-right: 10px;
 }
 
+/* accessibility */
+
 .mainWrap#accesStatement a {
   color: #06a6bb;
 }
@@ -120,7 +122,6 @@ img:focus {
   top: 8px;
   text-align: center;
   margin: 0 auto 20px;
-  vertical-align: top;
 }
 
 .mainWrap#accesStatement ul.implementsList svg * {
