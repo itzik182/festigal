@@ -31,6 +31,7 @@ const CustomForm = (props) => {
     isContactPage = false,
     isGender = true,
     isMultiLineTextBox = true,
+    isBirthDate = true,
     isDesktopLayout = true,
   } = props;
   const { send } = pageData;
@@ -97,6 +98,7 @@ const CustomForm = (props) => {
           }}>
           <TextFields
             data={pageData}
+            isBirthDate={isBirthDate}
             isMultiLineTextBox={isMultiLineTextBox}
             register={register}
             isDesktopLayout={isDesktopLayout}

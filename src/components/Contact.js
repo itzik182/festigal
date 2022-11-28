@@ -81,6 +81,7 @@ const Contact = (props) => {
             isContactPage={true}
             isGender={false}
             isMultiLineTextBox={true}
+            isBirthDate={false}
             isDesktopLayout={isDesktopLayout}
           />
         </CacheProvider>

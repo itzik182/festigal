@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     // marginLeft: '60px !important',
     '&.multiline': {
       marginLeft: '30px !important',
+      width: '90%',
       '& textarea': {
         lineHeight: '30px !important',
       },
@@ -50,29 +51,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TextFields = (props) => {
-  const { data, register, isMultiLineTextBox, isDesktopLayout = true } = props;
+  const { data, register, isMultiLineTextBox, isBirthDate, isDesktopLayout = true } = props;
   const { firstName, lastName, phone, email, birthDate, city, details } = data;
   const classes = useStyles();
-
-  // const CssTextField = styled(TextField)({
-  //   width: '256px',
-  //   marginRight: '60px',
-  //   input: {
-  //     color: '#fff',
-  //   },
-  //   ':nth-child(4), :nth-child(6)': {
-  //     marginRight: '0px !important',
-  //   },
-  //   '&:hover .MuiInputBase-root:before, &:hover .MuiInputBase-root:after': {
-  //     borderColor: '#fff !important',
-  //   },
-  //   '& label.MuiFormLabel-root': {
-  //     color: '#fff',
-  //   },
-  //   '& .MuiInput-underline:before, & .MuiInput-underline:after': {
-  //     borderBottomColor: '#fff',
-  //   },
-  // });
 
   return (
     <>
@@ -115,16 +96,15 @@ const TextFields = (props) => {
         type='tel'
         variant='standard'
       />
-      <TextField
+      {isBirthDate && <TextField
         className={`${classes.textFields} ${isDesktopLayout ? '' : 'mobile'}`}
         inputRef={register}
-        required
         id='birthDate'
         name='birthDate'
         label={birthDate}
         type='date'
         variant='standard'
-      />
+      />}
       <TextField
         className={`${classes.textFields} ${isDesktopLayout ? '' : 'mobile'}`}
         inputRef={register}
@@ -140,6 +120,9 @@ const TextFields = (props) => {
           sx={{
             position: 'relative',
             width: isDesktopLayout ? 'auto' : '100%',
+            flex: isDesktopLayout ? '1' : 'auto',
+            marginRight: isDesktopLayout ? '86px' : '0',
+            marginLeft: isDesktopLayout ? '46px' : '0',
           }}>
           <TextField
             className={`${classes.textFields} ${
