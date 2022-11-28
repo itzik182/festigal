@@ -471,7 +471,7 @@ export async function getAllGames() {
 
 export async function getAllLastNews() {
   const query = `query allLastNews {
-    allLastNews(orderBy: position_DESC, first: "19", filter: {isDisplay: {eq: "true"}}) {
+    allLastNews(orderBy: createdAt_DESC, first: "19", filter: {isDisplay: {eq: "true"}}) {
       id
       link
       isDisplayMobile
