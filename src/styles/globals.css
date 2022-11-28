@@ -94,3 +94,36 @@ img:focus {
 .share-icon {
   margin-right: 10px;
 }
+
+.mainWrap#accesStatement a {
+  color: #06a6bb;
+}
+
+.mainWrap#accesStatement ul.implementsList li {
+  padding: 20px 10px 10px 10px;
+  position: relative;
+  width: calc(90%/5);
+  display: inline-block;
+  margin: 0 0 20px 20px;
+  vertical-align: top;
+  border-bottom: 1px solid #e3e3e3;
+  box-sizing: border-box;
+}
+
+.mainWrap#accesStatement ul.implementsList svg {
+  width: 50px;
+  height: 50px;
+  vertical-align: top;
+  display: block;
+  position: relative;
+  right: 0;
+  top: 8px;
+  text-align: center;
+  margin: 0 auto 20px;
+  vertical-align: top;
+}
+
+.mainWrap#accesStatement ul.implementsList svg * {
+  fill: #25aae1;
+  stroke: #25aae1;
+}

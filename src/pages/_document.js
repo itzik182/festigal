@@ -54,6 +54,44 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          {/* <!-- Accessibility - myfestigal.net --> */}
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.interdeal = {
+                sitekey   : "cf7aff12898f19fc79a224bd40cfdc0c",
+                Position  : "Right",
+                Menulang  : "HE",
+                domains	 : {
+                  js  : "https://js.nagich.co.il/",
+                  acc : "https://access.nagich.co.il/"
+                },	
+                isPartial : true,
+                btnStyle  : {
+                    color : {
+                        main   : "#122231",
+                        second : "#fff"
+                    },
+                    vPosition : ["80%","15%"], //Y-axis position of the widget, left side is reffering to the desktop version, the right side is for mobile.
+                    scale	  : ["0.5","0.4"], //Size of the widget, the left side is referring to the desktop version, the right side is for mobile.
+                    icon	  : { 
+                      type	: 10, //You can choose between 1- 14 icons, or set value as string like "Accessibility".
+                      shape	: "circle", //You can choose the following shapes: "circle", "rectangle", "rounded", "semicircle".
+                      outline	: true //true / false.
+                    }
+                  }
+              };
+              (function(doc, head, body){
+                var coreCall             = doc.createElement('script');
+                coreCall.src             = 'https://js.nagich.co.il/core/4.4.0/accessibility.js';
+                coreCall.defer           = true;
+                coreCall.integrity       = 'sha512-3lGJBcuai1J0rGJHJj4e4lYOzm7K08oEHsg1Llt7x24OOsa/Ca0wwbSi9HhWUn92FKN3fylaq9xmIKVZnUsT3Q==';
+                coreCall.crossOrigin     = 'anonymous';
+                coreCall.setAttribute('data-cfasync', true );
+                body? body.appendChild(coreCall) : head.appendChild(coreCall);
+              })(document, document.head, document.body);`,
+            }}></script>
         </body>
       </Html>
     );
