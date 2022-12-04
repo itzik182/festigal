@@ -40,6 +40,7 @@ function ActorDialog(props) {
       onClose={onClose}
       open={open}
       sx={{
+        overflow: isDesktopLayout ? 'initial' : 'hidden',
         '.MuiPaper-root': {
           overflow: 'hidden',
           maxWidth: isDesktopLayout ? '60%' : '90%',
@@ -77,6 +78,7 @@ function ActorDialog(props) {
         sx={{
           display: 'flex',
           flexDirection: isDesktopLayout ? 'row' : 'column',
+          overflow: isDesktopLayout ? 'initial' : 'hidden',
         }}>
         <Box
           sx={{

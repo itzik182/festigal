@@ -77,23 +77,30 @@ const ActorCarousel = (props) => {
             width: isDesktopLayout ? '500px' : '333.2px',
             height: isDesktopLayout ? '748px' : '583px',
             marginTop: isDesktopLayout && index % 2 ? '90px' : 0,
-            background: isDesktopLayout
-              ? 'transparent url(./images/frame-4.png) center center no-repeat'
-              : 'transparent url(./mobile/images/frame-4.png) center center no-repeat',
+            // background: isDesktopLayout
+            //   ? 'transparent url(./images/frame-4.png) center center no-repeat'
+            //   : 'transparent url(./mobile/images/frame-4.png) center center no-repeat',
           }}>
+            <Image
+              width={'500px'}
+              height={'748px'}
+              src={"/images/frame-4.png"}
+              alt={'frame'}
+              loading={'eager'}
+            />
           <Box
             sx={{
               outline: '0 !important',
               position: 'absolute',
-              top: isDesktopLayout ? '107px' : '79px',
+              top: isDesktopLayout ? '128px' : '35px',
               transition: 'all .3s ease-in-out .1s',
               // right: '30px',
               left: isDesktopLayout ? '80px' : '45px',
               margin: 'auto',
               cursor: 'pointer',
               '&:hover': {
-                top: '81px',
-                transform: 'scale(1.1)',
+                top: isDesktopLayout ? '103px' : '35px',
+                transform: isDesktopLayout ? 'scale(1.1)' : 'normal',
               },
             }}>
             <Image

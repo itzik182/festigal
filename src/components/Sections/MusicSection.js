@@ -54,13 +54,14 @@ function MusicSection(props) {
   const { items, socialIcons, mainData, isDesktopLayout } = props;
 
   const playlists = items.filter((item) => item.isPlaylist);
-  const podcast = items.filter((item) => !item.isPlaylist);
+  // const podcast = items.filter((item) => !item.isPlaylist);
 
   const shareUrl = `${siteUrl}/#${sectionId}`;
 
   const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setOpen(item);
+    window.open(item.link, '_blank');
+    // setSelectedItem(item);
+    // setOpen(item);
   };
 
   const handleClose = () => {
@@ -267,7 +268,7 @@ function MusicSection(props) {
               isDesktopLayout={isDesktopLayout}
             />
           </Box>
-          <Box
+          {/* <Box
             className={classes.mediumText}
             sx={{
               fontSize: isDesktopLayout ? '2.312vw' : '30px',
@@ -294,15 +295,15 @@ function MusicSection(props) {
               handleItemClick={handleItemClick}
               isDesktopLayout={isDesktopLayout}
             />
-          </Box>
+          </Box> */}
         </Box>
       </Box>
-      <MusicDialog
+      {/* <MusicDialog
         open={open}
         onClose={handleClose}
         item={selectedItem}
         isDesktopLayout={isDesktopLayout}
-      />
+      /> */}
     </Section>
   );
 }
