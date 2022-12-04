@@ -101,7 +101,7 @@ const PlaylistCarousel = (props) => {
                   style={{
                     cursor: 'pointer',
                     width: isDesktopLayout ? '300px' : '150px',
-                    height: '300px',
+                    height: isDesktopLayout ? '300px' : '150px',
                     borderRadius: '15px',
                   }}
                 />

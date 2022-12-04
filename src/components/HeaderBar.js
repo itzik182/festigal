@@ -129,7 +129,6 @@ const HeaderBar = (props) => {
             background: isDesktopLayout
               ? 'transparent url(./header/header-bg.png) center center no-repeat padding-box'
               : 'transparent url(mobile/header/header-bg.png) center 0% no-repeat padding-box',
-            // 'transparent linear-gradient(270deg, #296B78 0%, #29ABBC 29%, #2CA4B2 40%, #28AFBF 56%, #286673 100%) 0% 0% no-repeat padding-box',
             width: isDesktopLayout ? '80%' : '74%',
             height: '100%',
             margin: 'auto',
@@ -167,7 +166,11 @@ const HeaderBar = (props) => {
                   position: 'relative',
                   zIndex: '1',
                 }}>
-                <img src='./images/my_small.png' alt='my-festigal logo' loading='eager' />
+                <img
+                  src='./images/my_small.png'
+                  alt='my-festigal logo'
+                  loading='eager'
+                />
                 <span
                   style={{
                     fontSize: '16px',
@@ -186,16 +189,13 @@ const HeaderBar = (props) => {
               />
             </Box>
           </Hidden>
-          {/* <Container
-            disableGutters={true}
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              display: 'flex',
-            }}> */}
           <Box
             sx={{
               textAlign: 'center',
+              zIndex: '1000',
+              position: 'relative',
+              width: 'fit-content',
+              margin: 'auto',
             }}>
             <Link href='/'>
               <a>
@@ -213,11 +213,7 @@ const HeaderBar = (props) => {
               </a>
             </Link>
             <div className={classes.spacer} />
-            {/* <Hidden smUp={true} implementation="css"> */}
-
-            {/* </Hidden> */}
           </Box>
-          {/* </Container> */}
         </Box>
       </Box>
     </AppBar>

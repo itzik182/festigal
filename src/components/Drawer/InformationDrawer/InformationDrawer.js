@@ -98,7 +98,7 @@ export const InformationDrawer = (props) => {
             isDesktopLayout={isDesktopLayout}
           />
         </Box>
-        {/* <Box className={classes.title}>{faqTitle}</Box>
+        <Box className={classes.title}>{faqTitle}</Box>
         <Box
           className={classes.description}
           dangerouslySetInnerHTML={{ __html: faqDescription }}></Box>
@@ -111,7 +111,7 @@ export const InformationDrawer = (props) => {
             items={faqItems}
             isDrawerOpen={drawerOpen}
           />
-        </Box> */}
+        </Box>
         <Box className={classes.title}>{accessibilityTitle}</Box>
         <Box
           className={`${classes.description} ${
