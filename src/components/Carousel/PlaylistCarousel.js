@@ -100,7 +100,9 @@ const PlaylistCarousel = (props) => {
                   alt={imageWeb?.alt}
                   style={{
                     cursor: 'pointer',
-                    width: isDesktopLayout ? 'auto' : '150px',
+                    width: isDesktopLayout ? '300px' : '150px',
+                    height: '300px',
+                    borderRadius: '15px',
                   }}
                 />
                 <img

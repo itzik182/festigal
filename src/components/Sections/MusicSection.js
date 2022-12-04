@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 0px 7px #FFD284',
     border: '1px solid #A2711D',
     borderRadius: '2px',
-    width: '90%',
+    width: '100%',
     margin: 'auto',
   },
 }));
@@ -73,6 +73,7 @@ function MusicSection(props) {
         <Box
           sx={{
             // padding: isDesktopLayout ? '197px 11.193vw 0' : '0',
+            position: 'relative',
             backgroundSize: !isDesktopLayout && 'cover',
             minHeight: isDesktopLayout ? '588px' : '362px',
             background: isDesktopLayout
@@ -122,7 +123,7 @@ function MusicSection(props) {
               fontFamily: 'GveretLevinAlefAlefAlef',
               top: isDesktopLayout ? '6%' : '17%',
               position: 'absolute',
-              right: isDesktopLayout ? '35%' : '25%',
+              right: isDesktopLayout ? '39%' : '25%',
             }}>
             <img
               src='./images/Group7362.png'
@@ -233,7 +234,7 @@ function MusicSection(props) {
             </Box>
           </Box>*/}
         </Box>
-        {/*<Box className={classes.rectangle}></Box>
+        <Box className={classes.rectangle}></Box>
          <Box
           className={`${classes.containerA} ${
             isDesktopLayout ? '' : 'mobile'
@@ -294,7 +295,7 @@ function MusicSection(props) {
               isDesktopLayout={isDesktopLayout}
             />
           </Box>
-        </Box> */}
+        </Box>
       </Box>
       <MusicDialog
         open={open}
