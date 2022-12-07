@@ -56,7 +56,7 @@ const LastNewsCarousel = (props) => {
   const handleItemClick = (link) => {
     window.open(link, '_blank');
   };
- items = items.slice(0, items.length-1);
+//  items = items.slice(0, items.length-1);
 
   const renderSlides = items.map((item, index) => {
     const { id, name, link, imageWeb } = item;
