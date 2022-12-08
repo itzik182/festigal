@@ -31,7 +31,7 @@ const ShopSection = (props) => {
   });
 
   const { items, socialIcons, mainData, isDesktopLayout } = props;
-  const { festigalStorText, shopVideo, shopVideoMobile } = mainData;
+  const { festigalStorText, shopVideo, shopVideoMobile, headerShopLink } = mainData;
   const sectionId = 'store';
 
   if (!items) {
@@ -127,7 +127,8 @@ const ShopSection = (props) => {
             }}>
             <GoldButton
               isDesktopLayout={isDesktopLayout}
-              text={'COMING SOON'}
+              text={'לרכישה'}
+              link={headerShopLink}
               isBold
               buttonStyle={
                 !isDesktopLayout && { padding: '8px 0', fontSize: '20px' }
