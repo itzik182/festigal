@@ -252,7 +252,7 @@ function AboutSection(props) {
             textShadow: '0px 3px 14px #0000005C',
             padding: isDesktop ? '0 0 30px' : '0 0 10px',
           }}>
-          פסטיגל על פסטיגל - הסרט
+            הצצה לפסטיגל על פסטיגל
         </Box>
         <Box>
           {/* <YoutubeEmbed url={videoId} width={'100%'} height={'796px'} /> */}

@@ -69,7 +69,6 @@ function MyApp({ Component, pageProps }) {
       <GoogleAnalytics
         strategy='lazyOnload'
         trackPageViews
-        gtagUrl='/gtag.js'
       />
       <GlobalContext.Provider value={isDesktopLayout}>
         {!showFirstBackDrop && getLayout(<Component {...pageProps} />)}
