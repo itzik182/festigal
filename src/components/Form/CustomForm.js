@@ -16,6 +16,8 @@ const defaultValues = {
   birthDate: '',
   city: '',
   gender: '',
+  // marketing: false,
+  // terms: false,
 };
 
 const CustomForm = (props) => {
@@ -41,11 +43,11 @@ const CustomForm = (props) => {
     handleOnSubmit(data);
     setData(data);
     setIsFormSent(true);
-    console.log(data);
+    // console.log(data);
     reset(defaultValues);
     setTimeout(() => {
       setIsFormSent(false);
-    }, 4000);
+    }, 9000);
   };
 
   // Server State Handling
@@ -126,8 +128,10 @@ const CustomForm = (props) => {
             sx={{
               width: isDesktopLayout ? 'auto' : '100%',
               marginTop: isContactPage ? (isDesktopLayout ? '61px' : '0') : '0',
+              minHeight: isDesktopLayout ? '90px' : 'initial',
+              minWidth: isDesktopLayout ? '228px' : 'initial',
             }}>
-            <GoldButton
+            {!isFormSent && <GoldButton
               isDesktopLayout={isDesktopLayout}
               sx={{
                 marginTop: '8px',
@@ -135,15 +139,14 @@ const CustomForm = (props) => {
               type='submit'
               buttonStyle={{ width: isDesktopLayout ? '228px' : '100%' }}
               text={send}
-              // link={registerLink}
-            />
+            />}
             <Box
               style={{
                 transition: 'all .2s ease-in-out',
                 color: '#fff',
                 textAlign: 'center',
-                margin: isDesktopLayout ? '5px 0 0' : '15px 0 0',
-                fontSize: '18px',
+                margin: isDesktopLayout ? '18px 0 0' : '15px 0 0',
+                fontSize: isDesktopLayout ? '22px' : '18px',
                 fontFamily: 'Noto Sans Hebrew',
                 opacity: isFormSent ? 1 : 0,
               }}>

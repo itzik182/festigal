@@ -3,41 +3,10 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
-
-// const useStyles = makeStyles((theme) => ({
-//   textFields: {
-//     // '& .MuiFormControl-root': {
-//     width: '256px',
-//     marginLeft: '60px !important',
-//     '& input[type="date"]': {
-//       marginRight: '130px',
-//       colorScheme: 'dark',
-//     },
-//     '& input': {
-//       color: '#fff',
-//       // colorScheme: 'dark',
-//     },
-//     ':nth-child(4), :nth-child(6)': {
-//       marginRight: '0px !important',
-//     },
-//     '&:hover .MuiInputBase-root:before, &:hover .MuiInputBase-root:after': {
-//       borderColor: '#fff !important',
-//     },
-//     '& label.MuiFormLabel-root': {
-//       color: '#fff',
-//     },
-//     '& .MuiInput-underline:before, & .MuiInput-underline:after': {
-//       borderBottomColor: '#fff',
-//     },
-//     // },
-//   },
-// }));
 
 const RadiosGroup = (props) => {
   const { data, register, isDesktopLayout = true } = props;
   const { gender, genderFemale, genderMale, genderOther } = data;
-  //   const classes = useStyles();
 
   return (
     <>

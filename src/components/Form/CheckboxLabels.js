@@ -1,13 +1,11 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
 
 export default function CheckboxLabels(props) {
-  const router = useRouter();
   const { register, isMarketing, isTerms, isDesktopLayout = true } = props;
 
   return (
@@ -16,6 +14,7 @@ export default function CheckboxLabels(props) {
         <FormControlLabel
         inputRef={register}
           name='Marketing'
+          id='Marketing'
           control={
             <Checkbox
               sx={{
@@ -38,6 +37,7 @@ export default function CheckboxLabels(props) {
           required
           inputRef={register}
           name='Terms'
+          id='Terms'
           control={
             <Checkbox
               required
