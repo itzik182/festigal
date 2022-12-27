@@ -11,6 +11,7 @@ import { BackdropLoading } from '../components/Backdrop';
 import CrispWithNoSSR from 'components/Crisp';
 import GlobalContext from '../contexts/global.context';
 import { useWindowWidth } from '@react-hook/window-size';
+import { GoogleTagManager } from '../components/GoogleTagManager';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -74,6 +75,7 @@ function MyApp({ Component, pageProps }) {
         {!showFirstBackDrop && getLayout(<Component {...pageProps} />)}
         <CrispWithNoSSR />
         {showBackDrop && <BackdropLoading key={showBackDrop} />}
+        <GoogleTagManager />
       </GlobalContext.Provider>
     </ThemeProvider>
   );
